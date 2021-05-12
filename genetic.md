@@ -60,12 +60,14 @@ TT_Tifrunner_x_GT-C20_c-A05    240.13
 ## Markers file (mrk.tsv)
 Filename: *gensp.population*.gen.*Author1_Author2_year*.mrk.tsv
 
-Genetic marker positions on linkage groups (in cM) are provided in the mrk file, e.g.
+Genetic marker positions on linkage groups (in cM) are provided in the mrk file.
+1. marker ID
+2. linkage group ID
+3. position (cM)
 ```
-#marker       pos     linkage_group
-A01_859822    0.00    TT_Tifrunner_x_GT-C20_c-A01
-B01_151023    0.75    TT_Tifrunner_x_GT-C20_c-A01
-A01_304818    2.18    TT_Tifrunner_x_GT-C20_c-A01
+A01_859822  A01 0.00
+B01_151023  A01 0.75
+A01_304818  A01 2.18
 ```
 
 ## OBO file (obo.tsv)
