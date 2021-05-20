@@ -1,10 +1,13 @@
-# Pathway Assignments
+# Pathway Assignments (pathway.tsv)
 
 Pathway assignments are represented in a single file in the appropriate /annotations/ directory.
 
-Filename: _gensp.strain.gnm.ann.KEY4_.pathway.tsv or _gensp.strain.gnm.ann.KEY4.genefamilyversion.KEY4_.pathway.tsv
+Filename: 
+_gensp.strain.gnm.ann.KEY4_.pathway.tsv
+_gensp.strain.gnm.ann.KEY4.genefamilyversion.KEY4_.pathway.tsv
 
 In the first case, the pathway assignments were copied over from a source like Plant Reactome. 
+
 In the second case, the pathway assignments were _derived from gene family membership_, 
 using a source species that has entries in a source like Plant Reactome.
 

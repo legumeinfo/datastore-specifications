@@ -1,12 +1,6 @@
-# Genetic marker GFF
+# marker GFF file
 
-This spec is mainly about the directory and filename, since GFF3 files are already specified. This file defines all of the marker-specific attributes as well as its position on a given genome. Loaders should refer to this file to get details on markers such as alleles and type of marker.
-
-Directory name: /markers/.*strain.gnm*.mrk.*source*
-
-Filename: *gensp.strain.gnm*.mrk.*source*.gff3 where *source* is typically a SNP chip, e.g. Cowpea1MSelectedSNPs, and will be the same as the source column in the GFF.
-
-README.*strain.gnm*.mrk.*source*.yml contains the normal README fields.
+This file defines all of the marker-specific attributes as well as its position on a given genome. Loaders should refer to this file to get details on markers such as alleles and type of marker.
 
 ## GFF3 records
 - use `genetic_marker` as the feature type
