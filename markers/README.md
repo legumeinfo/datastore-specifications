@@ -1,6 +1,6 @@
 # markers
 
-This spec is mainly about the markers directory and filenames, since GFF3 files are already specified.
+Mappings of markers to genomes are provided in GFF files in directories under /markers/.
 
 Directory name: *strain.gnm*.mrk.*source*
 
