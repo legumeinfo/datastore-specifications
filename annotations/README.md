@@ -31,3 +31,5 @@ Files:
 
 Note that all fasta files should be bgzipped and faidx indexed.
 Note that "primaryTranscript" files may be absent if the given annotation set does not represent splicing variants.
+
+Note that although the GFF3 specification does not require that every feature have an ID attribute specified, this is required for any gff3 to be loaded into Intermine. IDs typically follow the convention _gensp.strain.gnmVERSION.annVERSION.ORIGINAL_NAME_ although if no ORIGINAL_NAME is supplied, we will generate an ID by appending type and sequential count to the ID of the Parent feature (if any).
