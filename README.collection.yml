@@ -1,0 +1,32 @@
+---
+# general attributes
+identifier;
+    public String provenance;
+    public String source;                                                                                                                                                                    
+    public String synopsis;                                                                                                                                                                  
+    public String related_to;                                                                                                                                                                
+    public String scientific_name;                                                                                                                                                           
+    public String taxid;                                                                                                                                                                     
+    public String scientific_name_abbrev;                                                                                                                                                    
+    public String[] genotype;                                                                                                                                                                
+    public String description;                                                                                                                                                               
+    public String bioproject;                                                                                                                                                                
+    public String dataset_doi;                                                                                                                                                               
+    public String genbank_accession;                                                                                                                                                         
+    public String original_file_creation_date;                                                                                                                                               
+    public String local_file_creation_date;                                                                                                                                                  
+    public String publication_doi;                                                                                                                                                           
+    public String dataset_release_date;                                                                                                                                                      
+    public String publication_title;                                                                                                                                                         
+    public String contributors;                                                                                                                                                              
+    public String data_curators;                                                                                                                                                             
+    public String public_access_level;                                                                                                                                                       
+    public String license;                                                                                                                                                                   
+    public String keywords;                                                                                                                                                                  
+    public String citations; 
+    // source-specific attributes                                                                                                                                                            
+    public String genotyping_platform;                                                                                                                                                       
+    public String genotyping_method;                                                                                                                                                         
+    public String expression_unit;                                                                                                                                                           
+    public String sraproject;                                                                                                                                                                
+    public String geoseries; 
