@@ -5,7 +5,7 @@ Any of the file-containing directories can contain a README file and a CHANGES f
 
 ## README YAML files
 
-Every file-containing directory, AKA "collection", in the LIS datastore should contain a README file in YAML format.
+Every file-containing directory, AKA "collection", in the LIS datastore should contain a README file in YAML format. 
 
 Filename: README.*collection*.yml
 
@@ -15,13 +15,10 @@ Examples:
 - `README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml`
 
 ### Content
-The README content is given in the official template here:
+The README content must be parseable by the LIS InterMine README parser:
+[Readme.java](https://github.com/legumeinfo/lis-bio-sources/blob/0bf2a5650f6f9b2311a1b187ae4c560608743060/lis-datastore/src/main/java/org/intermine/bio/dataconversion/Readme.java)
 
-https://legumeinfo.org/data/about_the_data_store/templates/template__README.collection_name.yml
-
-READMEs must be YAML-compliant, which means they pass the test on
-
-http://www.yamllint.com/ 
+READMEs must be YAML-compliant, which means they pass the test on http://www.yamllint.com/ or using the `yamllint` command-line utility.
 
 ### Requirements
 - When in doubt, enclose values in quotes.
@@ -33,7 +30,7 @@ http://www.yamllint.com/
 - genotype is a YAML array; use the format strain1 x strain2 for bi-parental crosses.
 - Do not use a colon within the value unless you enclose the entire value in quotes.
 
-Do not add any attributes without consulting Sam -- additional attributes will break the InterMine README parser (until Sam adds them).
+Do not add any attributes without consulting Sam -- additional attributes will *break the InterMine README parser* (until they are added).
 
 ## CHANGES file
 
