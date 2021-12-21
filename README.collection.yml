@@ -1,32 +1,92 @@
 ---
-# general attributes
-identifier;
-    public String provenance;
-    public String source;                                                                                                                                                                    
-    public String synopsis;                                                                                                                                                                  
-    public String related_to;                                                                                                                                                                
-    public String scientific_name;                                                                                                                                                           
-    public String taxid;                                                                                                                                                                     
-    public String scientific_name_abbrev;                                                                                                                                                    
-    public String[] genotype;                                                                                                                                                                
-    public String description;                                                                                                                                                               
-    public String bioproject;                                                                                                                                                                
-    public String dataset_doi;                                                                                                                                                               
-    public String genbank_accession;                                                                                                                                                         
-    public String original_file_creation_date;                                                                                                                                               
-    public String local_file_creation_date;                                                                                                                                                  
-    public String publication_doi;                                                                                                                                                           
-    public String dataset_release_date;                                                                                                                                                      
-    public String publication_title;                                                                                                                                                         
-    public String contributors;                                                                                                                                                              
-    public String data_curators;                                                                                                                                                             
-    public String public_access_level;                                                                                                                                                       
-    public String license;                                                                                                                                                                   
-    public String keywords;                                                                                                                                                                  
-    public String citations; 
-    // source-specific attributes                                                                                                                                                            
-    public String genotyping_platform;                                                                                                                                                       
-    public String genotyping_method;                                                                                                                                                         
-    public String expression_unit;                                                                                                                                                           
-    public String sraproject;                                                                                                                                                                
-    public String geoseries; 
+# identifier: name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted
+identifier: Sanzi_x_Vita7.gen.Pottorff_Ehlers_2012
+
+# provenance: information on the source of the data
+provenance: Close Lab, UC-Riverside
+
+# source: URL pointing to the data source
+source: "http://viggs.dna.affrc.go.jp/"
+
+# synopsis: short description of the collection
+synopsis: "A segregating population of 122 RILs, advanced from Sanzi x Vita 7, reveals a QTL, a candidate gene, and a SNP marker for hastate leaf shape."
+
+# related_to: (comma-separated) identifier(s) of related collection(s) in the LIS datastore
+related_to: Sanzi.gnm1.YNCM,Sanzi.gnm1.ann1.HFH8
+
+# scientific name: Genus species
+scientific_name: Vigna unguiculata
+
+# taxid: NCBI taxonomy id
+taxid: 3917
+
+# scientific_name_abbrev: LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species
+scientific_name_abbrev: vigun
+
+# genotype: list of genotypes, one for a single genotype, A x B for a biparental map, or a longer list of genotypes used
+genotype:
+  - Sanzi x Vita 7
+
+# description: long description of this collection
+description: "In this study, we analyzed the genetics of leaf morphology in a segregating cowpea RIL population, Sanzi (sub-globose) x Vita 7 (hastate). A QTL was identified for the “hastate leaf shape” locus, Hls, which was positioned on the cowpea consensus genetic map and cowpea physical map. A candidate gene was identified using syntenic relationships between cowpea, soybean and Medicago. In addition, a SNP marker was found which co-segregated with the leaf morphology genotypes and phenotype, which could be used as a molecular marker for breeding purposes."
+
+# bioproject: NCBI BioProject accession
+bioproject: PRJNA243847
+
+# sraproject: the NCBI SRA project accession
+sraproject: SRP046307
+
+# dataset_doi: DOI pointing to the dataset (e.g. an SRA URL)
+dataset_doi: 10.1111/tpj.13404
+
+# genbank_accession: NCBI Genbank accesssion ID
+genbank_accession: GCA_000741045.2
+
+# original_file_creation_date: date when the data were created at the source (YYYY-MM-DD)
+original_file_creation_date: 2014-11-21
+
+# local_file_creation_date: date when the data were placed on the LIS datastore (YYYY-MM-DD)
+local_file_creation_date: 2018-08-01
+
+# dataset_release_date: the date when this collection was released to the public (YYYY-MM-DD)
+dataset_release_date: 2018-08-03
+
+# publication DOI: DOI pointing to the publication associated with this collection
+publication_doi: 10.1186/1471-2164-13-234
+
+# publication_title: title of the publication associated with this collection
+publication_title: "Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL analysis, physical mapping and identifying a candidate gene using synteny with model legume species"
+
+# contributors: semicolon-separated list of contributors in last, first format, typically the publication authors
+contributors: "Pottorff, Marti; Ehlers, Jeffrey D; Fatokun, Christian; Roberts, Philip A; Close, Timothy J"
+
+# citations: single long-form bibliographical citation of the publication
+citations: "Pottorff, M., Ehlers, J. D., Fatokun, C., Roberts, P. A. & Close, T. J. Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL analysis, physical mapping and identifying a candidate gene using synteny with model legume species. BMC Genomics 13, 234 (2012)"
+
+# data_curators: comma-separated list of curators that put this collection together
+data_curators: Pooja Umale, Steven Cannon, Wei Huang, Andrew Farmer
+
+# public_access_level: describes level of public access
+public_access_level: public
+
+# license: data usage license
+license: Open
+
+# keywords: comma-separated list of keywords associated with this collection
+keywords: cowpea,leaf morphology
+
+#########################################
+## collection type-specific attributes ##
+#########################################
+
+# genotyping_platform: platform used in a genotyping experiment
+genotyping_platform: Cowpea1MSelectedSNPs
+
+# genotyping_method: description of the genotyping method used in a genotyping experiment
+genotyping_method: "The Sanzi x Vita 7 population was genotyped at the F8 generation using bi-allelic SNP markers from the 1536-marker Illumina GoldenGate Assay."
+
+# expression_unit: the data unit used in an RNA-seq expression experiment
+expression_unit: TPM
+
+# geoseries: the NCBI Geoseries accession
+geoseries: GSE42679
