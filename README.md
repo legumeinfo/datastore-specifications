@@ -7,7 +7,7 @@ Any of the file-containing directories can contain a README file and a CHANGES f
 
 Every file-containing directory, AKA "collection", in the LIS datastore should contain a README file in YAML format. 
 
-Filename: README.*collection*.yml
+Filename: README.*collection*.yml (see example in this repository).
 
 Examples:
 - `README.IT97K-499-35.gnm1.QnBW.yml`
