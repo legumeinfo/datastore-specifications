@@ -1,128 +1,132 @@
 {
-  "title": "README",
-  "description": "Datastore README validation",
-  "type": "object",
-  "properties": {
-    "identifier": {
-      "description": "name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted",
-      "type": "string"
+    "title": "README",
+    "description": "Datastore README validation",
+    "type": "object",
+    "properties": {
+        "identifier": {
+            "description": "name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted",
+            "type": "string"
+        },
+        "provenance": {
+            "description": "information on the source of the data",
+            "type": ["string", "null"]
+        },
+        "source": {
+            "description": "URL pointing to the data source",
+            "type": ["string", "null"]
+        },
+        "synopsis": {
+            "description": "short description of the collection",
+            "type": "string"
+        },
+        "related_to": {
+            "description": "(comma-separated) identifier(s) of related collection(s) in the LIS datastore",
+            "type": ["string", "null"]
+        },
+        "scientific_name": {
+            "description": "Genus species",
+            "type": "string"
+        },
+        "taxid": {
+            "description": "The NCBI taxon identifier",
+            "type": "number"
+        },
+        "scientific_name_abbrev": {
+            "description": "LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species",
+            "type": "string"
+        },
+        "genotype": {
+            "description": "list of genotypes, one for a single genotype, A x B for a biparental map, or a longer list of genotypes used",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "description": {
+            "description": "long description of this collection",
+            "type": "string"
+        },
+        "bioproject": {
+            "description": "NCBI BioProject accession",
+            "type": ["string", "null"]
+        },
+        "sraproject": {
+            "description": "NCBI SRA project accession",
+            "type": ["string", "null"]
+        },
+        "dataset_doi": {
+            "description": "DOI pointing to the dataset",
+            "type": ["string", "null"]
+        },
+        "publication_doi": {
+            "description": "DOI pointing to the publication associated with this collection",
+            "type": ["string", "null"]
+        },
+        "genbank_accession": {
+            "description": "NCBI Genbank accesssion ID",
+            "type": ["string", "null"]
+        },
+        "original_file_creation_date": {
+            "description": "date when the data were created at the source (YYYY-MM-DD)",
+            "type": ["string", "null"],
+            "format": "date"
+        },
+        "local_file_creation_date": {
+            "description": "date when the data were created at the source (YYYY-MM-DD)",
+            "type": ["string", "null"],
+            "format": "date"
+        },
+        "dataset_release_date": {
+            "description": "date when the data were created at the source (YYYY-MM-DD)",
+            "type": ["string", "null"],
+            "format": "date"
+        },
+        "publication_title": {
+            "description": "title of the publication associated with this collection",
+            "type": ["string", "null"]
+        },
+        "contributors": {
+            "description": "semicolon-separated list of contributors in last, first format, typically the publication authors",
+            "type": ["string", "null"]
+        },
+        "data_curators": {
+            "description": "comma-separated list of curators that put this collection together",
+            "type": ["string", "null"]
+        },
+        "public_access_level": {
+            "description": "describes level of public access",
+            "type": ["string", "null"]
+        },
+        "license": {
+            "description": "data usage license",
+            "type": ["string", "null"]
+        },
+        "keywords": {
+            "description": "comma-separated list of keywords associated with this collection",
+            "type": ["string", "null"]
+        },
+        "citations": {
+            "description": "single long-form bibliographical citation of the publication",
+            "type": ["string", "null"]
+        },
+        "genotyping_platform": {
+            "description": "platform used in a genotyping experiment",
+            "type": ["string", "null"]
+        },
+        "genotyping_method": {
+            "description": "description of the genotyping method used in a genotyping experiment",
+            "type": ["string", "null"]
+        },
+        "expression_unit": {
+            "description": "the data unit used in an RNA-seq expression experiment",
+            "type": ["string", "null"]
+        },
+        "geoseries": {
+            "description": "the NCBI Geoseries accession",
+            "type": ["string", "null"]
+        }
     },
-    "provenance": {
-      "description": "information on the source of the data",
-      "type": "string"
-    },
-    "source": {
-      "description": "URL pointing to the data source",
-      "type": "string"
-    },
-    "synopsis": {
-      "description": "short description of the collection",
-      "type": "string"
-    },
-    "related_to": {
-      "description": "(comma-separated) identifier(s) of related collection(s) in the LIS datastore",
-      "type": "string"
-    },
-    "scientific_name": {
-      "description": "Genus species",
-      "type": "string"
-    },
-    "taxid": {
-      "description": "The NCBI taxon identifier",
-      "type": "string"
-    },
-    "scientific_name_abbrev": {
-      "description": "LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species",
-      "type": "string"
-    },
-    "genotype": {
-      "description": "list of genotypes, one for a single genotype, A x B for a biparental map, or a longer list of genotypes used",
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1,
-      "uniqueItems": true
-    },
-    "description": {
-      "description": "long description of this collection",
-      "type": "string"
-    },
-    "bioproject": {
-      "description": "NCBI BioProject accession",
-      "type": "string"
-    },
-    "dataset_doi": {
-      "description": "DOI pointing to the dataset",
-      "type": "string"
-    },
-    "publication_doi": {
-      "description": "DOI pointing to the publication associated with this collection",
-      "type": "string"
-    },
-    "genbank_accession": {
-      "description": "NCBI Genbank accesssion ID",
-      "type": "string"
-    },
-    "original_file_creation_date": {
-      "description": "date when the data were created at the source (YYYY-MM-DD)",
-      "type": "string",
-      "format": "date"
-    },
-    "local_file_creation_date": {
-      "description": "date when the data were created at the source (YYYY-MM-DD)",
-      "type": "string",
-      "format": "date"
-    },
-    "dataset_release_date": {
-      "description": "date when the data were created at the source (YYYY-MM-DD)",
-      "type": "string",
-      "format": "date"
-    },
-    "publication_title": {
-      "description": "title of the publication associated with this collection",
-      "type": "string"
-    },
-    "contributors": {
-      "description": "semicolon-separated list of contributors in last, first format, typically the publication authors",
-      "type": "string"
-    },
-    "data_curators": {
-      "description": "comma-separated list of curators that put this collection together",
-      "type": "string"
-    },
-    "public_access_level": {
-      "description": "describes level of public access",
-      "type": "string"
-    },
-    "license": {
-      "description": "data usage license",
-      "type": "string"
-    },
-    "keywords": {
-      "description": "comma-separated list of keywords associated with this collection",
-      "type": "string"
-    },
-    "citations": {
-      "description": "single long-form bibliographical citation of the publication",
-      "type": "string"
-    },
-    "genotyping_platform": {
-      "description": "platform used in a genotyping experiment",
-      "type": "string"
-    },
-    "genotyping_method": {
-      "description": "description of the genotyping method used in a genotyping experiment",
-      "type": "string"
-    },
-    "expression_unit": {
-      "description": "the data unit used in an RNA-seq expression experiment",
-      "type": "string"
-    },
-    "geoseries": {
-      "description": "the NCBI Geoseries accession",
-      "type": "string"
-    }
-  },
-  "required": [ "identifier", "taxid", "synopsis" ]
+    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev" ]
 }

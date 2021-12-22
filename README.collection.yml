@@ -43,13 +43,13 @@ dataset_doi: 10.1111/tpj.13404
 genbank_accession: GCA_000741045.2
 
 # original_file_creation_date: date when the data were created at the source (YYYY-MM-DD)
-original_file_creation_date: 2014-11-21
+original_file_creation_date: "2014-11-21"
 
 # local_file_creation_date: date when the data were placed on the LIS datastore (YYYY-MM-DD)
-local_file_creation_date: 2018-08-01
+local_file_creation_date: "2018-08-01"
 
 # dataset_release_date: the date when this collection was released to the public (YYYY-MM-DD)
-dataset_release_date: 2018-08-03
+dataset_release_date: "2018-08-03"
 
 # publication DOI: DOI pointing to the publication associated with this collection
 publication_doi: 10.1186/1471-2164-13-234
