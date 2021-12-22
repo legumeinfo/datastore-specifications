@@ -4,36 +4,36 @@ Specifications for directory naming, file naming, file contents in the LIS datas
 Any of the file-containing directories can contain a README file and a CHANGES file.
 
 ## README YAML files
-
 Every file-containing directory, AKA "collection", in the LIS datastore should contain a README file in YAML format. 
 
-Filename: README.*collection*.yml see [example in this repository](README.collection.yml)
+Filename: [README.[collection].yml](README.collection.yml)
 
 Examples:
-- `README.IT97K-499-35.gnm1.QnBW.yml`
-- `README.IT97K-499-35.gnm1.ann1.zb5D.yml`
-- `README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml`
+- [README.IT97K-499-35.gnm1.QnBW.yml](https://legumeinfo.org/data/v2/Vigna/unguiculata/genomes/IT97K-499-35.gnm1.QnBW/README.IT97K-499-35.gnm1.QnBW.yml)
+- [README.IT97K-499-35.gnm1.ann1.zb5D.yml](https://legumeinfo.org/data/v2/Vigna/unguiculata/annotations/IT97K-499-35.gnm1.ann1.zb5D/README.IT97K-499-35.gnm1.ann1.zb5D.yml)
+- [README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml](https://legumeinfo.org/data/v2/Vigna/unguiculata/genetic/CB27_x_IT82E-18.gen.Pottorff_Li_2014/README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml)
 
-### Content
-The README content must be parseable by the LIS InterMine README parser:
-[Readme.java](https://github.com/legumeinfo/lis-bio-sources/blob/0bf2a5650f6f9b2311a1b187ae4c560608743060/lis-datastore/src/main/java/org/intermine/bio/dataconversion/Readme.java)
+### Validation
+The basic README structure (acceptable field names, strings vs. lists vs. dates) can be validated using the following command:
+```
+pajv -s readme.schema.json -d README.[collection].yml --all-errors --coerce-types=array --remove-additional=all --changes
+```
+using the JSON schema definition [readme.schema.json](/readme.schema.json).
 
-READMEs must be YAML-compliant, which means they pass the test on http://www.yamllint.com/ or using the `yamllint` command-line utility.
+*This schema must be kept up to date along with the sample template [README.collection.yml](/README.collection.yml) when any changes are made to the README spec.*
 
-### Requirements
-- When in doubt, enclose values in quotes.
-- `identifier` at the top repeats the name of the collection.
-- `synopsis` should be short, 100 characters or so.
-- DOIs are DOIs, not URLs (e.g. 10.1534/g3.118.200521)
-- The date format is 2020-03-23.
-- Missing data should be left blank; do not use "N/A" or "none" or anything else.
-- genotype is a YAML array; use the format strain1 x strain2 for bi-parental crosses.
-- Do not use a colon within the value unless you enclose the entire value in quotes.
+### Content requirements
+READMEs must be YAML-compliant, which means they pass the test on http://www.yamllint.com/ or using the `yamllint` command-line utility. Here are some, but not all, requirements for a valid LIS README:
+- `identifier` at the top repeats the name of the collection, i.e. the name of the containing directory.
+- `synopsis` should be short, 100 characters or less.
+- `genotype` is a YAML array: but use a single "strain1 x strain2" value for bi-parental crosses.
+- DOIs are DOIs, not URLs (e.g. 10.1534/g3.118.200521).
+- Dates are in the format 2020-03-23.
+- Use spaces, not tabs (*tabs may not appear anywhere in a YAML*)
+- Enclose values in quotes when they contain a colon or quotes (you can use single or double quotes to distinguish from quotes in content)
+- Leave missing values blank - do not use "N/A" or "none" or anything else.
 
-Do not add any attributes without consulting Sam -- additional attributes will *break the InterMine README parser* (until they are added).
-
-## CHANGES file
-
+## CHANGES files
 A directory may contain a CHANGES.*collection*.txt file which lists file transformations and changes. For example:
 
 ```
