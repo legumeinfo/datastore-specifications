@@ -1,0 +1,5 @@
+#!/bin/sh
+## This script uses pajv to validate a description_Genus_species.yml file given on the command line.
+## INSTALLATION: npm install -g pajv
+##
+pajv -s description_genus_species.schema.json --all-errors --coerce-types=array --remove-additional=all --changes -d $1 
