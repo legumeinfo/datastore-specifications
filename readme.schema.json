@@ -6,7 +6,7 @@
         "identifier": {
             "description": "name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted",
             "type": "string",
-	    "pattern": "\\.[a-zA-Z]+\\."
+	    "pattern": "\\.[a-zA-Z0-9]+\\."
         },
         "provenance": {
             "description": "information on the source of the data",
