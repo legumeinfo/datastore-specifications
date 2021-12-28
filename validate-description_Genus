@@ -1,6 +1,0 @@
-#!/bin/sh
-## This script uses pajv to validate a description_Genus.yml file given on the command line.
-## INSTALLATION: npm install -g pajv
-##
-yamllint $1
-pajv -s description_genus.schema.json --all-errors --coerce-types=array --remove-additional=all --changes -d $1 

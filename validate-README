@@ -1,6 +1,0 @@
-#!/bin/sh
-## This script uses pajv to validate a README.[collection].yml file given on the command line
-## INSTALLATION: npm install -g pajv
-##
-yamllint $1
-pajv -s readme.schema.json --all-errors --coerce-types=array --remove-additional=all --changes -d $1 
