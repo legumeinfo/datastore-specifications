@@ -52,5 +52,6 @@
 	    "uniqueItems": true
 	}
     },
-    "required": [ "taxid", "genus", "description", "species" ]
+    "required": [ "taxid", "genus", "description", "species" ],
+    "additionalProperties": false
 }

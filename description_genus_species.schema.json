@@ -17,7 +17,9 @@
 	},
 	"abbrev": {
 	    "description": "LIS gensp abbreviation",
-	    "type": "string"
+	    "type": "string",
+	    "minLength": 5,
+	    "maxLength": 5
 	},
 	"commonName": {
 	    "description": "The common name for this species",
@@ -108,5 +110,6 @@
 	    }
 	}
     },
-    "required": [ "taxid", "genus", "species", "abbrev", "description", "strains" ]
+    "required": [ "taxid", "genus", "species", "abbrev", "description", "strains" ],
+    "additionalProperties": false
 }
