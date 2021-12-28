@@ -7,6 +7,6 @@
 ##
 echo "# ---------------------------------"
 echo "# $2 YAML syntax..."
-yamllint -d "{extends: default,  rules: {document-start: disable, trailing-spaces: disable, line-length: {max: 2000}}}" $2
+yamllint -d "{extends: default,  rules: {document-start: disable, empty-lines: disable, trailing-spaces: disable, line-length: {max: 2000}}}" $2
 echo "# $2 schema..."
 pajv --verbose --coerce-types=array --remove-additional=true --changes -s $1 -d $2

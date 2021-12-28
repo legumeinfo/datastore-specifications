@@ -131,7 +131,7 @@
         "genotyping_method": {
             "description": "Description of the genotyping method used in a genetic experiment.",
             "type": ["string", "null"],
-	    "maxLength": 200
+	    "maxLength": 500
         },
         "expression_unit": {
             "description": "Expression data unit used in a gene expression experiment (e.g. TPM).",
