@@ -2,11 +2,11 @@
 ## This script uses yamllint and pajv to validate a YAML file against a provided JSON schema
 ##
 ## $ ./validate readme.schema.json README.CDCFrontier.gnm1.GkHc.yml
-##
-## pajv installation: npm install -g pajv
+#
+## ajv-cli installation: npm install -g ajv-cli ajv-formats
 ##
 echo "# ---------------------------------"
 echo "# $2 YAML syntax..."
 yamllint -d "{extends: default,  rules: {document-start: disable, empty-lines: disable, trailing-spaces: disable, line-length: {max: 2000}}}" $2
 echo "# $2 schema..."
-pajv --verbose --coerce-types=array --remove-additional=true --changes -s $1 -d $2
+ajv -c ajv-formats --verbose --coerce-types=array --remove-additional=true --changes -s $1 -d $2
