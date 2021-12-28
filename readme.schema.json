@@ -4,25 +4,33 @@
     "type": "object",
     "properties": {
         "identifier": {
-            "description": "name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted",
+            "description": "Name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted.",
             "type": "string",
 	    "pattern": "\\.[a-zA-Z0-9]+\\."
         },
+        "description": {
+            "description": "Long description of this collection.",
+            "type": "string",
+	    "maxLength": 5000
+        },
         "provenance": {
-            "description": "information on the source of the data",
-            "type": ["string", "null"]
+            "description": "Information on the source of the data",
+            "type": ["string", "null"],
+	    "minLength": 10,
+	    "maxLength": 5000
         },
         "source": {
-            "description": "URL pointing to the data source",
+            "description": "URI pointing to the data source.",
             "type": ["string", "null"],
 	    "format": "uri"
         },
         "synopsis": {
-            "description": "short description of the collection",
-            "type": "string"
+            "description": "Short description of the collection.",
+            "type": "string",
+	    "maxLength": 200
         },
         "related_to": {
-            "description": "(comma-separated) identifier(s) of related collection(s) in the LIS datastore",
+            "description": "Identifier(s) of related collection(s) in the LIS datastore, comma-separated.",
             "type": ["string", "null"]
         },
         "scientific_name": {
@@ -30,15 +38,17 @@
             "type": "string"
         },
         "taxid": {
-            "description": "The NCBI taxon identifier",
+            "description": "NCBI four-digit taxonomy identifier.",
             "type": "number"
         },
         "scientific_name_abbrev": {
-            "description": "LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species",
-            "type": "string"
+            "description": "LIS datastore gensp identifier: first three letters of genus plus first two letters of species, all lower case.",
+            "type": "string",
+	    "minLength": 5,
+	    "maxLength": 5
         },
         "genotype": {
-            "description": "list of genotypes, one for a single genotype, A x B for a biparental map, or a longer list of genotypes used",
+            "description": "List of genotypes: one for a single genotype, single A x B entry for a biparental map, or a list.",
             "type": "array",
             "items": {
                 "type": "string"
@@ -46,91 +56,93 @@
             "minItems": 1,
             "uniqueItems": true
         },
-        "description": {
-            "description": "long description of this collection",
-            "type": "string"
-        },
         "bioproject": {
-            "description": "NCBI BioProject accession",
+            "description": "NCBI BioProject accession.",
             "type": ["string", "null"]
         },
         "sraproject": {
-            "description": "NCBI SRA project accession",
+            "description": "NCBI SRA project accession.",
             "type": ["string", "null"]
         },
         "dataset_doi": {
-            "description": "DOI pointing to the dataset; NOT a URI!",
+            "description": "DOI pointing to the dataset; NOTE this is NOT a URI!",
             "type": ["string", "null"],
-	    "pattern": "^.*/.*$"
+	    "pattern": "^(?!http).*$"
         },
         "publication_doi": {
-            "description": "DOI pointing to the publication associated with this collection; NOT a URI!",
+            "description": "DOI pointing to the publication associated with this collection; NOTE this is NOT a URI!",
             "type": ["string", "null"],
-	    "pattern": "^.*/.*$"
+	    "pattern": "^(?!http).*$"
         },
         "genbank_accession": {
-            "description": "NCBI Genbank accesssion ID",
+            "description": "NCBI Genbank accession ID.",
             "type": ["string", "null"]
         },
         "original_file_creation_date": {
-            "description": "date when the data were created at the source (YYYY-MM-DD)",
+            "description": "YYYY-MM-DD date when data were created at the source.",
             "type": ["string","null"],
             "format": "date"
         },
         "local_file_creation_date": {
-            "description": "date when the data were created at the source (YYYY-MM-DD)",
+            "description": "YYYY-MM-DD date when data were created at LIS.",
             "type": ["string", "null"],
             "format": "date"
         },
         "dataset_release_date": {
-            "description": "date when the data were created at the source (YYYY-MM-DD)",
+            "description": "YYYY-MM-DD date when data were released to the public.",
             "type": ["string", "null"],
             "format": "date"
         },
         "publication_title": {
-            "description": "title of the publication associated with this collection",
-            "type": ["string", "null"]
+            "description": "Title of the publication associated with this collection.",
+            "type": ["string", "null"],
+	    "maxLength": 200
         },
         "contributors": {
-            "description": "semicolon-separated list of contributors in last, first format, typically the publication authors",
+            "description": "List of contributors in lastname, firstname format, separated by semicolons; typically the publication authors.",
             "type": ["string", "null"]
         },
         "data_curators": {
-            "description": "comma-separated list of curators that put this collection together",
-            "type": ["string", "null"]
+            "description": "List of curators that put this collection together, separated by semicolons.",
+            "type": ["string", "null"],
+	    "maxLength": 200
         },
         "public_access_level": {
-            "description": "describes level of public access",
+            "description": "Level of public access (e.g. public).",
             "type": ["string", "null"]
         },
         "license": {
-            "description": "data usage license",
+            "description": "Data usage license (e.g. open)",
             "type": ["string", "null"]
         },
         "keywords": {
-            "description": "comma-separated list of keywords associated with this collection",
+            "description": "Keywords associated with this collection, separated by commas.",
             "type": ["string", "null"]
         },
-        "citations": {
-            "description": "single long-form bibliographical citation of the publication",
-            "type": ["string", "null"]
+        "citation": {
+            "description": "Bibliographical long-form citation of the publication.",
+            "type": ["string", "null"],
+	    "maxLength": 400
         },
         "genotyping_platform": {
-            "description": "platform used in a genotyping experiment",
+            "description": "Genotyping platform used in a genetic experiment.",
             "type": ["string", "null"]
         },
         "genotyping_method": {
-            "description": "description of the genotyping method used in a genotyping experiment",
-            "type": ["string", "null"]
+            "description": "Description of the genotyping method used in a genetic experiment.",
+            "type": ["string", "null"],
+	    "maxLength": 200
         },
         "expression_unit": {
-            "description": "the data unit used in an RNA-seq expression experiment",
-            "type": ["string", "null"]
+            "description": "Expression data unit used in a gene expression experiment (e.g. TPM).",
+            "type": ["string", "null"],
+	    "maxLength": 10
         },
         "geoseries": {
-            "description": "the NCBI Geoseries accession",
+            "description": "NCBI GeoSeries accession.",
             "type": ["string", "null"]
         }
     },
-    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev" ]
+    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev" ],
+    "additionalProperties": false
 }
