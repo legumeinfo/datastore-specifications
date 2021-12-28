@@ -3,54 +3,54 @@
     "description": "Datastore description_Genus.yml validation",
     "type": "object",
     "properties": {
-	"taxid": {
-	    "description": "NCBI taxon identifier for the genus",
-	    "type": "number"
-	},
-	"genus": {
-	    "description": "Genus",
-	    "type": "string"
-	},
-	"commonName": {
-	    "description": "The common name for this genus (typically the common name of the main species)",
-	    "type": "string"
-	},
-	"description": {
-	    "description": "Description of this genus",
-	    "type": "string"
-	},
-	"species": {
-	    "description": "A list of species available for this genus.",
-	    "type": "array",
-	    "items": {
-		"type": "string"
-	    }
-	},
-	"resources": {
-	    "description": "A list of resources available for this genus, each entry containing name, URL and description.",
-	    "type": "array",
-	    "items": {
-		"title": "Resource entry",
-		"description": "A resource entry, containing name, URL, and description.",
-		"type": "object",
-		"properties": {
-		    "name": {
-			"description": "a name given to this resource",
-			"type": "string"
-		    },
-		    "URL": {
-			"description": "the URL pointing to this resource",
-			"type": "string"
-		    },
-		    "description": {
-			"description": "a description of this resource",
-			"type": "string"
-		    }
-		}
-	    },
-	    "minItems": 1,
-	    "uniqueItems": true
-	}
+        "taxid": {
+            "description": "NCBI taxon identifier for the genus",
+            "type": "number"
+        },
+        "genus": {
+            "description": "Genus",
+            "type": "string"
+        },
+        "commonName": {
+            "description": "The common name for this genus (typically the common name of the main species)",
+            "type": "string"
+        },
+        "description": {
+            "description": "Description of this genus",
+            "type": "string"
+        },
+        "species": {
+            "description": "A list of species available for this genus.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "resources": {
+            "description": "A list of resources available for this genus, each entry containing name, URL and description.",
+            "type": "array",
+            "items": {
+                "title": "Resource entry",
+                "description": "A resource entry, containing name, URL, and description.",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "a name given to this resource",
+                        "type": "string"
+                    },
+                    "URL": {
+                        "description": "the URL pointing to this resource",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "a description of this resource",
+                        "type": "string"
+                    }
+                }
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
     },
     "required": [ "taxid", "genus", "description", "species" ],
     "additionalProperties": false

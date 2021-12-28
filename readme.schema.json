@@ -6,28 +6,28 @@
         "identifier": {
             "description": "Name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted.",
             "type": "string",
-	    "pattern": "\\.[a-zA-Z0-9]+\\."
+            "pattern": "\\.[a-zA-Z0-9]+\\."
         },
         "description": {
             "description": "Long description of this collection.",
             "type": "string",
-	    "maxLength": 5000
+            "maxLength": 5000
         },
         "provenance": {
             "description": "Information on the source of the data",
             "type": ["string", "null"],
-	    "minLength": 10,
-	    "maxLength": 5000
+            "minLength": 10,
+            "maxLength": 5000
         },
         "source": {
             "description": "URI pointing to the data source.",
             "type": ["string", "null"],
-	    "format": "uri"
+            "format": "uri"
         },
         "synopsis": {
             "description": "Short description of the collection.",
             "type": "string",
-	    "maxLength": 200
+            "maxLength": 200
         },
         "related_to": {
             "description": "Identifier(s) of related collection(s) in the LIS datastore, comma-separated.",
@@ -39,13 +39,15 @@
         },
         "taxid": {
             "description": "NCBI four-digit taxonomy identifier.",
-            "type": "number"
+            "type": "number",
+            "minimum": 1000
         },
         "scientific_name_abbrev": {
             "description": "LIS datastore gensp identifier: first three letters of genus plus first two letters of species, all lower case.",
             "type": "string",
-	    "minLength": 5,
-	    "maxLength": 5
+            "pattern": "^[a-z]+$",
+            "minLength": 5,
+            "maxLength": 5
         },
         "genotype": {
             "description": "List of genotypes: one for a single genotype, single A x B entry for a biparental map, or a list.",
@@ -67,36 +69,36 @@
         "dataset_doi": {
             "description": "DOI pointing to the dataset; NOTE this is NOT a URI!",
             "type": ["string", "null"],
-	    "pattern": "^(?!http).*$"
+            "pattern": "^(?!http).*$"
         },
         "publication_doi": {
             "description": "DOI pointing to the publication associated with this collection; NOTE this is NOT a URI!",
             "type": ["string", "null"],
-	    "pattern": "^(?!http).*$"
+            "pattern": "^(?!http).*$"
         },
         "genbank_accession": {
             "description": "NCBI Genbank accession ID.",
             "type": ["string", "null"]
         },
         "original_file_creation_date": {
-            "description": "YYYY-MM-DD date when data were created at the source.",
+            "description": "YYYY-MM-DD date IN QUOTES when data were created at the source.",
             "type": ["string","null"],
             "format": "date"
         },
         "local_file_creation_date": {
-            "description": "YYYY-MM-DD date when data were created at LIS.",
+            "description": "YYYY-MM-DD date IN QUOTES when data were created at LIS.",
             "type": ["string", "null"],
             "format": "date"
         },
         "dataset_release_date": {
-            "description": "YYYY-MM-DD date when data were released to the public.",
+            "description": "YYYY-MM-DD date IN QUOTES when data were released to the public.",
             "type": ["string", "null"],
             "format": "date"
         },
         "publication_title": {
             "description": "Title of the publication associated with this collection.",
             "type": ["string", "null"],
-	    "maxLength": 200
+            "maxLength": 200
         },
         "contributors": {
             "description": "List of contributors in lastname, firstname format, separated by semicolons; typically the publication authors.",
@@ -105,7 +107,7 @@
         "data_curators": {
             "description": "List of curators that put this collection together, separated by semicolons.",
             "type": ["string", "null"],
-	    "maxLength": 200
+            "maxLength": 200
         },
         "public_access_level": {
             "description": "Level of public access (e.g. public).",
@@ -122,7 +124,7 @@
         "citation": {
             "description": "Bibliographical long-form citation of the publication.",
             "type": ["string", "null"],
-	    "maxLength": 400
+            "maxLength": 1000
         },
         "genotyping_platform": {
             "description": "Genotyping platform used in a genetic experiment.",
@@ -131,12 +133,12 @@
         "genotyping_method": {
             "description": "Description of the genotyping method used in a genetic experiment.",
             "type": ["string", "null"],
-	    "maxLength": 500
+            "maxLength": 500
         },
         "expression_unit": {
             "description": "Expression data unit used in a gene expression experiment (e.g. TPM).",
             "type": ["string", "null"],
-	    "maxLength": 10
+            "maxLength": 10
         },
         "geoseries": {
             "description": "NCBI GeoSeries accession.",

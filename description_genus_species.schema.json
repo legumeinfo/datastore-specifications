@@ -3,112 +3,112 @@
     "description": "Datastore description_Genus_species.yml validation",
     "type": "object",
     "properties": {
-	"taxid": {
-	    "description": "NCBI taxon identifier",
-	    "type": "number"
-	},
-	"genus": {
-	    "description": "Genus",
-	    "type": "string"
-	},
-	"species": {
-	    "description": "species",
-	    "type": "string"
-	},
-	"abbrev": {
-	    "description": "LIS gensp abbreviation",
-	    "type": "string",
-	    "minLength": 5,
-	    "maxLength": 5
-	},
-	"commonName": {
-	    "description": "The common name for this species",
-	    "type": "string"
-	},
-	"description": {
-	    "description": "Description of this species",
-	    "type": "string"
-	},
-	"resources": {
-	    "description": "A list of resources available for this species, each entry containing name, URL and description.",
-	    "type": "array",
-	    "items": {
-		"title": "Resource entry",
-		"description": "A resource entry, containing name, URL, and description.",
-		"type": "object",
-		"properties": {
-		    "name": {
-			"description": "a name given to this resource",
-			"type": "string"
-		    },
-		    "URL": {
-			"description": "the URL pointing to this resource",
-			"type": "string"
-		    },
-		    "description": {
-			"description": "a description of this resource",
-			"type": "string"
-		    }
-		}
-	    },
-	    "minItems": 1,
-	    "uniqueItems": true
-	},
-	"strains": {
-	    "description": "A list of strains available for this species, each entry containing identifier, accession, name, origin, description, and a list of resources.",
-	    "type": "array",
-	    "items": {
-		"title": "Strain entry",
-		"description": "Full description of a strain, containing identifier, accession, name, origin, description, and a list of resources.",
-		"type": "object",
-		"properties": {
-		    "identifier": {
-			"description": "unique strain identifier",
-			"type": "string"
-		    },
-		    "accession": {
-			"description": "strain accession (e.g. GRIN)",
-			"type": "string"
-		    },
-		    "name": {
-			"description": "the name of the strain",
-			"type": "string"
-		    },
-		    "origin": {
-			"description": "the geographic origin of the strain",
-			"type": "string"
-		    },
-		    "description": {
-			"description": "a text description of the strain",
-			"type": "string"
-		    },
-		    "resources": {
-			"description": "A list of resources available for this species, each entry containing name, URL and description.",
-			"type": "array",
-			"items": {
-			    "title": "Resource entry",
-			    "description": "A resource entry, containing name, URL, and description.",
-			    "properties": {
-				"name": {
-				    "description": "a name given to this resource",
-				    "type": "string"
-				},
-				"URL": {
-				    "description": "the URL pointing to this resource",
-				    "type": "string"
-				},
-				"description": {
-				    "description": "a description of this resource",
-				    "type": "string"
-				}
-			    }
-			},
-			"minItems": 1,
-			"uniqueItems": true
-		    }
-		}
-	    }
-	}
+        "taxid": {
+            "description": "NCBI taxon identifier",
+            "type": "number"
+        },
+        "genus": {
+            "description": "Genus",
+            "type": "string"
+        },
+        "species": {
+            "description": "species",
+            "type": "string"
+        },
+        "abbrev": {
+            "description": "LIS gensp abbreviation",
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 5
+        },
+        "commonName": {
+            "description": "The common name for this species",
+            "type": "string"
+        },
+        "description": {
+            "description": "Description of this species",
+            "type": "string"
+        },
+        "resources": {
+            "description": "A list of resources available for this species, each entry containing name, URL and description.",
+            "type": "array",
+            "items": {
+                "title": "Resource entry",
+                "description": "A resource entry, containing name, URL, and description.",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "a name given to this resource",
+                        "type": "string"
+                    },
+                    "URL": {
+                        "description": "the URL pointing to this resource",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "a description of this resource",
+                        "type": "string"
+                    }
+                }
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "strains": {
+            "description": "A list of strains available for this species, each entry containing identifier, accession, name, origin, description, and a list of resources.",
+            "type": "array",
+            "items": {
+                "title": "Strain entry",
+                "description": "Full description of a strain, containing identifier, accession, name, origin, description, and a list of resources.",
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "description": "unique strain identifier",
+                        "type": "string"
+                    },
+                    "accession": {
+                        "description": "strain accession (e.g. GRIN)",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "the name of the strain",
+                        "type": "string"
+                    },
+                    "origin": {
+                        "description": "the geographic origin of the strain",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "a text description of the strain",
+                        "type": "string"
+                    },
+                    "resources": {
+                        "description": "A list of resources available for this species, each entry containing name, URL and description.",
+                        "type": "array",
+                        "items": {
+                            "title": "Resource entry",
+                            "description": "A resource entry, containing name, URL, and description.",
+                            "properties": {
+                                "name": {
+                                    "description": "a name given to this resource",
+                                    "type": "string"
+                                },
+                                "URL": {
+                                    "description": "the URL pointing to this resource",
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "description": "a description of this resource",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true
+                    }
+                }
+            }
+        }
     },
     "required": [ "taxid", "genus", "species", "abbrev", "description", "strains" ],
     "additionalProperties": false
