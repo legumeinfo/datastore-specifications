@@ -5,7 +5,8 @@
     "properties": {
         "identifier": {
             "description": "name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted",
-            "type": "string"
+            "type": "string",
+	    "pattern": "\\.[a-zA-Z]+\\."
         },
         "provenance": {
             "description": "information on the source of the data",
@@ -13,7 +14,8 @@
         },
         "source": {
             "description": "URL pointing to the data source",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+	    "format": "uri"
         },
         "synopsis": {
             "description": "short description of the collection",
@@ -57,12 +59,14 @@
             "type": ["string", "null"]
         },
         "dataset_doi": {
-            "description": "DOI pointing to the dataset",
-            "type": ["string", "null"]
+            "description": "DOI pointing to the dataset; NOT a URI!",
+            "type": ["string", "null"],
+	    "pattern": "^.*/.*$"
         },
         "publication_doi": {
-            "description": "DOI pointing to the publication associated with this collection",
-            "type": ["string", "null"]
+            "description": "DOI pointing to the publication associated with this collection; NOT a URI!",
+            "type": ["string", "null"],
+	    "pattern": "^.*/.*$"
         },
         "genbank_accession": {
             "description": "NCBI Genbank accesssion ID",
@@ -70,7 +74,7 @@
         },
         "original_file_creation_date": {
             "description": "date when the data were created at the source (YYYY-MM-DD)",
-            "type": ["string", "null"],
+            "type": ["string","null"],
             "format": "date"
         },
         "local_file_creation_date": {
