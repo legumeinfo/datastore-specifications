@@ -16,7 +16,7 @@
             "type": "string"
         },
         "abbrev": {
-            "description": "LIS gensp abbreviation",
+            "description": "LIS gensp abbreviation: first three letters of genus plus first two of species, all lower case.",
             "type": "string",
             "minLength": 5,
             "maxLength": 5
