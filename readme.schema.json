@@ -42,7 +42,7 @@
         "scientific_name_abbrev": {
             "description": "LIS datastore gensp identifier: first three letters of genus plus first two letters of species, all lower case.",
             "type": "string",
-            "pattern": "^[a-z]+$",
+            "pattern": "^[a-z0-9]+$",
             "minLength": 5,
             "maxLength": 5
         },
