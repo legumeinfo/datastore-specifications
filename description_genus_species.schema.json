@@ -9,15 +9,18 @@
         },
         "genus": {
             "description": "Genus",
-            "type": "string"
+            "type": "string",
+            "pattern": "^[A-Z][a-z]+$"
         },
         "species": {
             "description": "species",
-            "type": "string"
+            "type": "string",
+            "pattern": "^[-A-Za-z0-9]+$"
         },
         "abbrev": {
             "description": "LIS gensp abbreviation: first three letters of genus plus first two of species, all lower case.",
             "type": "string",
+            "pattern": "^[a-z0-9]+$",
             "minLength": 5,
             "maxLength": 5
         },
