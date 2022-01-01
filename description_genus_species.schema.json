@@ -88,6 +88,7 @@
                         "items": {
                             "title": "Resource entry",
                             "description": "A resource entry, containing name, URL, and description.",
+			    "type": "object",
                             "properties": {
                                 "name": {
                                     "description": "a name given to this resource",
