@@ -61,7 +61,7 @@ publication_title: "Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL
 contributors: "Pottorff, Marti; Ehlers, Jeffrey D; Fatokun, Christian; Roberts, Philip A; Close, Timothy J"
 
 # citations: single long-form bibliographical citation of the publication
-citations: "Pottorff, M., Ehlers, J. D., Fatokun, C., Roberts, P. A. & Close, T. J. Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL analysis, physical mapping and identifying a candidate gene using synteny with model legume species. BMC Genomics 13, 234 (2012)"
+citation: "Pottorff, M., Ehlers, J. D., Fatokun, C., Roberts, P. A. & Close, T. J. Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL analysis, physical mapping and identifying a candidate gene using synteny with model legume species. BMC Genomics 13, 234 (2012)"
 
 # data_curators: comma-separated list of curators that put this collection together
 data_curators: Pooja Umale, Steven Cannon, Wei Huang, Andrew Farmer
