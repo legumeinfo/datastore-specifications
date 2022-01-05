@@ -27,7 +27,7 @@
         "synopsis": {
             "description": "Short description of the collection.",
             "type": "string",
-            "maxLength": 200
+            "maxLength": 300
         },
         "related_to": {
             "description": "Identifier(s) of related collection(s) in the LIS datastore, comma-separated.",
