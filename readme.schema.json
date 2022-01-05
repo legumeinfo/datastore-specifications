@@ -10,14 +10,11 @@
         },
         "description": {
             "description": "Long description of this collection.",
-            "type": "string",
-            "maxLength": 5000
+            "type": "string"
         },
         "provenance": {
             "description": "Information on the source of the data",
-            "type": ["string", "null"],
-            "minLength": 10,
-            "maxLength": 5000
+            "type": ["string", "null"]
         },
         "source": {
             "description": "URI pointing to the data source.",
@@ -25,7 +22,7 @@
             "format": "uri"
         },
         "synopsis": {
-            "description": "Short description of the collection.",
+            "description": "Short description of the collection (up to 200 chars).",
             "type": "string",
             "maxLength": 300
         },
@@ -45,7 +42,7 @@
         "scientific_name_abbrev": {
             "description": "LIS datastore gensp identifier: first three letters of genus plus first two letters of species, all lower case.",
             "type": "string",
-            "pattern": "^[a-z]+$",
+            "pattern": "^[a-z0-9]+$",
             "minLength": 5,
             "maxLength": 5
         },
@@ -97,8 +94,7 @@
         },
         "publication_title": {
             "description": "Title of the publication associated with this collection.",
-            "type": ["string", "null"],
-            "maxLength": 200
+            "type": ["string", "null"]
         },
         "contributors": {
             "description": "List of contributors in lastname, firstname format, separated by semicolons; typically the publication authors.",
@@ -106,8 +102,7 @@
         },
         "data_curators": {
             "description": "List of curators that put this collection together, separated by semicolons.",
-            "type": ["string", "null"],
-            "maxLength": 200
+            "type": ["string", "null"]
         },
         "public_access_level": {
             "description": "Level of public access (e.g. public).",
@@ -122,7 +117,7 @@
             "type": ["string", "null"]
         },
         "citation": {
-            "description": "Bibliographical long-form citation of the publication.",
+            "description": "Bibliographic long-form citation of the publication.",
             "type": ["string", "null"],
             "maxLength": 1000
         },
@@ -132,8 +127,7 @@
         },
         "genotyping_method": {
             "description": "Description of the genotyping method used in a genetic experiment.",
-            "type": ["string", "null"],
-            "maxLength": 500
+            "type": ["string", "null"]
         },
         "expression_unit": {
             "description": "Expression data unit used in a gene expression experiment (e.g. TPM).",
