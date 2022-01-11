@@ -57,7 +57,8 @@
         },
         "bioproject": {
             "description": "NCBI BioProject accession.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+	    "pattern": "^(?!http).*$"
         },
         "sraproject": {
             "description": "NCBI SRA project accession.",
