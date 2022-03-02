@@ -1,5 +1,5 @@
 # QTL-marker file (qtlmrk.tsv)
-Filename: *gensp.population*.gen.*Author1_Author2_year*.obo.tsv
+Filename: *gensp.population*.gen.*Author1_Author2_year*.qtlmrk.tsv
 
 The QTL-marker file relates QTLs to markers that define them. There are three fields, the first two required:
 1. **QTL identifier** (e.g. Early leaf spot 1-2)
