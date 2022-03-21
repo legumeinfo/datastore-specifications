@@ -22,12 +22,12 @@ Files:
 - _gensp.strain.gnmVERSION.annVERSION.KEY4_.protein_primaryTranscript.faa.gz
 - _gensp.strain.gnmVERSION.annVERSION.KEY4_.protein_primaryTranscript.faa.gz.fai
 - _gensp.strain.gnmVERSION.annVERSION.KEY4_.protein_primaryTranscript.faa.gz.gzi
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.transcript.fna.gz
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.transcript.fna.gz.fai
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.transcript.fna.gz.gzi
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.transcript_primaryTranscript.fna.gz
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.transcript_primaryTranscript.fna.gz.fai
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.transcript_primaryTranscript.fna.gz.gzi
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna.fna.gz
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna.fna.gz.fai
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna.fna.gz.gzi
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna_primaryTranscript.fna.gz
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna_primaryTranscript.fna.gz.fai
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna_primaryTranscript.fna.gz.gzi
 
 Note that all fasta files should be bgzipped and faidx indexed.
 Note that "primaryTranscript" files may be absent if the given annotation set does not represent splicing variants.
