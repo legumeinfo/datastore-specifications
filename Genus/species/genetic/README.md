@@ -32,10 +32,10 @@ GWAS:
 ```
 
 ## README
-The README file has two special fields:
-- genotyping_platform: *required for GWAS* the name of the SNP chip or other genotyping platform, hopefully present under the /markers/ directory
-- genotyping_method: specifics about the genotyping method used in this particular study, optional
-- genetic_map: *required for QTL studies* the name of the genetic map containing linkage groups on which genetic markers are placed, hopefully present under the /maps/ directory
+The README file has up to three special additional fields:
+- **genotyping_platform**: *required for GWAS* the name of the SNP chip or other genotyping platform, hopefully present under the /markers/ directory
+- **genotyping_method**: specifics about the genotyping method used in this particular study, optional
+- **genetic_map**: *required for QTL studies* the name of the genetic map containing linkage groups on which genetic markers are placed, hopefully present under the /maps/ directory
 
 Also, biparental crosses take a single genotype array entry, e.g.
 ```
