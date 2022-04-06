@@ -110,7 +110,8 @@
                         "minItems": 1,
                         "uniqueItems": true
                     }
-                }
+                },
+                "required": [ "identifier", "accession", "name", "origin", "description" ]
             }
         }
     },
