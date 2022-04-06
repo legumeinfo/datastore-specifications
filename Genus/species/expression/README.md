@@ -19,7 +19,9 @@ File names:
 - README.*strain.gnm.ann*.expr.*KEY4*.yml
 
 There are three NCBI-related fields expected to be filled in the README, if appropriate:
-- bioproject
-- geoseries
-- sraproject
+- **bioproject**
+- **geoseries**
+- **sraproject**
 
+In addition, expression READMEs require an additional special field which denotes the units of expression in values.tsv:
+- **expression_unit**: the unit of expression, e.g. TPM
