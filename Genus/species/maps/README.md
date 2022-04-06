@@ -35,9 +35,9 @@ Examples:
 
 ## README
 The README file requires one special additional field:
-- genetic_map: the name of the genetic map as referenced in /genetic/ READMEs, e.g. "GmComposite2003" or "BAT93_x_JALOEEP558_c".
+- **genetic_map**: the name of the genetic map as referenced in /genetic/ READMEs, e.g. "GmComposite2003" or "BAT93_x_JALOEEP558_c".
 
-In general, linkage group names are formed from *genetic_map* and *LGname* such as "GmComposite2003_N" or "BAT93_x_JALOEEP558_c-phavu.ChrLG01".
+In general, full linkage group names are formed from *genetic_map* and a short name such as "GmComposite2003_N" or "BAT93_x_JALOEEP558_c-phavu.ChrLG01".
 
 Also, biparental crosses take a single genotype array entry, e.g.
 ```
