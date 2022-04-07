@@ -22,6 +22,7 @@ Linkage groups are defined by two columns in the lg.tsv file:
 
 1. linkage group identifier
 2. length (cM)
+3. chromosome number (optional)
 
 Examples:
 
@@ -45,12 +46,12 @@ MAGIC-2017_3    132.6856
 
 `glyma.mixed.map.GmComposite2003.lg.tsv`
 ```
-#linkage_group      length
-GmComposite2003_A1  102.30
-GmComposite2003_A2  165.72
-GmComposite2003_B1  131.81
-GmComposite2003_B2  120.98
-GmComposite2003_C1  135.62
-GmComposite2003_C2  157.89
+#linkage_group      length  chromosome
+GmComposite2003_A1  102.30  5
+GmComposite2003_A2  165.72  8
+GmComposite2003_B1  131.81  11
+GmComposite2003_B2  120.98  14
+GmComposite2003_C1  135.62  4
+GmComposite2003_C2  157.89  6
 ...
 ```
