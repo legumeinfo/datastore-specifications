@@ -11,6 +11,11 @@ Filename:
 
 *Mapname* may be used rather than *Author1_Author2_year* to expose the name of a widely-used consensus map, such as "GmComposite2003".
 
+Header (required):
+```
+#marker linkage_group position
+```
+
 Examples:
 ```
 phavu.BAT93_x_JALOEEP558.map.Blair_Cortés_2018.mrk.tsv
