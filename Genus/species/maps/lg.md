@@ -24,6 +24,11 @@ Linkage groups are defined by two columns in the lg.tsv file:
 2. length (cM)
 3. chromosome number (optional)
 
+Header (required):
+```
+#linkage_group  length  chromosome_number (if supplied)
+```
+
 Examples:
 
 `phavu.BAT93_x_JALOEEP558.map.Blair_Cortés_2018.lg.tsv`
@@ -46,7 +51,7 @@ MAGIC-2017_3    132.6856
 
 `glyma.mixed.map.GmComposite2003.lg.tsv`
 ```
-#linkage_group      length  chromosome
+#linkage_group      length  chromosome_number
 GmComposite2003_A1  102.30  5
 GmComposite2003_A2  165.72  8
 GmComposite2003_B1  131.81  11
