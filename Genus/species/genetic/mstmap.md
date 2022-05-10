@@ -1,5 +1,5 @@
 ## MST map file (mstmap.tsv)
-Filename: *gensp.population*.gt.*Author1_Author2_year*.mstmap.tsv
+Filename: *gensp.population*.mst.*Author1_Author2_year*.mstmap.tsv
 
 Note: Genotyping files like these have .gt. rather than .gen. in their names.
 
