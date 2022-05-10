@@ -6,12 +6,14 @@ For example, no genomic information is provided for genetic markers: positions o
 Directory name:
 *population*.gen.*Author1_Author2_year*
 *population*.gwas.*Author1_Author2_year*
-
+*population*.mst.*Author1_Author2_year*
 
 *population*:
 - the name of a biparental cross, e.g. `CB27_x_IT82E-18`
 - the name of a RIL population, e.g. `MAGIC-2017`
 - `mixed` if an assortment of lines that doesn't have a particular name
+
+Note: if a collection contains QTLs as well as GWAS or MSTmap data, use the .gen. tag in the collection and file names.
 
 Examples:
 
@@ -23,12 +25,18 @@ QTL study:
 ├── vigun.MAGIC-2017.gen.Huynh_Ehlers_2018.qtlmrk.tsv
 └── vigun.MAGIC-2017.gen.Huynh_Ehlers_2018.qtl.tsv
 
-GWAS:
+GWAS only:
 /Arachis/hypogaea/genetic/NAMFlor7.gwas.Gangurde_Wang_2020/
 ├── arahy.NAMFlor7.gwas.Gangurde_Wang_2020.obo.tsv
 ├── arahy.NAMFlor7.gwas.Gangurde_Wang_2020.result.tsv
 ├── arahy.NAMFlor7.gwas.Gangurde_Wang_2020.trait.tsv
 └── README.NAMFlor7.gwas.Gangurde_Wang_2020
+
+MSTmap only:
+/Vigna/unguiculata/genetic/IT84S-2246-4_x_TVu-14676.mst.Pottorff_Roberts_2014
+├── CHANGES.IT84S-2246-4_x_TVu-14676.mst.Pottorff_Roberts_2014.txt
+├── README.IT84S-2246-4_x_TVu-14676.mst.Pottorff_Roberts_2014.yml
+└── vigun.IT84S-2246-4_x_TVu-14676.mst.Pottorff_Roberts_2014.mstmap.tsv
 ```
 
 ## README
