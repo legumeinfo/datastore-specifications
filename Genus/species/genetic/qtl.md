@@ -1,12 +1,12 @@
 # QTL file (qtl.tsv)
 Filename: *gensp.population*.gen.*Author1_Author2_year*.qtl.tsv
 
-The QTL file relates specific QTL identifiers to traits and linkage group placement along with some other optional data:
+The QTL file places specific QTL identifiers and their traits on linkage groups with some other optional data:
 1. **QTL identifier**
 2. **trait name**
-3. linkage group
-4. start (cM)
-5. end (cM)
+3. **linkage group**
+4. **start (cM)**
+5. **end (cM)**
 6. peak (cM)
 7. favored allele source
 8. LOD
@@ -19,9 +19,6 @@ Header (required):
 ```
 #qtl_identifier trait_name  linkage_group start end [peak favored_allele_source lod likelihood_ratio  marker_r2 total_r2  additivity]
 ```
-Sometimes a QTL is only associated with markers in the qtlmrk.tsv file and with traits in the qtl.tsv file but there are no linkage groups.
-That is why linkage group, start, end are not required. HOWEVER if linkage group IS provided, then start and end are also required.
-
 Example:
 ```
 Early leaf spot 1-1 Early leaf spot TT_Tifrunner_x_GT-C20_c-A08 100.7 102.9 102  3.02  12.42 0.56
