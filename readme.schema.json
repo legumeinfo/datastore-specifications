@@ -6,7 +6,7 @@
         "identifier": {
             "description": "Name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted.",
             "type": "string",
-            "pattern": "\\.[a-zA-Z0-9]+\\."
+            "pattern": "\\.[a-zA-Z0-9_]+\\."
         },
         "description": {
             "description": "Long description of this collection.",
@@ -138,7 +138,11 @@
         "geoseries": {
             "description": "NCBI GeoSeries accession.",
             "type": ["string", "null"]
-        }
+        },
+	"genetic_map": {
+	  "description": "Name of genetic map, typically the prefix of linkage groups.",
+	  "type": ["string", "null"]
+	}
     },
     "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev" ],
     "additionalProperties": false
