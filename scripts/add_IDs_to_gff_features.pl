@@ -40,7 +40,7 @@ while (<>) {
         }
         my $type = $data[2];
         my $count = ++$count_by_type->{$type};
-	my $new_id = "$parent-$type-$count";
+        my $new_id = (defined $parent ? "$parent-" : "") . "$type-$count";
         if ($attrs{ID}) {
             $attrs =~ s/\bID=([^;]*);?//;
 	    print STDERR "$1\t$new_id\n";
