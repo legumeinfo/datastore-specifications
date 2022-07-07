@@ -40,6 +40,7 @@ while (<>) {
         }
         my $type = $data[2];
         my $count = ++$count_by_type->{$type};
+        #FIXME: if parent is not defined we need to get full yuck prefixing by another means; probably just needs the user to specify it explicitly, unless we want to try finessing it from somewhere else in the file or name (seems dangerous and/or would preclude piping to STDIN)
         my $new_id = (defined $parent ? "$parent-" : "") . "$type-$count";
         if ($attrs{ID}) {
             $attrs =~ s/\bID=([^;]*);?//;
