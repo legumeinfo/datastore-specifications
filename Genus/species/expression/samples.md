@@ -20,7 +20,7 @@ Samples are provided in a multicolumn tab-delimited data file. Only the first tw
 
 Header:
 ```
-#sample_name  #sample_id  [sample_uniquename  sample_description  treatment tissue  development_stage age organism  infraspecies  cultivar  application sra_run biosample_accession sra_accession bioproject_accession  sra_study]
+#sample_name  sample_id  [sample_uniquename  sample_description  treatment tissue  development_stage age organism  infraspecies  cultivar  application sra_run biosample_accession sra_accession bioproject_accession  sra_study]
 ```
 
 Example:
