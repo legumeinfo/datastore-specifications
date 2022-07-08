@@ -21,9 +21,9 @@ IT97K-499-35.gnm1.syn.W3NY
 ```
 GFF3 records have the following format:
 
-_gensp1.Strain1.gnm1.chr1_ DAGchainer syntenic\_region _start1_ _end1_ _score_ _strand_ Name=_gensp2.Strain2.gnm2.chr2_;matches=_gensp2.Strain2.gnm2.chr2_:start2..end2;median_Ks=_float_
+_gensp1.Strain1.gnm1.chr1_ DAGchainer syntenic\_region _start1_ _end1_ _score_ _strand_ Name=_gensp2.Strain2.gnm2.chr2_;matches=_gensp2.Strain2.gnm2.chr2_:_start2_.._end2_;median_Ks=_float_
 
 Example:
 ```
-vigun.IT97K-499-35.gnm1.Vu01 DAGchainer syntenic\_region 64390 1882809 4545.0 - . Name=glyma.Wm82.gnm2.Gm06;matches=glyma.Wm82.gnm2.Gm06:49767515..51299643;median_Ks=0.3641
+vigun.IT97K-499-35.gnm1.Vu01 DAGchainer syntenic_region 64390 1882809 4545.0 - . Name=glyma.Wm82.gnm2.Gm06;matches=glyma.Wm82.gnm2.Gm06:49767515..51299643;median_Ks=0.3641
 ```
