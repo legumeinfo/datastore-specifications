@@ -1,0 +1,35 @@
+#!/usr/bin/env perl
+use strict;
+my $id_map_file = shift;
+open(IM, $id_map_file) || die $!;
+my %id_map = map {chomp; split /\t/;} <IM>;
+close IM;
+while (<>) {
+	if (/^#/) {
+		print;
+		next;
+	}
+    chomp;
+	my @data = split /\t/;
+	my ($id) = ($data[8] =~ /ID=([^;]+)/);
+	if (defined $id) {
+		my $new_id = $id_map{$id}; 
+		if (defined $new_id) {
+			$data[8] =~ s/ID=$id/ID=$new_id/;
+		}
+		else {
+			warn "could not find $id\n";
+		}
+	}
+	my ($id) = ($data[8] =~ /Parent=([^;]+)/);
+	if (defined $id) {
+		my $new_id = $id_map{$id}; 
+		if (defined $new_id) {
+			$data[8] =~ s/Parent=$id/Parent=$new_id/;
+		}
+		else {
+			warn "could not find $id\n" unless defined $new_id;
+		}
+	}
+	print join("\t", @data), "\n";;
+}
