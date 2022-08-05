@@ -1,31 +1,25 @@
 # Samples file
-Samples are provided in a multicolumn tab-delimited data file. Only the first two columns are required.
-1. **sample name** (human-readable like Root Tip)
-2. **sample identifier** (typically a BioProject accession like SRR1569474)
-3. sample uniquename
-4. sample description
-5. treatment
-6. tissue
-7. development stage
-8. age
-9. organism (*Genus species*)
-10. infraspecies
-11. cultivar
-12. application
-13. sra_run
-14. biosample_accession
-15. sra_accession
-16. bioproject_accession
-17. sra_study
+Samples are provided in a multicolumn tab-delimited data file. Label each replicate_group if the experiment contains replicates.
+1. **identifier** e.g. SAMN02226091 (anything unique, could also be a GEO sample, for example)
+2. **name** e.g. Leaf_Young
+3. **description** e.g. Fully expanded 2nd trifoliate leaf tissue from plants provided with fertilizer
+4. **treatment** e.g. Normal growing conditions
+5. **tissue** e.g. leaf
+6. **development_stage** e.g. V2 - second trifoliate
+7. **species** e.g. Phaseolus vulgaris
+8. **genotype** e.g. G19833
+9. replicate_group e.g. 1A, leave blank if no reps
+10. biosample e.g. SAMN02226068
+11. sra_experiment e.g. SRX695793
 
 Header:
 ```
-#sample_name  #sample_id  [sample_uniquename  sample_description  treatment tissue  development_stage age organism  infraspecies  cultivar  application sra_run biosample_accession sra_accession bioproject_accession  sra_study]
+#identifier  name  description  treatment  tissue  development_stage  species  genotype  replicate_group  biosample  sra_experiment
 ```
 
 Example:
 ```
-#sample_name  sample_id sample_uniquename sample_description  treatment tissue  development_stage age organism  infraspecies  cultivar  application sra_run biosample_accession sra_accession bioproject_accession  sra_study
-Leaf Young    SRR1569274	Leaf Young (SRR1569274)	YL: Fully expanded 2nd trifoliate leaf tissue from plants provided with fertilizer	Leaf Young	Leaf Young			Phaseolus vulgarisNegro jamapa	Nitrate fertilizer	SRR1569274	SAMN02226068	SRS696906	PRJNA210619	SRP046307
-Leaf 21 DAI	SRR1569385	Leaf 21 DAI (SRR1569385)	LF:  Leaf tissue from fertilized plants collected at the same time of LE and LI(not included in this dataset)	Leaf 21 DAI	Leaf 21 DAI		Phaseolus vulgaris		Negro jamapa	Nitrate fertilizer	SRR1569385	SAMN02226070	SRS696939	PRJNA210619	SRP046307
+#identifier  name    description                                                                     treatment   tissue  development_stage  species             genotype     replicate_group  biosample     sra_experiment
+SRR1569274   YL      Fully expanded 2nd trifoliate leaf tissue from plants provided with fertilizer  fertilized  leaf    2nd trifoliate     Phaseolus vulgaris  Negro jamapa                  SAMN02226068  SRX695793
+SRR1569385   LF21DAI Leaf tissue from fertilized plants collected 21 days after implantation         fertilized  leaf    21 DAI             Phaseolus vulgaris  Negro jamapa                  SAMN02226070  SRX695830
 ```
