@@ -15,7 +15,8 @@ while (<>) {
 	if (defined $id) {
 		my $new_id = $id_map{$id}; 
 		if (defined $new_id) {
-			$data[8] =~ s/ID=$id/ID=$new_id/;
+            #escape problematic chars for regex
+			$data[8] =~ s/ID=\Q$id\E/ID=$new_id/;
 		}
 		else {
 			warn "could not find $id\n";
@@ -25,7 +26,7 @@ while (<>) {
 	if (defined $id) {
 		my $new_id = $id_map{$id}; 
 		if (defined $new_id) {
-			$data[8] =~ s/Parent=$id/Parent=$new_id/;
+			$data[8] =~ s/Parent=\Q$id\E/Parent=$new_id/;
 		}
 		else {
 			warn "could not find $id\n" unless defined $new_id;
