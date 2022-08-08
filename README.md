@@ -37,6 +37,22 @@ READMEs must be YAML-compliant, which means they pass the test on http://www.yam
 - **READMEs may share content.** For example, the README with a genome assembly (under /genomes/) often contains the same publication as the README
 with annotations (under /annotations/). _Those publications must match exactly._ Otherwise, the mine loader will error out with an error like "Conflicting values for field Publication.title between Zh13.gnm2.LV9P (value "Update soybean Zhonghuang 13 genome to a golden reference. Sci China" in database with ID 99000176) and Zh13.gnm2.ann1.FJ3G.cds (value "Update soybean Zhonghuang 13 genome to a golden reference" being stored)."
 
+## MANIFEST files
+A directory may contain a MANIFEST.*collection*.correspondence.yml file which lists the current filenames and prior filenames:
+```
+---
+# filename in this repository: previous names
+glyma.Wm82.gnm2.DTC4.genome_hardmasked.fna.gz: Gmax_275_v2.0.hardmasked.fa.gz
+glyma.Wm82.gnm2.DTC4.genome_softmasked.fna.gz: Gmax_275_v2.0.softmasked.fa.gz
+```
+... and also a MANIFEST.*collection*.descriptions.yml file which briefly describes the files:
+```
+---
+# filename in this repository: description
+glyma.Wm82.gnm2.DTC4.hardmasked.fna.gz: Genome assembly: masked with 'N's
+glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
+```
+
 ## CHANGES files
 A directory may contain a CHANGES.*collection*.txt file which lists file transformations and changes. For example:
 
