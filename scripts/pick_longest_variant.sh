@@ -42,7 +42,7 @@ top_line() {
 
 # Reassemble fasta
 table_to_fasta() {
-  awk -v OFS="" '{print ">" $1 $2 "\n" $4}' |
+  awk -v OFS="" '{print ">" $1 "." $2 "\n" $4}' |
   fold -w100
 }
 
