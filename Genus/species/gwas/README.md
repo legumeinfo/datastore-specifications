@@ -1,6 +1,6 @@
 # gwas
 
-A /gwas/ directory contains data from a particular GWAS, reference to a genome assembly.
+A /gwas/ directory contains data from a particular GWAS, without reference to a genome assembly.
 For example, no *genomic* information is provided for genetic markers: positions on chromosomes are provided elsewhere in GFFs under /markers/.
 
 Directory name:
