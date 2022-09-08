@@ -1,8 +1,6 @@
 ## MST map file (mstmap.tsv)
 Filename: *gensp.population*.mst.*Author1_Author2_year*.mstmap.tsv
 
-Note: Genotyping files like these have .gt. rather than .gen. in their names.
-
 An MST map file is a matrix file containing genotyping data, originating at UC-Riverside: http://alumni.cs.ucr.edu/~yonghui/mstmap.html
 
 It is similar to a VCF, but it does not provide genomic locations for the markers. Columns are plant lines, with the first row providing a name; 
