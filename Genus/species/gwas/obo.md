@@ -1,5 +1,5 @@
 # OBO file (obo.tsv)
-Filename: *gensp.population*.gen.*Author1_Author2_year*.obo.tsv
+Filename: *gensp.population*.gwas.*Author1_Author2_year*.obo.tsv
 
 The OBO file relates traits to ontology terms.
 1. trait_name -- a common name for a trait, e.g. "Early leaf spot"

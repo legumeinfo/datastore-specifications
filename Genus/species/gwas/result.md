@@ -1,9 +1,7 @@
 ## GWAS result file (result.tsv)
 Filename: *gensp.population*.gwas.*Author1_Author2_year*.result.tsv
 
-Note 1: GWAS results and other files from a GWAS are placed in a .gwas. collection/directory, not a .gen. collection/directory.
-
-Note 2: GWAS results are associated with traits, not QTLs. (GWAS do not determine QTLs, they determine individual marker-trait associations with associated significance.)
+Note: GWAS results are associated with traits, not QTLs. (GWAS do not determine QTLs, they determine individual marker-trait associations with associated significance.)
 
 GWAS results are presented in a result.tsv file with three columns, all required:
 1. **trait name** e.g. Seed weight
