@@ -13,12 +13,12 @@ is a QTL-specific attribute so it appears here.
 
 Header (required):
 ```
-#qtl_identifier trait_name  marker  linkage_group [distinction]
+#qtl_identifier  trait_name  marker_identifier  [marker_distinction]
 ```
 
 Example:
 ```
-Seed protein 21-11      Seed protein    flanking
-Seed yield 15-15        Seed yield      flanking
-Pod maturity 16-1       Pod maturity    peak
+Seed protein 21-11      Seed protein    ABCD123  flanking
+Seed yield 15-15        Seed yield      BCDE234  flanking
+Pod maturity 16-1       Pod maturity    CDEF345  peak
 ```
