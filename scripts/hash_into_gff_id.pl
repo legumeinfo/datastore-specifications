@@ -5,9 +5,10 @@ use warnings;
 use Getopt::Long;
 
 my $usage = <<EOS;
-  Synopsis: hash_into_gff_id.pl [options] -gff FILE 
+  Synopsis: gzcat GFF_FILE.gff3.gz | hash_into_gff_id.pl [options] -seqid_hash
+       OR     hash_into_gff_id.pl [options] -seqid_hash < GFF_FILE.gff3
   
-  Read a key-value hash file and a GFF file. 
+  Read a key-value hash file, and a GFF file from STDIN. 
   Swap the feature (gene) IDs with the values from a gene hash file, if provided.
   Swap the seqIDs (column 1) with the values from a seqid hash file, if provided.
   Optionally, exclude records for features in a provided list of feature IDs.
@@ -16,10 +17,11 @@ my $usage = <<EOS;
   non-sorted GFF. Patch the GFF first, e.g. with agat_convert_sp_gxf2gxf.pl
   
   Required:
-    -gff         (string) GFF filename
+    GFF file in stream via STDIN
+    -seqid_hash  (string) Key-value hash filename, where first column has seqIDs from GFF file.
+
   Options:
     -gene_hash   (string) Key-value hash filename, where first column has gene IDs from GFF file.
-    -seqid_hash  (string) Key-value hash filename, where first column has seqIDs from GFF file.
     -suppress    (string) File with list of components (mRNAs, CDSs, exons) or genes to exclude.
                    To exclude a component, use a splice suffix (GENE_A.1). To also
                    exclude a gene record, use the bare gene name (GENE_A)
@@ -27,18 +29,17 @@ my $usage = <<EOS;
     -help        (boolean) This message.
 EOS
 
-my ($gff_file, $gene_hash, $seqid_hash, $suppress, $out_file, $help);
+my ($gene_hash, $seqid_hash, $suppress, $out_file, $help);
 
 GetOptions (
-  "gff_file=s" =>    \$gff_file,    # required
-  "gene_hash:s" =>   \$gene_hash,   
+  "gene_hash=s" =>   \$gene_hash,   # required
   "seqid_hash:s" =>  \$seqid_hash,  
   "out_file:s" =>    \$out_file,   
   "suppress:s" =>    \$suppress,   
   "help" =>          \$help,
 );
 
-die "$usage" unless (defined($gff_file));
+die "$usage" unless (defined($gene_hash));
 die "$usage" if ($help);
 
 # Read in hash of gene IDs
@@ -88,8 +89,7 @@ if ($out_file){
 my $comment_string = "";
 my $printed_comment_flag=0;
 my ($gene_name, $new_gene_id);
-open(my $GFF, '<', $gff_file) or die "can't open in gff_file, $gff_file: $!";
-while (<$GFF>) {
+while (<STDIN>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
   
@@ -117,7 +117,7 @@ while (<$GFF>) {
       if ($gene_hash) {
         $new_gene_id = $gene_hash{$gene_name};
       }
-      #print "GENE:$gene_name\t";
+      #print "GENE:$gene_name\t$new_gene_id\t";
       #print "[$col9]\n";
       if ( $suppress_hsh{$gene_name} ) { 
         # skip; do nothing
@@ -200,6 +200,7 @@ v04 2018-09-17 Handle features with multiple parents (an exon or CDS can be a pa
      Also take in a list of features to suppress (genes and/or splice variants)
 v05 2022-08-11 Add option to swap seqIDs (col 1) with a provided hash. 
      Also handle GFFs with CRLF line returns.
+v06 2022-10-04 Take GFF in via STDIN, to allow streaming from zipped file
 
 Tests:
 test2.gff3
