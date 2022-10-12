@@ -292,28 +292,4 @@ for my $fr_to_hsh (@{$confobj->{from_to_genome}}){
   system("hash_into_fasta_id.pl $ARGS");
 }
 
-__END__
-
-ANNCOLL=/usr/local/www/data/private/Glycine/max/GmaxWm82ISU_01/annotations/Wm82_ISU01.gnm2.ann1.FGFB
-GENE_HASH_PATH=$ANNCOLL/glyma.Wm82_ISU01.gnm2.ann1.FGFB.gene_name_hash.tsv
-
-GNMCOLL=/usr/local/www/data/private/Glycine/max/GmaxWm82ISU_01/genomes/Wm82_ISU01.gnm2.JFPQ
-CHR_HASH_PATH=$GNMCOLL/glyma.Wm82_ISU01.gnm2.JFPQ.chr_name_hash.tsv
-
-# Use existing chromosome and gene ID hashes:
-./prep_genomic_collection.pl -chr_hash $CHR_HASH_PATH -gene_hash $GENE_HASH_PATH -config config_glyma*.yml
-
-# Calculate chromosome and gene ID hashes (slow):
-./prep_genomic_collection.pl -config config_glyma*.yml
-
-
-# Test gene hashing
-WD="/usr/local/www/data/private/Glycine/max/GmaxWm82ISU_01"
-ANNCOLL=/usr/local/www/data/private/Glycine/max/GmaxWm82ISU_01/annotations/Wm82_ISU01.gnm2.ann1.FGFB
-GENE_HASH_PATH=$ANNCOLL/glyma.Wm82_ISU01.gnm2.ann1.FGFB.gene_name_hash.tsv
-OUT="$WD/annotations/Wm82_ISU01.gnm2.ann1.FGFB/glyma.Wm82_ISU01.gnm2.ann1.FGFB.cds.fna"
-FASTA="/usr/local/www/data/private/Glycine/max/GmaxWm82ISU_01/v2.1/annotation/GmaxWm82ISU_01_724_v2.1.cds.fa.gz"
-
-hash_into_fasta_id.pl -hash $GENE_HASH_PATH -fasta $FASTA -splice "\.\d+$" -nodef -out $OUT
-
 
