@@ -3,7 +3,6 @@
 use strict;
 use warnings;
 use Getopt::Long;
-use IO::Zlib;
 
 my $usage = <<EOS;
  Synopsis: hash_into_fasta_id.pl [options] -hash FILE -fasta FILE
@@ -70,8 +69,7 @@ while (<$HSH>) {
 # Read in the sequence 
 my ($FASTA_FH, $OUT_FH);
 if ( $fasta_file =~ /gz$/ ){
-  $FASTA_FH = new IO::Zlib;
-  $FASTA_FH->open($fasta_file, "rb");
+  open( $FASTA_FH, "gzcat $fasta_file|" ) or die "Can't do gzcat $fasta_file| : $!";
 }
 else {
   open ( $FASTA_FH, "<", $fasta_file ) or die "Can't open in $fasta_file: $!\n";

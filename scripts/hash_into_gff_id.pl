@@ -3,7 +3,6 @@
 use strict;
 use warnings;
 use Getopt::Long;
-use IO::Zlib;
 use feature "say";
 
 my $usage = <<EOS;
@@ -105,8 +104,7 @@ else {
 # Read in the GFF;
 my $GFF_FH;
 if ( $gff_file =~ /gz$/ ) {
-  $GFF_FH = new IO::Zlib;
-  $GFF_FH->open($gff_file, "rb");
+  open ($GFF_FH, "gzcat $gff_file|") or die "Can't do gzcat $gff_file|: $!";
 }
 else {
   open ( $GFF_FH, "<", $gff_file ) or die "Can't open in $gff_file: $!\n";
