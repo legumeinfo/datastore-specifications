@@ -9,7 +9,7 @@ use File::Basename;
 use feature "say";
 
 my $usage = <<EOS;
-  Synopsis: prep_genomic_collection.pl -config CONFIG.yml
+  Synopsis: ds_souschef_genomic.pl -config CONFIG.yml
 
   This script uses information in a yaml-format config file to prepare data store 
   collections for genomic data, comprising genome assemblies and/or gene annotations. 
@@ -218,78 +218,67 @@ print $ANN_MAN_DESCR_FH "$to_name_base.gz: Hash file of old/new gene IDs\n";
 ##################################################
 say "\n== Processing the gene nucleotide files (CDS, mRNA) ==";
 for my $fr_to_hsh (@{$confobj->{from_to_cds_mrna}}){ 
-  my $SEQ_FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
-  my $SEQ_TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
-  say "Converting from to:";
-  say "  $SEQ_FROM_FILE";
-  say "  $SEQ_TO_FILE";
-  my $to_name_base = basename($SEQ_TO_FILE);
-  my $from_name_base = basename($SEQ_FROM_FILE);
-  print $ANN_MAN_CORR_FH "$to_name_base.gz: $from_name_base\n";
-  print $ANN_MAN_DESCR_FH "$to_name_base.gz: $fr_to_hsh->{description}\n";
+  my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
+  my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+  say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
+  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
   my $SPLICE_RX = $fr_to_hsh->{splice};
   $SPLICE_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
   say "  SPLICE REGEX: \"$SPLICE_RX\"";
-  my $ARGS = "-hash $GENE_HASH -fasta $SEQ_FROM_FILE -splice \"$SPLICE_RX\" -nodef -out $SEQ_TO_FILE";
-  #say "hash_into_fasta_id.pl $ARGS\n";
+  my $ARGS = "-hash $GENE_HASH -fasta $FROM_FILE -splice \"$SPLICE_RX\" -nodef -out $TO_FILE";
   system("hash_into_fasta_id.pl $ARGS");
 }
 
 ##################################################
 say "\n== Processing the protein sequence files ==";
 for my $fr_to_hsh (@{$confobj->{from_to_protein}}){ 
-  my $SEQ_FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
-  my $SEQ_TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
-  say "Converting from to:";
-  say "  $SEQ_FROM_FILE";
-  say "  $SEQ_TO_FILE";
-  my $to_name_base = basename($SEQ_TO_FILE);
-  my $from_name_base = basename($SEQ_FROM_FILE);
-  print $ANN_MAN_CORR_FH "$to_name_base.gz: $from_name_base\n";
-  print $ANN_MAN_DESCR_FH "$to_name_base.gz: $fr_to_hsh->{description}\n";
+  my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
+  my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+  say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
+  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
   my $SPLICE_RX = $fr_to_hsh->{splice};
   $SPLICE_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
   my $STRIP_RX = $fr_to_hsh->{strip};
   $STRIP_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
   say "  SPLICE REGEX: \"$SPLICE_RX\"";
   say "  STRIP REGEX: \"$STRIP_RX\"";
-  my $ARGS = "-hash $GENE_HASH -fasta $SEQ_FROM_FILE -splice \"$SPLICE_RX\" -strip \"$STRIP_RX\" -nodef -out $SEQ_TO_FILE";
+  my $ARGS = "-hash $GENE_HASH -fasta $FROM_FILE -splice \"$SPLICE_RX\" -strip \"$STRIP_RX\" -nodef -out $TO_FILE";
   system("hash_into_fasta_id.pl $ARGS");
 }
 
 ##################################################
 say "\n== Processing the GFF files ==";
 for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ 
-  my $GFF_FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
-  my $GFF_TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
-  say "Converting from to:";
-  say "  $GFF_FROM_FILE";
-  say "  $GFF_TO_FILE";
-  my $to_name_base = basename($GFF_TO_FILE);
-  my $from_name_base = basename($GFF_FROM_FILE);
-  print $ANN_MAN_CORR_FH "$to_name_base.gz: $from_name_base\n";
-  print $ANN_MAN_DESCR_FH "$to_name_base.gz: $fr_to_hsh->{description}\n";
+  my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
+  my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+  say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
+  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
   my $STRIP_RX = $fr_to_hsh->{strip};
   $STRIP_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
   say "  STRIP REGEX: \"$STRIP_RX\"";
-  my $ARGS = "-gff $GFF_FROM_FILE -gene_hash $GENE_HASH -seqid_hash $CHR_HASH -strip \"$STRIP_RX\" -sort -out $GFF_TO_FILE";
+  my $ARGS = "-gff $FROM_FILE -gene_hash $GENE_HASH -seqid_hash $CHR_HASH -strip \"$STRIP_RX\" -sort -out $TO_FILE";
   system("hash_into_gff_id.pl $ARGS");
 }
 
 ##################################################
 say "\n== Processing the genome assembly files ==";
 for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
-  my $GNM_FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
-  my $GNM_TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
-  say "Converting from to:";
-  say "  $GNM_FROM_FILE";
-  say "  $GNM_TO_FILE";
-  my $to_name_base = basename($GNM_TO_FILE);
-  my $from_name_base = basename($GNM_FROM_FILE);
-  print $GNM_MAN_CORR_FH "$to_name_base.gz: $from_name_base\n";
-  print $GNM_MAN_DESCR_FH "$to_name_base.gz: $fr_to_hsh->{description}\n";
-  my $ARGS = "-hash $CHR_HASH -fasta $GNM_FROM_FILE -nodef -out $GNM_TO_FILE";
+  my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
+  my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+  say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
+  &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR_FH, $GNM_MAN_DESCR_FH, $fr_to_hsh->{description});
+  my $ARGS = "-hash $CHR_HASH -fasta $FROM_FILE -nodef -out $TO_FILE";
   system("hash_into_fasta_id.pl $ARGS");
 }
 
+##################################################
+# Subroutines
+
+sub write_manifests {
+  my ($TO_FILE, $FROM_FILE, $CORR_FH, $DESCR_FH, $description) = @_;
+  my $to_name_base = basename($TO_FILE);
+  my $from_name_base = basename($FROM_FILE);
+  print $CORR_FH "$to_name_base.gz: $from_name_base\n";
+  print $DESCR_FH "$to_name_base.gz: $description\n";
+}
 
