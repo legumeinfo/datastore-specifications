@@ -14,8 +14,7 @@ my $usage = <<EOS;
   This script uses information in a yaml-format config file to prepare data store 
   collections for genomic data, comprising genome assemblies and/or gene annotations. 
   The script also writes the associated metadata for the collections, including 
-  the README and MANIFEST files. Not all fields are populated in the README, however. 
-  So, check and manually edit the README files to complete them. 
+  the README and MANIFEST files. Check that all fields have been populated in the README.
 
   Required:
     -config  yaml-format file with information for the metadata and the file conversions.
@@ -66,11 +65,12 @@ my %readme_hsh;
 for (keys %{$confobj->{readme_info}}){ $readme_hsh{$_} = $confobj->{readme_info}->{$_} }
 
 # Make some variables for prefixes, for convenience
-my $GNMCOL = "$coll_hsh{accession}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
-my $ANNCOL = "$coll_hsh{accession}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
+my $GNMCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
+my $ANNCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
 my $GENSP = $coll_hsh{gensp};
-my $TO_GNM_PREFIX = "$GENSP.$coll_hsh{accession}.$coll_hsh{gnm_ver}";
-my $TO_ANN_PREFIX = "$GENSP.$coll_hsh{accession}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
+my $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
+my $TO_GNM_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}";
+my $TO_ANN_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
 
 # Make collection directories
 my $WD = "$dir_hsh{work_dir}";
@@ -105,6 +105,37 @@ print $ANN_README_FH "---\n";
 print $ANN_MAN_DESCR_FH "---\n# filename in this repository: description\n";
 print $GNM_MAN_DESCR_FH "---\n# filename in this repository: description\n";
 print $GNM_README_FH "---\n";
+
+
+##################################################
+# Write README files
+my @gnm_readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
+       genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
+       local_file_creation_date dataset_release_date publication_doi publication_title 
+       contributors citation data_curators public_access_level license keywords);
+
+$readme_hsh{scientific_name} = $scientific_name;
+$readme_hsh{genotype} = "\n  - $coll_hsh{genotype}";
+$readme_hsh{scientific_name_abbrev} = $GENSP;
+
+# Assembly README
+$readme_hsh{identifier} = $GNMCOL;
+$readme_hsh{synopsis} = $readme_hsh{synopsis_genome};
+$readme_hsh{description} = $readme_hsh{description_genome};
+$readme_hsh{dataset_doi} = $readme_hsh{dataset_doi_genome};
+for my $key (@gnm_readme_keys){
+  say $GNM_README_FH "$key: $readme_hsh{$key}\n"
+}
+
+print "\n";
+# Annotation README
+$readme_hsh{identifier} = $ANNCOL;
+$readme_hsh{synopsis} = $readme_hsh{synopsis_annot};
+$readme_hsh{description} = $readme_hsh{description_annot};
+$readme_hsh{dataset_doi} = $readme_hsh{dataset_doi_annot};
+for my $key (@gnm_readme_keys){
+  say $ANN_README_FH "$key: $readme_hsh{$key}\n"
+}
 
 ##################################################
 say "\n== Copying over \"as-is\" annotation information files, if present, unchanged ==";
@@ -273,7 +304,6 @@ for my $fr_to_hsh (@{$confobj->{from_to_genome}}){
 
 ##################################################
 # Subroutines
-
 sub write_manifests {
   my ($TO_FILE, $FROM_FILE, $CORR_FH, $DESCR_FH, $description) = @_;
   my $to_name_base = basename($TO_FILE);
