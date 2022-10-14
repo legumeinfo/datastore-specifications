@@ -27,6 +27,7 @@ my $usage = <<EOS;
 EOS
 
 my ($config, $chr_hash, $gene_hash, $help); 
+# my ($do_readme, $do_as-is, $do_cds_mrna, $do_protein, $do_gff, $do_assembly, do_all);
 
 GetOptions (
   "config=s" =>    \$config,  # required
@@ -81,7 +82,8 @@ my $GNMDIR = "$WD/genomes/$GNMCOL";
 unless (-d "$WD/genomes") {mkdir "$WD/genomes" or die "Can't make directory $WD/genomes: $!\n"}
 unless (-d $GNMDIR) {mkdir $GNMDIR or die "Can't make directory $GNMDIR: $!\n"}
 
-# Make metadata files
+##################################################
+say "\n== Creating metadata files ==";
 my $ANN_MAN_CORR = "$ANNDIR/MANIFEST.$ANNCOL.correspondence.yml";
 my $ANN_MAN_DESCR = "$ANNDIR/MANIFEST.$ANNCOL.descriptions.yml";
 my $ANN_README = "$ANNDIR/README.$ANNCOL.yml";
@@ -106,10 +108,9 @@ print $ANN_MAN_DESCR_FH "---\n# filename in this repository: description\n";
 print $GNM_MAN_DESCR_FH "---\n# filename in this repository: description\n";
 print $GNM_README_FH "---\n";
 
-
 ##################################################
-# Write README files
-my @gnm_readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
+say "\n== Writing README files ==";
+my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
        genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
        local_file_creation_date dataset_release_date publication_doi publication_title 
        contributors citation data_curators public_access_level license keywords);
@@ -122,19 +123,30 @@ $readme_hsh{scientific_name_abbrev} = $GENSP;
 $readme_hsh{identifier} = $GNMCOL;
 $readme_hsh{synopsis} = $readme_hsh{synopsis_genome};
 $readme_hsh{description} = $readme_hsh{description_genome};
-$readme_hsh{dataset_doi} = $readme_hsh{dataset_doi_genome};
-for my $key (@gnm_readme_keys){
-  say $GNM_README_FH "$key: $readme_hsh{$key}\n"
+if ($readme_hsh{dataset_doi_genome}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi_genome}\""}
+else {$readme_hsh{dataset_doi} = ""}
+for my $key (@readme_keys){
+  if ($key =~ /provenance|source|description|synopsis|title|citation|date/){ # wrap in quotes
+    say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n"
+  }
+  else { # presume no quotes needed
+    say $GNM_README_FH "$key: $readme_hsh{$key}\n"
+  }
 }
 
-print "\n";
 # Annotation README
 $readme_hsh{identifier} = $ANNCOL;
 $readme_hsh{synopsis} = $readme_hsh{synopsis_annot};
 $readme_hsh{description} = $readme_hsh{description_annot};
-$readme_hsh{dataset_doi} = $readme_hsh{dataset_doi_annot};
-for my $key (@gnm_readme_keys){
-  say $ANN_README_FH "$key: $readme_hsh{$key}\n"
+if ($readme_hsh{dataset_doi_annot}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi_annot}\""}
+else {$readme_hsh{dataset_doi} = ""}
+for my $key (@readme_keys){
+  if ($key =~ /provenance|source|description|synopsis|title|citation|date/){ # wrap in quotes
+    say $ANN_README_FH "$key: \"$readme_hsh{$key}\"\n"
+  }
+  else { # presume no quotes needed
+    say $ANN_README_FH "$key: $readme_hsh{$key}\n"
+  }
 }
 
 ##################################################
@@ -164,7 +176,6 @@ for my $fr_to_hsh (@{$confobj->{from_to_as_is}}){
 
 ##################################################
 say "\n== Making a hash of old/new chromosome and scaffold IDs, to go to the genomes directory ==";
-
 # Get path to main genome assembly input file, and regex for chromosomes and scaffolds
 my $GENOME_FILE_START;
 for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
@@ -203,7 +214,6 @@ print $ANN_MAN_DESCR_FH "$to_name_base.gz: Hash file of old/new chromosome and s
 ##################################################
 say "\n== Making a hash of old/new gene IDs, to go to the annotations directory ==";
 say "   These are for the base gene IDs, without splice variant.";
-
 # Get path to main CDS input file, and regex for splice variant on genes
 my $CDS_FILE_START;
 my $SPLICE_RX;
@@ -254,7 +264,7 @@ for my $fr_to_hsh (@{$confobj->{from_to_cds_mrna}}){
   say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
   &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
   my $SPLICE_RX = $fr_to_hsh->{splice};
-  $SPLICE_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
+  $SPLICE_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
   say "  SPLICE REGEX: \"$SPLICE_RX\"";
   my $ARGS = "-hash $GENE_HASH -fasta $FROM_FILE -splice \"$SPLICE_RX\" -nodef -out $TO_FILE";
   system("hash_into_fasta_id.pl $ARGS");
@@ -268,9 +278,9 @@ for my $fr_to_hsh (@{$confobj->{from_to_protein}}){
   say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
   &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
   my $SPLICE_RX = $fr_to_hsh->{splice};
-  $SPLICE_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
+  $SPLICE_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
   my $STRIP_RX = $fr_to_hsh->{strip};
-  $STRIP_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
+  $STRIP_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
   say "  SPLICE REGEX: \"$SPLICE_RX\"";
   say "  STRIP REGEX: \"$STRIP_RX\"";
   my $ARGS = "-hash $GENE_HASH -fasta $FROM_FILE -splice \"$SPLICE_RX\" -strip \"$STRIP_RX\" -nodef -out $TO_FILE";
@@ -285,7 +295,7 @@ for my $fr_to_hsh (@{$confobj->{from_to_gff}}){
   say "Converting from to:\n  $FROM_FILE\n  $TO_FILE";
   &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
   my $STRIP_RX = $fr_to_hsh->{strip};
-  $STRIP_RX =~ s/\"//g; # Strip surrounding quotes if any. We'll add them below.
+  $STRIP_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
   say "  STRIP REGEX: \"$STRIP_RX\"";
   my $ARGS = "-gff $FROM_FILE -gene_hash $GENE_HASH -seqid_hash $CHR_HASH -strip \"$STRIP_RX\" -sort -out $TO_FILE";
   system("hash_into_gff_id.pl $ARGS");

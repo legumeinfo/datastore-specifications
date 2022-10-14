@@ -21,18 +21,18 @@ readme_info:
     synopsis_genome: Glycine max accession Williams 82 ISU01, genome assembly v2
     synopsis_annot: Annotation 1 for Glycine max accession Williams 82 ISU01, genome assembly v2
     taxid: "3847"
-    description_genome: "[Description from Phytozome/JGI]: Main assembly consisted of 47.07x of single haplotype CCS PACBIO coverage (17,049 bp average read size), and was assembled using HiFiAsm and HIC and the resulting sequence was polished using RACON. Misjoins in the assembly were identified using HIC data. There were no misjoins identified in the polished assembly. Contigs for were then oriented, ordered, and joined into chromosomes using the JUICER pipeline. Contigs containing significant telomeric sequence were properly oriented in the assembly. A total of 23 joins were applied to the assembly to form the final assembly consisting of 20 chromosomes. A total of 100% of the assembled sequence is contained in the chromosomes. Adjacent alternative haplotypes were identified on the joined contig set. Redundant regions were collapsed using the longest common substring between the two haplotypes. 7 adjacent redundant regions were collapsed in the assembly. Chromosomes were numbered using the V5 G. max var. Williams 82 release, and the resulting sequence was screened for retained vector and/or contaminants. Homozygous SNPs and INDELs were corrected in the release sequence using ~57x of Illumina reads (2x150, 400bp insert)."
-    description_annot: "Description from Phytozome/JGI]: Transcript assemblies were made from 2 x 150 bp stranded paired-end Illumina RNA-seq reads using PERTRAN, which conducts genome-guided transcriptome short read assembly via GSNAP (Wu and Nacu, 2010) and builds splice alignment graphs after alignment validation, realignment, and correction. 664,217 transcript assemblies were constructed using PASA (Haas, 2003) from RNA-seq transcript assemblies above. Loci were determined by transcript assembly alignments and/or EXONERATE alignments of proteins from Arabidopsis thaliana, grape, peach, Populus trichocarpa, Medicago truncatula, cassava, tomato, aquilegia, and rice genomes and Swiss-Prot proteomes to repeat-soft-masked G. max var. Williams 82-ISU-01 genome using RepeatMasker (Smit, 2013-2015) with up to 2K BP extension on both ends unless extending into another locus on the same strand. Repeat library consists of de novo repeats by RepeatModeler (Smit, 2008-2015) on G. max var. Williams 82-ISU-01 genome and repeats in RepBase. Gene models were predicted by homology-based predictors, FGENESH+ (Salamov, 2000), FGENESH_EST (similar to FGENESH+, but using EST to compute splice site and intron input instead of protein/translated ORF), and EXONERATE (Slater and Birney, 2005), and PASA assembly ORFs (in-house homology constrained ORF finder). The best scored predictions for each locus are selected using multiple positive factors including EST and protein support, and one negative factor: overlap with repeats. The selected gene predictions were improved by PASA. Improvement includes adding UTRs, splicing correction, and adding alternative transcripts. PASA-improved gene model proteins were subject to protein homology analysis to above mentioned proteomes to obtain Cscore and protein coverage. Cscore is a protein BLASTP score ratio to MBH (mutual best hit) BLASTP score and protein coverage is the highest percentage of protein aligned to the best of homologs. PASA-improved transcripts were selected based on Cscore, protein coverage, EST coverage, and its CDS overlapping with repeats. The transcripts were selected if its Cscore is larger than or equal to 0.5 and protein coverage larger than or equal to 0.5, or it has EST coverage, but their CDS overlapping with repeats is less than 20%. For gene models whose CDS overlaps with repeats for more than 20%, their Cscore must be at least 0.9 and homology coverage at least 70% to be selected. The selected gene models were subject to Pfam analysis and gene models whose protein is more than 30% in Pfam TE domains were removed and weak gene models. Incomplete gene models, low homology supported without fully transcriptome supported gene models and short single exon (< 300 BP CDS) without protein domain nor good expression gene models were manually filtered out."
+    description_genome: "This release (Glycine max var. Williams 82-ISU-01) is an inbred line developed by Robert Stupar (University of Minnesota) by inbreeding original W82 seed. The resulting genome is a haploid version of W82. The original W82 is from an agronomic line and contains variation between the two haplotypes. This genome can be used as an updated version of W82 -- the soybean reference genome, however, it is not an identical genotype to previous reference. Where possible, we have maintained continuity with the previous reference and the annotation is based on all available W82 transcript evidence. It is the most complete and highest quality soybean genome completed to date. Genome assembly consists of 47.07x of single haplotype CCS PACBIO coverage (17,049 bp average read size), assembled using HiFiAsm and HIC and the resulting sequence was polished using RACON. See full description at Phytozome/JGI repository (address above)."
+    description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
     bioproject: ""
     sraproject: ""
     dataset_doi_genome: ""
     dataset_doi_annot: ""
     genbank_accession: ""
-    original_file_creation_date: 2022-07
+    original_file_creation_date: 2022-07-28
     local_file_creation_date: 2022-10-14
     dataset_release_date: 2022-10-14
     contributors: Bob Stupar, Jeremy Schmutz
-    publication_doi: 10.1104/pp.110.166736
+    publication_doi: ""
     citation: "Haun WJ, Hyten DL, Xu WW, Gerhardt DJ, Albert TJ, Richmond T, Jeddeloh JA, Jia G, Springer NM, Vance CP, Stupar RM. The composition and origins of genomic variation among individuals of the soybean reference cultivar Williams 82. Plant Physiol. 2011 Feb;155(2):645-55. doi: 10.1104/pp.110.166736. Epub 2010 Nov 29. PMID: 21115807; PMCID: PMC3032456."
     publication_title: "The composition and origins of genomic variation among individuals of the soybean reference cultivar Williams 82"
     data_curators: Steven Cannon
@@ -73,40 +73,40 @@ from_to_cds_mrna:
   - 
     from: cds.fa.gz
     to: cds.fna
-    splice: "\.\d+$"
+    splice: '\.\d+$'
     description: "cds sequences"
   - 
     from: cds_primaryTranscriptOnly.fa.gz
     to: cds_primary.fna
-    splice: "\.\d+$"
+    splice: '\.\d+$'
     description: "cds sequences - primary only"
   - 
     from: transcript.fa.gz
     to: mrna.fna
-    splice: "\.\d+$"
+    splice: '\.\d+$'
     description: "Transcript sequences"
   - 
     from: transcript_primaryTranscriptOnly.fa.gz
     to: mrna_primary.fna
-    splice: "\.\d+$"
+    splice: '\.\d+$'
     description: "Transcript sequences - primary only"
 from_to_protein:
   - 
     from: protein_primaryTranscriptOnly.fa.gz
     to: protein_primary.faa
-    splice: "\.\d+\.p"
-    strip: "\.p"
+    splice: '\.\d+\.p'
+    strip: '\.p'
     description: "Protein sequences - primary only"
   - 
     from: protein.fa.gz
     to: protein.faa
-    splice: "\.\d+\.p"
-    strip: "\.p"
+    splice: '\.\d+\.p'
+    strip: '\.p'
     description: "Protein sequences"
 from_to_gff:
   - 
     from: gene_exons.gff3.gz
     to: gene_models_exons.gff3
-    strip: "\.v2\.1"
+    strip: '\.v2\.1'
     description: "Gene models, with exon features"
 
