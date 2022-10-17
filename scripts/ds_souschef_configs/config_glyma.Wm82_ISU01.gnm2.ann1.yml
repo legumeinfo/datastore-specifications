@@ -52,7 +52,15 @@ from_to_genome:
     from: softmasked.fa.gz
     to: genome_softmasked.fna
     description: "Genome assembly - hardmasked"
-from_to_as_is:
+from_to_annot_as_is:
+  - 
+    from: DataReleasePolicy.html
+    to: DataReleasePolicy.html
+    description: "Original JGI data release policy"
+  - 
+    from: readme.txt
+    to: original_readme.txt
+    description: "Original JGI data README"
   - 
     from: repeatmasked_assembly_v2.0.gff3.gz
     to: repeatmasked_assembly.gff3
@@ -69,6 +77,15 @@ from_to_as_is:
     from: locus_transcript_name_map.txt.gz
     to: locus_transcript_name_map.txt
     description: "Table of gene ID correspondences among Wm82 assemblies"
+from_to_genome_as_is:
+  - 
+    from: DataReleasePolicy.html
+    to: DataReleasePolicy.html
+    description: "Original JGI data release policy"
+  - 
+    from: readme.txt
+    to: original_readme.txt
+    description: "Original JGI data README"
 from_to_cds_mrna:
   - 
     from: cds.fa.gz
@@ -109,4 +126,10 @@ from_to_gff:
     to: gene_models_exons.gff3
     strip: '\.v2\.1'
     description: "Gene models, with exon features"
+  - 
+    from: gene.gff3.gz
+    to: gene_models_main.gff3
+    strip: '\.v2\.1'
+    description: "Gene models - main"
+
 

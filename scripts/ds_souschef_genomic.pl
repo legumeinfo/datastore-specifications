@@ -15,10 +15,16 @@ my $usage = <<EOS;
   collections for genomic data, comprising genome assemblies and/or gene annotations. 
   The script also writes the associated metadata for the collections, including 
   the README and MANIFEST files. Check that all fields have been populated in the README.
+
   By default, all files will be converted (assemblies and annotation files).
   Particular types can be run separately (e.g. just the protein files or just assemblies),
   but note that the MANIFEST files will be overwritten and will include only the files
   of the specified type.
+
+  Note that all input files are assumed to be in two directories, e.g. annotation and assembly
+  (the names are specified in the config file). If there are release-policy or readme files
+  that pertain to the assembly+annotation as a whole, first copy these into the 
+  annotation and assembly directories. The program won't find them outside the specified directories.
 
   Required:
     -config    (string) yaml-format file with information for the metadata and the file conversions.
@@ -30,7 +36,8 @@ my $usage = <<EOS;
     -all       (boolean) True by default, unless one or more of the modules below are specified.
   Set one or more of the following flags to run just those modules. If none are specified, "all" is implied.
     -readme    (boolean) Generate the README files. 
-    -as_is     (boolean) Copy over the "as-is" files (un-transformed).
+    -ann_as_is (boolean) Copy over the "as-is" annotation files (un-transformed).
+    -gnm_as_is (boolean) Copy over the "as-is" genome files (un-transformed).
     -cds       (boolean) Process the CDS and mRNA files.
     -protein   (boolean) Process the protein files.
     -gff       (boolean) Process the GFF files.
@@ -43,7 +50,7 @@ my $usage = <<EOS;
 EOS
 
 my ($config, $chr_hash, $gene_hash, $help); 
-my ($readme, $as_is, $cds, $protein, $gff, $assembly, $all, $extend);
+my ($readme, $ann_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
 my ($make_gene_hash, $make_chr_hash);
 
 GetOptions (
@@ -51,7 +58,8 @@ GetOptions (
   "chr_hash:s" =>  \$chr_hash,
   "gene_hash:s" => \$gene_hash,
   "readme" =>      \$readme,
-  "as_is" =>       \$as_is,
+  "ann_as_is" =>   \$ann_as_is,
+  "gnm_as_is" =>   \$gnm_as_is,
   "cds" =>         \$cds,
   "protein" =>     \$protein,
   "gff" =>         \$gff,
@@ -74,7 +82,7 @@ if ($gene_hash){
 }
 
 # All modules will be run unless flags are set for one or more of the particular modules.
-$all++ unless ($readme || $as_is || $cds || $protein || $gff || $assembly);
+$all++ unless ($readme || $ann_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
 
 my $yaml = YAML::Tiny->read( $config );
 
@@ -121,7 +129,8 @@ my ($printed_man_corr_head, $printed_man_descr_head);
 &make_chr_hash;
 &make_gene_hash; 
 if ( $all || $readme ){ &readme }
-if ( $all || $as_is ){ &as_is }
+if ( $all || $ann_as_is ){ &ann_as_is }
+if ( $all || $gnm_as_is ){ &gnm_as_is }
 if ( $all || $cds ){ &cds }
 if ( $all || $protein ){ &protein }
 if ( $all || $gff ){ &gff }
@@ -132,7 +141,7 @@ sub setup {
   say "\n== Setup: Create output directories and start the metadata files ==";
 
   # Make collection directories
-  say "Output directories:\n  $WD/annotations\n  $WD/genomes\n";
+  say "Output directories:\n  $WD/annotations\n  $WD/genomes";
   unless (-d "$WD/annotations") {mkdir "$WD/annotations" or die "Can't make directory $WD/annotations: $!\n"}
   unless (-d $ANNDIR) {mkdir $ANNDIR or die "Can't make directory $ANNDIR: $!\n"}
   unless (-d "$WD/genomes") {mkdir "$WD/genomes" or die "Can't make directory $WD/genomes: $!\n"}
@@ -181,7 +190,8 @@ sub make_chr_hash {
   my $TO_FILE = $CHR_HASH;
   my $FROM_FILE = "No prior file";
   my $description = "Hash file of old/new chromosome and scaffold IDs";
-  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $description);
+  ($printed_man_corr_head, $printed_man_descr_head) = (0, 0);
+  &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $description);
 }
 
 ##################################################
@@ -228,7 +238,8 @@ sub make_gene_hash {
   my $TO_FILE = $GENE_HASH;
   my $FROM_FILE = "No prior file";
   my $description = "Hash file of old/new gene IDs";
-  &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $description);
+  ($printed_man_corr_head, $printed_man_descr_head) = (0, 0);
+  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $description);
 }
 
 ##################################################
@@ -279,24 +290,40 @@ sub readme {
 }
 
 ##################################################
-sub as_is {
+sub ann_as_is {
   say "\n== Copying over \"as-is\" annotation information files, if present, unchanged ==";
-  for my $fr_to_hsh (@{$confobj->{from_to_as_is}}){ 
+  for my $fr_to_hsh (@{$confobj->{from_to_annot_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
+    if ($FROM_FILE =~ /gz$/){ 
+      open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+      open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
+      while (<$AS_IS_FROM_FH>) {
+        print $AS_IS_TO_FH $_;
+      }
+    } # else file isn't gzipped, so just copy it
+    else { copy($FROM_FILE, $TO_FILE) }
+  }
+}
+
+##################################################
+sub gnm_as_is {
+  say "\n== Copying over \"as-is\" genome information files, if present, unchanged ==";
+  for my $fr_to_hsh (@{$confobj->{from_to_genome_as_is}}){ 
+    my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
+    my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
     if ($FROM_FILE =~ /gz$/){
       open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
       }
-    }
-    else { # File isn't gzipped
-      copy("$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}", 
-        "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}");
-    }
+    } # else file isn't gzipped, so just copy it
+    else { copy($FROM_FILE, $TO_FILE) }
   }
 }
 
@@ -307,12 +334,12 @@ sub cds {
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $SPLICE_RX = $fr_to_hsh->{splice};
     $SPLICE_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
     say "  SPLICE REGEX: \"$SPLICE_RX\"";
     my $ARGS = "-hash $GENE_HASH -fasta $FROM_FILE -splice \"$SPLICE_RX\" -nodef -out $TO_FILE";
     system("hash_into_fasta_id.pl $ARGS");
+    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
   }
 }
 
@@ -348,15 +375,21 @@ sub gff {
     say "  STRIP REGEX: \"$STRIP_RX\"";
     my $ARGS = "-gff $FROM_FILE -gene_hash $GENE_HASH -seqid_hash $CHR_HASH -strip \"$STRIP_RX\" -sort -out $TO_FILE";
     system("hash_into_gff_id.pl $ARGS");
+    if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/) {
+      say "  Generating CDS bed file from GFF";
+      my $bed_file = $TO_FILE;
+      $bed_file =~ s/gene_models_main.gff3/cds.bed/;
+      my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed6_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
+      #system($gff_to_bed_command) or die "system call failed: $?";
+      `$gff_to_bed_command`;
+      &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, "BED-format file, derived from gene_models_main.gff3");
+    }
   }
 }
 
 ##################################################
 sub assembly {
   say "\n== Processing the genome assembly files ==";
-  # Since there is only one type of assembly subroutine, we can reset the MANIFEST head-print flags to zero.
-  $printed_man_corr_head = 0;
-  $printed_man_descr_head = 0;
   for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
     my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
@@ -381,16 +414,20 @@ sub write_manifests {
   # Don't print redundant lines (which might happen in multiple runs, if "-extend" is set
   my (%seen_to_file);
   while (<$CORR_IFH>){
-    my $filename = chop($_);
+    chomp;
+    my $filename = $_;
+    $filename =~ s/^(\S+).gz: .+/$1/;
     $filename =~ s/^(\S+): .+/$1/;
-    $filename =~ s/.gz:/$1/;
+    #say "  seen CORR:  $filename";
     $seen_to_file{$filename}++ if ($filename =~ $to_name_base);
     if ($. == 1 && $_ =~ /^---/){ $printed_man_corr_head++ }
   }
   while (<$DESCR_IFH>){ 
-    my $filename = chop($_);
+    chomp;
+    my $filename = $_;
+    $filename =~ s/^(\S+).gz: .+/$1/;
     $filename =~ s/^(\S+): .+/$1/;
-    $filename =~ s/.gz:/$1/;
+    #say "  seen DESCR: $filename";
     $seen_to_file{$filename}++ if ($filename =~ $to_name_base);
     if ($. == 1 && $_ =~ /^---/){ $printed_man_descr_head++ }
   }
@@ -405,8 +442,11 @@ sub write_manifests {
   }
   
   unless ($seen_to_file{$to_name_base}){
-    print $CORR_OFH "$to_name_base.gz: $from_name_base\n";
-    print $DESCR_OFH "$to_name_base.gz: $description\n";
+    my $separator;
+    if ( $to_name_base =~ /readme.txt|html/ ){ $separator = ":" }
+    else { $separator = ".gz:" }
+    print $CORR_OFH "$to_name_base$separator $from_name_base\n";
+    print $DESCR_OFH "$to_name_base$separator $description\n";
   }
 }
 
