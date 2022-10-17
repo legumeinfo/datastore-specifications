@@ -303,8 +303,10 @@ sub ann_as_is {
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
       }
-    } # else file isn't gzipped, so just copy it
-    else { copy($FROM_FILE, $TO_FILE) }
+    } 
+    else { # else file isn't gzipped, so just copy it
+      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
+    }
   }
 }
 
@@ -322,8 +324,10 @@ sub gnm_as_is {
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
       }
-    } # else file isn't gzipped, so just copy it
-    else { copy($FROM_FILE, $TO_FILE) }
+    } 
+    else { # else file isn't gzipped, so just copy it
+      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
+    }
   }
 }
 
