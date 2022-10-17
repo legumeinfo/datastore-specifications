@@ -25,7 +25,7 @@ filepath=$1
 
 for file in $filepath/*.txt; do
   if [[ $file =~ *readme* ]]; then
-    # Don't compress the original reame file[s]
+    echo "Don't compress file $file"
   else 
     echo "Compressing $file"
     bgzip -l9 $file &
