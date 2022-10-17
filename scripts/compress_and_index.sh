@@ -24,7 +24,7 @@ fi
 filepath=$1
 
 for file in $filepath/*.txt; do
-  if [[ $file =~ *readme* ]]; then
+  if [[ $file =~ "readme.txt" || $file =~ "usage" || $file =~ "olicy" ]]; then
     echo "Don't compress file $file"
   else 
     echo "Compressing $file"
@@ -33,7 +33,7 @@ for file in $filepath/*.txt; do
 done
 wait
 
-for file in $filepath/*.f?a $filepath/*.gff3; do
+for file in $filepath/*.f?a $filepath/*.gff3 $filepath/*tsv; do
   echo "Compressing $file"
   bgzip -l9 $file &
 done
