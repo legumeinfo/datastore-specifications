@@ -34,12 +34,16 @@ my $usage = <<EOS;
     -cds       (boolean) Process the CDS and mRNA files.
     -protein   (boolean) Process the protein files.
     -gff       (boolean) Process the GFF files.
+    -assembly  (boolean) Process the genome assembly files.
+
+    -extend    (boolean) Extend MANIFEST files from a previous run. Set this flag if you want to 
+                 update the README or the CDS files without starting the MANIFESTs from scratch.
 
     -help      (boolean) This message.
 EOS
 
 my ($config, $chr_hash, $gene_hash, $help); 
-my ($readme, $as_is, $cds, $protein, $gff, $assembly, $all);
+my ($readme, $as_is, $cds, $protein, $gff, $assembly, $all, $extend);
 my ($make_gene_hash, $make_chr_hash);
 
 GetOptions (
@@ -52,6 +56,7 @@ GetOptions (
   "protein" =>     \$protein,
   "gff" =>         \$gff,
   "assembly" =>    \$assembly,
+  "extend" =>      \$extend,
   "help" =>        \$help,
 );
 
@@ -108,8 +113,7 @@ my $GNM_README = "$GNMDIR/README.$GNMCOL.yml";
 
 my $to_name_base;
 my ($GENE_HASH, $CHR_HASH);
-my ($ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $ANN_README_FH);
-my ($GNM_MAN_CORR_FH, $GNM_MAN_DESCR_FH, $GNM_README_FH);
+my ($printed_man_corr_head, $printed_man_descr_head);
 
 ##################################################
 # Call subroutines
@@ -134,23 +138,11 @@ sub setup {
   unless (-d "$WD/genomes") {mkdir "$WD/genomes" or die "Can't make directory $WD/genomes: $!\n"}
   unless (-d $GNMDIR) {mkdir $GNMDIR or die "Can't make directory $GNMDIR: $!\n"}
 
-  # Remove existing metadata files, then open them for appending
+  # Remove existing metadata files UNLESS -extend is set.
   for my $file ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, 
                 $GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README){
-    if (-e $file){ unlink $file or die "Can't unlink metadata file $file: $!" }
+    if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
   }
-  open($ANN_MAN_CORR_FH, '>>', $ANN_MAN_CORR) or die "Can't open out $ANN_MAN_CORR: $!";
-  open($ANN_MAN_DESCR_FH, '>>', $ANN_MAN_DESCR) or die "Can't open out $ANN_MAN_DESCR: $!";
-  open($ANN_README_FH, '>>', $ANN_README) or die "Can't open out $ANN_README: $!";
-  open($GNM_MAN_CORR_FH, '>>', $GNM_MAN_CORR) or die "Can't open out $GNM_MAN_CORR: $!";
-  open($GNM_MAN_DESCR_FH, '>>', $GNM_MAN_DESCR) or die "Can't open out $GNM_MAN_DESCR: $!";
-  open($GNM_README_FH, '>>', $GNM_README) or die "Can't open out $GNM_README: $!";
-  print $ANN_MAN_CORR_FH "---\n# filename in this repository: previous names\n";
-  print $GNM_MAN_CORR_FH "---\n# filename in this repository: previous names\n";
-  print $ANN_README_FH "---\n";
-  print $ANN_MAN_DESCR_FH "---\n# filename in this repository: description\n";
-  print $GNM_MAN_DESCR_FH "---\n# filename in this repository: description\n";
-  print $GNM_README_FH "---\n";
 }
 
 ##################################################
@@ -186,10 +178,10 @@ sub make_chr_hash {
       }
     }
   }
-  say "$CHR_HASH";
-  $to_name_base = basename($CHR_HASH);
-  print $ANN_MAN_CORR_FH "$to_name_base.gz: No prior file\n";
-  print $ANN_MAN_DESCR_FH "$to_name_base.gz: Hash file of old/new chromosome and scaffold IDs\n";
+  my $TO_FILE = $CHR_HASH;
+  my $FROM_FILE = "No prior file";
+  my $description = "Hash file of old/new chromosome and scaffold IDs";
+  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $description);
 }
 
 ##################################################
@@ -233,9 +225,10 @@ sub make_gene_hash {
       }
     }
   }
-  $to_name_base = basename($GENE_HASH);
-  print $ANN_MAN_CORR_FH "$to_name_base.gz: No prior file\n";
-  print $ANN_MAN_DESCR_FH "$to_name_base.gz: Hash file of old/new gene IDs\n";
+  my $TO_FILE = $GENE_HASH;
+  my $FROM_FILE = "No prior file";
+  my $description = "Hash file of old/new gene IDs";
+  &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $description);
 }
 
 ##################################################
@@ -251,6 +244,8 @@ sub readme {
   $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Assembly README
+  open(my $GNM_README_FH, '>>', $GNM_README) or die "Can't open out $GNM_README: $!";
+  print $GNM_README_FH "---\n";
   $readme_hsh{identifier} = $GNMCOL;
   $readme_hsh{synopsis} = $readme_hsh{synopsis_genome};
   $readme_hsh{description} = $readme_hsh{description_genome};
@@ -266,6 +261,8 @@ sub readme {
   }
 
   # Annotation README
+  open(my $ANN_README_FH, '>>', $ANN_README) or die "Can't open out $ANN_README: $!";
+  print $ANN_README_FH "---\n";
   $readme_hsh{identifier} = $ANNCOL;
   $readme_hsh{synopsis} = $readme_hsh{synopsis_annot};
   $readme_hsh{description} = $readme_hsh{description_annot};
@@ -285,18 +282,13 @@ sub readme {
 sub as_is {
   say "\n== Copying over \"as-is\" annotation information files, if present, unchanged ==";
   for my $fr_to_hsh (@{$confobj->{from_to_as_is}}){ 
-    my $AS_IS_FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
-    my $AS_IS_TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
-    say "Copying from-to as-is annotation files:";
-    say "  $AS_IS_FROM_FILE"; 
-    say "  $ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}\n";
-    my $to_name_base = basename($AS_IS_TO_FILE);
-    my $from_name_base = basename($AS_IS_FROM_FILE);
-    print $ANN_MAN_CORR_FH "$to_name_base.gz: $from_name_base\n";
-    print $ANN_MAN_DESCR_FH "$to_name_base.gz: $fr_to_hsh->{description}\n";
-    if ($AS_IS_FROM_FILE =~ /gz$/){
-      open(my $AS_IS_FROM_FH, "gzcat $AS_IS_FROM_FILE |") or die "Can't do gunzip $AS_IS_FROM_FILE|: $!";
-      open(my $AS_IS_TO_FH, ">", $AS_IS_TO_FILE) or die "Can't open out $AS_IS_TO_FILE: $!\n";
+    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+    my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
+    if ($FROM_FILE =~ /gz$/){
+      open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+      open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
       }
@@ -315,7 +307,7 @@ sub cds {
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
+    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $SPLICE_RX = $fr_to_hsh->{splice};
     $SPLICE_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
     say "  SPLICE REGEX: \"$SPLICE_RX\"";
@@ -331,7 +323,7 @@ sub protein {
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
+    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $SPLICE_RX = $fr_to_hsh->{splice};
     $SPLICE_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
     my $STRIP_RX = $fr_to_hsh->{strip};
@@ -350,7 +342,7 @@ sub gff {
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR_FH, $ANN_MAN_DESCR_FH, $fr_to_hsh->{description});
+    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $STRIP_RX = $fr_to_hsh->{strip};
     $STRIP_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
     say "  STRIP REGEX: \"$STRIP_RX\"";
@@ -362,11 +354,14 @@ sub gff {
 ##################################################
 sub assembly {
   say "\n== Processing the genome assembly files ==";
+  # Since there is only one type of assembly subroutine, we can reset the MANIFEST head-print flags to zero.
+  $printed_man_corr_head = 0;
+  $printed_man_descr_head = 0;
   for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
     my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR_FH, $GNM_MAN_DESCR_FH, $fr_to_hsh->{description});
+    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS = "-hash $CHR_HASH -fasta $FROM_FILE -nodef -out $TO_FILE";
     system("hash_into_fasta_id.pl $ARGS");
   }
@@ -374,10 +369,44 @@ sub assembly {
 
 ##################################################
 sub write_manifests {
-  my ($TO_FILE, $FROM_FILE, $CORR_FH, $DESCR_FH, $description) = @_;
+  my ($TO_FILE, $FROM_FILE, $CORR, $DESCR, $description) = @_;
   my $to_name_base = basename($TO_FILE);
   my $from_name_base = basename($FROM_FILE);
-  print $CORR_FH "$to_name_base.gz: $from_name_base\n";
-  print $DESCR_FH "$to_name_base.gz: $description\n";
+
+  open (my $CORR_OFH, ">>", $CORR) or die "Can't open out $CORR: $!";
+  open (my $CORR_IFH, "<", $CORR) or die "Can't open in $CORR: $!";
+  open (my $DESCR_OFH, ">>", $DESCR) or die "Can't open out $DESCR: $!";
+  open (my $DESCR_IFH, "<", $DESCR) or die "Can't open in $DESCR: $!";
+
+  # Don't print redundant lines (which might happen in multiple runs, if "-extend" is set
+  my (%seen_to_file);
+  while (<$CORR_IFH>){
+    my $filename = chop($_);
+    $filename =~ s/^(\S+): .+/$1/;
+    $filename =~ s/.gz:/$1/;
+    $seen_to_file{$filename}++ if ($filename =~ $to_name_base);
+    if ($. == 1 && $_ =~ /^---/){ $printed_man_corr_head++ }
+  }
+  while (<$DESCR_IFH>){ 
+    my $filename = chop($_);
+    $filename =~ s/^(\S+): .+/$1/;
+    $filename =~ s/.gz:/$1/;
+    $seen_to_file{$filename}++ if ($filename =~ $to_name_base);
+    if ($. == 1 && $_ =~ /^---/){ $printed_man_descr_head++ }
+  }
+
+  unless ($printed_man_corr_head){
+    say $CORR_OFH "---\n# filename in this repository: previous names";
+    $printed_man_corr_head++;
+  }
+  unless ($printed_man_descr_head){
+    say $DESCR_OFH "---\n# filename in this repository: description";
+    $printed_man_descr_head++;
+  }
+  
+  unless ($seen_to_file{$to_name_base}){
+    print $CORR_OFH "$to_name_base.gz: $from_name_base\n";
+    print $DESCR_OFH "$to_name_base.gz: $description\n";
+  }
 }
 
