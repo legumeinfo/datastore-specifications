@@ -6,8 +6,8 @@ use Getopt::Long;
 use feature "say";
 
 my $usage = <<EOS;
-  Synopsis: gzcat GFF_FILE.gff3.gz | hash_into_gff_id.pl [options] -seqid_hash
-       OR     hash_into_gff_id.pl [options] -seqid_hash < GFF_FILE.gff3
+  Synopsis: gzcat GFF_FILE.gff3.gz | hash_into_gff_id.pl [options] -seqid_map
+       OR     hash_into_gff_id.pl [options] -seqid_map < GFF_FILE.gff3
   
   Read a key-value hash file, and a GFF file (may be compressed or not).
   Swap the feature (gene) IDs with the values from a gene hash file, if provided.
@@ -20,10 +20,10 @@ my $usage = <<EOS;
   
   Required:
     -gff_file    GFF file; may be compressed or not.
-    -gene_hash   (string) Key-value hash filename, where first column has gene IDs from GFF file.
+    -featid_map   (string) Key-value hash filename, where first column has gene IDs from GFF file.
 
   Options:
-    -seqid_hash  (string) Key-value hash filename, where first column has seqIDs from GFF file.
+    -seqid_map  (string) Key-value hash filename, where first column has seqIDs from GFF file.
     -suppress    (string) File with list of components (mRNAs, CDSs, exons) or genes to exclude.
                    To exclude a component, use a splice suffix (GENE_A.1). To also
                    exclude a gene record, use the bare gene name (GENE_A)
@@ -33,12 +33,12 @@ my $usage = <<EOS;
     -help        (boolean) This message.
 EOS
 
-my ($gff_file, $gene_hash, $seqid_hash, $suppress, $sort, $out_file, $strip_regex, $help, $STR_RX);
+my ($gff_file, $featid_map, $seqid_map, $suppress, $sort, $out_file, $strip_regex, $help, $STR_RX);
 
 GetOptions (
   "gff_file=s" =>    \$gff_file,   # required
-  "gene_hash=s" =>   \$gene_hash,   # required
-  "seqid_hash:s" =>  \$seqid_hash,  
+  "featid_map=s" =>  \$featid_map,   # required
+  "seqid_map:s" =>   \$seqid_map,  
   "out_file:s" =>    \$out_file,   
   "suppress:s" =>    \$suppress,   
   "sort" =>          \$sort,
@@ -46,7 +46,7 @@ GetOptions (
   "help" =>          \$help,
 );
 
-die "$usage" unless (defined($gene_hash) && defined($gff_file));
+die "$usage" unless (defined($featid_map) && defined($gff_file));
 die "$usage" if ($help);
 
 if ( $strip_regex ){ 
@@ -56,28 +56,28 @@ if ( $strip_regex ){
 }
 
 # Read in hash of gene IDs
-my %gene_hash;
-if ($gene_hash) {
-  open(my $GNHSH, '<', $gene_hash) or die "can't open in gene_hash, $gene_hash: $!";
+my %featid_map;
+if ($featid_map) {
+  open(my $GNHSH, '<', $featid_map) or die "can't open in featid_map, $featid_map: $!";
   while (<$GNHSH>) {
     chomp;
     /(\S+)\s+(.+)/;
-    my ($id, $gene_hash_val) = ($1,$2);
-    $gene_hash{$id} = $gene_hash_val;   
-    # print "$id, $gene_hash{$id}\n";
+    my ($id, $featid_map_val) = ($1,$2);
+    $featid_map{$id} = $featid_map_val;   
+    # print "$id, $featid_map{$id}\n";
   }
 }
 
 # Read in hash of seqIDs
-my %seqid_hash;
-if ($seqid_hash) {
-  open(my $SEQHSH, '<', $seqid_hash) or die "can't open in seqid_hash, $seqid_hash: $!";
+my %seqid_map;
+if ($seqid_map) {
+  open(my $SEQHSH, '<', $seqid_map) or die "can't open in seqid_map, $seqid_map: $!";
   while (<$SEQHSH>) {
     chomp;
     /(\S+)\s+(.+)/;
-    my ($id, $seqid_hash_val) = ($1,$2);
-    $seqid_hash{$id} = $seqid_hash_val;   
-    # print "$id, $seqid_hash{$id}\n";
+    my ($id, $seqid_map_val) = ($1,$2);
+    $seqid_map{$id} = $seqid_map_val;   
+    # print "$id, $seqid_map{$id}\n";
   }
 }
 
@@ -160,9 +160,9 @@ for my $split_line (@split_lines){
   my @fields = @$split_line; # Renaming for clarity; @fields has the 9 GFF elements for this line.
   #say join("\t", @fields);
 
-  if ($seqid_hash){
+  if ($seqid_map){
     my $seqid = $fields[0];
-    $fields[0] = $seqid_hash{$seqid};
+    $fields[0] = $seqid_map{$seqid};
   }
   
   my $col9 = $fields[8];
@@ -173,8 +173,8 @@ for my $split_line (@split_lines){
   if ( $col3 =~ /gene/i ) {
     $gene_name = $col9;
     $gene_name =~ s/ID=([^;]+);.+/$1/;
-    if ($gene_hash) {
-      $new_gene_id = $gene_hash{$gene_name};
+    if ($featid_map) {
+      $new_gene_id = $featid_map{$gene_name};
     }
     #print "GENE:$gene_name\t$new_gene_id\t";
     #print "[$col9]\n";
@@ -184,11 +184,11 @@ for my $split_line (@split_lines){
     else {
       print $OUT_FH join("\t", @fields[0..7]);
       print $OUT_FH "\t";
-      if ($gene_hash) {
+      if ($featid_map) {
         $col9 =~ s/$gene_name/$new_gene_id/g;
       }
       else {
-        # Do nothing, since we don't have a $gene_hash 
+        # Do nothing, since we don't have a $featid_map 
       }
       print $OUT_FH "$col9;";
       print $OUT_FH "\n";
@@ -234,7 +234,6 @@ for my $split_line (@split_lines){
   }
 }
 
-
 __END__
 
 Steven Cannon
@@ -252,19 +251,4 @@ v06 2022-10-04 Take GFF in via STDIN, to allow streaming from zipped file
 v07 2022-10-11 Take GFF file as parameter, handling compressed and uncompressed files.
                 Print to named file or to STDOUT.
                 Add sorting routine.
-
-Tests:
-test2.gff3
-  We want to suppress maker-Arahy.17-snap-gene-43.4-mRNA-1 :
-    grep Arahy.17-snap-gene-43.4 lis.short_mRNAs_and_genes_to_remove 
-  This should leave six rows in the output:
-    grep -v "maker-Arahy.17-snap-gene-43.4-mRNA-1" test2.gff3 | cut -f3,9
-      gene	ID=maker-Arahy.17-snap-gene-43.4;Name=maker-Arahy.17-snap-gene-43.4
-      mRNA	ID=maker-Arahy.17-snap-gene-43.4-mRNA-2;Parent=maker-Arahy.17-snap-gene-43.4;Name=maker-Arahy.17-snap-gene-43.4-mRNA-2;_AED=0.35;_eAED=0.35;_QI=429|0|1|1|0|1|2|139|32
-      three_prime_UTR	ID=maker-Arahy.17-snap-gene-43.4-mRNA-2:three_prime_utr;Parent=maker-Arahy.17-snap-gene-43.4-mRNA-2
-      exon	ID=maker-Arahy.17-snap-gene-43.4-mRNA-2:exon:10142;Parent=maker-Arahy.17-snap-gene-43.4-mRNA-2
-      CDS	ID=maker-Arahy.17-snap-gene-43.4-mRNA-2:cds;Parent=maker-Arahy.17-snap-gene-43.4-mRNA-2
-      five_prime_UTR	ID=maker-Arahy.17-snap-gene-43.4-mRNA-2:five_prime_utr;Parent=maker-Arahy.17-snap-gene-43.4-mRNA-2
-      five_prime_UTR	ID=maker-Arahy.17-snap-gene-43.4-mRNA-2:five_prime_utr;Parent=maker-Arahy.17-snap-gene-43.4-mRNA-2
-
 

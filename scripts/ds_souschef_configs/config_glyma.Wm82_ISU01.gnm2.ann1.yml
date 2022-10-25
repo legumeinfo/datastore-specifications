@@ -52,15 +52,16 @@ from_to_genome:
     from: softmasked.fa.gz
     to: genome_softmasked.fna
     description: "Genome assembly - hardmasked"
-from_to_annot_as_is:
+original_readme_and_usage:
   - 
-    from: DataReleasePolicy.html
+    from_full_filename: GmaxWm82ISU_01_724_v2.1.DataReleasePolicy.html 
     to: DataReleasePolicy.html
     description: "Original JGI data release policy"
   - 
-    from: readme.txt
+    from_full_filename: GmaxWm82ISU_01_724_v2.1.readme.txt
     to: original_readme.txt
-    description: "Original JGI data README"
+    description: "Original JGI data README file"
+from_to_annot_as_is:
   - 
     from: repeatmasked_assembly_v2.0.gff3.gz
     to: repeatmasked_assembly.gff3
@@ -78,46 +79,32 @@ from_to_annot_as_is:
     to: locus_transcript_name_map.txt
     description: "Table of gene ID correspondences among Wm82 assemblies"
 from_to_genome_as_is:
-  - 
-    from: DataReleasePolicy.html
-    to: DataReleasePolicy.html
-    description: "Original JGI data release policy"
-  - 
-    from: readme.txt
-    to: original_readme.txt
-    description: "Original JGI data README"
 from_to_cds_mrna:
   - 
     from: cds.fa.gz
     to: cds.fna
-    splice: '\.\d+$'
     description: "cds sequences"
   - 
     from: cds_primaryTranscriptOnly.fa.gz
     to: cds_primary.fna
-    splice: '\.\d+$'
     description: "cds sequences - primary only"
   - 
     from: transcript.fa.gz
     to: mrna.fna
-    splice: '\.\d+$'
     description: "Transcript sequences"
   - 
     from: transcript_primaryTranscriptOnly.fa.gz
     to: mrna_primary.fna
-    splice: '\.\d+$'
     description: "Transcript sequences - primary only"
 from_to_protein:
   - 
     from: protein_primaryTranscriptOnly.fa.gz
     to: protein_primary.faa
-    splice: '\.\d+\.p'
     strip: '\.p'
     description: "Protein sequences - primary only"
   - 
     from: protein.fa.gz
     to: protein.faa
-    splice: '\.\d+\.p'
     strip: '\.p'
     description: "Protein sequences"
 from_to_gff:
@@ -131,5 +118,4 @@ from_to_gff:
     to: gene_models_main.gff3
     strip: '\.v2\.1'
     description: "Gene models - main"
-
 
