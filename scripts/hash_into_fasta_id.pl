@@ -69,7 +69,7 @@ while (<$HSH>) {
 # Read in the sequence 
 my ($FASTA_FH, $OUT_FH);
 if ( $fasta_file =~ /gz$/ ){
-  open( $FASTA_FH, "gzcat $fasta_file|" ) or die "Can't do gzcat $fasta_file| : $!";
+  open( $FASTA_FH, "zcat $fasta_file|" ) or die "Can't do zcat $fasta_file| : $!";
 }
 else {
   open ( $FASTA_FH, "<", $fasta_file ) or die "Can't open in $fasta_file: $!\n";
