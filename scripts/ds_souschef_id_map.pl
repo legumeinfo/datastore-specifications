@@ -431,10 +431,10 @@ sub gff {
     if (defined $STRIP_RX){
       $STRIP_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
       say "  STRIP REGEX: \"$STRIP_RX\"";
-      $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -strip \"$STRIP_RX\" -sort -out $TO_FILE";
+      $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -strip \"$STRIP_RX\" -out $TO_FILE";
     }
     else {
-      $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -sort -out $TO_FILE";
+      $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -out $TO_FILE";
     }
     system("hash_into_gff_id.pl $ARGS");
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/) {

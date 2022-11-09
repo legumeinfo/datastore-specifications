@@ -14,9 +14,10 @@ my $usage = <<EOS;
   Swap the seqIDs (column 1) with the values from a seqid hash file, if provided.
   Optionally, exclude records for features in a provided list of feature IDs.
 
-  NOTE: The GFF input file should be structurally correct. It may not work correctly for a
-  non-sorted GFF. Patch the GFF first if needed, e.g. with agat_convert_sp_gxf2gxf.pl
-  This script will apply a quick-and-dirty sorting method -sort is specified.
+  NOTE: The GFF input file should be structurally correct. 
+  It may not work correctly for a non-sorted GFF. 
+  Sort the GFF first if needed, e.g. with check-disorder.pl and gff3sort.pl 
+  If necessary, patch with e.g. agat_convert_sp_gxf2gxf.pl
   
   Required:
     -gff_file    GFF file; may be compressed or not.
@@ -27,13 +28,12 @@ my $usage = <<EOS;
     -suppress    (string) File with list of components (mRNAs, CDSs, exons) or genes to exclude.
                    To exclude a component, use a splice suffix (GENE_A.1). To also
                    exclude a gene record, use the bare gene name (GENE_A)
-    -sort        (boolean) Sort the GFF file. This attempts to put child features below parents.
     -out_file    (string) write to this file; otherwise, to stdout.
     -strip_regex (string) Regular expression for removing a pattern from the GFF, prior to hashing.
     -help        (boolean) This message.
 EOS
 
-my ($gff_file, $featid_map, $seqid_map, $suppress, $sort, $out_file, $strip_regex, $help, $STR_RX);
+my ($gff_file, $featid_map, $seqid_map, $suppress, $out_file, $strip_regex, $help, $STR_RX);
 
 GetOptions (
   "gff_file=s" =>    \$gff_file,   # required
@@ -41,8 +41,7 @@ GetOptions (
   "seqid_map:s" =>   \$seqid_map,  
   "out_file:s" =>    \$out_file,   
   "suppress:s" =>    \$suppress,   
-  "sort" =>          \$sort,
-  "strip_regex:s" =>   \$strip_regex,
+  "strip_regex:s" => \$strip_regex,
   "help" =>          \$help,
 );
 
@@ -110,22 +109,8 @@ else {
   open ( $GFF_FH, "<", $gff_file ) or die "Can't open in $gff_file: $!\n";
 }
 
-# Sorting method by Sam Hokin. Standalone script: sort_gff.pl
 my $comment_string = "";
 my @gff_lines;
-my %type_collate = (
-  gene => 0,
-  mRNA => 1,
-  ncRNA => 1.5,
-  rRNA => 1.75,
-  tRNA => 1.875,
-  exon => 2,
-  three_prime_UTR => 3,
-  CDS => 4,
-  five_prime_UTR => 5,
-  protein_match => 6,
-  match_part => 7,
-);
 
 while (<$GFF_FH>) {
   s/\r?\n\z//; # CRLF to LF
@@ -143,21 +128,10 @@ while (<$GFF_FH>) {
   }
 }
 
-my @split_lines = map {my @a = split /\t/; \@a;} @gff_lines;
-if ($sort) { # Sorting method by Sam Hokin
-  @split_lines = sort {
-    $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} cmp $type_collate{$b->[2]}
-  } @split_lines;
-}
-else { 
-  #nothing; we'll use the provided sorting.
-}
-
-my ($gene_name, $new_gene_id);
-
 # Process body of the GFF. Comments were printed earlier.
-for my $split_line (@split_lines){
-  my @fields = @$split_line; # Renaming for clarity; @fields has the 9 GFF elements for this line.
+my ($gene_name, $new_gene_id);
+for my $line (@gff_lines){
+  my @fields = split(/\t/, $line); # @fields has the 9 GFF elements for this line.
   #say join("\t", @fields);
 
   if ($seqid_map){
@@ -238,17 +212,18 @@ __END__
 
 Steven Cannon
 Versions
-v01 2014-05-22 New script. Appears to work.
-v02 2017-01-10 Handle commented lines in GFF (the header)
-v03 2018-02-09 Add more flexibility in printing commented lines (e.g. interspersed comments)
-v04 2018-09-17 Handle features with multiple parents (an exon or CDS can be a part of multiple mRNAs)
-     Also remove option for taking in regex for stripping suffix such as "-mRNA-"
-       because this can now be replaced afterwards with e.g. perl -pi -e 's/-mRNA-/./g'
-     Also take in a list of features to suppress (genes and/or splice variants)
-v05 2022-08-11 Add option to swap seqIDs (col 1) with a provided hash. 
-     Also handle GFFs with CRLF line returns.
-v06 2022-10-04 Take GFF in via STDIN, to allow streaming from zipped file
-v07 2022-10-11 Take GFF file as parameter, handling compressed and uncompressed files.
-                Print to named file or to STDOUT.
-                Add sorting routine.
+2014-05-22 New script. Appears to work.
+2017-01-10 Handle commented lines in GFF (the header)
+2018-02-09 Add more flexibility in printing commented lines (e.g. interspersed comments)
+2018-09-17 Handle features with multiple parents (an exon or CDS can be a part of multiple mRNAs)
+ Also remove option for taking in regex for stripping suffix such as "-mRNA-"
+   because this can now be replaced afterwards with e.g. perl -pi -e 's/-mRNA-/./g'
+ Also take in a list of features to suppress (genes and/or splice variants)
+2022-08-11 Add option to swap seqIDs (col 1) with a provided hash. 
+ Also handle GFFs with CRLF line returns.
+2022-10-04 Take GFF in via STDIN, to allow streaming from zipped file
+2022-10-11 Take GFF file as parameter, handling compressed and uncompressed files.
+            Print to named file or to STDOUT.
+            Add sorting routine.
+2022-11-09 Remove sorting routine. Rely instead on prior sorting with e.g. gff3sort.pl
 
