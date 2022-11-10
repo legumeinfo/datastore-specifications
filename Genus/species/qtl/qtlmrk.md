@@ -14,7 +14,7 @@ is a QTL-specific attribute so it appears here, and we need the genetic map to k
 
 Header (required):
 ```
-#qtl_identifier  trait_name  genetic_map marker_identifier  [marker_distinction]
+#qtl_identifier  trait_name  genetic_map marker  [marker_distinction]
 ```
 
 Example:
