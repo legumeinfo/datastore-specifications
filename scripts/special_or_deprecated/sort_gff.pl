@@ -1,6 +1,8 @@
 #!/usr/bin/env perl
 use strict;
 #TODO: would it make more sense to just check parentage?
+# PROBLEM (SCannon note): the second sort item ([3]) is genomic position, but some genes are overlapping.
+
 my %type_collate = (
     gene => 0,
     mRNA => 1,

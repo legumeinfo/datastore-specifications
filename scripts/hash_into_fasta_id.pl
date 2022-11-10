@@ -3,7 +3,6 @@
 use strict;
 use warnings;
 use Getopt::Long;
-use IO::Zlib;
 
 my $usage = <<EOS;
  Synopsis: hash_into_fasta_id.pl [options] -hash FILE -fasta FILE
@@ -70,8 +69,7 @@ while (<$HSH>) {
 # Read in the sequence 
 my ($FASTA_FH, $OUT_FH);
 if ( $fasta_file =~ /gz$/ ){
-  $FASTA_FH = new IO::Zlib;
-  $FASTA_FH->open($fasta_file, "rb");
+  open( $FASTA_FH, "zcat $fasta_file|" ) or die "Can't do zcat $fasta_file| : $!";
 }
 else {
   open ( $FASTA_FH, "<", $fasta_file ) or die "Can't open in $fasta_file: $!\n";
@@ -86,7 +84,7 @@ while ( <$FASTA_FH> ){
   chomp;
   my $line = $_;
   my ($display_id, $desc, $seq, $base_id, $suffix);
-  if ($line =~ /^>(\S+) +(\S.+)/){
+  if ($line =~ /^>(\S+)\s+(\S.+)/){
     $display_id = $1;
     $desc = $2;
     $seq = "";
@@ -109,7 +107,7 @@ while ( <$FASTA_FH> ){
       print $OUT_FH ">$hash{$base_id}$suffix $desc\n";
     }
   }
-  elsif ($line =~ /^>(\S+) *$/){
+  elsif ($line =~ /^>(\S+)\s*$/){
     $display_id = $1;
     $seq = "";
     #print "2:[$display_id]\n";
@@ -133,13 +131,14 @@ __END__
 # Steven Cannon 
 
 Versions
-v01 2014-05-21 New script, derived from hash_into_fasta_description.pl
-v02 2018-02-09 Handle suffixes (e.g. for splice variants)
-v03 2019-05-07 Print original ID if no hash is found
-v04 2021-11-01 Don't print final ">" without ID or sequence!
-v05 2021-11-04 Add warning for undefined hash
-v06 2022-10-04 Remove BioPerl dependency, and take fasta in via STDIN.
-                Change handling of the splice variant matching.
-v07 2022-10-11 Take sequence file as parameter, handling compressed and uncompressed files.
-                Print to named file or to STDOUT.
-                Add flag "-strip_regex" to remove e.g. ".p" from protein gene IDs: Gene123.1.p --> Gene123.1
+2014-05-21 New script, derived from hash_into_fasta_description.pl
+2018-02-09 Handle suffixes (e.g. for splice variants)
+2019-05-07 Print original ID if no hash is found
+2021-11-01 Don't print final ">" without ID or sequence!
+2021-11-04 Add warning for undefined hash
+2022-10-04 Remove BioPerl dependency, and take fasta in via STDIN.
+            Change handling of the splice variant matching.
+2022-10-11 Take sequence file as parameter, handling compressed and uncompressed files.
+            Print to named file or to STDOUT.
+            Add flag "-strip_regex" to remove e.g. ".p" from protein gene IDs: Gene123.1.p --> Gene123.1
+2022-11-07 Switch to zcat from gzcat. Handle deflines containing spaces or tabs.

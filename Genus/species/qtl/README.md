@@ -1,6 +1,6 @@
 # qtl
 
-A /qtl/ directory contains data from a particular QTL, without reference to a genome assembly.
+A **/qtl/** directory contains data from a particular QTL, without reference to a genome assembly.
 For example, no genomic information is provided for genetic markers: positions on chromosomes are provided elsewhere in GFFs under /markers/.
 
 Directory name:
@@ -23,9 +23,9 @@ Example:
 
 ## README
 The README file has up to three special additional fields:
-- **genotyping_platform**: the name of the SNP chip or other genotyping platform, hopefully present under the /markers/ directory
-- **genotyping_method**: specifics about the genotyping method used in this particular study, optional
-- **genetic_map**: *required* the name of the genetic map containing linkage groups on which genetic markers are placed, hopefully present under the /maps/ directory
+- **genetic_map**: optional, the name of the genetic map(s) (comma-separated if more than one) containing linkage groups on which the QTLs and genetic markers are placed
+- **genotyping_platform**: optional, comma-separated list of genotyping platforms, hopefully present under the /markers/ directory
+- **genotyping_method**: optional, specifics about the genotyping method used in this particular study
 
 Also, biparental crosses take a single genotype array entry, e.g.
 ```
