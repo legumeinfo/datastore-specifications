@@ -22,6 +22,7 @@ while (<>) {
 			warn "could not find $id\n";
 		}
 	}
+    #TODO: GFF allows multi-parented features with comma-separated values, found sometimes when different isoforms have common exons.
 	my ($id) = ($data[8] =~ /Parent=([^;]+)/);
 	if (defined $id) {
 		my $new_id = $id_map{$id}; 
