@@ -13,11 +13,11 @@ The second _gensp2.Strain2.gnm2_ identifies the target genus, species, strain, a
 Example:
 ```
 IT97K-499-35.gnm1.syn.W3NY
-├── vigun.IT97K-499-35.gnm1.x.glyma.Wm82.gnm2.gff.gz
-├── vigun.IT97K-499-35.gnm1.x.phavu.G19833.gnm1.gff.gz
-├── vigun.IT97K-499-35.gnm1.x.vigan.Gyeongwon.gnm3.gff.gz
-├── vigun.IT97K-499-35.gnm1.x.vigra.VC1973A.gnm6.gff.gz
-└── vigun.IT97K-499-35.gnm1.x.vigun.IT97K-499-35.gnm1.gff.gz
+├── vigun.IT97K-499-35.gnm1.x.glyma.Wm82.gnm2.W3NY.gff.gz
+├── vigun.IT97K-499-35.gnm1.x.phavu.G19833.gnm1.W3NY.gff.gz
+├── vigun.IT97K-499-35.gnm1.x.vigan.Gyeongwon.gnm3.W3NY.gff.gz
+├── vigun.IT97K-499-35.gnm1.x.vigra.VC1973A.gnm6.W3NY.gff.gz
+└── vigun.IT97K-499-35.gnm1.x.vigun.IT97K-499-35.gnm1.W3NY.gff.gz
 ```
 GFF3 records have the following format:
 
