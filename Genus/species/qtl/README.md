@@ -23,7 +23,7 @@ Example:
 
 ## README
 The README file has up to three special additional fields:
-- **genetic_map**: *required* the name of the genetic map(s) (comma-separated if more than one) containing linkage groups on which the QTLs and genetic markers are placed, hopefully present under the /maps/ directory
+- **genetic_map**: optional, the name of the genetic map(s) (comma-separated if more than one) containing linkage groups on which the QTLs and genetic markers are placed
 - **genotyping_platform**: optional, comma-separated list of genotyping platforms, hopefully present under the /markers/ directory
 - **genotyping_method**: optional, specifics about the genotyping method used in this particular study
 
