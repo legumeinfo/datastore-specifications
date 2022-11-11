@@ -4,7 +4,7 @@ Synteny data are presented in GFF files in directories under /synteny/.
 
 Directory name: _Strain1.gnm1_.syn._KEY4_
 
-Filenames: _gensp1.Strain1.gnm1_.x._gensp2.Strain2.gnm2_.gff.gz
+Filenames: _gensp1.Strain1.gnm1_.x._gensp2.Strain2.gnm2_._KEY4_.gff.gz
 
 The first _gensp1.Strain1.gnm1_ matches the name of the collection from the directory name and README.identifier.
 
@@ -13,11 +13,11 @@ The second _gensp2.Strain2.gnm2_ identifies the target genus, species, strain, a
 Example:
 ```
 IT97K-499-35.gnm1.syn.W3NY
-├── vigun.IT97K-499-35.gnm1.x.glyma.Wm82.gnm2.W3NY.gff.gz
-├── vigun.IT97K-499-35.gnm1.x.phavu.G19833.gnm1.W3NY.gff.gz
-├── vigun.IT97K-499-35.gnm1.x.vigan.Gyeongwon.gnm3.W3NY.gff.gz
-├── vigun.IT97K-499-35.gnm1.x.vigra.VC1973A.gnm6.W3NY.gff.gz
-└── vigun.IT97K-499-35.gnm1.x.vigun.IT97K-499-35.gnm1.W3NY.gff.gz
+├── vigun.IT97K-499-35.gnm1.x.glyma.Wm82.gnm2.W3NY.gff3.gz
+├── vigun.IT97K-499-35.gnm1.x.phavu.G19833.gnm1.W3NY.gff3.gz
+├── vigun.IT97K-499-35.gnm1.x.vigan.Gyeongwon.gnm3.W3NY.gff3.gz
+├── vigun.IT97K-499-35.gnm1.x.vigra.VC1973A.gnm6.W3NY.gff3.gz
+└── vigun.IT97K-499-35.gnm1.x.vigun.IT97K-499-35.gnm1.W3NY.gff3.gz
 ```
 GFF3 records have the following format:
 
