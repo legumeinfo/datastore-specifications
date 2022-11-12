@@ -14,10 +14,9 @@ my $usage = <<EOS;
   Swap the seqIDs (column 1) with the values from a seqid hash file, if provided.
   Optionally, exclude records for features in a provided list of feature IDs.
 
-  NOTE: The GFF input file should be structurally correct. 
-  It may not work correctly for a non-sorted GFF. 
-  Sort the GFF first if needed, e.g. with check-disorder.pl and gff3sort.pl 
-  If necessary, patch with e.g. agat_convert_sp_gxf2gxf.pl
+  NOTE: The GFF input file should be structurally correct. It may not work correctly for a
+  non-sorted GFF. Patch the GFF first if needed, e.g. with agat_convert_sp_gxf2gxf.pl
+  This script will apply a quick-and-dirty sorting method -sort is specified.
   
   Required:
     -gff_file    GFF file; may be compressed or not.
@@ -28,12 +27,13 @@ my $usage = <<EOS;
     -suppress    (string) File with list of components (mRNAs, CDSs, exons) or genes to exclude.
                    To exclude a component, use a splice suffix (GENE_A.1). To also
                    exclude a gene record, use the bare gene name (GENE_A)
+    -sort        (boolean) Sort the GFF file. This attempts to put child features below parents.
     -out_file    (string) write to this file; otherwise, to stdout.
     -strip_regex (string) Regular expression for removing a pattern from the GFF, prior to hashing.
     -help        (boolean) This message.
 EOS
 
-my ($gff_file, $featid_map, $seqid_map, $suppress, $out_file, $strip_regex, $help, $STR_RX);
+my ($gff_file, $featid_map, $seqid_map, $suppress, $sort, $out_file, $strip_regex, $help, $STR_RX);
 
 GetOptions (
   "gff_file=s" =>    \$gff_file,   # required
@@ -41,7 +41,8 @@ GetOptions (
   "seqid_map:s" =>   \$seqid_map,  
   "out_file:s" =>    \$out_file,   
   "suppress:s" =>    \$suppress,   
-  "strip_regex:s" => \$strip_regex,
+  "sort" =>          \$sort,
+  "strip_regex:s" =>   \$strip_regex,
   "help" =>          \$help,
 );
 
@@ -63,7 +64,7 @@ if ($featid_map) {
     /(\S+)\s+(.+)/;
     my ($id, $featid_map_val) = ($1,$2);
     $featid_map{$id} = $featid_map_val;   
-    # print "$id, $featid_map{$id}\n";
+    # say "$id, $featid_map{$id}";
   }
 }
 
@@ -76,7 +77,7 @@ if ($seqid_map) {
     /(\S+)\s+(.+)/;
     my ($id, $seqid_map_val) = ($1,$2);
     $seqid_map{$id} = $seqid_map_val;   
-    # print "$id, $seqid_map{$id}\n";
+    # say"$id, $seqid_map{$id}";
   }
 }
 
@@ -88,7 +89,7 @@ if (defined($suppress)) {
     chomp;
     next if /^$/;
     $suppress_hsh{$_}++;
-    #print "$_\n";
+    #say "$_";
   }
 }
 
@@ -109,16 +110,29 @@ else {
   open ( $GFF_FH, "<", $gff_file ) or die "Can't open in $gff_file: $!\n";
 }
 
+# Sorting method by Sam Hokin. Standalone script: sort_gff.pl
 my $comment_string = "";
 my @gff_lines;
+my %type_collate = (
+  gene => 0,
+  mRNA => 1,
+  ncRNA => 1.5,
+  rRNA => 1.75,
+  tRNA => 1.875,
+  exon => 2,
+  three_prime_UTR => 3,
+  CDS => 4,
+  five_prime_UTR => 5,
+  protein_match => 6,
+  match_part => 7,
+);
 
 while (<$GFF_FH>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
   my $line = $_;
-  if ( $line =~ /(^#.+)/ ) { # print comment line 
-    $comment_string = "$1\n";
-    print $OUT_FH "$comment_string";
+  if ( $line =~ /^#.+/ ) { # print comment line 
+    say $OUT_FH $line;
   }
   else { # body of the GFF
     if ($strip_regex){
@@ -128,10 +142,21 @@ while (<$GFF_FH>) {
   }
 }
 
-# Process body of the GFF. Comments were printed earlier.
+my @split_lines = map {my @a = split /\t/; \@a;} @gff_lines;
+if ($sort) { # Sorting method by Sam Hokin
+  @split_lines = sort {
+    $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} cmp $type_collate{$b->[2]}
+  } @split_lines;
+}
+else { 
+  #nothing; we'll use the provided sorting.
+}
+
 my ($gene_name, $new_gene_id);
-for my $line (@gff_lines){
-  my @fields = split(/\t/, $line); # @fields has the 9 GFF elements for this line.
+
+# Process body of the GFF. Comments were printed earlier.
+for my $split_line (@split_lines){
+  my @fields = @$split_line; # Renaming for clarity; @fields has the 9 GFF elements for this line.
   #say join("\t", @fields);
 
   if ($seqid_map){
@@ -140,78 +165,42 @@ for my $line (@gff_lines){
   }
   
   my $col9 = $fields[8];
-  my @col9_k_v = split(/;/, $col9);
-  my $col3 = $fields[2];
-  my $attr_ct = 0;
-  #print $fields[4]-$fields[3], "\t", $fields[2], "\t";
-  if ( $col3 =~ /gene/i ) {
-    $gene_name = $col9;
-    $gene_name =~ s/ID=([^;]+);.+/$1/;
-    if ($featid_map) {
-      $new_gene_id = $featid_map{$gene_name};
-    }
-    #print "GENE:$gene_name\t$new_gene_id\t";
-    #print "[$col9]\n";
-    if ( $suppress_hsh{$gene_name} ) { 
-      # skip; do nothing
-    }
-    else {
-      print $OUT_FH join("\t", @fields[0..7]);
-      print $OUT_FH "\t";
-      if ($featid_map) {
-        $col9 =~ s/$gene_name/$new_gene_id/g;
-      }
-      else {
-        # Do nothing, since we don't have a $featid_map 
-      }
-      print $OUT_FH "$col9;";
-      print $OUT_FH "\n";
-    }
-  }
-  else { # one of the gene components: CDS, mRNA etc.
-    my $part_name = $col9;
-    $part_name =~ s/ID=([^;]+);.+/$1/;
-    $part_name =~ s/([^:]+):.+/$1/;
-    #print "PART:$part_name\t";
-    #print "{$col9}\n";
-
-    if ($suppress_hsh{$part_name}) {
-      # skip; do nothing
-    }
-    else {
-      print $OUT_FH join("\t", @fields[0..7]);
-      print $OUT_FH "\t";
-
-      # Split parents into an array
-      my $parents = $col9;
-      $parents =~ s/.+;Parent=(.+)/$1/i;
-      my @parents_ary = split(/,/, $parents);
-      #print join("=====", @parents_ary), "\n";
-
-      foreach my $parent (@parents_ary) {
-        if ( $suppress_hsh{$parent} ) { # strip this parent from list of parents
-          $col9 =~ s/$parent//g;
-          $col9 =~ s/,,/,/g;
-          if (length($col9)<10) {
-            warn "WARNING: Check elements related to $part_name. The 9th field is suspiciously short. " .
-              "All parents may have been removed.\n"
-            }
-        }
-        else {
-          # do nothing (don't remove parent from string) because it's OK.
+  my @col9_attrs = split(/;/, $col9);
+  my @new_attrs;
+  #say "$fields[2]\t", join("\t",@col9_attrs);
+  for my $attr (@col9_attrs){
+    if ($attr =~ /Parent=(.+)/){
+      my @parents_ary = split(/,/, $1);
+      my @new_parents_ary;
+      for my $parent (@parents_ary){
+        my $new_parent = $featid_map{$parent};
+        unless ($suppress_hsh{$parent}){
+          push @new_parents_ary, $new_parent;
         }
       }
-      $col9 =~ s/$gene_name/$new_gene_id/g;
-      print $OUT_FH "$col9;";
-      print $OUT_FH "\n";
+      my $new_parents_str="Parent=" . join(",", @new_parents_ary);
+      push @new_attrs, $new_parents_str;
+    }
+    elsif ($attr =~ /ID=(.+)/){
+      my $old_ID = $1;
+      my $new_ID_str = "ID=$featid_map{$old_ID}";
+      push @new_attrs, $new_ID_str;
+    }
+    elsif ($attr =~ /Name=(.+)/){
+      my $old_ID = $1;
+      my $new_Name_str = "Name=$featid_map{$old_ID}";
+      push @new_attrs, $new_Name_str;
+    }
+    else { # Some other attribute
+      push @new_attrs, $attr;
     }
   }
+  say $OUT_FH join("\t", @fields[0..7]), "\t", join(";", @new_attrs);
 }
 
 __END__
 
 Steven Cannon
-Versions
 2014-05-22 New script. Appears to work.
 2017-01-10 Handle commented lines in GFF (the header)
 2018-02-09 Add more flexibility in printing commented lines (e.g. interspersed comments)
@@ -225,5 +214,5 @@ Versions
 2022-10-11 Take GFF file as parameter, handling compressed and uncompressed files.
             Print to named file or to STDOUT.
             Add sorting routine.
-2022-11-09 Remove sorting routine. Rely instead on prior sorting with e.g. gff3sort.pl
+2022-11-12 Rework hashing of attributes (ID, Parent, Name). Recover positional sortring routine, after briefly removing it.
 
