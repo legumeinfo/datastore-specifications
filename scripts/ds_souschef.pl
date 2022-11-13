@@ -221,25 +221,40 @@ sub make_featid_map {
   say "\n== Making a map (hash) of old/new gene IDs, to go to the annotations directory ==";
   # Get path to main GFF input file
   my $GFF_FILE_START;
+  my $GFF_EXONS_FILE_START;
   my ($strip_regex, $STRIP_RX);
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ # Get the "strip" regex, if any, from the conf file
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/){
       $GFF_FILE_START = 
         "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+      say "  There is a gff_main file: $prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
       $strip_regex = $fr_to_hsh->{strip};
       $strip_regex =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
       if ( $strip_regex ){ $STRIP_RX=qr/$strip_regex/ }
       else { $STRIP_RX=qr/$/ }
       say "  STRIP REGEX: \"$STRIP_RX\"";
     }
+    if ($fr_to_hsh->{to} =~ /gene_models_exons.gff3/){
+      $GFF_EXONS_FILE_START = 
+        "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+      $strip_regex = $fr_to_hsh->{strip};
+      say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+    }
   }
   say $GFF_FILE_START;
   unless (-e $GFF_FILE_START) {
     die "File $GFF_FILE_START doesn't exist. Check filename components in config file.\n"
   }
-  
+   
+  my $GFF_IN_FH;
   say "Generating hash of old/new gene IDs.";
-  open(my $GFF_IN_FH, "gzcat $GFF_FILE_START |") or die "Can't do gzcat $GFF_FILE_START|: $!";
+  if (-f $GFF_FILE_START && -f $GFF_EXONS_FILE_START){ # There are both gene_models_main and gene_models_exons files
+    open($GFF_IN_FH, "gzcat $GFF_FILE_START $GFF_EXONS_FILE_START |") or die \
+      "Can't do gzcat $GFF_FILE_START $GFF_EXONS_FILE_START |: $!";
+  }
+  else { # There is only a gene_models_main file; not also a gene_models_exons file
+    open($GFF_IN_FH, "gzcat $GFF_FILE_START |") or die "Can't do gzcat $GFF_FILE_START |: $!";
+  }
   $FEATID_MAP = "$WD/annotations/$ANNCOL/$GENSP.$ANNCOL.featid_map.tsv";
   open (my $FEATID_MAP_FH, ">", $FEATID_MAP) or die "Can't open out $FEATID_MAP: $!\n";
   my %seen_gene_id;
@@ -249,12 +264,13 @@ sub make_featid_map {
     my @parts = split(/\t/, $line);
     my $gene_id = $parts[8];
     $gene_id =~ s/ID=([^;]+);.+/$1/;
+    my $new_gene_id = $gene_id;
     if (defined $strip_regex){
-      $gene_id =~ s/$STRIP_RX//g;
+      $new_gene_id =~ s/$STRIP_RX//g;
     }
     unless ( $seen_gene_id{$gene_id} ) {
       $seen_gene_id{$gene_id}++;
-      say $FEATID_MAP_FH "$gene_id\t$TO_ANN_PREFIX.$gene_id";
+      say $FEATID_MAP_FH "$gene_id\t$TO_ANN_PREFIX.$new_gene_id";
     }
   }
 
@@ -427,15 +443,10 @@ sub gff {
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS;
-    my $STRIP_RX = $fr_to_hsh->{strip};
-    if (defined $STRIP_RX){
-      $STRIP_RX =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
-      say "  STRIP REGEX: \"$STRIP_RX\"";
-      $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -strip \"$STRIP_RX\" -out $TO_FILE";
-    }
-    else {
-      $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -out $TO_FILE";
-    }
+    my $GFF_STRIP_RX = "$GENSP.$ANNCOL."; # Prefix to strip from the full-yuck name, e.g. glyma.Wm82.gnm2.ann1. 
+    say "  STRIP REGEX for Name attribute in GFF: \"$GFF_STRIP_RX";
+    $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -strip \"$GFF_STRIP_RX\" -out $TO_FILE";
+    say "  Execute hash_into_gff_id.pl $ARGS";
     system("hash_into_gff_id.pl $ARGS");
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/) {
       say "  Generating CDS bed file from GFF";
@@ -519,4 +530,5 @@ Versions
            The main difference is that ..._id_map.pl uses full hash/map of all features, whereas 
            ..._genomic.pl uses just mapping files with the base gene IDs, excluding splice forms and subfeatures.
            Also, handling of original readme and usage files is more flexible (entailing a change in the config).
-
+2022-11-12 Renamed from ds_souschef_id_map.pl to ds_souschef.pl, just for the simplification.
+           Change use of strip_regex in make_featid_map, applying it only to the new name (col 2).

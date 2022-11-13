@@ -13,10 +13,7 @@ my $usage = <<EOS;
   Swap the feature (gene) IDs with the values from a gene hash file, if provided.
   Swap the seqIDs (column 1) with the values from a seqid hash file, if provided.
   Optionally, exclude records for features in a provided list of feature IDs.
-
-  NOTE: The GFF input file should be structurally correct. It may not work correctly for a
-  non-sorted GFF. Patch the GFF first if needed, e.g. with agat_convert_sp_gxf2gxf.pl
-  This script will apply a quick-and-dirty sorting method -sort is specified.
+  This script will apply a positional sorting method -sort is specified.
   
   Required:
     -gff_file    GFF file; may be compressed or not.
@@ -29,7 +26,8 @@ my $usage = <<EOS;
                    exclude a gene record, use the bare gene name (GENE_A)
     -sort        (boolean) Sort the GFF file. This attempts to put child features below parents.
     -out_file    (string) write to this file; otherwise, to stdout.
-    -strip_regex (string) Regular expression for removing a pattern from the GFF, prior to hashing.
+    -strip_regex (string) Quoted regular expression to remove from ID to produce Name, e.g.
+                           "gensp.Accn.gnm1.ann1." 
     -help        (boolean) This message.
 EOS
 
@@ -42,7 +40,7 @@ GetOptions (
   "out_file:s" =>    \$out_file,   
   "suppress:s" =>    \$suppress,   
   "sort" =>          \$sort,
-  "strip_regex:s" =>   \$strip_regex,
+  "strip_regex:s" => \$strip_regex,
   "help" =>          \$help,
 );
 
@@ -167,6 +165,7 @@ for my $split_line (@split_lines){
   my $col9 = $fields[8];
   my @col9_attrs = split(/;/, $col9);
   my @new_attrs;
+  my $old_ID;
   #say "$fields[2]\t", join("\t",@col9_attrs);
   for my $attr (@col9_attrs){
     if ($attr =~ /Parent=(.+)/){
@@ -181,14 +180,18 @@ for my $split_line (@split_lines){
       my $new_parents_str="Parent=" . join(",", @new_parents_ary);
       push @new_attrs, $new_parents_str;
     }
-    elsif ($attr =~ /ID=(.+)/){
-      my $old_ID = $1;
+    elsif ($attr =~ /ID=([^;]+)/){
+      $old_ID = $1;
+      #say "old_ID: [$old_ID]";
       my $new_ID_str = "ID=$featid_map{$old_ID}";
       push @new_attrs, $new_ID_str;
     }
-    elsif ($attr =~ /Name=(.+)/){
-      my $old_ID = $1;
+    elsif ($attr =~ /Name=([^;]+)/){
+      # Use $old_ID from ID=() above. This assumes Name follows ID
       my $new_Name_str = "Name=$featid_map{$old_ID}";
+      if ($strip_regex){ # Strip from ID to produce Name
+        $new_Name_str =~ s/$STR_RX//g;
+      }
       push @new_attrs, $new_Name_str;
     }
     else { # Some other attribute
@@ -214,5 +217,6 @@ Steven Cannon
 2022-10-11 Take GFF file as parameter, handling compressed and uncompressed files.
             Print to named file or to STDOUT.
             Add sorting routine.
-2022-11-12 Rework hashing of attributes (ID, Parent, Name). Recover positional sortring routine, after briefly removing it.
+2022-11-13 Simplify name to ds_souchef.pl .
+           Rework hashing of attributes (ID, Parent, Name). Recover positional sortring routine, after briefly removing it.
 
