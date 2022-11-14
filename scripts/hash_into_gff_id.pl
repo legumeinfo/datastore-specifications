@@ -109,7 +109,6 @@ else {
 }
 
 # Sorting method by Sam Hokin. Standalone script: sort_gff.pl
-my $comment_string = "";
 my @gff_lines;
 my %type_collate = (
   gene => 0,
@@ -122,13 +121,20 @@ my %type_collate = (
   CDS => 4,
   five_prime_UTR => 5,
   protein_match => 6,
-  match_part => 7,
+  match => 7,
+  match_part => 8,
+  protein_match => 9,
+  expressed_sequence_match => 9,
+  translated_nucleotide_match => 10,
+  expressed_sequence_match => 11,
+  contig => 12,
 );
 
 while (<$GFF_FH>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
   my $line = $_;
+  if ( $line =~ /^###$/ ) { next } # Skip spacer lines
   if ( $line =~ /^#.+/ ) { # print comment line 
     say $OUT_FH $line;
   }
@@ -141,6 +147,7 @@ while (<$GFF_FH>) {
 }
 
 my @split_lines = map {my @a = split /\t/; \@a;} @gff_lines;
+
 if ($sort) { # Sorting method by Sam Hokin
   @split_lines = sort {
     $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} cmp $type_collate{$b->[2]}

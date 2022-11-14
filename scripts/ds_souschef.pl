@@ -9,7 +9,11 @@ use File::Basename;
 use feature "say";
 
 my $usage = <<EOS;
-  Synopsis: ds_souschef_id_map.pl -config CONFIG.yml
+  Synopsis: ds_souschef.pl -config CONFIG.yml
+    OR, to just calculate GFFs, given pre-calculated sequid and featid maps (passed in as variables):
+      ds_souschef.pl -config CONFIG.yml -seqid_map \$SM -featid_map \$FM -gff 
+    OR, to just calculate the README file:
+      ds_souschef.pl -config CONFIG.yml -readme
 
   This script uses information in a yaml-format config file to prepare data store 
   collections for genomic data, comprising genome assemblies and/or gene annotations. 
@@ -106,6 +110,7 @@ for (keys %{$confobj->{readme_info}}){ $readme_hsh{$_} = $confobj->{readme_info}
 
 # Make some variables for prefixes, for convenience
 my $GNMCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
+my $ANN_GT_VER = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
 my $ANNCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
 my $GENSP = $coll_hsh{gensp};
 my $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
@@ -228,13 +233,15 @@ sub make_featid_map {
       $GFF_FILE_START = 
         "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
       say "  There is a gff_main file: $prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
-      $strip_regex = $fr_to_hsh->{strip};
-      $strip_regex =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
-      if ( $strip_regex ){ $STRIP_RX=qr/$strip_regex/ }
+      if ($fr_to_hsh->{strip}){
+        $strip_regex = $fr_to_hsh->{strip};
+        $strip_regex =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
+        $STRIP_RX=qr/$strip_regex/ 
+      }
       else { $STRIP_RX=qr/$/ }
       say "  STRIP REGEX: \"$STRIP_RX\"";
     }
-    if ($fr_to_hsh->{to} =~ /gene_models_exons.gff3/){
+    elsif ($fr_to_hsh->{to} =~ /gene_models_exons.gff3/){
       $GFF_EXONS_FILE_START = 
         "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
       $strip_regex = $fr_to_hsh->{strip};
@@ -443,7 +450,7 @@ sub gff {
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS;
-    my $GFF_STRIP_RX = "$GENSP.$ANNCOL."; # Prefix to strip from the full-yuck name, e.g. glyma.Wm82.gnm2.ann1. 
+    my $GFF_STRIP_RX = "$GENSP.$ANN_GT_VER."; # Prefix to strip from the full-yuck name, e.g. glyma.Wm82.gnm2.ann1. 
     say "  STRIP REGEX for Name attribute in GFF: \"$GFF_STRIP_RX";
     $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -sort -strip \"$GFF_STRIP_RX\" -out $TO_FILE";
     say "  Execute hash_into_gff_id.pl $ARGS";

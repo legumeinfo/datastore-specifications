@@ -13,10 +13,10 @@ collection_info:
     genotype: VC1973A
     gnm_ver: gnm7
     ann_ver: ann1
-    genome_key: YCMC
-    annot_key: XKNE
+    genome_key: SB53
+    annot_key: RWBG
 readme_info:
-    provenance: "The files in this directory originated from the Crop Genomics Lab, http://plantgenomics.snu.ac.kr. The Crop Genomics Lab repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    provenance: "The files in this directory originated from the Crop Genomics Lab of Dr. Suk-Ha Lee, http://plantgenomics.snu.ac.kr. The Crop Genomics Lab repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
     source: "http://plantgenomics.snu.ac.kr/mediawiki-1.21.3/index.php/Main_Page"
     synopsis_genome: Vigna radiata (mungbean) accession VC1973A, assembly version 7 (2021)
     synopsis_annot: Annotation version 1 Vigna radiata (mungbean) accession VC1973A, assembly version 7 (2021)
@@ -29,7 +29,7 @@ readme_info:
     dataset_doi_annot: ""
     genbank_accession: ""
     original_file_creation_date: 2021-07
-    local_file_creation_date: 2022-11-10
+    local_file_creation_date: 2022-11-15
     dataset_release_date: 2022-11-10
     contributors: Ha J, Satyawan D, Jeong H, Lee E, Cho KH, Kim MY, Lee SH
     publication_doi: "10.1002/tpg2.20121"
@@ -49,41 +49,21 @@ from_to_annot_as_is:
 from_to_genome_as_is:
 from_to_cds_mrna:
   - 
-    from: cds.fa.gz
+    from: CDS.fna.gz
     to: cds.fna
     description: "cds sequences"
   - 
-    from: cds_primaryTranscriptOnly.fa.gz
-    to: cds_primary.fna
-    description: "cds sequences - primary only"
-  - 
-    from: transcript.fa.gz
+    from: transcripts.fasta.gz
     to: mrna.fna
     description: "Transcript sequences"
-  - 
-    from: transcript_primaryTranscriptOnly.fa.gz
-    to: mrna_primary.fna
-    description: "Transcript sequences - primary only"
 from_to_protein:
   - 
-    from: protein_primaryTranscriptOnly.fa.gz
-    to: protein_primary.faa
-    strip: '\.p'
-    description: "Protein sequences - primary only"
-  - 
-    from: protein.fa.gz
+    from: protein.faa.gz
     to: protein.faa
-    strip: '\.p'
-    description: "Protein sequences"
+    description: "Protein sequences - primary only"
 from_to_gff:
   - 
-    from: gene_exons.gff3.gz
-    to: gene_models_exons.gff3
-    strip: '\.v2\.1'
-    description: "Gene models, with exon features"
-  - 
-    from: gene.gff3.gz
+    from: gff.gz
     to: gene_models_main.gff3
-    strip: '\.v2\.1'
     description: "Gene models - main"
 
