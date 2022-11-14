@@ -445,7 +445,7 @@ sub gff {
     my $ARGS;
     my $GFF_STRIP_RX = "$GENSP.$ANNCOL."; # Prefix to strip from the full-yuck name, e.g. glyma.Wm82.gnm2.ann1. 
     say "  STRIP REGEX for Name attribute in GFF: \"$GFF_STRIP_RX";
-    $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -strip \"$GFF_STRIP_RX\" -out $TO_FILE";
+    $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -sort -strip \"$GFF_STRIP_RX\" -out $TO_FILE";
     say "  Execute hash_into_gff_id.pl $ARGS";
     system("hash_into_gff_id.pl $ARGS");
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/) {
