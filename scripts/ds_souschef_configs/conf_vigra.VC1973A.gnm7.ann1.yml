@@ -46,24 +46,28 @@ from_to_genome:
     description: "Primary genome assembly"
 original_readme_and_usage:
 from_to_annot_as_is:
+  - 
+    from: gff.gz
+    to: gene_models_original.gff3
+    description: "Gene models - original (not prefixed)"
 from_to_genome_as_is:
 from_to_cds_mrna:
   - 
-    from: CDS.fna.gz
+    from: maker.CDS.fna.gz
     to: cds.fna
     description: "cds sequences"
   - 
-    from: transcripts.fasta.gz
+    from: maker.transcripts.fasta.gz
     to: mrna.fna
     description: "Transcript sequences"
 from_to_protein:
   - 
-    from: protein.faa.gz
+    from: maker.protein.faa.gz
     to: protein.faa
     description: "Protein sequences - primary only"
 from_to_gff:
   - 
-    from: gff.gz
+    from: standard.gff.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
 
