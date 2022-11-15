@@ -139,6 +139,8 @@ while (<$GFF_FH>) {
     say $OUT_FH $line;
   }
   else { # body of the GFF
+    my @parts = split(/\t/, $line);
+    if (scalar(@parts)<9){ next }
     if ($strip_regex){
       $line =~ s/$STR_RX//g;
     }
@@ -169,6 +171,7 @@ for my $split_line (@split_lines){
     $fields[0] = $seqid_map{$seqid};
   }
   
+  next if (scalar(@fields)<9);
   my $col9 = $fields[8];
   my @col9_attrs = split(/;/, $col9);
   my @new_attrs;
