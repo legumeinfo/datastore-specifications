@@ -225,8 +225,8 @@ sub make_seqid_map {
 sub make_featid_map {
   say "\n== Making a map (hash) of old/new gene IDs, to go to the annotations directory ==";
   # Get path to main GFF input file
-  my $GFF_FILE_START;
-  my $GFF_EXONS_FILE_START;
+  my $GFF_FILE_START = "";
+  my $GFF_EXONS_FILE_START = "";
   my ($strip_regex, $STRIP_RX);
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ # Get the "strip" regex, if any, from the conf file
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/){
@@ -269,6 +269,7 @@ sub make_featid_map {
     chomp $line;
     next if ($line =~ /^#|^\s*$/);
     my @parts = split(/\t/, $line);
+    next if (scalar(@parts)<9);
     my $gene_id = $parts[8];
     $gene_id =~ s/ID=([^;]+);.+/$1/;
     my $new_gene_id = $gene_id;
@@ -354,15 +355,15 @@ sub ann_as_is {
       copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
     }
   }
-  if (scalar(@{$confobj->{original_readme_and_usage}})>0){
+  if (defined $confobj->{original_readme_and_usage}){
     say "\n== Copying the original README and/or usage agreement files into the annotations directory ==";
-  }
-  for my $fr_to_hsh (@{$confobj->{original_readme_and_usage}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$fr_to_hsh->{from_full_filename}";
-    my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
-    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
-    copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!"; # Should be uncompressed text files
+    for my $fr_to_hsh (@{$confobj->{original_readme_and_usage}}){ 
+      my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$fr_to_hsh->{from_full_filename}";
+      my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+      say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+      &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
+      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!"; # Should be uncompressed text files
+    }
   }
 }
 
@@ -385,15 +386,15 @@ sub gnm_as_is {
       copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
     }
   }
-  if (scalar(@{$confobj->{original_readme_and_usage}})>0){
+  if (defined $confobj->{original_readme_and_usage}){
     say "\n== Copying the original README and/or usage agreement files into the genomes directory ==";
-  }
-  for my $fr_to_hsh (@{$confobj->{original_readme_and_usage}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$fr_to_hsh->{from_full_filename}";
-    my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
-    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
-    copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!"; # Should be uncompressed text files
+    for my $fr_to_hsh (@{$confobj->{original_readme_and_usage}}){ 
+      my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$fr_to_hsh->{from_full_filename}";
+      my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+      say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+      &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
+      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!"; # Should be uncompressed text files
+    }
   }
 }
 
@@ -539,3 +540,4 @@ Versions
            Also, handling of original readme and usage files is more flexible (entailing a change in the config).
 2022-11-12 Renamed from ds_souschef_id_map.pl to ds_souschef.pl, just for the simplification.
            Change use of strip_regex in make_featid_map, applying it only to the new name (col 2).
+2022-11-15 Fixed component existence-check for subroutines ann_as_is and gnm_as_is.
