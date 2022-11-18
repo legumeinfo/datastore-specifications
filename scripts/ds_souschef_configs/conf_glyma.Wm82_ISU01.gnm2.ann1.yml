@@ -4,8 +4,8 @@ directories:
     from_annot_dir: v2.1/annotation
     from_genome_dir: v2.1/assembly
 prefixes:
-    from_annot_prefix: GmaxWm82ISU_01_724_v2.1
-    from_genome_prefix: GmaxWm82ISU_01_724_v2.0
+    from_annot_prefix: "GmaxWm82ISU_01_724_v2.1."
+    from_genome_prefix: "GmaxWm82ISU_01_724_v2.0."
 collection_info:
     genus: Glycine
     species: max

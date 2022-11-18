@@ -194,7 +194,7 @@ sub make_seqid_map {
   for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
     if ($fr_to_hsh->{to} =~ /genome_main/){
       $GENOME_FILE_START = 
-        "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
+        "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
     }
   }
   say $GENOME_FILE_START;
@@ -231,8 +231,8 @@ sub make_featid_map {
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ # Get the "strip" regex, if any, from the conf file
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/){
       $GFF_FILE_START = 
-        "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
-      say "  There is a gff_main file: $prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+        "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
+      say "  There is a gff_main file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
       if ($fr_to_hsh->{strip}){
         $strip_regex = $fr_to_hsh->{strip};
         $strip_regex =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
@@ -243,9 +243,9 @@ sub make_featid_map {
     }
     elsif ($fr_to_hsh->{to} =~ /gene_models_exons.gff3/){
       $GFF_EXONS_FILE_START = 
-        "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+        "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
       $strip_regex = $fr_to_hsh->{strip};
-      say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+      say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     }
   }
   say $GFF_FILE_START;
@@ -340,7 +340,7 @@ sub readme {
 sub ann_as_is {
   say "\n== Copying over \"as-is\" annotation information files, if present, unchanged ==";
   for my $fr_to_hsh (@{$confobj->{from_to_annot_as_is}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}";
+    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
@@ -371,7 +371,7 @@ sub ann_as_is {
 sub gnm_as_is {
   say "\n== Copying over \"as-is\" genome information files, if present, unchanged ==";
   for my $fr_to_hsh (@{$confobj->{from_to_genome_as_is}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
+    my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
@@ -402,7 +402,7 @@ sub gnm_as_is {
 sub cds {
   say "\n== Processing the gene nucleotide files (CDS, mRNA) ==";
   for my $fr_to_hsh (@{$confobj->{from_to_cds_mrna}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
+    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
@@ -424,7 +424,7 @@ sub cds {
 sub protein {
   say "\n== Processing the protein sequence files ==";
   for my $fr_to_hsh (@{$confobj->{from_to_protein}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
+    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
@@ -446,7 +446,7 @@ sub protein {
 sub gff {
   say "\n== Processing the GFF files ==";
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}.$fr_to_hsh->{from}"; 
+    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
@@ -471,7 +471,7 @@ sub gff {
 sub assembly {
   say "\n== Processing the genome assembly files ==";
   for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}.$fr_to_hsh->{from}";
+    my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
