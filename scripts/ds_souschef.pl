@@ -124,9 +124,12 @@ my $GNMDIR = "$WD/genomes/$GNMCOL";
 my $ANN_MAN_CORR = "$ANNDIR/MANIFEST.$ANNCOL.correspondence.yml";
 my $ANN_MAN_DESCR = "$ANNDIR/MANIFEST.$ANNCOL.descriptions.yml";
 my $ANN_README = "$ANNDIR/README.$ANNCOL.yml";
+my $ANN_CHANGES = "$ANNDIR/CHANGES.$ANNCOL.txt";
+
 my $GNM_MAN_CORR = "$GNMDIR/MANIFEST.$GNMCOL.correspondence.yml";
 my $GNM_MAN_DESCR = "$GNMDIR/MANIFEST.$GNMCOL.descriptions.yml";
 my $GNM_README = "$GNMDIR/README.$GNMCOL.yml";
+my $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
 
 my $to_name_base;
 my ($FEATID_MAP, $SEQID_MAP);
@@ -180,8 +183,8 @@ sub setup {
   unless (-d $GNMDIR) {mkdir $GNMDIR or die "Can't make directory $GNMDIR: $!\n"}
 
   # Remove existing metadata files UNLESS -extend is set.
-  for my $file ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, 
-                $GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README){
+  for my $file ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES, 
+                $GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES){
     if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
   }
 }
@@ -318,6 +321,11 @@ sub readme {
     }
   }
 
+  # Assembly CHANGES
+  open(my $GNM_CHANGES_FH, '>>', $GNM_CHANGES) or die "Can't open out $GNM_CHANGES: $!";
+  say $GNM_CHANGES_FH "---";
+  say $GNM_CHANGES_FH "  - $readme_hsh{local_file_creation_date} Initial repository creation, using ds_souschef.pl";
+
   # Annotation README
   open(my $ANN_README_FH, '>>', $ANN_README) or die "Can't open out $ANN_README: $!";
   print $ANN_README_FH "---\n";
@@ -334,6 +342,11 @@ sub readme {
       say $ANN_README_FH "$key: $readme_hsh{$key}\n"
     }
   }
+
+  # Annotation CHANGES
+  open(my $ANN_CHANGES_FH, '>>', $ANN_CHANGES) or die "Can't open out $ANN_CHANGES: $!";
+  say $ANN_CHANGES_FH "---";
+  say $ANN_CHANGES_FH "  - $readme_hsh{local_file_creation_date} Initial repository creation, using ds_souschef.pl";
 }
 
 ##################################################
@@ -541,3 +554,5 @@ Versions
 2022-11-12 Renamed from ds_souschef_id_map.pl to ds_souschef.pl, just for the simplification.
            Change use of strip_regex in make_featid_map, applying it only to the new name (col 2).
 2022-11-15 Fixed component existence-check for subroutines ann_as_is and gnm_as_is.
+2022-11-27 Add CHANGES files to annotations and genomes collections.
+
