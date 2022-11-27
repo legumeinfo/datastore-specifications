@@ -34,20 +34,26 @@ done
 wait
 
 for file in $filepath/*.f?a $filepath/*.gff3 $filepath/*tsv; do
-  echo "Compressing $file"
-  bgzip -l9 $file &
+  if test -f $file; then
+    echo "Compressing $file"
+    bgzip -l9 $file &
+  fi
 done
 wait
 
 for file in $filepath/*.f?a.gz; do 
-  echo "Indexing fasta files: $file"
-  samtools faidx $file &
+  if test -f $file; then
+    echo "Indexing fasta files: $file"
+    samtools faidx $file &
+  fi
 done
 wait
 
 for file in $filepath/*.gene_models_main.gff3.gz; do
-  echo "Indexing GFF files: $file"
-  tabix $file -f &
+  if test -f $file; then
+    echo "Indexing GFF files: $file"
+    tabix $file -f &
+  fi
 done
 wait
 
