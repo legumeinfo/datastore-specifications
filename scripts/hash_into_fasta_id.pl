@@ -91,13 +91,13 @@ while ( <$FASTA_FH> ){
     #print "1:[$display_id] {$desc}\n";
 
     # strip off splice variant
-    $display_id =~ m/(.+)($SPL_RX)$/;
+    $display_id =~ m/(.+)($STR_RX)$/;
     ($base_id, $suffix) = ($1, $2);
     if ($strip_regex){
       $suffix =~ s/$STR_RX//; 
       $suffix =~ s/-/./; 
     }
-    #print "[$base_id] [$suffix]\n";
+    # print "[$base_id] [$suffix]\n";
     
     $hash{$base_id} = "$base_id HASH UNDEFINED" unless defined ($hash{$base_id});
     if ($nodef){ # DON'T print the defline description
@@ -113,9 +113,13 @@ while ( <$FASTA_FH> ){
     #print "2:[$display_id]\n";
 
     # strip off splice variant
-    $display_id =~ m/(.+)($SPL_RX)$/;
+    $display_id =~ m/(.+)($STR_RX)$/;
     ($base_id, $suffix) = ($1, $2);
-    #print "[$base_id] [$suffix]\n";
+    if ($strip_regex){
+      $suffix =~ s/$STR_RX//; 
+      $suffix =~ s/-/./; 
+    }
+    # print "[$base_id] [$suffix]\n";
     
     $hash{$base_id} = "$base_id HASH UNDEFINED" unless defined ($hash{$base_id});
     print $OUT_FH ">$hash{$base_id}$suffix\n";
@@ -142,3 +146,4 @@ Versions
             Print to named file or to STDOUT.
             Add flag "-strip_regex" to remove e.g. ".p" from protein gene IDs: Gene123.1.p --> Gene123.1
 2022-11-07 Switch to zcat from gzcat. Handle deflines containing spaces or tabs.
+2022-11-27 Fix bug in "-strip_regex" code
