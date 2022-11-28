@@ -429,6 +429,7 @@ sub cds {
     else {
       $ARGS = "-hash $FEATID_MAP -fasta $FROM_FILE -nodef -out $TO_FILE";
     }
+    say "  Execute hash_into_fasta_id.pl $ARGS";
     system("hash_into_fasta_id.pl $ARGS");
   }
 }
@@ -451,6 +452,7 @@ sub protein {
     else {
       $ARGS = "-hash $FEATID_MAP -fasta $FROM_FILE -nodef -out $TO_FILE";
     }
+    say "  Execute hash_into_fasta_id.pl $ARGS";
     system("hash_into_fasta_id.pl $ARGS");
   }
 }
@@ -489,6 +491,7 @@ sub assembly {
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS = "-hash $SEQID_MAP -fasta $FROM_FILE -nodef -out $TO_FILE";
+    say "  Execute hash_into_fasta_id.pl $ARGS";
     system("hash_into_fasta_id.pl $ARGS");
   }
 }
