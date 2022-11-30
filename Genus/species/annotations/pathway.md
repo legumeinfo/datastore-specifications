@@ -2,6 +2,8 @@
 
 Pathway assignments are represented in a single file in the appropriate /annotations/ directory.
 
+Note: use the minimal form of pathway identifier, e.g. R-1119325.1
+
 Filename: 
 _gensp.strain.gnm.ann.KEY4_.pathway.tsv
 _gensp.strain.gnm.ann.KEY4.genefamilyversion.KEY4_.pathway.tsv
