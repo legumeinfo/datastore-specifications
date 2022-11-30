@@ -1,4 +1,4 @@
-*gene_models_main.gff3*
+**gene_models_main.gff3**
 
 Some requirements:
 
