@@ -4,6 +4,8 @@ Gene family assignments are represented in a single GFA file (per family set, e.
 
 Filename: *gensp.strain.gnm.ann.KEY4.genefamilyversion.KEY4*.gfa.tsv
 
+Note: use the full name of the gene family, e.g. legfed_v1_0.L_TK68DW.
+
 The file is tab-delimited with a header:
 ```
 #gene   family  protein e-value score   best_domain_score   pct_hmm_coverage
