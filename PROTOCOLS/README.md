@@ -15,6 +15,7 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 
 
 <a name="adding-to-the-datastore"/>
+
 ## Procedure for adding a new data set to the data store
 
 NOTE: The instructions below are for curators working on files used by
@@ -106,6 +107,7 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
 ```
 
 <a name="using-souschef"/>
+
 ## Automating the process for genome and annotation collections with ds_souschef
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
 to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
@@ -205,33 +207,41 @@ Note the -r flag for the md5 command.
 ```
 
 <a name="calc-ahrd"/>
+
 ## Calculate AHRD functional annotations
 (TBD)
 
 <a name="calc-gfa"/>
+
 ## Calculate gene family assignments (GFA)
 (TBD)
 
 <a name="pan-genes"/>
+
 ## Add to pan-gene set
 (TBD)
 
 <a name="mine-loading"/>
+
 ## Load relevant mine
 (TBD)
 
 <a name="blast-targets"/>
+
 ## Add BLAST targets
 (TBD)
 
 <a name="populate-gcv"/>
+
 ## Incorporate into GCV
 (TBD)
 
 <a name="update-jekyll"/>
+
 ## Update the jekyll collections listing
 (TBD)
 
 <a name="update-browsers"/>
+
 ## Update browser configs
 (TBD)
