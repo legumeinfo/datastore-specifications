@@ -4,14 +4,14 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 ## Table of Contents
 [Procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
 [Automating the process for genome and annotation collections with ds_souschef](#using-souschef) <br>
-[Calculate AHRD functional annotations] (#calc-ahrd) <br>
-[Calculate gene family assignments (GFA)] (#calc-gfa) <br>
-[Add to pan-gene set] (#pan-genes) <br>
-[Load relevant mine] (#mine-loading) <br>
-[Add BLAST targets] (#blast-targets) <br>
-[Incorporate into GCV] (#populate-gcv) <br>
-[Update the jekyll collections listing] (#update-jekyll) <br>
-[Update browser configs] (#update-browsers) <br>
+[Calculate AHRD functional annotations](#calc-ahrd) <br>
+[Calculate gene family assignments (GFA)](#calc-gfa) <br>
+[Add to pan-gene set](#pan-genes) <br>
+[Load relevant mine](#mine-loading) <br>
+[Add BLAST targets](#blast-targets) <br>
+[Incorporate into GCV](#populate-gcv) <br>
+[Update the jekyll collections listing](#update-jekyll) <br>
+[Update browser configs](#update-browsers) <br>
 
 
 <a name="adding-to-the-datastore"/>
