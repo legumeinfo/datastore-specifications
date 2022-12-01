@@ -2,18 +2,17 @@
 Instructions for adding data to the Data Store and then updating associated LIS/SoyBase/PeanutBase resources.
 
 ## Table of Contents
-<ul>
-  <li>[Procedure for adding a new data set to the data store](#adding-to-the-datastore)</li>
-  <li>[Automating the process for genome and annotation collections with ds_souschef](#using-souschef)</li>
-  <li>[Calculate AHRD functional annotations] (#calc-ahrd)</li>
-  <li>[Calculate gene family assignments (GFA)] (#calc-gfa)</li>
-  <li>[Add to pan-gene set] (#pan-genes)</li>
-  <li>[Load relevant mine] (#mine-loading)</li>
-  <li>[Add BLAST targets] (#blast-targets)</li>
-  <li>[Incorporate into GCV] (#populate-gcv)</li>
-  <li>[Update the jekyll collections listing] (#update-jekyll)</li>
-  <li>[Update browser configs] (#update-browsers)</li>
-</ul>
+[Procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
+[Automating the process for genome and annotation collections with ds_souschef](#using-souschef) <br>
+[Calculate AHRD functional annotations] (#calc-ahrd) <br>
+[Calculate gene family assignments (GFA)] (#calc-gfa) <br>
+[Add to pan-gene set] (#pan-genes) <br>
+[Load relevant mine] (#mine-loading) <br>
+[Add BLAST targets] (#blast-targets) <br>
+[Incorporate into GCV] (#populate-gcv) <br>
+[Update the jekyll collections listing] (#update-jekyll) <br>
+[Update browser configs] (#update-browsers) <br>
+
 
 <a name="adding-to-the-datastore"/>
 ## Procedure for adding a new data set to the data store
