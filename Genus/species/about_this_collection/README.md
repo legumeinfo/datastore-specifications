@@ -4,4 +4,3 @@ Overall information about a species collection is contained in this directory; t
 
 Files:
 - _description_Genus_species_.yml
-- _strains_Genus_species_.yml
