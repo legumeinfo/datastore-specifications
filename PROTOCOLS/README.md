@@ -4,6 +4,7 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 ## Table of Contents
 [Procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
 [Automating the process for genome and annotation collections with ds_souschef](#using-souschef) <br>
+[Initiate or update "about_this_collection.yml"](#description-genus-species) <br>
 [Calculate AHRD functional annotations](#calc-ahrd) <br>
 [Calculate gene family assignments (GFA)](#calc-gfa) <br>
 [Add to pan-gene set](#pan-genes) <br>
@@ -39,6 +40,9 @@ Upload (scp) data to the private directory (and appropriate subdirectory) here:
 
 #### Name the directories and files
 Apply directory names, following the patterns described in specifications in this repository.
+
+<u>Note: For genomes and annotation, please see [Automating the process for genome and annotation collections with ds_souschef](#using-souschef)
+below, as that tool helps to automate and regularize the process.</u>
 
 Each data "collection," consisting of one or more related data files of a particular type (genome assembly,
 annotation, marker set, etc.) has a name consisting of three dot-separated parts or fields (four fields for annotation collections):
@@ -122,11 +126,11 @@ The ds_souschef.pl tool can be applied to datasets from other sources, but the p
 configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
 and patterns, reflected in this Arabidopsis example.
 
-#### Download assembly and annotation from Phytozome, into working directory at lis-stage:
+#### Download assembly and annotation into working directory at lis-stage:
 ```
   cd /usr/local/www/data/private/Arabidopsis/thaliana
 ```
-The directory layout for Phytozome assembly and annotation files is:
+The directory layout for Phytozome assembly and annotation files (for this example) is:
 ```
   Athaliana_447_Araport11/annotation
   Athaliana_447_Araport11/assembly
@@ -170,7 +174,7 @@ Base it on a config file for another Phytozome collection.
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/assembly/
 ```
 #### Run ds_souschef.pl
-The ds_souschef.pl program can be run from anywhere, but it is convenient to run it from the configs directory.
+The **ds_souschef.pl** program can be run from anywhere, but it is convenient to run it from the configs directory.
 Output goes to the working directory specified in the config file.
 ```
   cd /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs/
@@ -205,6 +209,24 @@ Note the -r flag for the md5 command.
   mv annotations/COLLECTION  /usr/local/www/data/v2/Genus/species/annotations/
   mv genomes/COLLECTION  /usr/local/www/data/v2/Genus/species/genomes/
 ```
+
+<a name="description-genus-species"/>
+
+## Initiate or update "about_this_collection.yml"
+Each GENUS and species directory has an about_this_collection subdirectory, each containing
+a single "description" file, like so (for Vigna):
+```
+  angularis/about_this_collection/description_Vigna_angularis.yml
+  GENUS/about_this_collection/description_Vigna.yml
+  radiata/about_this_collection/description_Vigna_radiata.yml
+  unguiculata/about_this_collection/description_Vigna_unguiculata.yml
+```
+It is important to update these files when new genome and annotation resources are added, as these files are 
+used for Intermine creation and for generating several core Jekyll pages:
+"taxa" (LIS), "resources" (SoyBase), "collections", and "tools" (both LIS and SoyBase).
+See the about\_this\_collection specifications for GENUS [here](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/GENUS/about_this_collection)
+and for species [here](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/species/about_this_collection).
+
 
 <a name="calc-ahrd"/>
 
