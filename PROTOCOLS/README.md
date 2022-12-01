@@ -2,18 +2,20 @@
 Instructions for adding data to the Data Store and then updating associated LIS/SoyBase/PeanutBase resources.
 
 ## Table of Contents
-[Procedure for adding a new data set to the data store](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#procedure-for-adding-a-new-data-set-to-the-data-store)
-[Automating the process for genome and annotation collections with ds_souschef](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#automating-the-process-for-genome-and-annotation-collections-with-ds_souschef)
-[Calculate AHRD functional annotations] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#calculate_ahrd_functional_annotations)
-[Calculate gene family assignments (GFA)] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#calculate_gene_family_assignments)
-[Add to pan-gene set] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#add_to_pan-gene_set)
-[Load relevant mine] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#load_relevant_mine)
-[Add BLAST targets] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#add_blast_targets)
-[Incorporate into GCV] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#incorporate_into_GCV)
-[Update the jekyll collections listing] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#update_the_jekyll_collections_listing)
-[Update browser configs] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#update_browser_configs)
-[Perform whole genome alignments] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#perform_whole_genome_alignments)
+<ul>
+  <li>[Procedure for adding a new data set to the data store](#adding-to-the-datastore)</li>
+  <li>[Automating the process for genome and annotation collections with ds_souschef](#using-souschef)</li>
+  <li>[Calculate AHRD functional annotations] (#calc-ahrd)</li>
+  <li>[Calculate gene family assignments (GFA)] (#calc-gfa)</li>
+  <li>[Add to pan-gene set] (#pan-genes)</li>
+  <li>[Load relevant mine] (#mine-loading)</li>
+  <li>[Add BLAST targets] (#blast-targets)</li>
+  <li>[Incorporate into GCV] (#populate-gcv)</li>
+  <li>[Update the jekyll collections listing] (#update-jekyll)</li>
+  <li>[Update browser configs] (#update-browsers)</li>
+</ul>
 
+<a name="adding-to-the-datastore"/>
 ## Procedure for adding a new data set to the data store
 
 NOTE: The instructions below are for curators working on files used by
@@ -103,6 +105,8 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
   echo $'\n'"Moved Wm82.gnm2.met1.K8RT to v2 on 2018-04-19 by YOUR NAME"$'\n' \
     >> private/Glycine/max/status.glyma.txt
 ```
+
+<a name="using-souschef"/>
 ## Automating the process for genome and annotation collections with ds_souschef
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
 to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
@@ -201,21 +205,34 @@ Note the -r flag for the md5 command.
   mv genomes/COLLECTION  /usr/local/www/data/v2/Genus/species/genomes/
 ```
 
+<a name="calc-ahrd"/>
 ## Calculate AHRD functional annotations
 (TBD)
+
+<a name="calc-gfa"/>
 ## Calculate gene family assignments (GFA)
 (TBD)
+
+<a name="pan-genes"/>
 ## Add to pan-gene set
 (TBD)
+
+<a name="mine-loading"/>
 ## Load relevant mine
 (TBD)
+
+<a name="blast-targets"/>
 ## Add BLAST targets
 (TBD)
+
+<a name="populate-gcv"/>
 ## Incorporate into GCV
 (TBD)
+
+<a name="update-jekyll"/>
 ## Update the jekyll collections listing
 (TBD)
+
+<a name="update-browsers"/>
 ## Update browser configs
-(TBD)
-## Perform whole genome alignments
 (TBD)
