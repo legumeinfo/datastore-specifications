@@ -1,7 +1,20 @@
 # General protocols: procedures for adding new data, etc.
-Instructions for adding data to the Data Store. General protocols.
+Instructions for adding data to the Data Store and then updating associated LIS/SoyBase/PeanutBase resources.
 
-## PROCEDURE FOR ADDING A NEW DATA SET TO THE DATA STORE
+## Table of Contents
+[Procedure for adding a new data set to the data store](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#procedure-for-adding-a-new-data-set-to-the-data-store)
+[Automating the process for genome and annotation collections with ds_souschef](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#automating-the-process-for-genome-and-annotation-collections-with-ds_souschef)
+[Calculate AHRD functional annotations] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#calculate_ahrd_functional_annotations)
+[Calculate gene family assignments (GFA)] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#calculate_gene_family_assignments)
+[Add to pan-gene set] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#add_to_pan-gene_set)
+[Load relevant mine] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#load_relevant_mine)
+[Add BLAST targets] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#add_blast_targets)
+[Incorporate into GCV] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#incorporate_into_GCV)
+[Update the jekyll collections listing] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#update_the_jekyll_collections_listing)
+[Update browser configs] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#update_browser_configs)
+[Perform whole genome alignments] (https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#perform_whole_genome_alignments)
+
+## Procedure for adding a new data set to the data store
 
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
@@ -9,7 +22,7 @@ If you are a researcher or user of and you have a data set that you would like
 to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
 We would love to work with you.
 
-### Upload the data to the local Data Store file system
+#### Upload the data to the local Data Store file system
 The data store is accessible via command line from several servers.
 As of summer, 2021, any of these servers can be used:
   - lis-stage.usda.iastate.edu
@@ -22,7 +35,7 @@ Upload (scp) data to the private directory (and appropriate subdirectory) here:
   e.g.
   /usr/local/www/data/private/Glycine/max
 
-### Name the directories and files
+#### Name the directories and files
 Apply directory names, following the patterns described in specifications in this repository.
 
 Each data "collection," consisting of one or more related data files of a particular type (genome assembly,
@@ -36,15 +49,13 @@ Please see the instructions there for registering keys.
   genomes:  CB5-2.gnm1.WDTB  Sanzi.gnm1.YNCM   UCR779.gnm1.M7KZ
   annotations:  CB5-2.gnm1.ann1.0GKC  Sanzi.gnm1.ann1.HFH8   UCR779.gnm1.ann1.VF6G
 ```
-
 For collections that are typically associated with a publication, the unique "key" has the form "Author\_Author\_YEAR"
 ```
   genetic: CB27_x_IT82E-18.mst.Pottorff_Li_2014 CB27_x_IT97K-556-6.gen.Huynh_Ehlers_2015
   maps: MAGIC-2017.map.Huynh_Ehlers_2018
   markers: IT97K-499-35.gnm1.mrk.Cowpea1MSelectedSNPs
 ```
-
-### Fill out the README and MANIFEST files
+#### Fill out the README and MANIFEST files
 Fill out the README file. The empty template is at
 https://github.com/legumeinfo/datastore-specifications/blob/main/README.collection.yml
 but it is often easiest to copy a README from another data collection for the
@@ -66,7 +77,6 @@ cat MANIFEST.Wm82.gnm2.DTC4.correspondence.yml
 glyma.Wm82.gnm2.DTC4.genome_hardmasked.fna.gz: Gmax_275_v2.0.hardmasked.fa.gz
 glyma.Wm82.gnm2.DTC4.genome_softmasked.fna.gz: Gmax_275_v2.0.softmasked.fa.gz
 ```
-
 Fill out the descriptions MANIFEST file, giving a brief one-line description of each data file:
 ```
 cat MANIFEST.Wm82.gnm2.DTC4.descriptions.yml
@@ -75,16 +85,14 @@ cat MANIFEST.Wm82.gnm2.DTC4.descriptions.yml
 glyma.Wm82.gnm2.DTC4.hardmasked.fna.gz: Genome assembly: masked with 'N's
 glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
 ```
-
-### Calculate the CHECKSUMs <a name="checksums"></a>
+#### Calculate the CHECKSUMs <a name="checksums"></a>
 Note the -r flag for the md5 command.
 ```
   KEY=XXXX
   rm CHECKSUM*
   md5 -r * > CHECKSUM.$KEY.md5
 ```
-
-### Move the collection from v2 to private
+#### Move the collection from v2 to private
 Move the directory from from v2 to private, e.g.
 ```
   DIR=MY_NEW_DIRECTORY
@@ -95,8 +103,7 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
   echo $'\n'"Moved Wm82.gnm2.met1.K8RT to v2 on 2018-04-19 by YOUR NAME"$'\n' \
     >> private/Glycine/max/status.glyma.txt
 ```
-
-## AUTOMATING THE PROCESS FOR GENOME AND ANNOTATION COLLECTIONS WITH DS_SOUSCHEF
+## Automating the process for genome and annotation collections with ds_souschef
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
 to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
 Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is
@@ -110,7 +117,7 @@ The ds_souschef.pl tool can be applied to datasets from other sources, but the p
 configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
 and patterns, reflected in this Arabidopsis example.
 
-### Download assembly and annotation from Phytozome, into working directory at lis-stage:
+#### Download assembly and annotation from Phytozome, into working directory at lis-stage:
 ```
   cd /usr/local/www/data/private/Arabidopsis/thaliana
 ```
@@ -120,8 +127,7 @@ The directory layout for Phytozome assembly and annotation files is:
   Athaliana_447_Araport11/assembly
   Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt
 ```
-
-### Examine the IDs in the annotations
+#### Examine the IDs in the annotations
 In the case of the JGI/Araport11 annotations, the GFF has ID suffixes like
   AT1G01020.Araport11.447
 ... but the fasta sequences (cds, protein, transcript) do not. So, do some pre-processing
@@ -135,8 +141,7 @@ to get a GFF that will be compatible with the fata annotations:
     perl -pe 's/\.Araport11\.447//g' |
     bgzip -c > Athaliana_447_Araport11/annotation/Athaliana_447_Araport11.gene_exons.no_suffix.gff3.gz
 ```
-
-### Register keys
+#### Register keys
 First check status of the local instance of the registry.
 Clone it if you don't have it already):
 ```
@@ -148,58 +153,69 @@ Clone it if you don't have it already):
   git commit -m "Add keys for Xxx xxx assembly and annotations"
   git push
 ```
-
-### Prepare a config file
+#### Prepare a config file
 Set up a config file at /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
 Base it on a config file for another Phytozome collection.
 ```
   vim conf_arath.Col0.gnm9.yml
 ```
-
-### Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
+#### Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
 ```
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/annotation/
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/assembly/
 ```
-
-### Run ds_souschef.pl
+#### Run ds_souschef.pl
 The ds_souschef.pl program can be run from anywhere, but it is convenient to run it from the configs directory.
 Output goes to the working directory specified in the config file.
 ```
   cd /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs/
   ../ds_souschef.pl -config conf_arath.Col0.gnm9.yml
 ```
-
-### Check the results
+#### Check the results
 Check the new collections in the working directory, in annotations/ and genomes/
 Check that all files have non-zero size, that features have the correct prefixing, etc.
 Check for UNDEFINED in the annotation files; this indicates a problem in the hashing.
 
-### Compress and index
+#### Compress and index
 ```
   cd /usr/local/www/data/private/GENUS/SPECIES
   compress_and_index.sh genomes/COLLECTION
   compress_and_index.sh annotations/COLLECTION
 ```
-
-### Validate the README files
+#### Validate the README files
 ```
   validate.sh readme genomes/COLLECTION/README*yml
   validate.sh readme annotations/COLLECTION/README*yml
 ```
-
-### Calculate the CHECKSUMs <a name="checksums"></a>
+#### Calculate the CHECKSUMs <a name="checksums"></a>
 Note the -r flag for the md5 command.
 ```
   KEY=XXXX
   rm CHECKSUM*
   md5 -r * > CHECKSUM.$KEY.md5
 ```
-
-### Move the collections into place in data/v2/
+#### Move the collections into place in data/v2/
 ```
   cd /usr/local/www/data/v2/Genus/species
   mv annotations/COLLECTION  /usr/local/www/data/v2/Genus/species/annotations/
   mv genomes/COLLECTION  /usr/local/www/data/v2/Genus/species/genomes/
 ```
 
+## Calculate AHRD functional annotations
+(TBD)
+## Calculate gene family assignments (GFA)
+(TBD)
+## Add to pan-gene set
+(TBD)
+## Load relevant mine
+(TBD)
+## Add BLAST targets
+(TBD)
+## Incorporate into GCV
+(TBD)
+## Update the jekyll collections listing
+(TBD)
+## Update browser configs
+(TBD)
+## Perform whole genome alignments
+(TBD)
