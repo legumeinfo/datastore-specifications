@@ -104,7 +104,7 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
     >> private/Glycine/max/status.glyma.txt
 ```
 
-## Automating the process for genome and annotation collections with ds_souschef 
+## Automating the process for genome and annotation collections with ds_souschef <a name="using-souschef"></a>
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
 to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
 Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is
@@ -188,7 +188,7 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
   validate.sh readme genomes/COLLECTION/README*yml
   validate.sh readme annotations/COLLECTION/README*yml
 ```
-#### Calculate the CHECKSUMs <a name="checksums"></a>
+#### Calculate the CHECKSUMs 
 ```
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
@@ -199,9 +199,7 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
   mv genomes/COLLECTION  /usr/local/www/data/v2/Genus/species/genomes/
 ```
 
-<a name="description-genus-species"/>
-
-## Initiate or update "about_this_collection.yml"
+## Initiate or update "about_this_collection.yml" <a name="description-genus-species"/>
 Each GENUS and species directory has an about_this_collection subdirectory, each containing
 a single "description" file, like so (for Vigna):
 ```
@@ -216,43 +214,33 @@ used for Intermine creation and for generating several core Jekyll pages:
 See the about\_this\_collection specifications for GENUS [here](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/GENUS/about_this_collection)
 and for species [here](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/species/about_this_collection).
 
-
-<a name="calc-ahrd"/>
-
-## Calculate AHRD functional annotations
+## Calculate AHRD functional annotations <a name="calc-ahrd"/>
 (TBD)
 
-<a name="calc-gfa"/>
 
-## Calculate gene family assignments (GFA)
+## Calculate gene family assignments (GFA) <a name="calc-gfa"/>
 (TBD)
 
-<a name="pan-genes"/>
 
-## Add to pan-gene set
+## Add to pan-gene set <a name="pan-genes"/>
 (TBD)
 
-<a name="mine-loading"/>
 
-## Load relevant mine
+## Load relevant mine <a name="mine-loading"/>
 (TBD)
 
-<a name="blast-targets"/>
 
-## Add BLAST targets
+## Add BLAST targets <a name="blast-targets"/>
 (TBD)
 
-<a name="populate-gcv"/>
 
-## Incorporate into GCV
+## Incorporate into GCV <a name="populate-gcv"/>
 (TBD)
 
-<a name="update-jekyll"/>
 
-## Update the jekyll collections listing
+## Update the jekyll collections listing <a name="update-jekyll"/>
 (TBD)
 
-<a name="update-browsers"/>
 
-## Update browser configs
+## Update browser configs <a name="update-browsers"/>
 (TBD)
