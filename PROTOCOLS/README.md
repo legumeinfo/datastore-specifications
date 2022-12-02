@@ -14,10 +14,7 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 [Update the jekyll collections listing](#update-jekyll) <br>
 [Update browser configs](#update-browsers) <br>
 
-
-<a name="adding-to-the-datastore"/>
-
-## Procedure for adding a new data set to the data store
+## Procedure for adding a new data set to the data store <a name="adding-to-the-datastore"/>
 
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
@@ -93,7 +90,7 @@ glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
 ```
 #### Calculate the CHECKSUMs <a name="checksums"></a>
 ```
-${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
+  ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
 #### Move the collection from v2 to private
 Move the directory from from v2 to private, e.g.
@@ -107,9 +104,7 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
     >> private/Glycine/max/status.glyma.txt
 ```
 
-<a name="using-souschef"/>
-
-## Automating the process for genome and annotation collections with ds_souschef
+## Automating the process for genome and annotation collections with ds_souschef 
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
 to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
 Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is
@@ -194,11 +189,8 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
   validate.sh readme annotations/COLLECTION/README*yml
 ```
 #### Calculate the CHECKSUMs <a name="checksums"></a>
-Note the -r flag for the md5 command.
 ```
-  KEY=XXXX
-  rm CHECKSUM*
-  md5 -r * > CHECKSUM.$KEY.md5
+  ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
 #### Move the collections into place in data/v2/
 ```
