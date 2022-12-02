@@ -92,11 +92,8 @@ glyma.Wm82.gnm2.DTC4.hardmasked.fna.gz: Genome assembly: masked with 'N's
 glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
 ```
 #### Calculate the CHECKSUMs <a name="checksums"></a>
-Note the -r flag for the md5 command.
 ```
-  KEY=XXXX
-  rm CHECKSUM*
-  md5 -r * > CHECKSUM.$KEY.md5
+${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
 #### Move the collection from v2 to private
 Move the directory from from v2 to private, e.g.
