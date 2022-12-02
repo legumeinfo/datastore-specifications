@@ -2,8 +2,8 @@
 Instructions for adding data to the Data Store and then updating associated LIS/SoyBase/PeanutBase resources.
 
 ## Table of Contents
-[Procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
-[Automating the process for genome and annotation collections with ds_souschef](#using-souschef) <br>
+[General procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
+[Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Initiate or update "about_this_collection.yml"](#description-genus-species) <br>
 [Calculate AHRD functional annotations](#calc-ahrd) <br>
 [Calculate gene family assignments (GFA)](#calc-gfa) <br>
@@ -14,7 +14,7 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 [Update the jekyll collections listing](#update-jekyll) <br>
 [Update browser configs](#update-browsers) <br>
 
-## Procedure for adding a new data set to the data store <a name="adding-to-the-datastore"/>
+## General procedure for adding a new data set to the data store <a name="adding-to-the-datastore"/>
 
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
@@ -30,10 +30,7 @@ As of summer, 2021, any of these servers can be used:
   - legumefederation.usda.iastate.edu
   - peanutbase-stage.usda.iastate.edu
 
-Upload (scp) data to the private directory (and appropriate subdirectory) here:
-  /usr/local/www/data/private/
-  e.g.
-  /usr/local/www/data/private/Glycine/max
+Upload (scp) data to the private directory (and appropriate subdirectory), e.g. /usr/local/www/data/private/Glycine/max
 
 #### Name the directories and files
 Apply directory names, following the patterns described in specifications in this repository.
@@ -104,7 +101,7 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
     >> private/Glycine/max/status.glyma.txt
 ```
 
-## Automating the process for genome and annotation collections with ds_souschef <a name="using-souschef"></a>
+## Procedure for adding genome and annotation collections with ds_souschef <a name="using-souschef"></a>
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
 to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
 Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is
@@ -217,30 +214,23 @@ and for species [here](https://github.com/legumeinfo/datastore-specifications/tr
 ## Calculate AHRD functional annotations <a name="calc-ahrd"/>
 (TBD)
 
-
 ## Calculate gene family assignments (GFA) <a name="calc-gfa"/>
 (TBD)
-
 
 ## Add to pan-gene set <a name="pan-genes"/>
 (TBD)
 
-
 ## Load relevant mine <a name="mine-loading"/>
 (TBD)
-
 
 ## Add BLAST targets <a name="blast-targets"/>
 (TBD)
 
-
 ## Incorporate into GCV <a name="populate-gcv"/>
 (TBD)
 
-
 ## Update the jekyll collections listing <a name="update-jekyll"/>
 (TBD)
-
 
 ## Update browser configs <a name="update-browsers"/>
 (TBD)
