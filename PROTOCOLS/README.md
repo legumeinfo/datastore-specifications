@@ -224,7 +224,7 @@ and for species [here](https://github.com/legumeinfo/datastore-specifications/tr
 (TBD)
 
 ## Add BLAST targets <a name="blast-targets"/>
-(TBD)
+The main [legumeinfo sequenceserver instance](https://sequenceserver.legumeinfo.org) is built using a dedicated [Dockerfile](https://github.com/legumeinfo/sequenceserver/blob/lis/db/Dockerfile) maintained on the branch lis. After modifying the file with respect to new BLAST targets, you must commit your changes, add a tag (e.g. git tag v2022.12.21), and git push --tags which will trigger a [github actions workflow](https://github.com/legumeinfo/sequenceserver/actions/workflows/deploy.yml) to rebuild and deploy to the production server. 
 
 ## Incorporate into GCV <a name="populate-gcv"/>
 (TBD)
