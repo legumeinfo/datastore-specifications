@@ -24,7 +24,7 @@ fasta_to_table() {
 
 # Split gene splice_variant
 split_gene_splicevar() {
-  perl -pe 's/^(\S+)\.(\d+)\t(\S+)/$1\t$2\t$3/' |
+  perl -pe 's/^(\S+)\.(\w*\d+)\t(\S+)/$1\t$2\t$3/' |
   awk -v OFS="\t" '{print $1, $2, length($3), $3}'
 }
 
