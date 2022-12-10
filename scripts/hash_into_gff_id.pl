@@ -6,8 +6,7 @@ use Getopt::Long;
 use feature "say";
 
 my $usage = <<EOS;
-  Synopsis: gzcat GFF_FILE.gff3.gz | hash_into_gff_id.pl [options] -seqid_map
-       OR     hash_into_gff_id.pl [options] -seqid_map < GFF_FILE.gff3
+  Synopsis: hash_into_gff_id.pl -gff GFF_FILE.gff3 -featid_map FILE.tsv [options] 
   
   Read a key-value hash file, and a GFF file (may be compressed or not).
   Swap the feature (gene) IDs with the values from a gene hash file, if provided.
@@ -16,16 +15,17 @@ my $usage = <<EOS;
   This script will apply a positional sorting method -sort is specified.
   
   Required:
-    -gff_file    GFF file; may be compressed or not.
-    -featid_map   (string) Key-value hash filename, where first column has gene IDs from GFF file.
-
+    -gff_file     GFF file; may be compressed or not.
+  ... and at least one of -featid_map and -seqid_map
+    -featid_map  Key-value hash filename, where first column has gene IDs from GFF file.
+    -seqid_map   Key-value hash filename, where first column has seqIDs from GFF file.
+       
   Options:
-    -seqid_map  (string) Key-value hash filename, where first column has seqIDs from GFF file.
-    -suppress    (string) File with list of components (mRNAs, CDSs, exons) or genes to exclude.
+    -suppress    File with list of components (mRNAs, CDSs, exons) or genes to exclude.
                    To exclude a component, use a splice suffix (GENE_A.1). To also
                    exclude a gene record, use the bare gene name (GENE_A)
     -sort        (boolean) Sort the GFF file. This attempts to put child features below parents.
-    -out_file    (string) write to this file; otherwise, to stdout.
+    -out_file    File to write to; otherwise, to stdout.
     -strip_regex (string) Quoted regular expression to remove from ID to produce Name, e.g.
                            "gensp.Accn.gnm1.ann1." 
     -help        (boolean) This message.
@@ -35,7 +35,7 @@ my ($gff_file, $featid_map, $seqid_map, $suppress, $sort, $out_file, $strip_rege
 
 GetOptions (
   "gff_file=s" =>    \$gff_file,   # required
-  "featid_map=s" =>  \$featid_map,   # required
+  "featid_map:s" =>  \$featid_map,   
   "seqid_map:s" =>   \$seqid_map,  
   "out_file:s" =>    \$out_file,   
   "suppress:s" =>    \$suppress,   
@@ -44,7 +44,7 @@ GetOptions (
   "help" =>          \$help,
 );
 
-die "$usage" unless (defined($featid_map) && defined($gff_file));
+die "$usage" unless ((defined($featid_map) || defined($seqid_map)) && defined($gff_file));
 die "$usage" if ($help);
 
 if ( $strip_regex ){ 
@@ -169,6 +169,11 @@ for my $split_line (@split_lines){
   if ($seqid_map){
     my $seqid = $fields[0];
     $fields[0] = $seqid_map{$seqid};
+
+    if (!$featid_map){ # No featid_map, so just print after swapping the sequid
+      say $OUT_FH join("\t", @fields[0..8]);
+      next;
+    }
   }
   
   next if (scalar(@fields)<9);
@@ -229,4 +234,4 @@ Steven Cannon
             Add sorting routine.
 2022-11-13 Simplify name to ds_souchef.pl .
            Rework hashing of attributes (ID, Parent, Name). Recover positional sortring routine, after briefly removing it.
-
+2022-12-10 Permit hashing of EITHER seqid or featid 
