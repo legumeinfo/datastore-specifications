@@ -200,7 +200,7 @@ sub make_seqid_map {
         "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
     }
   }
-  say $GENOME_FILE_START;
+  say "GENOME_FILE_START: $GENOME_FILE_START";
   unless (-e $GENOME_FILE_START) {
     die "File $GENOME_FILE_START doesn't exist. Check filename components in config file.\n"
   }
@@ -250,8 +250,11 @@ sub make_featid_map {
       $strip_regex = $fr_to_hsh->{strip};
       say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     }
+    else {
+      say "Please check the config from_to_gff block and ensure that there is a \"to: gene_models_main.gff3\"";  
+    }
   }
-  say $GFF_FILE_START;
+  say "GFF_FILE_START: $GFF_FILE_START";
   unless (-e $GFF_FILE_START) {
     die "File $GFF_FILE_START doesn't exist. Check filename components in config file.\n"
   }
