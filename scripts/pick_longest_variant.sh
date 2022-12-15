@@ -1,15 +1,19 @@
 #!/usr/bin/env sh
 
-# For fasta files (e.g. CDS, protein, mRNA) with splice variants of the form
-#   >GENE_ID.1      or >GENE_ID.m1 
-# (variant signified by dot-separated digit at the end, optionally with leading alpha characters), 
-# this script will return only the longest variant of each gene.
-# If there are multiple variants with the same length, it will return the one with the lowest variant number, 
-# e.g. .1 < .2 < .10  and .m1 < .m2 < .m10
+if test -t 0; then
+cat <<Usage-message
+  Usage: cat FILE.fa |  pick_longest_variant.sh  
 
-# Usage: cat $FILE.fa |  pick_longest_variant.sh
+  For fasta files (e.g. CDS, protein, mRNA) with splice variants of the form
+    >GENE_ID.1      or >GENE_ID.m1 
+  (variant signified by dot-separated digit at the end, optionally with leading alpha characters), 
+  this script will return only the longest variant of each gene.
+  If there are multiple variants with the same length, it will return the one with the lowest variant number, 
+  e.g. .1 < .2 < .10  and .m1 < .m2 < .m10
 
-set -o errexit -o nounset
+Usage-message
+exit
+fi
 
 ##################################################
 # Functions (just to help document what's happening)
@@ -63,8 +67,10 @@ sort_by_length |
 top_line |
 table_to_fasta
 
+
 ##########
 # Versions
 # 2022-12-14 Add sorting of the splice number (e.g. .1 or .m1) to 
-# break ties among variants of the same length.
+#             break ties among variants of the same length.
+# 2022-12-15 Report usage message if script is called without stdin
 
