@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 
 # For fasta files (e.g. CDS, protein, mRNA) with splice variants of the form
-#   >GENE_ID.1
-# (variant signified by dot-separated digit at the end), 
+#   >GENE_ID.1      or >GENE_ID.m1 
+# (variant signified by dot-separated digit at the end, optionally with leading alpha characters), 
 # this script will return only the longest variant of each gene.
+# If there are multiple variants with the same length, it will return the one with the lowest variant number, 
+# e.g. .1 < .2 < .10  and .m1 < .m2 < .m10
 
 # Usage: cat $FILE.fa |  pick_longest_variant.sh
 
@@ -22,15 +24,21 @@ fasta_to_table() {
        END { print "\n" }'
 }
 
-# Split gene splice_variant
+# Split gene splice_variant. Handle variants such as "m1", "mRNA1", and "1"
+# For a gene of length 999 ...
+#   ... output for "GENEID.10"  will be  "GENEID zPLACEHOLDERz 10  999"
+#   ... output for "GENEID.m10" will be  "GENEID       m       10  999"
 split_gene_splicevar() {
-  perl -pe 's/^(\S+)\.(\w*\d+)\t(\S+)/$1\t$2\t$3/' |
-  awk -v OFS="\t" '{print $1, $2, length($3), $3}'
+  perl -ne 'if(/^(\S+)\.(\d+)\t(\S+)/){print "$1\tzPLACEHOLDERz\t$2\t$3\n"};
+            if(/^(\S+)\.([^\d+])(\d+)\t(\S+)/){print "$1\t$2\t$3\t$4\n"}' |
+  awk -v OFS="\t" '{print $1, $2, $3, length($4), $4}'
 }
 
-# Sort by geneID, then length (reverse numerically)
+# Sort by geneID, then length (reverse numerically), then by the splice number.
+# The last item (splice number) will break ties among variants of the same length,
+# putting 1 before 10 and 8 before 9.
 sort_by_length() {
-  sort -k1,1 -k3nr,3nr
+  sort -k1,1 -k4nr,4nr -k3n,3n
 }
 
 # Top line
@@ -42,7 +50,8 @@ top_line() {
 
 # Reassemble fasta
 table_to_fasta() {
-  awk -v OFS="" '{print ">" $1 "." $2 "\n" $4}' |
+  awk -v OFS="" '{print ">" $1 "." $2 $3 "\n" $5}' |
+  perl -pe 's/zPLACEHOLDERz//' |
   fold -w100
 }
 
@@ -54,4 +63,8 @@ sort_by_length |
 top_line |
 table_to_fasta
 
+##########
+# Versions
+# 2022-12-14 Add sorting of the splice number (e.g. .1 or .m1) to 
+# break ties among variants of the same length.
 
