@@ -27,3 +27,5 @@ Early leaf spot 1-2 Early leaf spot TT_Tifrunner_x_GT-C20_c B05 78.0  80.2  80  
 Early leaf spot 1-3 Early leaf spot TT_Tifrunner_x_GT-C20_c A06 76.9  77.59 77   5.25  17.36 -0.27
 Early leaf spot 1-4 Early leaf spot TT_Tifrunner_x_GT-C20_c B03 27.7  29.2  29   5.96  20.35 0.28
 ```
+
+NOTE: some QTLs are associated with a single marker, and therefore do not span a region of a linkage group. In that case, **do** list the QTL in the qtl.tsv file with equal start and end positions.
