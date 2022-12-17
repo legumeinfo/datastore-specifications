@@ -138,6 +138,7 @@ my ($printed_man_corr_head, $printed_man_descr_head);
 ##################################################
 # Call subroutines
 &setup;
+
 if ( $all || $make_seqid_map ){ &make_seqid_map }
 if ($seqid_map && !($make_seqid_map)){ 
   say "Map of old/new chromosome & scaffold IDs has been provided:\n  $seqid_map";
@@ -191,6 +192,10 @@ sub setup {
 
 ##################################################
 sub make_seqid_map {
+  if ($seqid_map){ 
+    say "seqid_map has been provided, so don't calculate it";
+    return 
+  } 
   say "\n== Making a map (hash) of old/new chromosome and scaffold IDs, to go to the genomes directory ==";
   # Get path to main genome assembly input file, and regex for chromosomes and scaffolds
   my $GENOME_FILE_START;
@@ -226,6 +231,10 @@ sub make_seqid_map {
 
 ##################################################
 sub make_featid_map {
+  if ($featid_map){ 
+    say "featid_map has been provided, so don't calculate it";
+    return 
+  } 
   say "\n== Making a map (hash) of old/new gene IDs, to go to the annotations directory ==";
   # Get path to main GFF input file
   my $GFF_FILE_START = "";
