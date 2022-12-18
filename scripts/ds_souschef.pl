@@ -33,10 +33,17 @@ my $usage = <<EOS;
   Required:
     -config    (string) yaml-format file with information for the metadata and the file conversions.
   Options:
+    -SHash     (string) Path to file with initial mapping of old/new chromosome & scaffold IDs, e.g. 
+                   CM012345.1  Chr01
+                 This is distinct from the Data Store prefixing in creation of the seqid_map.
     -seqid_map (string) Path to file with mapping (hash) of old/new chromosome & scaffold IDs.
-                  Will be calculated unless specified here.
+                  This adds the Data Store prefix. Will be calculated unless specified here.
     -featid_map (string) Path to file with mapping (hash) of old/new gene IDs.
                   Will be calculated unless specified here.
+                  Note that the hashed (new) gene ID can be reshaped somewhat with the use of 
+                  a "strip" pattern in the from_to_gff section of the config. For example, 
+                    strip: 'gnl\|WGS:JAKRYI\|' 
+                  ... will strip those characters from GenBank feature IDs.
     -all       (boolean) True by default, unless one or more of the modules below are specified.
   Set one or more of the following flags to run just those modules. If none are specified, "all" is implied.
     -make_featid_map (boolean) Generate hash file/mapping of feature IDs (genes & gene components).
@@ -57,10 +64,11 @@ EOS
 
 my ($config, $seqid_map, $featid_map, $help); 
 my ($readme, $ann_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
-my ($make_featid_map, $make_seqid_map);
+my ($make_featid_map, $make_seqid_map, $SHash);
 
 GetOptions (
   "config=s" =>    \$config,  # required
+  "SHash:s" =>     \$SHash,
   "seqid_map:s" => \$seqid_map,
   "featid_map:s" => \$featid_map,
   "make_featid_map" =>  \$make_featid_map,
@@ -82,6 +90,10 @@ die "$usage" if ($help);
 if ($seqid_map){
   unless ( -e $seqid_map ){ die "Chromosome hash file not found at $seqid_map.\n" .
      "Please provide full path, or omit this flag to have the hash calculated.\n" }
+}
+
+if ($SHash){
+  unless ( -e $SHash){ die "Chromosome hash file not found at $SHash.\n" }
 }
 
 if ($featid_map){
@@ -209,16 +221,49 @@ sub make_seqid_map {
   unless (-e $GENOME_FILE_START) {
     die "File $GENOME_FILE_START doesn't exist. Check filename components in config file.\n"
   }
+
+  my $SHASH_FH;
+  my %seqid_initial_hash;
+  if ($SHash) {
+    open (my $SHASH_FH, "<", $SHash) or die "Can't open in file $SHash: $!\n";
+    # read hash
+    while (<$SHASH_FH>) {
+      chomp;
+        /(\S+)\s+(.+)/;
+        next if (/^#/);
+        my ($id, $hash_val) = ($1,$2);
+        $seqid_initial_hash{$id} = $hash_val;   # say "SHash: $id, $hash_val";
+    }
+  }
   
   $SEQID_MAP = "$WD/genomes/$GNMCOL/$GENSP.$GNMCOL.seqid_map.tsv";
   open (my $SEQID_MAP_FH, ">", $SEQID_MAP) or die "Can't open out $SEQID_MAP: $!\n";
   say "Generating map of old/new chromosome & scaffold IDs.";
   open(my $GNM_MAIN_FH, "gzcat $GENOME_FILE_START|") or die "Can't do gzcat $GENOME_FILE_START|: $!";
+  my %patched_new_id;
   while (my $line = <$GNM_MAIN_FH>){
     if ($line =~ /^>(\S+)/){
       my $chr = $1;
-      say "$chr\t$TO_GNM_PREFIX.$chr";
-      say $SEQID_MAP_FH "$chr\t$TO_GNM_PREFIX.$chr";
+      if ($SHash){
+        my $new_chr_id = $chr;
+        for my $id (keys %seqid_initial_hash){
+          if ($new_chr_id =~ m/$id/){
+            $new_chr_id = $seqid_initial_hash{$id};
+            say "$chr\t$TO_GNM_PREFIX.$new_chr_id";
+            say $SEQID_MAP_FH "$chr\t$TO_GNM_PREFIX.$new_chr_id";
+            $patched_new_id{$chr}++;
+            last;
+          }
+        }
+        unless ($patched_new_id{$chr}){
+          say "$chr\t$TO_GNM_PREFIX.$chr";
+          say $SEQID_MAP_FH "$chr\t$TO_GNM_PREFIX.$chr";
+        }
+      }
+      else {
+        say "$chr\t$TO_GNM_PREFIX.$chr";
+        say $SEQID_MAP_FH "$chr\t$TO_GNM_PREFIX.$chr";
+      }
     }
   }
 
@@ -570,4 +615,5 @@ Versions
            Change use of strip_regex in make_featid_map, applying it only to the new name (col 2).
 2022-11-15 Fixed component existence-check for subroutines ann_as_is and gnm_as_is.
 2022-11-27 Add CHANGES files to annotations and genomes collections.
-
+2022-12-18 Add flag "-SHash" to allow an initial mapping of old/new chromosome & scaffold IDs, e.g. 
+                   CM012345.1  Chr01
