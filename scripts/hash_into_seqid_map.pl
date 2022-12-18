@@ -55,7 +55,7 @@ while (<>) {
       $new_id =~ s/$id$/$hash_val/;
       print "$first\t$new_id\n";
       $patched_new_id{$second}++;
-      next;
+      last;
     }
   }
   unless ($patched_new_id{$second}){ print "$first\t$second\n" }
