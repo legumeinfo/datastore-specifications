@@ -4,6 +4,7 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 ## Table of Contents
 [General procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
+[Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
 [Initiate or update "about_this_collection.yml"](#description-genus-species) <br>
 [Calculate AHRD functional annotations](#calc-ahrd) <br>
 [Calculate gene family assignments (GFA)](#calc-gfa) <br>
@@ -96,7 +97,7 @@ Move the directory from from v2 to private, e.g.
   mv /usr/local/www/data/private/Glycine/max/$DIR /usr/local/www/data/v2/Glycine/max/$DIR
 ```
 Also, note the change in the status file in the private/Genus/species/ dir, e.g.
-```
+```bash
   echo $'\n'"Moved Wm82.gnm2.met1.K8RT to v2 on 2018-04-19 by YOUR NAME"$'\n' \
     >> private/Glycine/max/status.glyma.txt
 ```
@@ -116,11 +117,11 @@ configuration file will depend on the files to be transformed. Files from the Pn
 and patterns, reflected in this Arabidopsis example.
 
 #### Download assembly and annotation into working directory at lis-stage:
-```
+```bash
   cd /usr/local/www/data/private/Arabidopsis/thaliana
 ```
 The directory layout for Phytozome assembly and annotation files (for this example) is:
-```
+```bash
   Athaliana_447_Araport11/annotation
   Athaliana_447_Araport11/assembly
   Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt
@@ -142,7 +143,7 @@ to get a GFF that will be compatible with the fata annotations:
 #### Register keys
 First check status of the local instance of the registry.
 Clone it if you don't have it already):
-```
+```bash
   git clone https://github.com/legumeinfo/datastore-registry.git
   cd datastore-registry
   ./register_key.pl -value "Arabidopsis thaliana genomes Col0.gnm9"
@@ -154,18 +155,18 @@ Clone it if you don't have it already):
 #### Prepare a config file
 Set up a config file at /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
 Base it on a config file for another Phytozome collection.
-```
+```bash
   vim conf_arath.Col0.gnm9.yml
 ```
 #### Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
-```
+```bash
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/annotation/
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/assembly/
 ```
 #### Run ds_souschef.pl
 The **ds_souschef.pl** program can be run from anywhere, but it is convenient to run it from the configs directory.
 Output goes to the working directory specified in the config file.
-```
+```bash
   cd /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs/
   ../ds_souschef.pl -config conf_arath.Col0.gnm9.yml
 ```
@@ -175,13 +176,13 @@ Check that all files have non-zero size, that features have the correct prefixin
 Check for UNDEFINED in the annotation files; this indicates a problem in the hashing.
 
 #### Compress and index
-```
+```bash
   cd /usr/local/www/data/private/GENUS/SPECIES
   compress_and_index.sh genomes/COLLECTION
   compress_and_index.sh annotations/COLLECTION
 ```
 #### Validate the README files
-```
+```bash
   validate.sh readme genomes/COLLECTION/README*yml
   validate.sh readme annotations/COLLECTION/README*yml
 ```
@@ -190,11 +191,44 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
 #### Move the collections into place in data/v2/
-```
+```bash
   cd /usr/local/www/data/v2/Genus/species
   mv annotations/COLLECTION  /usr/local/www/data/v2/Genus/species/annotations/
   mv genomes/COLLECTION  /usr/local/www/data/v2/Genus/species/genomes/
 ```
+
+## Questions and handling hard cases with ds_souschef <a name="souschef-faq"/>
+How to convert GenBank molecule accession names into chromosome names? 
+Do this by creating a hash file of accessions and chromosome IDs,
+and pass into ds_souschef using the -SHash flag. Here is an example, using Bauhinia variegata.
+First create the hash file:
+```bash
+  zcat $GFF | awk -v FS="\t" '$3~/region/ && $1~/CM/ {print $9}' |
+    perl -pe 's/.+ann1\.([^:]+):.+;chromosome=(\d+);.+/$1\t$2/' |
+    awk '{printf("%s\tChr%02d\n", $1, $2)}' |
+      cat > "GCA_022379115.2/initial_chr_map.tsv"
+
+    # looks like:
+    #   CM039426.1  Chr01
+    #   CM039427.1  Chr02
+```
+
+Then call ds_souschef:
+```bash
+  SHASH="$WD/GCA_022379115.2/initial_chr_map.tsv"
+  ds_souschef.pl -conf conf_bauva.BV-YZ2020.gnm2.ann1.yml -SHash $SHASH
+```
+
+How to modify the gene/feature IDs? The hashed (new) gene ID can be reshaped somewhat with the use of 
+a "strip" pattern in the from_to_gff section of the config. For example, the following in that section of
+the config file will strip those characters from GenBank feature IDs:
+```bash
+  strip: 'gnl|WGS:JAKRYI|' 
+```
+
+For very complex transformations, you may need to first generate the featid_map.tsv and/or seqid_map.tsv
+with an initial run of ds_souschef, then modify the values in the second field to the form that you want, 
+then re-run ds_souschef, specifying the map files with -seqid_map and/or -featid_map as appropriate.
 
 ## Initiate or update "about_this_collection.yml" <a name="description-genus-species"/>
 Each GENUS and species directory has an about_this_collection subdirectory, each containing
