@@ -1,7 +1,7 @@
 ---
 directories:
     work_dir: /usr/local/www/data/private/Vigna/GENUS
-    from_dir: out_Vigna_8_3
+    from_pan_dir: out_Vigna_8_3
 prefixes:
     from_pan_prefix: ""
 collection_info:
