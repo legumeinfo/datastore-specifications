@@ -9,21 +9,21 @@ collection_info:
     gensp: vigna 
     genotype: mixed
     pan_ver: pan1
-    pan_key: XXXX
+    pan_key: X2PC
 readme_info:
     provenance: "The files in this directory are a product of the staff of the SoyBase and LegumeInfo project teams. The method is described here: https://github.com/legumeinfo/pandagma"
     source: "https://data.legumeinfo.org"
-    synopsis: "Pangene set for Glycine species, based on G. max and G. soja but also including 6 perennial Australian species by homology. This pangene set includes 51 Glycine annotation sets."
-    taxid: "3846"
-    description: "Pan-gene set for Glycine species, spanning 8 species and 51 annotation sets, calculated using the pandagma pipeline, version 2023-01-02"
+    synopsis: "Pangene set for Vigna species, based primarily on V. unguiculata but also including V. angularis and V. radiata. This pangene set includes 11 annotation sets."
+    taxid: "3913"
+    description: "Pan-gene set for Vigna species, spanning 3 species and 11 annotation sets, calculated using the pandagma pipeline, version 2023-01-03"
     bioproject: ""
     sraproject: ""
     dataset_doi_genome: ""
     dataset_doi_annot: ""
     genbank_accession: ""
-    original_file_creation_date: 2023-01-02
-    local_file_creation_date: 2023-01-02
-    dataset_release_date: 2023-02-01
+    original_file_creation_date: 2023-01-03
+    local_file_creation_date: 2023-01-03
+    dataset_release_date: 2023-02-09
     contributors: Steven Cannon, Hyunoh Lee
     publication_doi: ""
     citation: ""
@@ -46,11 +46,15 @@ from_to_pan:
     to: hsh.tsv
     description: "Pan-gene sets, in a two-column hash format, with the set ID in the first column and genes in the second."
   - 
+    from: 21_pan_fasta_clust_rep_cds.fna
+    to: inclusive_cds.fna
+    description: "CDS sequences for pan-gene inclusive pangene set (not filtered by minimum cluster size or annotation-set representation)."
+  - 
     from: 23_syn_pan_core_posn_cds.fna
     to: core_cds.fna
-    description: "CDS sequences for pan-gene core set (core comprised of pan-genes with at least X genes; X indicated in the stats.txt file)."
+    description: "CDS sequences for pan-gene core set (core comprised of pan-genes with genes from at least X annotation sets; X indicated in the stats.txt file)."
   - 
-    from: 23_syn_pan_core_posn_protein.faa 
+    from: 23_syn_pan_core_posn_protein.faa
     to: core_protein.faa
     description: "Protein sequences for pan-gene core set (core comprised of pan-genes with at least X genes; X indicated in the stats.txt file)."
   - 

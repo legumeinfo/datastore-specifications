@@ -109,19 +109,21 @@ my $yaml = YAML::Tiny->read( $config );
 my $confobj = LoadFile($config);
 
 my %coll_hsh;
-for (keys %{$confobj->{collection_info}}){ $coll_hsh{$_} = $confobj->{collection_info}->{$_} }
-
-my %dir_hsh;
 my $COLLECTION_TYPE;
-for (keys %{$confobj->{directories}}){ 
-  $dir_hsh{$_} = $confobj->{directories}->{$_}; 
+for (keys %{$confobj->{collection_info}}){ 
+  $coll_hsh{$_} = $confobj->{collection_info}->{$_};
   if ( $_ =~ /annot|genome/ ){ $COLLECTION_TYPE="genomic" }
   elsif ( $_ =~ /pan/ ){ $COLLECTION_TYPE="pangene" }
 }
 say "COLLECTION_TYPE: $COLLECTION_TYPE";
 
+my %dir_hsh;
+for (keys %{$confobj->{directories}}){ $dir_hsh{$_} = $confobj->{directories}->{$_} }
+
 my %prefix_hsh;
-for (keys %{$confobj->{prefixes}}){ $prefix_hsh{$_} = $confobj->{prefixes}->{$_} }
+for (keys %{$confobj->{prefixes}}){ 
+  $prefix_hsh{$_} = $confobj->{prefixes}->{$_};
+}
 
 my %readme_hsh;
 for (keys %{$confobj->{readme_info}}){ $readme_hsh{$_} = $confobj->{readme_info}->{$_} }
@@ -179,7 +181,7 @@ my ($printed_man_corr_head, $printed_man_descr_head);
 
 if ( $COLLECTION_TYPE =~ /pangene/ ) {
   say "TO DO: Handle pangene config and collection";
-  die;
+  &pangene;
 }
 else { # Not a pangene job, so presume genomic
   if ( $all || $make_seqid_map ){ &make_seqid_map }
@@ -580,7 +582,8 @@ sub gff {
       $bed_file =~ s/gene_models_main.gff3/cds.bed/;
       my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed6_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
       `$gff_to_bed_command`; # or die "system call of gff_to_bed6_mRNA.awk failed: $?";
-      &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, "BED-format file, derived from gene_models_main.gff3");
+      &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, 
+        "BED-format file, derived from gene_models_main.gff3");
     }
   }
 }
@@ -603,13 +606,10 @@ sub assembly {
 sub pangene {
   say "\n== Processing the pangene files (for a pangene collection) ==";
   for my $fr_to_hsh (@{$confobj->{from_to_pan}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
-    my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+    my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
+    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
-    my $ARGS = "-hash $SEQID_MAP -fasta $FROM_FILE -nodef -out $TO_FILE";
-    say "  Execute hash_into_fasta_id.pl $ARGS";
-    system("hash_into_fasta_id.pl $ARGS");
+    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
   }
 }
 
