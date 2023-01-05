@@ -6,6 +6,7 @@
 use strict;
 use warnings;
 use Getopt::Long;
+use feature "say";
 
 my ($input_table, $out_dir, $help);
 
@@ -18,7 +19,7 @@ GetOptions (
 my $usage = <<EOS;
 Usage: $0  -in input_table -out out_dir  
   Input is a table to be split into yaml-format files, with the latter 
-  named by names in the first field of the input table.
+  named by names in the first row of the input table.
   
   Required:
   -input_table  Name of input table to be split
@@ -40,12 +41,13 @@ my @header;
 
 while (my $line = <$IN>) {
   chomp $line;  
-  next if $line =~ m/^#|^$/;
 
   my @elements = split /\t/, $line;
 
-  if ($line =~ /directories/){
+  my $line_number = $.;
+  if ( $line_number == 1 ){
     @header = @elements;
+    say join (" ", @header);
     shift @elements;
     shift @header;
     next;
@@ -59,31 +61,31 @@ while (my $line = <$IN>) {
   else {
     $seen{$file_out}++;
     open (my $OUT, ">", "$out_dir/$file_out") or die "can't open out $out_dir/$file_out: $!";
-    print "Printing $file_out\n";
-    print $OUT "---\n";
+    say "Printing $file_out";
+    say $OUT "---";
     for my $key (@header){
       my $value = $elements[$i];
       if ($key =~ /directories|prefixes|collection_info|readme_info|from_to_annot/ ||
           $key =~ /from_to_genome|from_to_cds_mrna|from_to_protein|from_to_gff/){
-        print $OUT "$key:\n";
+        say $OUT "$key:";
         $i++;
       }
-      else {
-        if ($key eq "from" ){
-          print $OUT "  -\n";
+      else { # Not header elements (yml keys), so say values
+        if ($key eq "from" || $key eq "identifier" ){
+          print $OUT "  - ";
           if ($value){
-            print $OUT "    $key: $value\n";
+            say $OUT "$key: $value";
           }
           else {
-            print $OUT "    $key: \n";
+            say $OUT "$key: ";
           }
         }
         else {
           if ($value){
-            print $OUT "    $key: $value\n";
+            say $OUT "    $key: $value";
           }
           else {
-            print $OUT "    $key: \n";
+            say $OUT "    $key: ";
           }
         }
         $i++;
@@ -96,4 +98,4 @@ __END__
 
 # S. Cannon
 # 2022-12-11 Initial version, based on split_table_to_files.pl and split_gene_fn_table_to_files.pl
-
+# 2023-01-04 Add keys for about_this_collection/description_Genus_species.yml files
