@@ -12,10 +12,9 @@ Files:
 - _gensp.strain.gnm.KEY4_.seqid_map.tsv.gz
 
 A BUSCO subfolder contains the results of running BUSCO analysis against the genomic sequence for one or more BUSCO lineages. The result files will be:
-```
 - _gensp.strain.gnm.KEY4_.busco._lineage_.short_summary.txt
 - _gensp.strain.gnm.KEY4_.busco._lineage_.short_summary.json
 - _gensp.strain.gnm.KEY4_.busco._lineage_.full_table.tsv.gz
-```
+
 where lineage indicates the busco target (e.g. fabales_odb10)
 
