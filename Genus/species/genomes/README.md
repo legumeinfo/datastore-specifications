@@ -4,6 +4,10 @@ Genome assemblies are stored in directories under /genomes/.
 
 Directory name: _strain.gnm.KEY4_
 
+Additional README properties:
+- `chromosome_prefix` identifies sequences in the `genome_main.fna` that correspond to chromosomes
+- `supercontig_prefix` identifies sequences in the `genome_main.fna` that correspond to supercontigs
+
 Files:
 - README._strain.gnm.KEY4_.yml
 - _gensp.strain.gnm.KEY4_.genome_main.fna.gz
