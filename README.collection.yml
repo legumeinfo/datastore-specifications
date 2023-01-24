@@ -1,5 +1,5 @@
----
-# identifier: name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted
+---yaml
+# identifier: required - name of the directory holding the collection - NOT quoted since any LIS identifier need not be quoted
 identifier: Sanzi_x_Vita7.gen.Pottorff_Ehlers_2012
 
 # provenance: information on the source of the data
@@ -8,7 +8,7 @@ provenance: Close Lab, UC-Riverside
 # source: URL pointing to the data source
 source: "http://viggs.dna.affrc.go.jp/"
 
-# synopsis: short description of the collection
+# synopsis: required - short description of the collection
 synopsis: "A segregating population of 122 RILs, advanced from Sanzi x Vita 7, reveals a QTL, a candidate gene, and a SNP marker for hastate leaf shape."
 
 # related_to: (comma-separated) identifier(s) of related collection(s) in the LIS datastore
@@ -20,14 +20,14 @@ scientific_name: Vigna unguiculata
 # taxid: NCBI taxonomy id
 taxid: 3917
 
-# scientific_name_abbrev: LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species
+# scientific_name_abbrev: required - LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species
 scientific_name_abbrev: vigun
 
 # genotype: list of genotypes, one for a single genotype, A x B for a biparental map, or a longer list of genotypes used
 genotype:
   - Sanzi x Vita 7
 
-# description: long description of this collection
+# description: required - long description of this collection
 description: "In this study, we analyzed the genetics of leaf morphology in a segregating cowpea RIL population, Sanzi (sub-globose) x Vita 7 (hastate). A QTL was identified for the “hastate leaf shape” locus, Hls, which was positioned on the cowpea consensus genetic map and cowpea physical map. A candidate gene was identified using syntenic relationships between cowpea, soybean and Medicago. In addition, a SNP marker was found which co-segregated with the leaf morphology genotypes and phenotype, which could be used as a molecular marker for breeding purposes."
 
 # bioproject: NCBI BioProject accession
@@ -51,10 +51,10 @@ local_file_creation_date: "2018-08-01"
 # dataset_release_date: the date when this collection was released to the public (YYYY-MM-DD)
 dataset_release_date: "2018-08-03"
 
-# publication DOI: DOI pointing to the publication associated with this collection
+# publication DOI: required - DOI pointing to the publication associated with this collection
 publication_doi: 10.1186/1471-2164-13-234
 
-# publication_title: title of the publication associated with this collection
+# publication_title: required - title of the publication associated with this collection
 publication_title: "Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL analysis, physical mapping and identifying a candidate gene using synteny with model legume species"
 
 # contributors: semicolon-separated list of contributors in last, first format, typically the publication authors
