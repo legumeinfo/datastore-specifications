@@ -52,7 +52,7 @@ GmISU01.01G000050.1.CDS.1	glyma.Wm82_ISU01.gnm2.ann1.GmISU01.01G000050.1.CDS.1
 
 A BUSCO subfolder contains the results of running BUSCO analysis against the primary protein sequences for one or more BUSCO lineages. The result files will be:
 - _gensp.strain.gnmVERSION.annVERSION.KEY4_.busco._lineage_.short_summary.txt
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.short_summary.json
-- _gensp.strain.gnmVERSION.annVERSION.KEY4_.full_table.tsv.gz
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.busco._lineage_.short_summary.json
+- _gensp.strain.gnmVERSION.annVERSION.KEY4_.busco._lineage_.full_table.tsv.gz
 
 where lineage indicates the busco target (e.g. fabales_odb10)
