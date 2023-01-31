@@ -55,6 +55,14 @@
             "minItems": 1,
             "uniqueItems": true
         },
+        "chromosome_prefix": {
+          "description": "Comma-separated list of prefixes identifying chromosome records.",
+          "type": ["string", "null"]
+        },
+        "supercontig_prefix": {
+          "description": "Comma-separated list of prefixes identifying supercontig (non-chromosome) records.",
+          "type": ["string", "null"]
+        },
         "bioproject": {
             "description": "NCBI BioProject accession.",
             "type": ["string", "null"],

@@ -30,6 +30,12 @@ genotype:
 # description: required - long description of this collection
 description: "In this study, we analyzed the genetics of leaf morphology in a segregating cowpea RIL population, Sanzi (sub-globose) x Vita 7 (hastate). A QTL was identified for the “hastate leaf shape” locus, Hls, which was positioned on the cowpea consensus genetic map and cowpea physical map. A candidate gene was identified using syntenic relationships between cowpea, soybean and Medicago. In addition, a SNP marker was found which co-segregated with the leaf morphology genotypes and phenotype, which could be used as a molecular marker for breeding purposes."
 
+# chromosome_prefix: required for genome collections - comma-separated prefix(es) identifying chromosome entries in genome_main.fasta
+chromosome_prefix: Chr
+
+# supercontig_prefix: required for genome collections - comma-separated prefix(es) identifying scaffolds/contigs/supercontigs
+supercontig_prefix: Scaffold
+
 # bioproject: NCBI BioProject accession
 bioproject: PRJNA243847
 
@@ -51,7 +57,7 @@ local_file_creation_date: "2018-08-01"
 # dataset_release_date: the date when this collection was released to the public (YYYY-MM-DD)
 dataset_release_date: "2018-08-03"
 
-# publication DOI: required - DOI pointing to the publication associated with this collection
+# publication_doi: required - DOI pointing to the publication associated with this collection
 publication_doi: 10.1186/1471-2164-13-234
 
 # publication_title: required - title of the publication associated with this collection
