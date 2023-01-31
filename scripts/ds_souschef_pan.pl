@@ -610,6 +610,7 @@ sub pangene {
     my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
+    copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
   }
 }
 
