@@ -14,7 +14,8 @@
         },
         "provenance": {
             "description": "Information on the source of the data",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "source": {
             "description": "URI pointing to the data source.",
@@ -24,15 +25,18 @@
         "synopsis": {
             "description": "Short description of the collection (up to 200 chars).",
             "type": "string",
-            "maxLength": 300
+            "maxLength": 300,
+            "pattern": "^(?!none).*$"
         },
         "related_to": {
             "description": "Identifier(s) of related collection(s) in the LIS datastore, comma-separated.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "scientific_name": {
             "description": "Genus species",
-            "type": "string"
+            "type": "string",
+            "pattern": "^(?!none).*$"
         },
         "taxid": {
             "description": "NCBI four-digit taxonomy identifier.",
@@ -44,7 +48,8 @@
             "type": "string",
             "pattern": "^[a-z0-9]+$",
             "minLength": 5,
-            "maxLength": 5
+            "maxLength": 5,
+            "pattern": "^(?!none).*$"
         },
         "genotype": {
             "description": "List of genotypes: one for a single genotype, single A x B entry for a biparental map, or a list.",
@@ -57,34 +62,38 @@
         },
         "chromosome_prefix": {
           "description": "Comma-separated list of prefixes identifying chromosome records.",
-          "type": ["string", "null"]
+          "type": ["string", "null"],
+          "pattern": "^(?!none).*$"
         },
         "supercontig_prefix": {
           "description": "Comma-separated list of prefixes identifying supercontig (non-chromosome) records.",
-          "type": ["string", "null"]
+          "type": ["string", "null"],
+          "pattern": "^(?!none).*$"
         },
         "bioproject": {
             "description": "NCBI BioProject accession.",
             "type": ["string", "null"],
-	    "pattern": "^(?!http).*$"
+	    "pattern": "^(?!http|none).*$"
         },
         "sraproject": {
             "description": "NCBI SRA project accession.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "dataset_doi": {
             "description": "DOI pointing to the dataset; NOTE this is NOT a URI!",
             "type": ["string", "null"],
-            "pattern": "^(?!http).*$"
+            "pattern": "^(?!http|none).*$"
         },
         "publication_doi": {
             "description": "DOI pointing to the publication associated with this collection; NOTE this is NOT a URI!",
             "type": ["string"],
-            "pattern": "^(?!http).*$"
+            "pattern": "^(?!http|none).*$"
         },
         "genbank_accession": {
             "description": "NCBI Genbank accession ID.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "original_file_creation_date": {
             "description": "YYYY-MM-DD date IN QUOTES when data were created at the source.",
@@ -103,53 +112,65 @@
         },
         "publication_title": {
             "description": "Title of the publication associated with this collection.",
-            "type": ["string"]
+            "type": ["string"],
+            "pattern": "^(?!none).*$"
         },
         "contributors": {
             "description": "List of contributors in lastname, firstname format, separated by semicolons; typically the publication authors.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "data_curators": {
             "description": "List of curators that put this collection together, separated by semicolons.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "public_access_level": {
             "description": "Level of public access (e.g. public).",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "license": {
             "description": "Data usage license (e.g. open)",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "keywords": {
             "description": "Keywords associated with this collection, separated by commas.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "citation": {
             "description": "Bibliographic long-form citation of the publication.",
             "type": ["string", "null"],
-            "maxLength": 1000
+            "maxLength": 1000,
+            "pattern": "^(?!none).*$"
         },
         "genotyping_platform": {
             "description": "Genotyping platform used in a genetic experiment.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "genotyping_method": {
             "description": "Description of the genotyping method used in a genetic experiment.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
         "expression_unit": {
             "description": "Expression data unit used in a gene expression experiment (e.g. TPM).",
             "type": ["string", "null"],
-            "maxLength": 10
+            "maxLength": 10,
+            "pattern": "^(?!none).*$"
         },
         "geoseries": {
             "description": "NCBI GeoSeries accession.",
-            "type": ["string", "null"]
+            "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
         },
 	"genetic_map": {
 	  "description": "Name of genetic map, typically the prefix of linkage groups.",
-	  "type": ["string", "null"]
+	  "type": ["string", "null"],
+            "pattern": "^(?!none).*$"
 	}
     },
     "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev", "publication_doi" ],
