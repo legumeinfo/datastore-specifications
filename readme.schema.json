@@ -152,6 +152,6 @@
 	  "type": ["string", "null"]
 	}
     },
-    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev" ],
+    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev", "publication_doi" ],
     "additionalProperties": false
 }

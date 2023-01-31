@@ -60,7 +60,7 @@ dataset_release_date: "2018-08-03"
 # publication_doi: required - DOI pointing to the publication associated with this collection
 publication_doi: 10.1186/1471-2164-13-234
 
-# publication_title: required - title of the publication associated with this collection
+# publication_title: title of the publication associated with this collection
 publication_title: "Leaf morphology in Cowpea [Vigna unguiculata (L.) Walp]: QTL analysis, physical mapping and identifying a candidate gene using synteny with model legume species"
 
 # contributors: semicolon-separated list of contributors in last, first format, typically the publication authors
