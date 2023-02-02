@@ -1,0 +1,73 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Vigna/mungo
+    from_annot_dir: Vmungo/v1.0/annotation
+    from_genome_dir: Vmungo/v1.0/assembly
+prefixes:
+    from_annot_prefix: "IPU-94-1_Uttara_"
+    from_genome_prefix: "IPU-94-1_Uttara_"
+collection_info:
+    genus: Vigna
+    species: mungo
+    gensp: vigmu
+    genotype: IPU-94-1
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: XW89 
+    annot_key: 1S8C
+readme_info:
+    provenance: "The files in this directory originated from https://www.ncbi.nlm.nih.gov/ and https://datadryad.org/. Both repositories are considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://datadryad.org/stash/dataset/doi:10.5061/dryad.dr7sqvb1r"
+    synopsis_genome: Vigna mungo (black gram), assembly version 1 (2022)
+    synopsis_annot: Annotation 1.0 for Vigan mungo (black gram) accession IPU-94-1, assembly version 1 (2022) 
+    taxid: "3915"
+    description_genome: "This is the Jun. 2022 release of the draft genome and v1.0 annotation of Vigna mungo (Black gram) by Botany, University of Delhi Main Campus, Chattra Marg, Delhi, India group. Please see Genoscope and the publication below."
+    description_annot: "Gene annotation resources. https://doi.org/10.5061/dryad.dr7sqvb1r."
+    bioproject: "PRJNA668459"
+    sraproject: ""
+    dataset_doi_genome: ""
+    dataset_doi_annot: "https://doi.org/10.5061/dryad.dr7sqvb1r"
+    genbank_accession: "JAMTDO000000000"
+    original_file_creation_date: 2022-06-13
+    local_file_creation_date: 2022-12-08
+    dataset_release_date: 2022-11-27
+    contributors: Ambreen H, Oraon PK, Wahlang DR, Satyawada RR, Katiyar-Agarwal S, Agarwal M, Jagannath A, Kumar A, Budhwar R, Shukla RN, Goel S 
+    publication_doi: "doi: 10.1002/tpg2.20234"
+    citation: "Ambreen H, Oraon PK, Wahlang DR, Satyawada RR, Katiyar-Agarwal S, Agarwal M, Jagannath A, Kumar A, Budhwar R, Shukla RN, Goel S. Long-read-based draft genome sequence of Indian black gram IPU-94-1 'Uttara': Insights into disease resistance and seed storage protein genes. Plant Genome. 2022 Sep;15(3):e20234. doi: 10.1002/tpg2.20234. Epub 2022 Jun 28. PMID: 35762493."
+    publication_title: "Long-read-based draft genome sequence of Indian black gram IPU-94-1 'Uttara': Insights into disease resistance and seed storage protein genes."
+    data_curators: Wei Huang
+    public_access_level: public
+    license: open
+    keywords: "black gram, IPU-94-1"
+from_to_genome:
+  - 
+    from: genome_Ref_Asm_v1.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+original_readme_and_usage:
+from_to_annot_as_is:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: Transcripts_v1.fasta.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  -  
+    from: Transcripts_primary_v1.fasta.gz
+    to: mRNA_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: Proteins_v1.fasta.gz
+    to: protein.faa
+    description: "Protein sequences"
+  - 
+    from: Proteins_primary_v1.fasta.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
+
+from_to_gff:
+  - 
+    from: Asm_Gene_v1.gff.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
