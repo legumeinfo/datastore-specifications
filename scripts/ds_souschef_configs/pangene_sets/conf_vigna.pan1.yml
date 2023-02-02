@@ -6,6 +6,7 @@ prefixes:
     from_pan_prefix: ""
 collection_info:
     genus: Vigna
+    species: ""
     gensp: vigna 
     genotype: mixed
     pan_ver: pan1
@@ -15,14 +16,14 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Vigna species, based primarily on V. unguiculata but also including V. angularis and V. radiata. This pangene set includes 12 annotation sets."
     taxid: "3913"
-    description: "Pan-gene set for Vigna species, spanning 3 species and 12 annotation sets, calculated using the pandagma pipeline, version 2023-01-23"
+    description: "Pan-gene set for Vigna species, spanning 3 species and 12 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
     bioproject: ""
     sraproject: ""
     dataset_doi_genome: ""
     dataset_doi_annot: ""
     genbank_accession: ""
-    original_file_creation_date: 2023-01-23
-    local_file_creation_date: 2023-01-23
+    original_file_creation_date: 2023-02-01
+    local_file_creation_date: 2023-02-01
     dataset_release_date: 2023-02-09
     contributors: Steven Cannon, Hyunoh Lee
     publication_doi: ""
@@ -31,8 +32,8 @@ readme_info:
     data_curators: Steven Cannon
     public_access_level: public
     license: Open
-    keywords: "soybean, Glycine, pan-gene, pangene, orthogroup"
-from_to_pan:
+    keywords: "Vigna, cowpea, mung bean, pan-gene, pangene, orthogroup"
+from_to_pan_tsv:
   - 
     from: 18_syn_pan_aug_extra.clust.tsv
     to: clust.tsv
@@ -45,6 +46,7 @@ from_to_pan:
     from: 18_syn_pan_aug_extra.hsh.tsv
     to: hsh.tsv
     description: "Pan-gene sets, in a two-column hash format, with the set ID in the first column and genes in the second."
+from_to_pan_fasta:
   - 
     from: 18_syn_pan_aug_extra_complement.fna
     to: complement.fna
@@ -52,27 +54,32 @@ from_to_pan:
   - 
     from: 21_pan_fasta_clust_rep_cds.fna
     to: inclusive_cds.fna
-    description: "CDS sequences for pan-gene inclusive pangene set (not filtered by minimum cluster size or annotation-set representation)."
+    description: "CDS pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
   - 
     from: 21_pan_fasta_clust_rep_prot.faa
     to: inclusive_protein.faa
-    description: "Protein sequences for pan-gene inclusive pangene set (not filtered by minimum cluster size or annotation-set representation)."
+    description: "Protein pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
   - 
-    from: 23_syn_pan_core03_posn_cds.fna
-    to: core03_cds.fna
-    description: "CDS sequences for pan-gene set, omitting genes occurring fewer than 0.3 x the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
+    from: 23_syn_pan_pctl25_posn_cds.fna
+    to: pctl25_named_cds.fna
+    strip: '\w+\.pan\d+\.'
+    description: "CDS pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
   - 
-    from: 23_syn_pan_core03_posn_prot.faa
-    to: core03_protein.faa
-    description: "Protein sequences for pan-gene set, omitting genes occurring fewer than 0.3 x the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
+    from: 23_syn_pan_pctl25_posn_prot.faa
+    to: pctl25_named_protein.faa
+    strip: '\w+\.pan\d+\.'
+    description: "Protein pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
   - 
-    from: 24_syn_pan_core03_posn_trim_cds.fna
-    to: core03_trim_cds.fna
-    description: "CDS sequences for pan-gene set, omitting genes occurring fewer than 0.3 x the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position, and with tandem duplicates reduced."
+    from: 24_syn_pan_pctl25_posn_trim_cds.fna
+    to: pctl25_named_trim_cds.fna
+    strip: '\w+\.pan\d+\.'
+    description: "CDS pan-gene sequence, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
   - 
-    from: 24_syn_pan_core03_posn_trim_prot.faa
-    to: core03_trim_protein.faa
-    description: "Protein sequences for pan-gene set, omitting genes occurring fewer than 0.3 x the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position, and with tandem duplicates reduced."
+    from: 24_syn_pan_pctl25_posn_trim_prot.faa
+    to: pctl25_named_trim_protein.faa
+    strip: '\w+\.pan\d+\.'
+    description: "Protein pan-gene sequences, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
+from_to_pan_as_is:
   - 
     from: stats.Vigna_7_5.txt
     to: stats.txt
