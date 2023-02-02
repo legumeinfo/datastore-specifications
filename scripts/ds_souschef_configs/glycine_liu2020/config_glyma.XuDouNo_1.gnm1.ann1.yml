@@ -10,7 +10,7 @@ collection_info:
     genus: Glycine
     species: max
     gensp: glyma
-    genotype: XuDouNo_1
+    coll_genotype: XuDouNo_1
     gnm_ver: gnm1
     ann_ver: ann1
     genome_key: 0GWH
@@ -21,6 +21,7 @@ readme_info:
     synopsis_genome: Genome assembly for Glycine max accession XuDouNo_1 (SoyC01) from Liu, Du et al. 2020.
     synopsis_annot: Gene annotations for Glycine max accession XuDouNo_1 (SoyC01) from Liu, Du et al. 2020.
     taxid: 3847
+    genotype: XuDouNo_1
     description_genome: Genome assembly for Glycine max accession XuDouNo_1 (SoyC01) from Liu, Du et al. 2020. The 26 accessions were sequenced individually using single-molecule real-time (SMRT) sequencing with an average coverage depth of 96X, optical mapping with an average coverage depth of 277X, chromosome conformation capture (Hi-C) sequencing with an average coverage depth of 136X, and Illumina sequencing (HiSeq) with an average coverage depth of 68X.
     description_annot: Gene annotations for Glycine max accession XuDouNo_1 (SoyC01) from Liu, Du et al. 2020. Annotations of the protein-coding and small RNA genes employed Augustus trained by FGENESH, transcript support based on RNA samples from roots, stems, leaves, flowers, and seeds at different developmental stages;and integration of ab initio and evidence-based results with MAKER.
     bioproject: 

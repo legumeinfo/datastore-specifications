@@ -8,7 +8,7 @@ collection_info:
     genus: Glycine
     species: ""
     gensp: glyci
-    genotype: mixed
+    coll_genotype: mixed
     pan_ver: pan3
     pan_key: YWTW
 readme_info:
@@ -16,6 +16,7 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Glycine species, based on G. max and G. soja but also including 6 perennial Australian species by homology. This pangene set includes 51 Glycine annotation sets."
     taxid: "3846"
+    genotype: Amsoy,DongNongNo_50,F_IGA1003,FengDiHuang,FiskebyIII,G1134,G1267,G1300,G1403,G1718,G1974,HanDouNo_5,Hefeng25_IGA1002,HeiHeNo_43,Huaxia3_IGA1007,Hwangkeum,JiDouNo_17,JinDouNo_23,Jinyuan_IGA1006,JuXuanNo_23,KeShanNo_1,Lee,Lee,PI_398296,PI_548362,PI_549046,PI_562565,PI_578357,PI483463,QiHuangNo_34,ShiShengChangYe,TieFengNo_18,TieJiaSiLiHuang,TongShanTianEDan,W05,WanDouNo_28,Wenfeng7_IGA1001,Wm82,Wm82,Wm82,Wm82_IGA1008,Wm82_ISU01,XuDouNo_1,YuDouNo_22,Zh13,Zh13,Zh13_IGA1005,Zh35_IGA1004,ZhangChunManCangJin,Zhutwinning2,ZiHuaNo_4,58-161
     description: "Pan-gene set for Glycine species, spanning 8 species and 51 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
     bioproject: ""
     sraproject: ""

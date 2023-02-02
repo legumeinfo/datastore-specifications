@@ -10,7 +10,7 @@ collection_info:
     genus: Arabidopsis
     species: thaliana
     gensp: arath
-    genotype: Col0
+    coll_genotype: Col0
     gnm_ver: gnm9
     ann_ver: ann11
     genome_key: YF2W
@@ -21,6 +21,7 @@ readme_info:
     synopsis_genome: Arabidopsis thaliana TAIR9 genome assembly
     synopsis_annot: Araport11 annotation on the TAIR9 genome assembly
     taxid: "3702"
+    genotype: Col0
     description_genome: "This is the TAIR9 genome assembly of the Col-0 ecotype, produced by the Arabidopsis Genome Initiative."
     description_annot: "This is the Araport11 annotation, released in 2016, on the TAIR9 genome assembly of the Col-0 ecotype."
     bioproject: ""

@@ -10,7 +10,7 @@ collection_info:
     genus: Glycine
     species: soja
     gensp: glyso
-    genotype: PI_562565
+    coll_genotype: PI_562565
     gnm_ver: gnm1
     ann_ver: ann1
     genome_key: Z2VG
@@ -21,6 +21,7 @@ readme_info:
     synopsis_genome: Genome assembly for Glycine soja accession PI_562565 (SoyW01) from the 26 accession pan-genome set of Liu, Du et al. 2020.
     synopsis_annot: Gene annotations for Glycine soja accession PI_562565 (SoyW01) from the 26 accession pan-genome set of Liu, Du et al. 2020.
     taxid: 3848
+    genotype: PI_562565
     description_genome: Genome assembly for Glycine soja accession PI_562565 (SoyW01) from the 26 accession pan-genome set of Liu, Du et al. 2020. The 26 accessions were sequenced individually using single-molecule real-time (SMRT) sequencing with an average coverage depth of 96X, optical mapping with an average coverage depth of 277X, chromosome conformation capture (Hi-C) sequencing with an average coverage depth of 136X, and Illumina sequencing (HiSeq) with an average coverage depth of 68X.
     description_annot: Gene annotations for Glycine soja accession PI_562565 (SoyW01) from the 26 accession pan-genome set of Liu, Du et al. 2020. Annotations of the protein-coding and small RNA genes employed Augustus trained by FGENESH, transcript support based on RNA samples from roots, stems, leaves, flowers, and seeds at different developmental stages;and integration of ab initio and evidence-based results with MAKER.
     bioproject: 

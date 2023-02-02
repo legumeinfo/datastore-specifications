@@ -139,12 +139,12 @@ my ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES);
 my ($PANCOL, $TO_PAN_PREFIX, $PANDIR,$PAN_MAN_CORR, $PAN_MAN_DESCR, $PAN_README, $PAN_CHANGES);
 
 if ($COLLECTION_TYPE =~ /genomic/){
-  $GNMCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
-  $ANN_GT_VER = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
-  $ANNCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
+  $GNMCOL = "$coll_hsh{coll_genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
+  $ANN_GT_VER = "$coll_hsh{coll_genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
+  $ANNCOL = "$coll_hsh{coll_genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
   $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
-  $TO_GNM_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}";
-  $TO_ANN_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
+  $TO_GNM_PREFIX = "$GENSP.$coll_hsh{coll_genotype}.$coll_hsh{gnm_ver}";
+  $TO_ANN_PREFIX = "$GENSP.$coll_hsh{coll_genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
   
   $ANNDIR = "$WD/annotations/$ANNCOL";
   $GNMDIR = "$WD/genomes/$GNMCOL";
@@ -160,9 +160,9 @@ if ($COLLECTION_TYPE =~ /genomic/){
   $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
 }
 elsif ($COLLECTION_TYPE =~ /pangene/){
-  $PANCOL = "$coll_hsh{genotype}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
+  $PANCOL = "$coll_hsh{coll_genotype}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
   $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
-  $TO_PAN_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{pan_ver}";
+  $TO_PAN_PREFIX = "$GENSP.$coll_hsh{pan_ver}";
   
   $PANDIR = "$WD/pangenes/$PANCOL";
   
@@ -412,7 +412,6 @@ sub readme {
        contributors citation data_curators public_access_level license keywords);
   
   $readme_hsh{scientific_name} = $scientific_name;
-  $readme_hsh{genotype} = "\n  - $coll_hsh{genotype}";
   $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Assembly README
@@ -423,12 +422,27 @@ sub readme {
   $readme_hsh{description} = $readme_hsh{description_genome};
   if ($readme_hsh{dataset_doi_genome}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi_genome}\""}
   else {$readme_hsh{dataset_doi} = ""}
+
+  my %seen_genotype;
   for my $key (@readme_keys){
-    if ($key =~ /provenance|source|description|synopsis|title|citation|date/){ # wrap in quotes
-      say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n"
+    if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
+      say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
+    }
+    elsif ( length($readme_hsh{$key}) == 0 ){
+      say $GNM_README_FH "$key: \"\"\n";
+    }
+    elsif ( $key =~ /genotype/ ){
+      say $GNM_README_FH "$key:";
+      for my $genotype (split(/, */, $readme_hsh{$key})){
+        unless ($seen_genotype{$genotype}){
+          say $GNM_README_FH "  - $genotype";
+          $seen_genotype{$genotype}++;
+        }
+      }
+      say $GNM_README_FH "";
     }
     else { # presume no quotes needed
-      say $GNM_README_FH "$key: $readme_hsh{$key}\n"
+      say $GNM_README_FH "$key: $readme_hsh{$key}\n";
     }
   }
 
@@ -445,12 +459,27 @@ sub readme {
   $readme_hsh{description} = $readme_hsh{description_annot};
   if ($readme_hsh{dataset_doi_annot}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi_annot}\""}
   else {$readme_hsh{dataset_doi} = ""}
+
+  %seen_genotype = ();
   for my $key (@readme_keys){
-    if ($key =~ /provenance|source|description|synopsis|title|citation|date/){ # wrap in quotes
-      say $ANN_README_FH "$key: \"$readme_hsh{$key}\"\n"
+    if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
+      say $ANN_README_FH "$key: \"$readme_hsh{$key}\"\n";
+    }
+    elsif ( length($readme_hsh{$key}) == 0 ){
+      say $ANN_README_FH "$key: \"\"\n";
+    }
+    elsif ( $key =~ /genotype/ ){
+      say $ANN_README_FH "$key:";
+      for my $genotype (split(/, */, $readme_hsh{$key})){
+        unless ($seen_genotype{$genotype}){
+          say $ANN_README_FH "  - $genotype";
+          $seen_genotype{$genotype}++;
+        }
+      }
+      say $ANN_README_FH "";
     }
     else { # presume no quotes needed
-      say $ANN_README_FH "$key: $readme_hsh{$key}\n"
+      say $ANN_README_FH "$key: $readme_hsh{$key}\n";
     }
   }
 
@@ -675,14 +704,13 @@ sub pangene_as_is {
 
 ##################################################
 sub pangene_readme {
-  say "\n== Writing pangene README file ==";
+  say "\n== Writing pangene README file ==\n";
   my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
        genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
        local_file_creation_date dataset_release_date publication_doi publication_title 
        contributors citation data_curators public_access_level license keywords);
   
   $readme_hsh{scientific_name} = $scientific_name;
-  $readme_hsh{genotype} = "\n  - $coll_hsh{genotype}";
   $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Pangene README
@@ -693,15 +721,26 @@ sub pangene_readme {
   $readme_hsh{description} = $readme_hsh{description};
   if ($readme_hsh{dataset_doi}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi}\""}
   else {$readme_hsh{dataset_doi} = ""}
+  my %seen_genotype;
   for my $key (@readme_keys){
     if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
-      say $PAN_README_FH "$key: \"$readme_hsh{$key}\"\n"
+      say $PAN_README_FH "$key: \"$readme_hsh{$key}\"\n";
     }
     elsif ( length($readme_hsh{$key}) == 0 ){
-      say $PAN_README_FH "$key: \"\"\n"
+      say $PAN_README_FH "$key: \"\"\n";
+    }
+    elsif ( $key =~ /genotype/ ){
+      say $PAN_README_FH "$key:";
+      for my $genotype (split(/, */, $readme_hsh{$key})){
+        unless ($seen_genotype{$genotype}){
+          say $PAN_README_FH "  - $genotype";
+          $seen_genotype{$genotype}++;
+        }
+      }
+      say $PAN_README_FH "";
     }
     else { # presume no quotes needed
-      say $PAN_README_FH "$key: $readme_hsh{$key}\n"
+      say $PAN_README_FH "$key: $readme_hsh{$key}\n";
     }
   }
 
@@ -776,3 +815,5 @@ Versions
 2022-12-18 Add flag "-SHash" to allow an initial mapping of old/new chromosome & scaffold IDs, e.g. 
                    CM012345.1  Chr01
 2023-02-01 Major new version; now handles pangene collections. 
+2023-02-02 Handle coll_genotype for the collection name (e.g. "mixed") and multi-element genotype for the README.
+

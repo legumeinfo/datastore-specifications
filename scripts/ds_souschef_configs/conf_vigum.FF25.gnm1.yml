@@ -10,7 +10,7 @@ collection_info:
     genus: Vigna
     species: umbellata
     gensp: vigum
-    genotype: FF25
+    coll_genotype: FF25
     gnm_ver: gnm1
     ann_ver: ann1
     genome_key: 41YK
@@ -20,6 +20,7 @@ readme_info:
     source: "https://figshare.com/articles/dataset/Genome_assembly_annotation_for_rice_bean/19420058"
     synopsis_genome: Vigna umbellata (rice bean), assembly version 1 (2022)
     synopsis_annot: Annotation 1.0 for Vigan umbellata (rice bean) accession FF25, assembly version 1 (2022) 
+    genotype: FF25
     taxid: "87088"
     description_genome: "This is the 12X March 2010 release of the draft genome and v2.1 annotation of Vitis vinifera by the French-Italian Public Consortium for Grapevine Genome Characterization. Please see Genoscope and the publication below."
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."

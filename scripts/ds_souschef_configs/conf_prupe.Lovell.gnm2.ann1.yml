@@ -10,7 +10,7 @@ collection_info:
     genus: Prunus
     species: persica
     gensp: prupe
-    genotype: Lovell
+    coll_genotype: Lovell
     gnm_ver: gnm2
     ann_ver: ann1
     genome_key: TVVK
@@ -20,6 +20,7 @@ readme_info:
     source: "https://phytozome-next.jgi.doe.gov/info/Ppersica_v2_1"
     synopsis_genome: Prunus persica (peach) accession Lovell, genome assembly 2, by the International Peach Genome Initiative
     synopsis_annot: Annotation 1 for peach accession Lovell, genome assembly 2
+    genotype: Lovell
     taxid: "3760"
     description_genome: "Peach v2.0 was generated from DNA from the doubled haploid cultivar 'Lovell' (PLOV2-2N) which means that the genes and intervening DNA is fixed or identical for all alleles and both chromosomal copies of the genome. This doubled haploid nature has facilitated a highly accurate and consistent assembly of the peach genome. Peach v2.0 currently consists of 8 pseudomolecules representing the 8 chromosomes of peach, and are numbered according to their corresponding linkage groups. The genome sequencing consisted of approximately 8.47 fold whole genome shotgun sequencing employing the accurate Sanger methodology and was assembled using Arachne. See full description at Phytozome/JGI repository (address above)."
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."

@@ -10,7 +10,7 @@ collection_info:
     genus: Vigna
     species: radiata
     gensp: vigra
-    genotype: VC1973A
+    coll_genotype: VC1973A
     gnm_ver: gnm6
     ann_ver: ann2
     genome_key: 3nL8
@@ -21,6 +21,7 @@ readme_info:
     synopsis_genome: Vigna radiata (mungbean) accession VC1973A, assembly version 6 (2014)
     synopsis_annot: GenBank RefSeq annotation for Vigna radiata (mungbean) accession VC1973A, assembly version 6 (2014)
     taxid: "157791"
+    genotype: VC1973A
     description_genome: "Genome assembly (scaffolds and pseudomolecules) for Vigna radiata -- first published genome assembly"
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCF_000741045.1, circa 2015."
     bioproject: "PRJNA243847"

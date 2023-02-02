@@ -10,7 +10,7 @@ collection_info:
     genus: Vigna
     species: mungo
     gensp: vigmu
-    genotype: IPU-94-1
+    coll_genotype: IPU-94-1
     gnm_ver: gnm1
     ann_ver: ann1
     genome_key: XW89 
@@ -21,6 +21,7 @@ readme_info:
     synopsis_genome: Vigna mungo (black gram), assembly version 1 (2022)
     synopsis_annot: Annotation 1.0 for Vigan mungo (black gram) accession IPU-94-1, assembly version 1 (2022) 
     taxid: "3915"
+    genotype: IPU-94-1
     description_genome: "This is the Jun. 2022 release of the draft genome and v1.0 annotation of Vigna mungo (Black gram) by Botany, University of Delhi Main Campus, Chattra Marg, Delhi, India group. Please see Genoscope and the publication below."
     description_annot: "Gene annotation resources. https://doi.org/10.5061/dryad.dr7sqvb1r."
     bioproject: "PRJNA668459"

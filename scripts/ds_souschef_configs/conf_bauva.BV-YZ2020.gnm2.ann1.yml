@@ -10,7 +10,7 @@ collection_info:
     genus: Bauhinia
     species: variegata
     gensp: bauva
-    genotype: BV-YZ2020
+    coll_genotype: BV-YZ2020
     gnm_ver: gnm2
     ann_ver: ann1
     genome_key: 17QQ
@@ -21,6 +21,7 @@ readme_info:
     synopsis_genome: Bauhinia variegata (Mountain ebony) isolate a pink petal individual (BV-YZ2020) Genome sequencing, Genome 2
     synopsis_annot: GenBank RefSeq annotation for Bauhinia variegata (Mountain ebony) isolate a pink petal individual, assembly version from GCA_022379115.2, June 6 2022 
     taxid: "167791"
+    genotype: BV-YZ2020
     description_genome: "This assembly is released on April 2022 and the chromosomal-level genome of Bauhinia variegata using PacBio and Illumina sequencing, and Hi-C scaffolding technologies." 
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCA_022379115.2, June 06 2022"
     bioproject: "PRJNA801801"

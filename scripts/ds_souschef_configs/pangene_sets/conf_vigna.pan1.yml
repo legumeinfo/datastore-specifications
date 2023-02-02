@@ -8,7 +8,7 @@ collection_info:
     genus: Vigna
     species: ""
     gensp: vigna 
-    genotype: mixed
+    coll_genotype: mixed
     pan_ver: pan1
     pan_key: X2PC
 readme_info:
@@ -16,6 +16,7 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Vigna species, based primarily on V. unguiculata but also including V. angularis and V. radiata. This pangene set includes 12 annotation sets."
     taxid: "3913"
+    genotype: CB5-2,Gyeongwon,IT97K-499-35,IT97K-499-35,Sanzi,Shumari,Suvita2,TZ30,UCR779,VC1973A,VC1973A,ZN016
     description: "Pan-gene set for Vigna species, spanning 3 species and 12 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
     bioproject: ""
     sraproject: ""

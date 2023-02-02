@@ -8,7 +8,7 @@ collection_info:
     genus: Phaseolus
     species: ""
     gensp: phase
-    genotype: mixed
+    coll_genotype: mixed
     pan_ver: pan1
     pan_key: X2PC
 readme_info:
@@ -16,6 +16,7 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Phaseolus species, based primarily on P. vulgaris but also including P. acutifolius and P. lunatus. This pangene set includes 8 annotation sets."
     taxid: "3883"
+    genotype: Frijol_Bayo,G19833,G19833,G27455,LaborOvalle,UI111,W6_15578,5-593
     description: "Pan-gene set for Phaseolus species, spanning 3 species and 8 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
     bioproject: ""
     sraproject: ""

@@ -8,7 +8,7 @@ collection_info:
     genus: Zea
     species: ""
     gensp: Zea 
-    genotype: mixed
+    coll_genotype: mixed
     pan_ver: pan1
     pan_key: KEY4
 readme_info:
@@ -16,6 +16,7 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Zea mays, This pangene set includes 29 annotation sets."
     taxid: "3913"
+    genotype: Zm00001d,Zm00001eb,Zm00004b,Zm00008a,Zm00018ab,Zm00019ab,Zm00020ab,Zm00021ab,Zm00022ab,Zm00023ab,Zm00024ab,Zm00025ab,Zm00026ab,Zm00027ab,Zm00028ab,Zm00029ab,Zm00030ab,Zm00031ab,Zm00032ab,Zm00033ab,Zm00034ab,Zm00035ab,Zm00036ab,Zm00037ab,Zm00038ab,Zm00039ab,Zm00040ab,Zm00041ab,Zm00042ab
     description: "Pan-gene set for Zea, spanning 29 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
     bioproject: ""
     sraproject: ""

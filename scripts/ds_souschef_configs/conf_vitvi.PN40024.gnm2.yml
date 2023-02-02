@@ -10,7 +10,7 @@ collection_info:
     genus: Vitis
     species: vinifera
     gensp: vitvi
-    genotype: PN40024
+    coll_genotype: PN40024
     gnm_ver: gnm2
     ann_ver: ann1
     genome_key: ZBSP
@@ -20,6 +20,7 @@ readme_info:
     source: "https://phytozome-next.jgi.doe.gov/info/Vvinifera_v2_1"
     synopsis_genome: Vitis vinifera (grape) accession PN40024, genome assembly 2 (also called 12X), by Genoscope - Centre National de Sequencage
     synopsis_annot: Annotation 2.1 for Vitis vinifera (grape) accession PN40024; sequencing and annotation by Genoscope, sourced from Phytozome
+    genotype: PN40024
     taxid: "29760"
     description_genome: "This is the 12X March 2010 release of the draft genome and v2.1 annotation of Vitis vinifera by the French-Italian Public Consortium for Grapevine Genome Characterization. Please see Genoscope and the publication below."
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
