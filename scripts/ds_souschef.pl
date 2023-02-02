@@ -102,46 +102,76 @@ if ($featid_map){
 }
 
 # All modules will be run unless flags are set for one or more of the particular modules.
-$all++ unless ($make_featid_map || $make_seqid_map || $readme || $ann_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
+$all++ unless ($make_featid_map || $make_seqid_map || $readme || 
+               $ann_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
 
 my $yaml = YAML::Tiny->read( $config );
 
 my $confobj = LoadFile($config);
 
 my %coll_hsh;
-for (keys %{$confobj->{collection_info}}){ $coll_hsh{$_} = $confobj->{collection_info}->{$_} }
+my $COLLECTION_TYPE;
+for (keys %{$confobj->{collection_info}}){ 
+  $coll_hsh{$_} = $confobj->{collection_info}->{$_};
+  if ( $_ =~ /annot|genome/ ){ $COLLECTION_TYPE="genomic" }
+  elsif ( $_ =~ /pan/ ){ $COLLECTION_TYPE="pangene" }
+}
+say "COLLECTION_TYPE: $COLLECTION_TYPE";
 
 my %dir_hsh;
 for (keys %{$confobj->{directories}}){ $dir_hsh{$_} = $confobj->{directories}->{$_} }
 
 my %prefix_hsh;
-for (keys %{$confobj->{prefixes}}){ $prefix_hsh{$_} = $confobj->{prefixes}->{$_} }
+for (keys %{$confobj->{prefixes}}){ 
+  $prefix_hsh{$_} = $confobj->{prefixes}->{$_};
+}
 
 my %readme_hsh;
 for (keys %{$confobj->{readme_info}}){ $readme_hsh{$_} = $confobj->{readme_info}->{$_} }
 
 # Make some variables for prefixes, for convenience
-my $GNMCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
-my $ANN_GT_VER = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
-my $ANNCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
-my $GENSP = $coll_hsh{gensp};
-my $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
-my $TO_GNM_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}";
-my $TO_ANN_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
-
 my $WD = "$dir_hsh{work_dir}";
-my $ANNDIR = "$WD/annotations/$ANNCOL";
-my $GNMDIR = "$WD/genomes/$GNMCOL";
+my $GENSP = $coll_hsh{gensp};
 
-my $ANN_MAN_CORR = "$ANNDIR/MANIFEST.$ANNCOL.correspondence.yml";
-my $ANN_MAN_DESCR = "$ANNDIR/MANIFEST.$ANNCOL.descriptions.yml";
-my $ANN_README = "$ANNDIR/README.$ANNCOL.yml";
-my $ANN_CHANGES = "$ANNDIR/CHANGES.$ANNCOL.txt";
+my ($GNMCOL, $ANN_GT_VER, $ANNCOL, $scientific_name, $TO_GNM_PREFIX, $TO_ANN_PREFIX, $ANNDIR, $GNMDIR);
+my ($GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES);
+my ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES);
+my ($PANCOL, $TO_PAN_PREFIX, $PANDIR,$PAN_MAN_CORR, $PAN_MAN_DESCR, $PAN_README, $PAN_CHANGES);
 
-my $GNM_MAN_CORR = "$GNMDIR/MANIFEST.$GNMCOL.correspondence.yml";
-my $GNM_MAN_DESCR = "$GNMDIR/MANIFEST.$GNMCOL.descriptions.yml";
-my $GNM_README = "$GNMDIR/README.$GNMCOL.yml";
-my $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
+if ($COLLECTION_TYPE =~ /genomic/){
+  $GNMCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
+  $ANN_GT_VER = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
+  $ANNCOL = "$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}.$coll_hsh{annot_key}";
+  $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
+  $TO_GNM_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}";
+  $TO_ANN_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{gnm_ver}.$coll_hsh{ann_ver}";
+  
+  $ANNDIR = "$WD/annotations/$ANNCOL";
+  $GNMDIR = "$WD/genomes/$GNMCOL";
+  
+  $ANN_MAN_CORR = "$ANNDIR/MANIFEST.$ANNCOL.correspondence.yml";
+  $ANN_MAN_DESCR = "$ANNDIR/MANIFEST.$ANNCOL.descriptions.yml";
+  $ANN_README = "$ANNDIR/README.$ANNCOL.yml";
+  $ANN_CHANGES = "$ANNDIR/CHANGES.$ANNCOL.txt";
+  
+  $GNM_MAN_CORR = "$GNMDIR/MANIFEST.$GNMCOL.correspondence.yml";
+  $GNM_MAN_DESCR = "$GNMDIR/MANIFEST.$GNMCOL.descriptions.yml";
+  $GNM_README = "$GNMDIR/README.$GNMCOL.yml";
+  $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
+}
+elsif ($COLLECTION_TYPE =~ /pangene/){
+  $PANCOL = "$coll_hsh{genotype}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
+  $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
+  $TO_PAN_PREFIX = "$GENSP.$coll_hsh{genotype}.$coll_hsh{pan_ver}";
+  
+  $PANDIR = "$WD/pangenes/$PANCOL";
+  
+  $PAN_MAN_CORR = "$PANDIR/MANIFEST.$PANCOL.correspondence.yml";
+  $PAN_MAN_DESCR = "$PANDIR/MANIFEST.$PANCOL.descriptions.yml";
+  $PAN_README = "$PANDIR/README.$PANCOL.yml";
+  $PAN_CHANGES = "$PANDIR/CHANGES.$PANCOL.txt";
+}
+else {warn "COLLECTION_TYPE not recognized: [$COLLECTION_TYPE]\n"; }
 
 my $to_name_base;
 my ($FEATID_MAP, $SEQID_MAP);
@@ -151,55 +181,78 @@ my ($printed_man_corr_head, $printed_man_descr_head);
 # Call subroutines
 &setup;
 
-if ( $all || $make_seqid_map ){ &make_seqid_map }
-if ($seqid_map && !($make_seqid_map)){ 
-  say "Map of old/new chromosome & scaffold IDs has been provided:\n  $seqid_map";
-  $SEQID_MAP = $seqid_map;
+if ( $COLLECTION_TYPE =~ /pangene/ ) {
+  say "Handle pangene config and collection";
+  &pangene_tsv;
+  &pangene_fasta;
+  &pangene_as_is;
+  &pangene_readme;
 }
-
-if ( $all || $make_featid_map ){ &make_featid_map }
-if ($featid_map && !($make_featid_map)){ 
-  say "Hash of old/new gene IDs has been provided:\n  $featid_map";
-  $FEATID_MAP = $featid_map;
+else { # Not a pangene job, so presume genomic
+  if ( $all || $make_seqid_map ){ &make_seqid_map }
+  if ($seqid_map && !($make_seqid_map)){ 
+    say "Map of old/new chromosome & scaffold IDs has been provided:\n  $seqid_map";
+    $SEQID_MAP = $seqid_map;
+  }
+  
+  if ( $all || $make_featid_map ){ &make_featid_map }
+  if ($featid_map && !($make_featid_map)){ 
+    say "Hash of old/new gene IDs has been provided:\n  $featid_map";
+    $FEATID_MAP = $featid_map;
+  }
+  
+  if ( $all || $readme ){ &readme }
+  if ( $all || $ann_as_is ){ &ann_as_is }
+  if ( $all || $gnm_as_is ){ &gnm_as_is }
+  
+  if ( $gff && (!$FEATID_MAP || !$SEQID_MAP) ){
+    die "\nERROR: If the -gff flag is set, then also call -make_seqid_map and -make_featid_map OR " . 
+        "provde the map files via -featid_map and -seqid_map\n\n";
+  }
+  
+  if ( $assembly && !$SEQID_MAP ){
+    die "\nERROR: If the -assembly flag is set, then also call the -make_seqid_map OR " . 
+        "provide the chromosome map file via -seqid_map\n\n";
+  }
+  
+  if ( $cds || $protein && !$FEATID_MAP ){
+    die "\nERROR: If the -cds or -protein flags are set, then also call -make_featid_map OR " . "
+        provide the feature-id map file via -featid_map\n\n";
+  }
+  
+  if ( $all || $cds ){ &cds }
+  if ( $all || $protein ){ &protein }
+  if ( $all || $gff ){ &gff }
+  if ( $all || $assembly ){ &assembly }
 }
-
-if ( $all || $readme ){ &readme }
-if ( $all || $ann_as_is ){ &ann_as_is }
-if ( $all || $gnm_as_is ){ &gnm_as_is }
-
-if ( $gff && (!$FEATID_MAP || !$SEQID_MAP) ){
-  die "\nERROR: If the -gff flag is set, then also call -make_seqid_map and -make_featid_map OR provde the map files via -featid_map and -seqid_map\n\n";
-}
-
-if ( $assembly && !$SEQID_MAP ){
-  die "\nERROR: If the -assembly flag is set, then also call the -make_seqid_map OR provide the chromosome map file via -seqid_map\n\n";
-}
-
-if ( $cds || $protein && !$FEATID_MAP ){
-  die "\nERROR: If the -cds or -protein flags are set, then also call -make_featid_map OR provide the feature-id map file via -featid_map\n\n";
-}
-
-if ( $all || $cds ){ &cds }
-if ( $all || $protein ){ &protein }
-if ( $all || $gff ){ &gff }
-if ( $all || $assembly ){ &assembly }
 
 ##################################################
 sub setup {
   say "\n== Setup: Create output directories and start the metadata files ==";
 
   # Make collection directories
-  say "Output directories:\n  $WD/annotations\n  $WD/genomes";
-  unless (-d "$WD/annotations") {mkdir "$WD/annotations" or die "Can't make directory $WD/annotations: $!\n"}
-  unless (-d $ANNDIR) {mkdir $ANNDIR or die "Can't make directory $ANNDIR: $!\n"}
-  unless (-d "$WD/genomes") {mkdir "$WD/genomes" or die "Can't make directory $WD/genomes: $!\n"}
-  unless (-d $GNMDIR) {mkdir $GNMDIR or die "Can't make directory $GNMDIR: $!\n"}
-
-  # Remove existing metadata files UNLESS -extend is set.
-  for my $file ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES, 
-                $GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES){
-    if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
+  if ($COLLECTION_TYPE =~ /genomic/){
+    say "Output directories:\n  $WD/annotations\n  $WD/genomes";
+    unless (-d "$WD/annotations") {mkdir "$WD/annotations" or die "Can't make directory $WD/annotations: $!\n"}
+    unless (-d $ANNDIR) {mkdir $ANNDIR or die "Can't make directory $ANNDIR: $!\n"}
+    unless (-d "$WD/genomes") {mkdir "$WD/genomes" or die "Can't make directory $WD/genomes: $!\n"}
+    unless (-d $GNMDIR) {mkdir $GNMDIR or die "Can't make directory $GNMDIR: $!\n"}
+    # Remove existing metadata files UNLESS -extend is set.
+    for my $file ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES, 
+                  $GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES){
+      if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
+    }
   }
+  elsif ($COLLECTION_TYPE =~ /pangene/){
+    say "Output directories:\n  $WD/pangenes";
+    unless (-d "$WD/pangenes") {mkdir "$WD/pangenes" or die "Can't make directory $WD/pangenes: $!\n"}
+    unless (-d $PANDIR) {mkdir $PANDIR or die "Can't make directory $PANDIR: $!\n"}
+    # Remove existing metadata files UNLESS -extend is set.
+    for my $file ($PAN_MAN_CORR, $PAN_MAN_DESCR, $PAN_README, $PAN_CHANGES){
+      if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
+    }
+  }
+
 }
 
 ##################################################
@@ -229,10 +282,10 @@ sub make_seqid_map {
     # read hash
     while (<$SHASH_FH>) {
       chomp;
-        /(\S+)\s+(.+)/;
-        next if (/^#/);
-        my ($id, $hash_val) = ($1,$2);
-        $seqid_initial_hash{$id} = $hash_val;   # say "SHash: $id, $hash_val";
+      /(\S+)\s+(.+)/;
+      next if (/^#/);
+      my ($id, $hash_val) = ($1,$2);
+      $seqid_initial_hash{$id} = $hash_val;   # say "SHash: $id, $hash_val";
     }
   }
   
@@ -305,7 +358,7 @@ sub make_featid_map {
       say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     }
     else {
-      say "Please check the config from_to_gff block and ensure that there is a \"to: gene_models_main.gff3\"";  
+      say "Please ensure that the from_to_gff config block contains \"to: gene_models_main.gff3\"";  
     }
   }
   say "GFF_FILE_START: $GFF_FILE_START";
@@ -315,7 +368,7 @@ sub make_featid_map {
    
   my $GFF_IN_FH;
   say "Generating hash of old/new gene IDs.";
-  if (-f $GFF_FILE_START && -f $GFF_EXONS_FILE_START){ # There are both gene_models_main and gene_models_exons files
+  if (-f $GFF_FILE_START && -f $GFF_EXONS_FILE_START){ # There are gene_models_main & gene_models_exons files
     open($GFF_IN_FH, "gzcat $GFF_FILE_START $GFF_EXONS_FILE_START |") or die \
       "Can't do gzcat $GFF_FILE_START $GFF_EXONS_FILE_START |: $!";
   }
@@ -349,13 +402,14 @@ sub make_featid_map {
   &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $description);
 }
 
+
 ##################################################
 sub readme {
   say "\n== Writing README files ==";
   my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
-         genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
-         local_file_creation_date dataset_release_date publication_doi publication_title 
-         contributors citation data_curators public_access_level license keywords);
+       genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
+       local_file_creation_date dataset_release_date publication_doi publication_title 
+       contributors citation data_curators public_access_level license keywords);
   
   $readme_hsh{scientific_name} = $scientific_name;
   $readme_hsh{genotype} = "\n  - $coll_hsh{genotype}";
@@ -534,7 +588,8 @@ sub gff {
       $bed_file =~ s/gene_models_main.gff3/cds.bed/;
       my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed6_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
       `$gff_to_bed_command`; # or die "system call of gff_to_bed6_mRNA.awk failed: $?";
-      &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, "BED-format file, derived from gene_models_main.gff3");
+      &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, 
+        "BED-format file, derived from gene_models_main.gff3");
     }
   }
 }
@@ -551,6 +606,109 @@ sub assembly {
     say "  Execute hash_into_fasta_id.pl $ARGS";
     system("hash_into_fasta_id.pl $ARGS");
   }
+}
+
+##################################################
+sub pangene_tsv {
+  say "\n== Processing the pangene tabular files ==";
+  for my $fr_to_hsh (@{$confobj->{from_to_pan_tsv}}){ 
+    my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
+    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
+    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
+    my $PAN_RX = qr/$TO_PAN_PREFIX/;
+    open (my $FROM_FH, "<", $FROM_FILE) or die "Can't open in $FROM_FILE: $!\n";
+    open (my $TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
+    while (<$FROM_FH>){
+      my $line = $_;
+      $line =~ s/^pan/$TO_PAN_PREFIX.pan/;
+      print $TO_FH $line;
+    } 
+  }
+}
+
+##################################################
+sub pangene_fasta {
+  say "\n== Processing the pangene fasta files ==";
+  for my $fr_to_hsh (@{$confobj->{from_to_pan_fasta}}){ 
+    my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
+    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
+
+    my ($strip_regex, $STRIP_RX);
+    if ($fr_to_hsh->{strip}){
+      $strip_regex = $fr_to_hsh->{strip};
+      $strip_regex =~ s/["']//g; # Strip surrounding quotes if any. We'll add them below.
+      $STRIP_RX=qr/$strip_regex/;
+      say "  STRIP REGEX: \"$STRIP_RX\"";
+    }
+    else { $STRIP_RX=qr/$/ }
+
+    open (my $FROM_FH, "<", $FROM_FILE) or die "Can't open in $FROM_FILE: $!\n";
+    open (my $TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
+    while (<$FROM_FH>){
+      my $line = $_;
+      if ($strip_regex){
+        $line =~ s/>$STRIP_RX/>$TO_PAN_PREFIX./;
+      }
+      else {
+        $line =~ s/>/>$TO_PAN_PREFIX./;
+      }
+      print $TO_FH $line;
+    } 
+  }
+}
+
+##################################################
+sub pangene_as_is {
+  say "\n== Processing the pangene fasta files ==";
+  for my $fr_to_hsh (@{$confobj->{from_to_pan_as_is}}){ 
+    my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
+    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
+    copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
+  }
+}
+
+##################################################
+sub pangene_readme {
+  say "\n== Writing pangene README file ==";
+  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
+       genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
+       local_file_creation_date dataset_release_date publication_doi publication_title 
+       contributors citation data_curators public_access_level license keywords);
+  
+  $readme_hsh{scientific_name} = $scientific_name;
+  $readme_hsh{genotype} = "\n  - $coll_hsh{genotype}";
+  $readme_hsh{scientific_name_abbrev} = $GENSP;
+  
+  # Pangene README
+  open(my $PAN_README_FH, '>>', $PAN_README) or die "Can't open out $PAN_README: $!";
+  print $PAN_README_FH "---\n";
+  $readme_hsh{identifier} = $PANCOL;
+  $readme_hsh{synopsis} = $readme_hsh{synopsis};
+  $readme_hsh{description} = $readme_hsh{description};
+  if ($readme_hsh{dataset_doi}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi}\""}
+  else {$readme_hsh{dataset_doi} = ""}
+  for my $key (@readme_keys){
+    if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
+      say $PAN_README_FH "$key: \"$readme_hsh{$key}\"\n"
+    }
+    elsif ( length($readme_hsh{$key}) == 0 ){
+      say $PAN_README_FH "$key: \"\"\n"
+    }
+    else { # presume no quotes needed
+      say $PAN_README_FH "$key: $readme_hsh{$key}\n"
+    }
+  }
+
+  # Pangene CHANGES
+  open(my $PAN_CHANGES_FH, '>>', $PAN_CHANGES) or die "Can't open out $PAN_CHANGES: $!";
+  say $PAN_CHANGES_FH "---";
+  say $PAN_CHANGES_FH "  - $readme_hsh{local_file_creation_date} Initial repository creation, using ds_souschef.pl";
 }
 
 ##################################################
@@ -617,3 +775,4 @@ Versions
 2022-11-27 Add CHANGES files to annotations and genomes collections.
 2022-12-18 Add flag "-SHash" to allow an initial mapping of old/new chromosome & scaffold IDs, e.g. 
                    CM012345.1  Chr01
+2023-02-01 Major new version; now handles pangene collections. 
