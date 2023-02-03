@@ -29,6 +29,7 @@ phase.pan1.pan00003	phaac.Frijol_Bayo.gnm1.ann1.Phacu.CVR.001G171100.1	phaac.W6_
 
 The collection can (and should) be prepared using ds_souschef.pl (in datastore-specification/scripts/),
 with pangene config; see examples at scripts/ds_souschef_configs/pangene_sets/ .
+
 The primary pan-gene sets are calculated using the [pandagma](https://github.com/legumeinfo/pandagma) pipeline 
 (unless coming from an external published source; in that case, the "supplements" data type may be the more appropriate location).
 
@@ -43,17 +44,17 @@ The primary pan-gene sets are calculated using the [pandagma](https://github.com
 - gensp.mixed.panVERSION.KEY4.inclusive_cds.fna.gz: CDS pan-gene sequence, inclusive (not filtered by minimum cluster size).
 - gensp.mixed.panVERSION.KEY4.inclusive_protein.faa.gz: Protein pan-gene sequence, inclusive (not filtered).
 
-#### Then sequence files, with some filtering and with derived pan-gene IDs corresponding with consensus chromosome and ordinal position:
-- gensp.mixed.panVERSION.KEY4.pctl25_named_cds.fna.gz: CDS pan-gene sequence, omitting pan-genes < 25% of the mode.
-- gensp.mixed.panVERSION.KEY4.pctl25_named_protein.faa.gz: Protein pan-gene sequence, omitting pan-genes < 25% of the mode.
-- gensp.mixed.panVERSION.KEY4.pctl25_named_trim_cds.fna.gz: CDS pan-gene sequence, omitting pan-genes < 25% of the mode.
-- gensp.mixed.panVERSION.KEY4.pctl25_named_trim_protein.faa.gz: Protein pan-gene sequences, omitting pan-genes < 25% of the mode.
+#### Then sequence files, with some filtering and with derived pan-gene IDs based on consensus chromosome and ordinal position:
+- gensp.mixed.panVERSION.KEY4.pctl25_named_cds.fna.gz: CDS sequences, omitting pan-genes < 25% of the mode.
+- gensp.mixed.panVERSION.KEY4.pctl25_named_protein.faa.gz: Protein sequences, omitting pan-genes < 25% of the mode.
+- gensp.mixed.panVERSION.KEY4.pctl25_named_trim_cds.fna.gz: CDS sequences, omitting pan-genes < 25% of the mode.
+- gensp.mixed.panVERSION.KEY4.pctl25_named_trim_protein.faa.gz: Protein sequencess, omitting pan-genes < 25% of the mode.
 
 #### Statistics and reports:
 - gensp.mixed.panVERSION.KEY4.counts.tsv.gz: Matrix of counts of genes per annotation set for each pan-gene set.
-- gensp.mixed.panVERSION.KEY4.stats.txt.gz: Descriptive statistics about program parameters, input sequences, and pan-gene products.
+- gensp.mixed.panVERSION.KEY4.stats.txt.gz: Descriptive statistics about program parameters, input sequences, and products.
 
-The percentile value "pctl25_named" files may vary (might be e.g. pctl50 or pctl33).
+The percentile value "pctl25_named" files may vary (might be e.g. pctl50 or pctl33, depending on filtering parameters).
 
 All FASTA files should be bgzipped and faidx indexed.
 
