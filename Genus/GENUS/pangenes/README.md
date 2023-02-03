@@ -60,3 +60,11 @@ All FASTA files should be bgzipped and faidx indexed.
 
 The tabular (.tsv) files shouild be bgzipped.
 
+The README for the collection should validate as a standard datastore "validate.sh readme" file. 
+However, note the following differences relative to other genomic collections:
+- The "scientific_name" will just be the genus, e.g. Phaseolus.
+- The "taxid" should be for the genus level.
+- The "scientific_name_abbrev" should be five letters from the genus name, lowercased: "phase", "vigna", "glyci", etc.
+- The "genotype" should be a list of the constituent genotypes, as a yaml list (one line per genotype).
+- All of the above conventions should be handled automatically by ds_souschef.pl, given a suitable config file.
+
