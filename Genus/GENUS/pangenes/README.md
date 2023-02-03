@@ -65,6 +65,6 @@ However, note the following differences relative to other genomic collections:
 - The "scientific_name" will just be the genus, e.g. Phaseolus.
 - The "taxid" should be for the genus level.
 - The "scientific_name_abbrev" should be five letters from the genus name, lowercased: "phase", "vigna", "glyci", etc.
-- The "genotype" should be a list of the constituent genotypes, as a yaml list (one line per genotype).
+- The "genotype" should be a list of the constituent genotypes, as a yaml array (one line per genotype).
 - All of the above conventions should be handled automatically by [ds_souschef.pl](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts), given a suitable [config file](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts/ds_souschef_configs/pangene_sets).
 
