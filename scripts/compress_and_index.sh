@@ -24,7 +24,7 @@ fi
 filepath=$1
 
 for file in $filepath/*.txt; do
-  if [[ $file =~ "readme" || $file =~ "usage" || $file =~ "olicy" || $file =~ "CHANGES" ]]; then
+  if [[ $file =~ "readme" || $file =~ "usage" || $file =~ "olicy" || $file =~ "CHANGES" || $file =~ "stats.txt" ]]; then
     echo "Don't compress file $file"
   else 
     echo "Compressing $file"

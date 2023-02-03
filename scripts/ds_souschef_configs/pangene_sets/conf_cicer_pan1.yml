@@ -1,0 +1,88 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Cicer/GENUS
+    from_pan_dir: out_Cicer_4_2
+prefixes:
+    from_pan_prefix: ""
+collection_info:
+    genus: Cicer
+    species: ""
+    gensp: cicer
+    coll_genotype: mixed
+    pan_ver: pan1
+    pan_key: SV8C
+readme_info:
+    provenance: "The files in this directory are a product of the staff of the SoyBase and LegumeInfo project teams. The method is described here: https://github.com/legumeinfo/pandagma"
+    source: "https://data.legumeinfo.org"
+    synopsis: "Pangene set for Cicer species, based on C. arietinum, C. echinospermum, and reticulatum. This pangene set includes 12 annotation sets."
+    taxid: "3826"
+    genotype: Besev079,CDCFrontier,CDCFrontier,CDCFrontier,ICC4958,S2Drd065
+    description: "Pan-gene set for Cicer species, spanning 3 species and 6 annotation sets, calculated using the pandagma pipeline, version 2023-02-03"
+    bioproject: ""
+    sraproject: ""
+    dataset_doi_genome: ""
+    dataset_doi_annot: ""
+    genbank_accession: ""
+    original_file_creation_date: 2023-02-03
+    local_file_creation_date: 2023-02-03
+    dataset_release_date: 2023-02-09
+    contributors: Steven Cannon, Hyunoh Lee
+    publication_doi: ""
+    citation: ""
+    publication_title: ""
+    data_curators: Steven Cannon
+    public_access_level: public
+    license: Open
+    keywords: "Cicer, chickpea, pan-gene, pangene, orthogroup"
+from_to_pan_tsv:
+  - 
+    from: 18_syn_pan_aug_extra.clust.tsv
+    to: clust.tsv
+    description: "Pan-gene sets, in cluster format: ID in first column, followed by tab-separated gene list."
+  - 
+    from: 18_syn_pan_aug_extra.counts.tsv
+    to: counts.tsv
+    description: "Matrix of counts of genes per annotation set for each pan-gene set."
+  - 
+    from: 18_syn_pan_aug_extra.hsh.tsv
+    to: hsh.tsv
+    description: "Pan-gene sets, in a two-column hash format, with the set ID in the first column and genes in the second."
+from_to_pan_fasta:
+  - 
+    from: 18_syn_pan_aug_extra_complement.fna
+    to: complement.fna
+    description: "Complement of genes in this pan-gene set; i.e. not clustered, presumed to be singletons."
+  - 
+    from: 21_pan_fasta_clust_rep_cds.fna
+    to: inclusive_cds.fna
+    description: "CDS pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
+  - 
+    from: 21_pan_fasta_clust_rep_prot.faa
+    to: inclusive_protein.faa
+    description: "Protein pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
+  - 
+    from: 23_syn_pan_pctl25_posn_cds.fna
+    to: pctl25_named_cds.fna
+    strip: '\w+\.pan\d+\.'
+    description: "CDS pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
+  - 
+    from: 23_syn_pan_pctl25_posn_prot.faa
+    to: pctl25_named_protein.faa
+    strip: '\w+\.pan\d+\.'
+    description: "Protein pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
+  - 
+    from: 24_syn_pan_pctl25_posn_trim_cds.fna
+    to: pctl25_named_trim_cds.fna
+    strip: '\w+\.pan\d+\.'
+    description: "CDS pan-gene sequence, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
+  - 
+    from: 24_syn_pan_pctl25_posn_trim_prot.faa
+    to: pctl25_named_trim_protein.faa
+    strip: '\w+\.pan\d+\.'
+    description: "Protein pan-gene sequences, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
+from_to_pan_as_is:
+  - 
+    from: stats.Cicer_4_2.txt
+    to: stats.txt
+    description: "Descriptive statistics about program parameters, input sequences, and pan-gene products."
+
