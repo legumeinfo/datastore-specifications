@@ -160,9 +160,10 @@ if ($COLLECTION_TYPE =~ /genomic/){
   $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
 }
 elsif ($COLLECTION_TYPE =~ /pangene/){
-  $PANCOL = "$coll_hsh{gensp}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
   $scientific_name = "$coll_hsh{genus}";
-  $TO_PAN_PREFIX = "$GENSP.$coll_hsh{pan_ver}";
+  $GENSP = "$coll_hsh{genus}";
+  $PANCOL = "$scientific_name.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
+  $TO_PAN_PREFIX = "$scientific_name.$coll_hsh{pan_ver}";
   
   $PANDIR = "$WD/pangenes/$PANCOL";
   
@@ -702,13 +703,12 @@ sub pangene_as_is {
 ##################################################
 sub pangene_readme {
   say "\n== Writing pangene README file ==\n";
-  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
+  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid 
        annotations_main annotations_extra description bioproject sraproject dataset_doi genbank_accession 
        original_file_creation_date local_file_creation_date dataset_release_date publication_doi 
        publication_title contributors citation data_curators public_access_level license keywords);
   
   $readme_hsh{scientific_name} = $scientific_name;
-  $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Pangene README
   open(my $PAN_README_FH, '>', $PAN_README) or die "Can't open out $PAN_README: $!";
@@ -840,4 +840,4 @@ Versions
 2023-02-02 Handle coll_genotype for the collection name (e.g. "mixed") and multi-element genotype for the README.
 2023-02-07 Remove quotes from README when there is no value. 
              For pangene README, replace genotype with annotations_main and annotations_extra.
-
+2023-02-08 Remove scientific_name_abbrev from pangene README

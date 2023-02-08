@@ -6,7 +6,6 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Cicer
-    gensp: Cicer
     pan_ver: pan1
     pan_key: SV8C
 readme_info:

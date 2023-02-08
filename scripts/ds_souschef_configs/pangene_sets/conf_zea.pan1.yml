@@ -6,7 +6,6 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Zea
-    gensp: Zea
     pan_ver: pan1
     pan_key: KEY4
 readme_info:

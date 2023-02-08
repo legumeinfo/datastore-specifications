@@ -6,7 +6,6 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Glycine
-    gensp: Glycine
     pan_ver: pan3
     pan_key: YWTW
 readme_info:
