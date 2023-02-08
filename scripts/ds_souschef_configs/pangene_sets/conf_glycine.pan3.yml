@@ -3,12 +3,12 @@ directories:
     work_dir: /usr/local/www/data/private/Glycine/GENUS
     from_pan_dir: out_Glycine_31_21
 prefixes:
-    from_pan_prefix: ""
+    from_pan_prefix: 
 collection_info:
     genus: Glycine
-    species: ""
-    gensp: glyci
-    coll_genotype: mixed
+    species: 
+    gensp: Glycine
+    coll_genotype: Glycine
     pan_ver: pan3
     pan_key: YWTW
 readme_info:
@@ -16,20 +16,21 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Glycine species, based on G. max and G. soja but also including 6 perennial Australian species by homology. This pangene set includes 51 Glycine annotation sets."
     taxid: "3846"
-    genotype: Amsoy,DongNongNo_50,F_IGA1003,FengDiHuang,FiskebyIII,G1134,G1267,G1300,G1403,G1718,G1974,HanDouNo_5,Hefeng25_IGA1002,HeiHeNo_43,Huaxia3_IGA1007,Hwangkeum,JiDouNo_17,JinDouNo_23,Jinyuan_IGA1006,JuXuanNo_23,KeShanNo_1,Lee,Lee,PI_398296,PI_548362,PI_549046,PI_562565,PI_578357,PI483463,QiHuangNo_34,ShiShengChangYe,TieFengNo_18,TieJiaSiLiHuang,TongShanTianEDan,W05,WanDouNo_28,Wenfeng7_IGA1001,Wm82,Wm82,Wm82,Wm82_IGA1008,Wm82_ISU01,XuDouNo_1,YuDouNo_22,Zh13,Zh13,Zh13_IGA1005,Zh35_IGA1004,ZhangChunManCangJin,Zhutwinning2,ZiHuaNo_4,58-161
+    annotations_main: glyma.58-161.gnm1.ann1,glyma.Amsoy.gnm1.ann1,glyma.DongNongNo_50.gnm1.ann1,glyma.FengDiHuang.gnm1.ann1,glyma.FiskebyIII.gnm1.ann1,glyma.HanDouNo_5.gnm1.ann1,glyma.HeiHeNo_43.gnm1.ann1,glyma.JiDouNo_17.gnm1.ann1,glyma.JinDouNo_23.gnm1.ann1,glyma.JuXuanNo_23.gnm1.ann1,glyma.KeShanNo_1.gnm1.ann1,glyma.PI_398296.gnm1.ann1,glyma.PI_548362.gnm1.ann1,glyma.QiHuangNo_34.gnm1.ann1,glyma.ShiShengChangYe.gnm1.ann1,glyma.TieFengNo_18.gnm1.ann1,glyma.TieJiaSiLiHuang.gnm1.ann1,glyma.TongShanTianEDan.gnm1.ann1,glyma.WanDouNo_28.gnm1.ann1,glyma.Wm82_ISU01.gnm2.ann1,glyma.Wm82.gnm2.ann1,glyma.Wm82.gnm4.ann1,glyma.XuDouNo_1.gnm1.ann1,glyma.YuDouNo_22.gnm1.ann1,glyma.ZhangChunManCangJin.gnm1.ann1,glyma.Zhutwinning2.gnm1.ann1,glyma.ZiHuaNo_4.gnm1.ann1,glyso.PI_549046.gnm1.ann1,glyso.PI_562565.gnm1.ann1,glyso.PI_578357.gnm1.ann1,glyso.W05.gnm1.ann1
+    annotations_extra: glycy.G1267.gnm1.ann1,glyd3.G1403.gnm1.ann1,glydo.G1134.gnm1.ann1,glyfa.G1718.gnm1.ann1,glyma.Hefeng25_IGA1002.gnm1.ann1,glyma.Huaxia3_IGA1007.gnm1.ann1,glyma.Hwangkeum.gnm1.ann1,glyma.Jinyuan_IGA1006.gnm1.ann1,glyma.Lee.gnm1.ann1,glyma.Lee.gnm2.ann1,glyma.Wenfeng7_IGA1001.gnm1.ann1,glyma.Wm82_IGA1008.gnm1.ann1,glyma.Wm82.gnm1.ann1,glyma.Zh13_IGA1005.gnm1.ann1,glyma.Zh13.gnm1.ann1,glyma.Zh13.gnm2.ann1,glyma.Zh35_IGA1004.gnm1.ann1,glyso.F_IGA1003.gnm1.ann1,glyso.PI483463.gnm1.ann1,glyst.G1974.gnm1.ann1,glysy.G1300.gnm1.ann1
     description: "Pan-gene set for Glycine species, spanning 8 species and 51 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
-    bioproject: ""
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
-    genbank_accession: ""
+    bioproject: 
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
     original_file_creation_date: 2023-02-01
     local_file_creation_date: 2023-02-01
     dataset_release_date: 2023-02-09
     contributors: Steven Cannon, Hyunoh Lee
-    publication_doi: ""
-    citation: ""
-    publication_title: ""
+    publication_doi: 
+    citation: 
+    publication_title: 
     data_curators: Steven Cannon
     public_access_level: public
     license: Open
