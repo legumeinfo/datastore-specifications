@@ -1,0 +1,122 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Arachis/hypogaea/
+    from_annot_dir: XXX
+    from_genome_dir: JAGJTH01
+prefixes:
+    from_annot_prefix: ""
+    from_genome_prefix: ""
+collection_info:
+    genus: Arachis
+    species: hypogaea
+    gensp: arahy
+    coll_genotype: BaileyII
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: 1JTF
+    annot_key: PQM7
+readme_info:
+    provenance: "The files in this directory originated from NCBI (https://www.ncbi.nlm.nih.gov/). The NCBI repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below.  The files here are held as part of the LegumeInfo and PeanutBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and PeanutBase project(s). If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please 1) please cite the data appropriately - generally referring to the original publications for this data; and if you make use of any significant modifications in the files (noted below under Transformations where applicable), then please also cite the respective database project(s) related to this directory."
+    source: "https://www.ncbi.nlm.nih.gov/Traces/wgs/JAGJTH01"
+    synopsis_genome: Arachis hypogaea accession Bailey II, genome assembly 1
+    synopsis_annot: Annotation 1 for Arachis hypogaea accession Bailey II, genome assembly 1
+    genotype: BaileyII
+    taxid: "3818"
+    description_genome: "Bailey II PacBio CLR reads greater than 8,150 bp were assembled by CANU (Koren et al., 2017) v. 1.9. Resulting contigs underwent one round of polishing with Arrow (Pacific BioSciences SMRT Tools Reference Guide, 2019), followed by additional polishing with Pilon (Walker et al., 2014) v. 1.23. Circular contigs, as labeled in the output of CANU (Koren et al., 2017) v.  1.9, were removed from the assembly. Bionano optical data was used to scaffold the assembly and then RagTag (Alonge et al., 2019) was used to generate pseudomolecules. See full description at Newman et al. (2022), below."
+    description_annot: "Gene annotation resources. See full description at Newman et al. (2022), below."
+    bioproject: ""
+    sraproject: ""
+    dataset_doi_genome: ""
+    dataset_doi_annot: ""
+    genbank_accession: ""
+    original_file_creation_date: 2023-02-09
+    local_file_creation_date: 2023-02-09
+    dataset_release_date: 2023-02-09
+    contributors: Newman, Andres, Youngblood, Campbell, Simpson, Cannon, Scheffler, Oakley, Hulse-Kemp and Dunne.
+    publication_doi: ""
+    citation: "Newman CS, Andres RJ, Youngblood RC, Campbell JD, Simpson SA, Cannon SB, Scheffler BE, Oakley AT, Hulse-Kemp AM and Dunne JC (2023) Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers. Front. Plant Sci. 13:1073542. doi: 10.3389/fpls.2022.1073542"
+    publication_title: "Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers."
+    data_curators: Steven Cannon
+    public_access_level: public
+    license: Open, with usage agreement
+    keywords: "Peanut, Virginia, Bailey, introgression"
+from_to_genome:
+  - 
+    from: fa.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+  - 
+    from: hardmasked.fa.gz
+    to: genome_hardmasked.fna
+    description: "Genome assembly - softmasked"
+  - 
+    from: softmasked.fa.gz
+    to: genome_softmasked.fna
+    description: "Genome assembly - hardmasked"
+original_readme_and_usage:
+  - 
+    from_full_filename: GmaxWm82ISU_01_724_v2.1.DataReleasePolicy.html 
+    to: DataReleasePolicy.html
+    description: "Original JGI data release policy"
+  - 
+    from_full_filename: GmaxWm82ISU_01_724_v2.1.readme.txt
+    to: original_readme.txt
+    description: "Original JGI data README file"
+from_to_annot_as_is:
+  - 
+    from: repeatmasked_assembly_v2.0.gff3.gz
+    to: repeatmasked_assembly.gff3
+    description: "GFF with repeat-masking coordinates"
+  - 
+    from: annotation_info.txt.gz
+    to: annotation_info.txt
+    description: "Table of gene annotations from JGI"
+  - 
+    from: defline.txt.gz
+    to: defline.txt
+    description: "Defline for genes from JGI"
+  - 
+    from: locus_transcript_name_map.txt.gz
+    to: locus_transcript_name_map.txt
+    description: "Table of gene ID correspondences among Wm82 assemblies"
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: cds.fa.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: cds_primaryTranscriptOnly.fa.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  - 
+    from: transcript.fa.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  - 
+    from: transcript_primaryTranscriptOnly.fa.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: protein_primaryTranscriptOnly.fa.gz
+    to: protein_primary.faa
+    strip: '\.p'
+    description: "Protein sequences - primary only"
+  - 
+    from: protein.fa.gz
+    to: protein.faa
+    strip: '\.p'
+    description: "Protein sequences"
+from_to_gff:
+  - 
+    from: gene_exons.gff3.gz
+    to: gene_models_exons.gff3
+    strip: '\.v2\.1'
+    description: "Gene models, with exon features"
+  - 
+    from: gene.gff3.gz
+    to: gene_models_main.gff3
+    strip: '\.v2\.1'
+    description: "Gene models - main"
+
