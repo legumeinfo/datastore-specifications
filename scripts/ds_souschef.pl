@@ -160,7 +160,7 @@ if ($COLLECTION_TYPE =~ /genomic/){
   $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
 }
 elsif ($COLLECTION_TYPE =~ /pangene/){
-  $PANCOL = "$coll_hsh{coll_genotype}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
+  $PANCOL = "$coll_hsh{gensp}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
   $scientific_name = "$coll_hsh{genus}";
   $TO_PAN_PREFIX = "$GENSP.$coll_hsh{pan_ver}";
   
@@ -639,7 +639,7 @@ sub pangene_tsv {
   say "\n== Processing the pangene tabular files ==";
   for my $fr_to_hsh (@{$confobj->{from_to_pan_tsv}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
-    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
+    my $TO_FILE = "$PANDIR/$PANCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
     &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
@@ -659,7 +659,7 @@ sub pangene_fasta {
   say "\n== Processing the pangene fasta files ==";
   for my $fr_to_hsh (@{$confobj->{from_to_pan_fasta}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
-    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
+    my $TO_FILE = "$PANDIR/$PANCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
 
@@ -692,7 +692,7 @@ sub pangene_as_is {
   say "\n== Processing the pangene fasta files ==";
   for my $fr_to_hsh (@{$confobj->{from_to_pan_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
-    my $TO_FILE = "$PANDIR/$GENSP.$PANCOL.$fr_to_hsh->{to}";
+    my $TO_FILE = "$PANDIR/$PANCOL.$fr_to_hsh->{to}";
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
     copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";

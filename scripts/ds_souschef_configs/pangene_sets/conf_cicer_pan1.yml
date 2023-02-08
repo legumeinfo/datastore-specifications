@@ -6,9 +6,7 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Cicer
-    species: 
     gensp: Cicer
-    coll_genotype: Cicer
     pan_ver: pan1
     pan_key: SV8C
 readme_info:
@@ -50,10 +48,6 @@ from_to_pan_tsv:
     description: "Pan-gene sets, in a two-column hash format, with the set ID in the first column and genes in the second."
 from_to_pan_fasta:
   - 
-    from: 18_syn_pan_aug_extra_complement.fna
-    to: complement.fna
-    description: "Complement of genes in this pan-gene set; i.e. not clustered, presumed to be singletons."
-  - 
     from: 21_pan_fasta_clust_rep_cds.fna
     to: inclusive_cds.fna
     description: "CDS pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
@@ -82,6 +76,10 @@ from_to_pan_fasta:
     strip: '\w+\.pan\d+\.'
     description: "Protein pan-gene sequences, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
 from_to_pan_as_is:
+  - 
+    from: 18_syn_pan_aug_extra_complement.fna
+    to: complement.fna
+    description: "Complement of genes in this pan-gene set; i.e. not clustered, presumed to be singletons."
   - 
     from: stats.Cicer_4_2.txt
     to: stats.txt
