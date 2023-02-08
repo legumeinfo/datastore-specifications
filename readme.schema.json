@@ -171,7 +171,25 @@
 	  "description": "Name of genetic map, typically the prefix of linkage groups.",
 	  "type": ["string", "null"],
             "pattern": "^(?!none).*$"
-	}
+	},
+	"annotations_main": {
+	  "description": "List of them main annotation collections used to form pan-gene sets.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+	"annotations_extra": {
+	  "description": "List of annotation collections used to provide additional proteins and genes for pan-gene sets.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
     },
     "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev", "publication_doi" ],
     "additionalProperties": false
