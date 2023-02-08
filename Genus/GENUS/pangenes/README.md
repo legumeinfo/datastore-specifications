@@ -2,8 +2,8 @@
 
 Pan-gene collections are stored under the GENUS/pangenes directories.
 
-Directory name: _strain.panVERSION.KEY4_
-The _strain_ will generally be "mixed", since pan-genes are comprised of multiple accessions and possibly multiple species.
+Directory name: _Genus.panVERSION.KEY4_
+The _Genus_ will be e.g. Cicer, Glycine, Phaseolus, since pan-genes may include annotations from several species within a genus.
 
 The contents of a pan-gene collection include: 
 - an `hsh.tsv` file
@@ -12,10 +12,9 @@ The contents of a pan-gene collection include:
 - a `stats.txt` file, with summary information about annotation collections used in the pan-gene calculation, and run parameters;
 - Fasta files (CDS and protein) containing sequence representatives (exemplars) for each pan-gene;
 - Fasta files containing sequences representing the pan-genes themselves.
-- two statistics/reports files
 
 The collection can (and should) be prepared using `ds_souschef.pl` (in datastore-specification/scripts/),
-with pangene config; see examples at `scripts/ds_souschef_configs/pangene_sets/`.
+with a pangene config file; see examples at `scripts/ds_souschef_configs/pangene_sets/`.
 
 The primary pan-gene sets are calculated using the [pandagma](https://github.com/legumeinfo/pandagma) pipeline 
 (unless coming from an external published source; in that case, the "supplements" subdirectories may be the more appropriate location).
@@ -60,11 +59,11 @@ annotations_extra:
   - cicar.CDCFrontier.gnm2.ann1
 ```
 
-The README for the collection should validate as a standard datastore "validate.sh readme" file. 
-However, note the following differences relative to other genomic collections:
+The README for the collection should validate as a datastore "validate.sh pangene_readme" file. 
+Note the following differences relative to other genomic collections:
 - The "scientific_name" will just be the genus, e.g. Phaseolus.
+- The "scientific_name_abbrev" should not be included, since the scientific_name is sufficient for this collection type. 
 - The "taxid" should be for the genus level.
-- ??? The "scientific_name_abbrev" should be five letters from the genus name, lowercased: "phase", "vigna", "glyci", etc.
-- The "genotype" should be a list of the constituent genotypes, as a yaml array (one line per genotype).
+- There is no "genotype" field in the pangene README. In its place are two fields that hold lists of annotation names: "annotations_main" and "annotations_extra".
 - All of the above conventions should be handled automatically by [ds_souschef.pl](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts), given a suitable [config file](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts/ds_souschef_configs/pangene_sets).
 
