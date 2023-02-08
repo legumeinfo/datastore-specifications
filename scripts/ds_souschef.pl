@@ -161,7 +161,7 @@ if ($COLLECTION_TYPE =~ /genomic/){
 }
 elsif ($COLLECTION_TYPE =~ /pangene/){
   $PANCOL = "$coll_hsh{coll_genotype}.$coll_hsh{pan_ver}.$coll_hsh{pan_key}";
-  $scientific_name = "$coll_hsh{genus} $coll_hsh{species}";
+  $scientific_name = "$coll_hsh{genus}";
   $TO_PAN_PREFIX = "$GENSP.$coll_hsh{pan_ver}";
   
   $PANDIR = "$WD/pangenes/$PANCOL";
@@ -415,7 +415,7 @@ sub readme {
   $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Assembly README
-  open(my $GNM_README_FH, '>>', $GNM_README) or die "Can't open out $GNM_README: $!";
+  open(my $GNM_README_FH, '>', $GNM_README) or die "Can't open out $GNM_README: $!";
   print $GNM_README_FH "---\n";
   $readme_hsh{identifier} = $GNMCOL;
   $readme_hsh{synopsis} = $readme_hsh{synopsis_genome};
@@ -429,7 +429,7 @@ sub readme {
       say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
     }
     elsif ( length($readme_hsh{$key}) == 0 ){
-      say $GNM_README_FH "$key: \"\"\n";
+      say $GNM_README_FH "$key: \n";
     }
     elsif ( $key =~ /genotype/ ){
       say $GNM_README_FH "$key:";
@@ -452,7 +452,7 @@ sub readme {
   say $GNM_CHANGES_FH "  - $readme_hsh{local_file_creation_date} Initial repository creation, using ds_souschef.pl";
 
   # Annotation README
-  open(my $ANN_README_FH, '>>', $ANN_README) or die "Can't open out $ANN_README: $!";
+  open(my $ANN_README_FH, '>', $ANN_README) or die "Can't open out $ANN_README: $!";
   print $ANN_README_FH "---\n";
   $readme_hsh{identifier} = $ANNCOL;
   $readme_hsh{synopsis} = $readme_hsh{synopsis_annot};
@@ -463,10 +463,7 @@ sub readme {
   %seen_genotype = ();
   for my $key (@readme_keys){
     if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
-      say $ANN_README_FH "$key: \"$readme_hsh{$key}\"\n";
-    }
-    elsif ( length($readme_hsh{$key}) == 0 ){
-      say $ANN_README_FH "$key: \"\"\n";
+      print_to_readme( $ANN_README_FH, $key, $readme_hsh{$key}, 1);
     }
     elsif ( $key =~ /genotype/ ){
       say $ANN_README_FH "$key:";
@@ -479,7 +476,7 @@ sub readme {
       say $ANN_README_FH "";
     }
     else { # presume no quotes needed
-      say $ANN_README_FH "$key: $readme_hsh{$key}\n";
+      print_to_readme( $ANN_README_FH, $key, $readme_hsh{$key}, 0);
     }
   }
 
@@ -706,41 +703,49 @@ sub pangene_as_is {
 sub pangene_readme {
   say "\n== Writing pangene README file ==\n";
   my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
-       genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
-       local_file_creation_date dataset_release_date publication_doi publication_title 
-       contributors citation data_curators public_access_level license keywords);
+       annotations_main annotations_extra description bioproject sraproject dataset_doi genbank_accession 
+       original_file_creation_date local_file_creation_date dataset_release_date publication_doi 
+       publication_title contributors citation data_curators public_access_level license keywords);
   
   $readme_hsh{scientific_name} = $scientific_name;
   $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Pangene README
-  open(my $PAN_README_FH, '>>', $PAN_README) or die "Can't open out $PAN_README: $!";
+  open(my $PAN_README_FH, '>', $PAN_README) or die "Can't open out $PAN_README: $!";
   print $PAN_README_FH "---\n";
   $readme_hsh{identifier} = $PANCOL;
   $readme_hsh{synopsis} = $readme_hsh{synopsis};
   $readme_hsh{description} = $readme_hsh{description};
   if ($readme_hsh{dataset_doi}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi}\""}
   else {$readme_hsh{dataset_doi} = ""}
-  my %seen_genotype;
+  my %seen_annot_main;
+  my %seen_annot_extra;
   for my $key (@readme_keys){
     if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
-      say $PAN_README_FH "$key: \"$readme_hsh{$key}\"\n";
+      print_to_readme( $PAN_README_FH, $key, $readme_hsh{$key}, 1 );
     }
-    elsif ( length($readme_hsh{$key}) == 0 ){
-      say $PAN_README_FH "$key: \"\"\n";
-    }
-    elsif ( $key =~ /genotype/ ){
+    elsif ( $key =~ /annotations_main/ ){
       say $PAN_README_FH "$key:";
-      for my $genotype (split(/, */, $readme_hsh{$key})){
-        unless ($seen_genotype{$genotype}){
-          say $PAN_README_FH "  - $genotype";
-          $seen_genotype{$genotype}++;
+      for my $annot (split(/, */, $readme_hsh{$key})){
+        unless ($seen_annot_main{$annot}){
+          say $PAN_README_FH "  - $annot";
+          $seen_annot_main{$annot}++;
+        }
+      }
+      say $PAN_README_FH "";
+    }
+    elsif ( $key =~ /annotations_extra/ ){
+      say $PAN_README_FH "$key:";
+      for my $annot (split(/, */, $readme_hsh{$key})){
+        unless ($seen_annot_extra{$annot}){
+          say $PAN_README_FH "  - $annot";
+          $seen_annot_extra{$annot}++;
         }
       }
       say $PAN_README_FH "";
     }
     else { # presume no quotes needed
-      say $PAN_README_FH "$key: $readme_hsh{$key}\n";
+      print_to_readme( $PAN_README_FH, $key, $readme_hsh{$key}, 0 );
     }
   }
 
@@ -751,6 +756,23 @@ sub pangene_readme {
 }
 
 ##################################################
+sub print_to_readme {
+  my ($FH, $key, $value, $quote) = @_;
+  unless($value){
+    $value = "";
+  }
+
+  if (length($value) > 0 && $quote == 1){
+    say $FH "$key: \"$value\"\n";
+  }
+  elsif (length($value) > 0 && $quote == 0){
+    say $FH "$key: $value\n";
+  }
+  elsif (length($value) == 0){
+    say $FH "$key: \n";
+  }
+}
+
 sub write_manifests {
   my ($TO_FILE, $FROM_FILE, $CORR, $DESCR, $description) = @_;
   my $to_name_base = basename($TO_FILE);
@@ -816,4 +838,6 @@ Versions
                    CM012345.1  Chr01
 2023-02-01 Major new version; now handles pangene collections. 
 2023-02-02 Handle coll_genotype for the collection name (e.g. "mixed") and multi-element genotype for the README.
+2023-02-07 Remove quotes from README when there is no value. 
+             For pangene README, replace genotype with annotations_main and annotations_extra.
 
