@@ -20,7 +20,7 @@ scientific_name: Vigna unguiculata
 # taxid: NCBI taxonomy id
 taxid: 3917
 
-# scientific_name_abbrev: required - LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species
+# scientific_name_abbrev: LIS datastore gensp abbreviation: lower case first three letters of genus plus first two letters of species
 scientific_name_abbrev: vigun
 
 # genotype: list of genotypes, one for a single genotype, A x B for a biparental map, or a longer list of genotypes used
