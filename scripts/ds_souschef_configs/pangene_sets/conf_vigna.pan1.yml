@@ -15,15 +15,15 @@ readme_info:
     taxid: "3913"
     annotations_main: vigun.CB5-2.gnm1.ann1,vigun.IT97K-499-35.gnm1.ann2,vigun.Sanzi.gnm1.ann1,vigun.Suvita2.gnm1.ann1,vigun.TZ30.gnm1.ann2,vigun.UCR779.gnm1.ann1,vigun.ZN016.gnm1.ann2
     annotations_extra: vigan.Gyeongwon.gnm3.ann1,vigan.Shumari.gnm1.ann1,vigra.VC1973A.gnm6.ann1,vigra.VC1973A.gnm7.ann1,vigun.IT97K-499-35.gnm1.ann1
-    description: "Pan-gene set for Vigna species, spanning 3 species and 12 annotation sets, calculated using the pandagma pipeline, version 2023-02-01"
+    description: "Pan-gene set for Vigna species, spanning 3 species and 12 annotation sets, calculated using the pandagma pipeline, version 2023-02-28"
     bioproject: 
     sraproject: 
     dataset_doi_genome: 
     dataset_doi_annot: 
     genbank_accession: 
-    original_file_creation_date: 2023-02-01
-    local_file_creation_date: 2023-02-01
-    dataset_release_date: 2023-02-09
+    original_file_creation_date: 2023-02-28
+    local_file_creation_date: 2023-02-28
+    dataset_release_date: 2023-02-28
     contributors: Steven Cannon, Hyunoh Lee
     publication_doi: 
     citation: 
@@ -64,16 +64,6 @@ from_to_pan_fasta:
     to: pctl25_named_protein.faa
     strip: '\w+\.pan\d+\.'
     description: "Protein pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
-  - 
-    from: 24_syn_pan_pctl25_posn_trim_cds.fna
-    to: pctl25_named_trim_cds.fna
-    strip: '\w+\.pan\d+\.'
-    description: "CDS pan-gene sequence, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
-  - 
-    from: 24_syn_pan_pctl25_posn_trim_prot.faa
-    to: pctl25_named_trim_protein.faa
-    strip: '\w+\.pan\d+\.'
-    description: "Protein pan-gene sequences, omitting pan-genes smaller than 25% of the mode, and with tandem duplicates reduced."
 from_to_pan_as_is:
   - 
     from: 18_syn_pan_aug_extra_complement.fna

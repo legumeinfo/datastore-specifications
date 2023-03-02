@@ -24,16 +24,16 @@ readme_info:
     taxid: "3847"
     description_genome: "This release (Glycine max var. Williams 82-ISU-01) is an inbred line developed by Robert Stupar (University of Minnesota) by inbreeding original W82 seed. The resulting genome is a haploid version of W82. The original W82 is from an agronomic line and contains variation between the two haplotypes. This genome can be used as an updated version of W82 -- the soybean reference genome, however, it is not an identical genotype to previous reference. Where possible, we have maintained continuity with the previous reference and the annotation is based on all available W82 transcript evidence. It is the most complete and highest quality soybean genome completed to date. Genome assembly consists of 47.07x of single haplotype CCS PACBIO coverage (17,049 bp average read size), assembled using HiFiAsm and HIC and the resulting sequence was polished using RACON. See full description at Phytozome/JGI repository (address above)."
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
-    bioproject: ""
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
-    genbank_accession: ""
+    bioproject: 
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
     original_file_creation_date: 2022-07-28
     local_file_creation_date: 2022-10-14
     dataset_release_date: 2022-10-14
     contributors: Bob Stupar, Jeremy Schmutz
-    publication_doi: ""
+    publication_doi: 
     citation: "Haun WJ, Hyten DL, Xu WW, Gerhardt DJ, Albert TJ, Richmond T, Jeddeloh JA, Jia G, Springer NM, Vance CP, Stupar RM. The composition and origins of genomic variation among individuals of the soybean reference cultivar Williams 82. Plant Physiol. 2011 Feb;155(2):645-55. doi: 10.1104/pp.110.166736. Epub 2010 Nov 29. PMID: 21115807; PMCID: PMC3032456."
     publication_title: "The composition and origins of genomic variation among individuals of the soybean reference cultivar Williams 82"
     data_curators: Steven Cannon

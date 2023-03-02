@@ -4,8 +4,8 @@ directories:
     from_annot_dir: XXX
     from_genome_dir: JAGJTH01
 prefixes:
-    from_annot_prefix: ""
-    from_genome_prefix: ""
+    from_annot_prefix: 
+    from_genome_prefix: 
 collection_info:
     genus: Arachis
     species: hypogaea
@@ -24,16 +24,16 @@ readme_info:
     taxid: "3818"
     description_genome: "Bailey II PacBio CLR reads greater than 8,150 bp were assembled by CANU (Koren et al., 2017) v. 1.9. Resulting contigs underwent one round of polishing with Arrow (Pacific BioSciences SMRT Tools Reference Guide, 2019), followed by additional polishing with Pilon (Walker et al., 2014) v. 1.23. Circular contigs, as labeled in the output of CANU (Koren et al., 2017) v.  1.9, were removed from the assembly. Bionano optical data was used to scaffold the assembly and then RagTag (Alonge et al., 2019) was used to generate pseudomolecules. See full description at Newman et al. (2022), below."
     description_annot: "Gene annotation resources. See full description at Newman et al. (2022), below."
-    bioproject: ""
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
-    genbank_accession: ""
+    bioproject: 
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
     original_file_creation_date: 2023-02-09
     local_file_creation_date: 2023-02-09
     dataset_release_date: 2023-02-09
     contributors: Newman, Andres, Youngblood, Campbell, Simpson, Cannon, Scheffler, Oakley, Hulse-Kemp and Dunne.
-    publication_doi: ""
+    publication_doi: 
     citation: "Newman CS, Andres RJ, Youngblood RC, Campbell JD, Simpson SA, Cannon SB, Scheffler BE, Oakley AT, Hulse-Kemp AM and Dunne JC (2023) Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers. Front. Plant Sci. 13:1073542. doi: 10.3389/fpls.2022.1073542"
     publication_title: "Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers."
     data_curators: Steven Cannon

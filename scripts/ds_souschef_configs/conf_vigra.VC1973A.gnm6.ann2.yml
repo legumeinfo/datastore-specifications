@@ -25,9 +25,9 @@ readme_info:
     description_genome: "Genome assembly (scaffolds and pseudomolecules) for Vigna radiata -- first published genome assembly"
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCF_000741045.1, circa 2015."
     bioproject: "PRJNA243847"
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
     genbank_accession: "GCF_000741045.1"
     original_file_creation_date: 2014-11-11
     local_file_creation_date: 2015-07-23

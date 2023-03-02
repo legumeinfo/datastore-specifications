@@ -25,9 +25,9 @@ readme_info:
     description_genome: "This assembly is released on April 2022 and the chromosomal-level genome of Bauhinia variegata using PacBio and Illumina sequencing, and Hi-C scaffolding technologies." 
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCA_022379115.2, June 06 2022"
     bioproject: "PRJNA801801"
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
     genbank_accession: "GCA_022379115.2"
     original_file_creation_date: 2010-06-06
     local_file_creation_date: 2022-12-18

@@ -25,9 +25,9 @@ readme_info:
     description_genome: "This is the 12X March 2010 release of the draft genome and v2.1 annotation of Vitis vinifera by the French-Italian Public Consortium for Grapevine Genome Characterization. Please see Genoscope and the publication below."
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
     bioproject: "RJNA819548"
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
     genbank_accession: "JALEER000000000"
     original_file_creation_date: 2022-09-14
     local_file_creation_date: 2022-12-02

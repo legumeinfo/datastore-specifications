@@ -24,11 +24,11 @@ readme_info:
     genotype: Col0
     description_genome: "This is the TAIR9 genome assembly of the Col-0 ecotype, produced by the Arabidopsis Genome Initiative."
     description_annot: "This is the Araport11 annotation, released in 2016, on the TAIR9 genome assembly of the Col-0 ecotype."
-    bioproject: ""
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
-    genbank_accession: ""
+    bioproject: 
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
     original_file_creation_date: 2016-11-08
     local_file_creation_date: 2022-11-27
     dataset_release_date: 2022-11-27

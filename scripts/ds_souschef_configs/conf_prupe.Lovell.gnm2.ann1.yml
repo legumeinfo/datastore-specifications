@@ -25,15 +25,15 @@ readme_info:
     description_genome: "Peach v2.0 was generated from DNA from the doubled haploid cultivar 'Lovell' (PLOV2-2N) which means that the genes and intervening DNA is fixed or identical for all alleles and both chromosomal copies of the genome. This doubled haploid nature has facilitated a highly accurate and consistent assembly of the peach genome. Peach v2.0 currently consists of 8 pseudomolecules representing the 8 chromosomes of peach, and are numbered according to their corresponding linkage groups. The genome sequencing consisted of approximately 8.47 fold whole genome shotgun sequencing employing the accurate Sanger methodology and was assembled using Arachne. See full description at Phytozome/JGI repository (address above)."
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
     bioproject: "PRJNA31227"
-    sraproject: ""
-    dataset_doi_genome: ""
-    dataset_doi_annot: ""
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
     genbank_accession: "AKXU02000000"
     original_file_creation_date: 2017-02-02
     local_file_creation_date: 2022-11-27
     dataset_release_date: 2022-11-27
     contributors: Ignazio Verde, Albert Abbott, Jeremy Schmutz, Michele Morgante, Daniel Rokhsar
-    publication_doi: ""
+    publication_doi: 
     citation: "Verde I, Jenkins J, Dondini L, Micali S, Pagliarani G, Vendramin E, Paris R, Aramini V, Gazza L, Rossini L, Bassi D, Troggio M, Shu S, Grimwood J, Tartarini S, Dettori MT, Schmutz J. The Peach v2.0 release: high-resolution linkage mapping and deep resequencing improve chromosome-scale assembly and contiguity. BMC Genomics. 2017 Mar 11;18(1):225. doi: 10.1186/s12864-017-3606-9. PMID: 28284188; PMCID: PMC5346207."
     publication_title: "The Peach v2.0 release: high-resolution linkage mapping and deep resequencing improve chromosome-scale assembly and contiguity."
     data_curators: Steven Cannon
