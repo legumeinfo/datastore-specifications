@@ -28,7 +28,7 @@ my $usage = <<EOS;
   Note that all input files are assumed to be in two directories, e.g. annotation and assembly.
   If there are release-policy or readme files that pertain to the assembly+annotation as a whole, 
   then FIRST COPY THESE INTO the annotation and assembly directories. The program won't find them 
-  outside the specified directories. Provide full filenames for these files in the config file. 
+  outside the specified directories. Provide full filenames for these files in the config file.
 
   Required:
     -config    (string) yaml-format file with information for the metadata and the file conversions.
@@ -427,6 +427,7 @@ sub readme {
   my %seen_genotype;
   for my $key (@readme_keys){
     if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
+      #say "CHECK: $key: \"$readme_hsh{$key}\"\n";
       say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
     }
     elsif ( length($readme_hsh{$key}) == 0 ){
@@ -712,6 +713,7 @@ sub pangene_readme {
   
   # Pangene README
   open(my $PAN_README_FH, '>', $PAN_README) or die "Can't open out $PAN_README: $!";
+  binmode($PAN_README_FH, ':utf8');
   print $PAN_README_FH "---\n";
   $readme_hsh{identifier} = $PANCOL;
   $readme_hsh{synopsis} = $readme_hsh{synopsis};
