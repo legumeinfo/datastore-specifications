@@ -112,24 +112,29 @@ else {
 my @gff_lines;
 my %type_collate = (
   region => 0,
-  gene => 2,
-  pseudogene => 3,
-  mRNA => 4,
+  gene => 1,
+  pseudogene => 2,
+  mRNA => 3,
+  transcript => 4,
   ncRNA => 5,
-  rRNA => 6,
-  tRNA => 7,
-  exon => 8,
-  three_prime_UTR => 9,
-  CDS => 10,
-  five_prime_UTR => 11,
-  protein_match => 12,
-  match => 13,
-  match_part => 14,
+  lnc_RNA => 6,
+  snoRNA => 7,
+  snRNA => 8,
+  rRNA => 9,
+  tRNA => 10,
+  exon => 11,
+  three_prime_UTR => 12,
+  CDS => 13,
+  five_prime_UTR => 14,
   protein_match => 15,
-  expressed_sequence_match => 16,
-  translated_nucleotide_match => 17,
-  expressed_sequence_match => 18,
-  contig => 19,
+  cDNA_match => 16,
+  match => 17,
+  match_part => 18,
+  protein_match => 19,
+  expressed_sequence_match => 20,
+  translated_nucleotide_match => 21,
+  expressed_sequence_match => 22,
+  contig => 23,
 );
 
 while (<$GFF_FH>) {
@@ -237,3 +242,4 @@ Steven Cannon
 2022-11-13 Simplify name to ds_souchef.pl .
            Rework hashing of attributes (ID, Parent, Name). Recover positional sortring routine, after briefly removing it.
 2022-12-10 Permit hashing of EITHER seqid or featid 
+2023-03-03 Add some feature types for collate sort
