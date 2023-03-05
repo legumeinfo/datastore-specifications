@@ -303,14 +303,14 @@ sub make_seqid_map {
         for my $id (keys %seqid_initial_hash){
           if ($new_chr_id =~ m/$id/){
             $new_chr_id = $seqid_initial_hash{$id};
-            say "$chr\t$TO_GNM_PREFIX.$new_chr_id";
+            #say "$chr\t$TO_GNM_PREFIX.$new_chr_id";
             say $SEQID_MAP_FH "$chr\t$TO_GNM_PREFIX.$new_chr_id";
             $patched_new_id{$chr}++;
             last;
           }
         }
         unless ($patched_new_id{$chr}){
-          say "$chr\t$TO_GNM_PREFIX.$chr";
+          #say "$chr\t$TO_GNM_PREFIX.$chr";
           say $SEQID_MAP_FH "$chr\t$TO_GNM_PREFIX.$chr";
         }
       }
@@ -378,21 +378,22 @@ sub make_featid_map {
   }
   $FEATID_MAP = "$WD/annotations/$ANNCOL/$GENSP.$ANNCOL.featid_map.tsv";
   open (my $FEATID_MAP_FH, ">", $FEATID_MAP) or die "Can't open out $FEATID_MAP: $!\n";
-  my %seen_gene_id;
+  my %seen_feat_id;
   while (my $line = <$GFF_IN_FH>){
     chomp $line;
     next if ($line =~ /^#|^\s*$/);
     my @parts = split(/\t/, $line);
     next if (scalar(@parts)<9);
-    my $gene_id = $parts[8];
-    $gene_id =~ s/ID=([^;]+);.+/$1/;
-    my $new_gene_id = $gene_id;
+    my $feat_id = $parts[8];
+    $feat_id =~ s/ID=([^;]+)$/$1/; # ID is the only attribute in the 9th column
+    $feat_id =~ s/ID=([^;]+);.+/$1/; # ID is one of several attributes in the 9th column
+    my $new_feat_id = $feat_id;
     if (defined $strip_regex){
-      $new_gene_id =~ s/$STRIP_RX//g;
+      $new_feat_id =~ s/$STRIP_RX//g;
     }
-    unless ( $seen_gene_id{$gene_id} ) {
-      $seen_gene_id{$gene_id}++;
-      say $FEATID_MAP_FH "$gene_id\t$TO_ANN_PREFIX.$new_gene_id";
+    unless ( $seen_feat_id{$feat_id} ) {
+      $seen_feat_id{$feat_id}++;
+      say $FEATID_MAP_FH "$feat_id\t$TO_ANN_PREFIX.$new_feat_id";
     }
   }
 
@@ -843,3 +844,5 @@ Versions
 2023-02-07 Remove quotes from README when there is no value. 
              For pangene README, replace genotype with annotations_main and annotations_extra.
 2023-02-08 Remove scientific_name_abbrev from pangene README
+2023-03-04 In make_featid_map, handle features in which the 9th column has only one attribute, e.g. ID=Identifier
+
