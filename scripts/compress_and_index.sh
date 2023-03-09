@@ -33,7 +33,7 @@ for file in $filepath/*.txt; do
 done
 wait
 
-for file in $filepath/*.f?a $filepath/*.gff3 $filepath/*tsv; do
+for file in $filepath/*.f?a $filepath/*.gff3 $filepath/*tsv $filepath/*bed; do
   if test -f $file; then
     echo "Compressing $file"
     bgzip -l9 $file &
