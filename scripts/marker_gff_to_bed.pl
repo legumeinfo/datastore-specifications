@@ -11,6 +11,9 @@ my $usage = <<EOS;
   
   Read marker coordinates in GFF format and a genome fai index file, and return
   a four-column BED file with genomic coordinates flanking the marker coordinates.
+  Adjust from GFF 1-based, closed [start, end] to BED 0-based, half-open [start-1, end)
+  Unless the "-merge" flag is set, two sequences are returned for each marker: 
+  one before (>ID.UP), one after (>ID.DN). 
   The fai file (or a file with seqid in column 1 and molecule length in column 2) 
   is used to identify markers near the ends of molecules.
   The optional -pad flag indicates the distance up- and down-stream from the marker
@@ -25,16 +28,19 @@ my $usage = <<EOS;
        
   Options:
     -pad   The flanking distance up- and down-stream from the marker. Default 1000.
+    -merge (boolean; default false). If set, then one sequence will be returned for each marker;
+             otherwise, return one beUP (>ID.UP), one DNer (>ID.DN).
     -out   File to write to; otherwise, to stdout.
-    -help        (boolean) This message.
+    -help  (boolean) This message.
 EOS
 
-my ($fai_file, $out_file, $help);
+my ($fai_file, $out_file, $merge, $help);
 my $pad = 1000;
 
 GetOptions (
   "fai=s" =>  \$fai_file,   
   "pad:i" =>  \$pad,  
+  "merge" =>  \$merge,
   "out:s" =>  \$out_file,   
   "help" =>   \$help,
 );
@@ -73,7 +79,7 @@ while (<>) {
     if (scalar(@parts)<9){ next }
     my $col9 = $parts[8];
     my @col9_attrs = split(/;/, $col9);
-    my ($seqid, $start, $end) = ($parts[0], $parts[3], $parts[4]);
+    my ($seqid, $mrk_start, $mrk_end) = ($parts[0], $parts[3], $parts[4]);
     my $name;
     for my $attr (@col9_attrs){
       if ($attr =~ /Name=(.+)/){
@@ -81,15 +87,20 @@ while (<>) {
         $name =~ s/([^;]+);.+/$1/;
       }
     }
-    my $pad_start = max(0, $start-$pad-1);
-    my $pad_end = min($seqid_len{$seqid}, $end+$pad);
-    #say join("\t", $seqid, $pad_start, $pad_end, $name, $pad_end-$pad_start, $seqid_len{$seqid}-$pad_end);
-    say $OUT_FH join("\t", $seqid, $pad_start, $pad_end, $name);
+    my $pad_start = max(0, $mrk_start-$pad-1);
+    my $pad_end = min($mrk_end+1+$pad, $seqid_len{$seqid});
+    if ($merge){ # Return one sequence per marker, including flanking upstream and down
+      say $OUT_FH join("\t", $seqid, $pad_start, $pad_end, $name);
+    }
+    else { # Return two sequences per marker: one upstream, one down
+      say $OUT_FH join("\t", $seqid, $pad_start, $mrk_end-1, "$name.UP");
+      say $OUT_FH join("\t", $seqid, $mrk_end+1, $pad_end, "$name.DN");
+    }
   }
 }
 
 __END__
 
 Steven Cannon
-2023-03-09 Start (based on hash_into_gff_id.pl)
+2023-03-09 Start 
 
