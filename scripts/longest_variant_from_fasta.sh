@@ -2,7 +2,7 @@
 
 if test -t 0; then
 cat <<Usage-message
-  Usage: cat FILE.fa |  pick_longest_variant.sh  
+  Usage: cat FILE.fa |  longest_variant_from_fasta.pl
 
   For fasta files (e.g. CDS, protein, mRNA) with splice variants of the form
     >GENE_ID.1      or >GENE_ID.m1 
@@ -76,4 +76,5 @@ table_to_fasta
 # 2022-12-14 Add sorting of the splice number (e.g. .1 or .m1) to 
 #             break ties among variants of the same length.
 # 2022-12-15 Report usage message if script is called without stdin
+# 2023-03-15 Rename from pick_longest_variant.sh to longest_variant_from_fasta.pl
 
