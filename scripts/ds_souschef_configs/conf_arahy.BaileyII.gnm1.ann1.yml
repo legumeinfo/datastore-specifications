@@ -29,9 +29,9 @@ readme_info:
     dataset_doi_genome: 
     dataset_doi_annot: 
     genbank_accession: 
-    original_file_creation_date: 2023-03-06
-    local_file_creation_date: 2023-03-06
-    dataset_release_date: 2023-03-06
+    original_file_creation_date: 2023-03-13
+    local_file_creation_date: 2023-03-13
+    dataset_release_date: 2023-03-13
     contributors: Newman, Andres, Youngblood, Campbell, Simpson, Cannon, Scheffler, Oakley, Hulse-Kemp and Dunne
     publication_doi: 10.3389/fpls.2022.1073542
     citation: "Newman CS, Andres RJ, Youngblood RC, Campbell JD, Simpson SA, Cannon SB, Scheffler BE, Oakley AT, Hulse-Kemp AM and Dunne JC (2023) Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers. Front. Plant Sci. 13:1073542. doi: 10.3389/fpls.2022.1073542"
