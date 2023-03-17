@@ -1,0 +1,82 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Arachis/hypogaea/Tifrunner.gnm2.ann2
+    from_annot_dir: adjud3
+    from_genome_dir: Tifrunner.gnm2
+prefixes:
+    from_annot_prefix: "arahy.Tifrunner.gnm2.ann2." 
+    from_genome_prefix: "arahy.Tifrunner.gnm2."
+collection_info:
+    genus: Arachis
+    species: hypogaea
+    gensp: arahy
+    coll_genotype: Tifrunner
+    gnm_ver: gnm2
+    ann_ver: ann2
+    genome_key: J5K5
+    annot_key: XCO6
+readme_info:
+    provenance: "The files in this directory are a product of the International Peanut Genome Initiative. The files here are held as part of the LegumeInfo and Peanutbase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and Peanutbase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://data.legumeinfo.org"
+    synopsis_genome: Genome assembly 2 for Arachis hypogaea, cultivar Tifrunner
+    synopsis_annot: Annotation 2, using the BIND pipeline, for Arachis hypogaea, cultivar Tifrunner
+    taxid: "3818"
+    genotype: Tifrunner
+    description: "Genome assembly for Arachis hypogaea cultivar Tifrunner. This version is essentially the same as Tifrunner version 1 (arahy.Tifrunner.gnm1.KYV3.genome_main.fna) at the basepair level, but has several large structural rearrangements, on the basis of HiC assessments. The largest changes are: a translocation of ~8 Mbp in the pericentromere of A02; several rearrangements in the pericentromere of A03; a swap in the telomeric regions of A06 and B06; inversion of a small scaffold from the distal end of A08; inversion of a telomeric region in B05; other small changes in telomeric regions of several pseudomolecules: B10, B09, A08."
+    description_annot: "This annotation was produced by Jacqueline Campbell, Connor Cameron, and Andrew Farmer, using the BIND annotation pipeline."
+    bioproject: "PRJNA419393"
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: "2023-03-17"
+    local_file_creation_date: "2023-03-17"
+    dataset_release_date: "2023-03-17"
+    contributors: "The International Peanut Genome Initiative; lead assembly group Jeremy Schmutz, Jerry Jenkins, Jane Grimwood; project leads David Bertioli; Soraya Bertioli; Brian Schleffler; Scott Jackson; Peggy Ozias-Akins. Annotation by Jacqueline Campbell, Connor Cameron, and Andrew Farmer."
+    publication_doi: "10.1038/s41588-019-0405-z"
+    citation: "Bertioli, D.J., Jenkins, J., Clevenger, J. et al. The genome sequence of segmental allotetraploid peanut Arachis hypogaea. Nat Genet 51, 877-884 (2019). https://doi.org/10.1038/s41588-019-0405-z"
+    publication_title: "The genome sequence of segmental allotetraploid peanut Arachis hypogaea"
+    data_curators: Steven Cannon, Andrew Farmer
+    public_access_level: public
+    license: open
+    keywords: "peanut, Arachis hypogaea, Tifrunner"
+from_to_genome:
+  - 
+    from: genome_main_bare.fna.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+original_readme_and_usage:
+from_to_annot_as_is:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: cds.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: cds_lowqual.fna.gz
+    to: cds_lowqual.fna
+    description: "cds sequences lacking homology to Arachis gene models from other annotations"
+  - 
+    from: mrna.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+  - 
+    from: mrna_lowqual.fna.gz
+    to: mrna_lowqual.fna
+    description: "mRNA sequences lacking homology to Arachis gene models from other annotations"
+from_to_protein:
+  - 
+    from: protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+  - 
+    from: protein_lowqual.faa.gz
+    to: protein_lowqual.faa
+    description: "Protein sequences lacking homology to Arachis gene models from other annotations"
+from_to_gff:
+  - 
+    from: gene_models_bare.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+
