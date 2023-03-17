@@ -6,7 +6,7 @@ Directory name: _Strain1.gnm1.wga.KEY4_
 
 Filenames: 
  - _gensp1.Strain1.gnm1.x.gensp2.Strain2.gnm2.KEY4_.paf.gz
- = _gensp1.Strain1.gnm1.x.gensp2.Strain2.gnm2.KEY4_.bam
+ - _gensp1.Strain1.gnm1.x.gensp2.Strain2.gnm2.KEY4_.bam
 
 The first _gensp1.Strain1.gnm1_ matches the name of the collection from the directory name and README.identifier, and denotes the genome used as the reference in the alignment.
 
