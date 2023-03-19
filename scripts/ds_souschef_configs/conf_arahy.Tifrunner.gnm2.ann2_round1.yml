@@ -14,7 +14,7 @@ collection_info:
     gnm_ver: gnm2
     ann_ver: ann2
     genome_key: J5K5
-    annot_key: XCO6
+    annot_key: PVFB
 readme_info:
     provenance: "The files in this directory are a product of the International Peanut Genome Initiative. The files here are held as part of the LegumeInfo and Peanutbase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and Peanutbase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
     source: "https://data.legumeinfo.org"
