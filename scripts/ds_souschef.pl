@@ -340,7 +340,7 @@ sub make_featid_map {
   my $GFF_EXONS_FILE_START = "";
   my ($strip_regex, $STRIP_RX);
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ # Get the "strip" regex, if any, from the conf file
-    if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/){
+    if ($fr_to_hsh->{to} =~ /gene_models.*gff3/){
       $GFF_FILE_START = 
         "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
       say "  There is a gff_main file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
@@ -359,7 +359,7 @@ sub make_featid_map {
       say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     }
     else {
-      say "Please ensure that the from_to_gff config block contains \"to: gene_models_main.gff3\"";  
+      say "Please ensure that the from_to_gff config block contains \"to: gene_models.*gff3\"";  
     }
   }
   say "GFF_FILE_START: $GFF_FILE_START";
@@ -611,14 +611,14 @@ sub gff {
     $ARGS = "-gff $FROM_FILE -featid_map $FEATID_MAP -seqid_map $SEQID_MAP -sort -strip \"$GFF_STRIP_RX\" -out $TO_FILE";
     say "  Execute hash_into_gff_id.pl $ARGS";
     system("hash_into_gff_id.pl $ARGS");
-    if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/) {
+    if ($fr_to_hsh->{to} =~ /gene_models.*gff3/) {
       say "  Generating CDS bed file from GFF";
       my $bed_file = $TO_FILE;
-      $bed_file =~ s/gene_models_main.gff3/cds.bed/;
+      $bed_file =~ s/gene_models.*gff3/cds.bed/;
       my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed6_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
       `$gff_to_bed_command`; # or die "system call of gff_to_bed6_mRNA.awk failed: $?";
       &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, 
-        "BED-format file, derived from gene_models_main.gff3");
+        "BED-format file, derived from gene_models.*gff3");
     }
   }
 }
@@ -845,4 +845,4 @@ Versions
              For pangene README, replace genotype with annotations_main and annotations_extra.
 2023-02-08 Remove scientific_name_abbrev from pangene README
 2023-03-04 In make_featid_map, handle features in which the 9th column has only one attribute, e.g. ID=Identifier
-
+2023-03-18 Permit more variation in GFF filename
