@@ -15,15 +15,15 @@ readme_info:
     taxid: "3826"
     annotations_main: cicar.CDCFrontier.gnm3.ann1,cicar.ICC4958.gnm2.ann1,cicec.S2Drd065.gnm1.ann1,cicre.Besev079.gnm1.ann1
     annotations_extra: cicar.CDCFrontier.gnm1.ann1,cicar.CDCFrontier.gnm2.ann1
-    description: "Pan-gene set for Cicer species, spanning 3 species and 6 annotation sets, calculated using the pandagma pipeline, version 2023-02-28"
+    description: "Pan-gene set for Cicer species, spanning 3 species and 6 annotation sets, calculated using the pandagma pipeline, version 2023-04-03"
     bioproject: 
     sraproject: 
     dataset_doi_genome: 
     dataset_doi_annot: 
     genbank_accession: 
-    original_file_creation_date: 2023-02-28
-    local_file_creation_date: 2023-02-28
-    dataset_release_date: 2023-02-28
+    original_file_creation_date: 2023-04-03
+    local_file_creation_date: 2023-04-03
+    dataset_release_date: 2023-04-03
     contributors: Steven Cannon, Hyunoh Lee
     publication_doi: 
     citation: 

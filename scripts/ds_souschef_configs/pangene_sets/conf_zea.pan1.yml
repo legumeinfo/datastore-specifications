@@ -15,15 +15,15 @@ readme_info:
     taxid: "3913"
     annotations_main: Zm00001eb,Zm00018ab,Zm00019ab,Zm00020ab,Zm00021ab,Zm00022ab,Zm00023ab,Zm00024ab,Zm00025ab,Zm00026ab,Zm00027ab,Zm00028ab,Zm00029ab,Zm00030ab,Zm00031ab,Zm00032ab,Zm00033ab,Zm00034ab,Zm00035ab,Zm00036ab,Zm00037ab,Zm00038ab,Zm00039ab,Zm00040ab,Zm00041ab,Zm00042ab
     annotations_extra: Zm00001d,Zm00004b,Zm00008a
-    description: "Pan-gene set for Zea, spanning 29 annotation sets, calculated using the pandagma pipeline, version 2023-02-28"
+    description: "Pan-gene set for Zea, spanning 29 annotation sets, calculated using the pandagma pipeline, version 2023-04-03"
     bioproject: 
     sraproject: 
     dataset_doi_genome: 
     dataset_doi_annot: 
     genbank_accession: 
-    original_file_creation_date: 2023-02-28
-    local_file_creation_date: 2023-02-28
-    dataset_release_date: 2023-02-28
+    original_file_creation_date: 2023-04-03
+    local_file_creation_date: 2023-04-03
+    dataset_release_date: 2023-04-03
     contributors: Steven Cannon, Ethy Cannon, Margaret Woodhouse
     publication_doi: 
     citation: 

@@ -15,15 +15,15 @@ readme_info:
     taxid: "3883"
     annotations_main: phaac.Frijol_Bayo.gnm1.ann1,phaac.W6_15578.gnm2.ann1,phalu.G27455.gnm1.ann1,phavu.5-593.gnm1.ann1,phavu.G19833.gnm2.ann1,phavu.LaborOvalle.gnm1.ann1,phavu.UI111.gnm1.ann1
     annotations_extra: phavu.G19833.gnm1.ann1
-    description: "Pan-gene set for Phaseolus species, spanning 3 species and 8 annotation sets, calculated using the pandagma pipeline, version 2023-02-28"
+    description: "Pan-gene set for Phaseolus species, spanning 3 species and 8 annotation sets, calculated using the pandagma pipeline, version 2023-04-03"
     bioproject: 
     sraproject: 
     dataset_doi_genome: 
     dataset_doi_annot: 
     genbank_accession: 
-    original_file_creation_date: 2023-02-28
-    local_file_creation_date: 2023-02-28
-    dataset_release_date: 2023-02-28
+    original_file_creation_date: 2023-04-03
+    local_file_creation_date: 2023-04-03
+    dataset_release_date: 2023-04-03
     contributors: Steven Cannon, Hyunoh Lee
     publication_doi: 
     citation: 
