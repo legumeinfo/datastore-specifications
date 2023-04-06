@@ -23,6 +23,8 @@ readme_info:
     genotype: FF25
     taxid: "87088"
     description_genome: "This is the 12X March 2010 release of the draft genome and v2.1 annotation of Vitis vinifera by the French-Italian Public Consortium for Grapevine Genome Characterization. Please see Genoscope and the publication below."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
     bioproject: "RJNA819548"
     sraproject: 

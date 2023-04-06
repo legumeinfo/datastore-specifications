@@ -23,6 +23,8 @@ readme_info:
     taxid: "3702"
     genotype: Col0
     description_genome: "This is the TAIR9 genome assembly of the Col-0 ecotype, produced by the Arabidopsis Genome Initiative."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "This is the Araport11 annotation, released in 2016, on the TAIR9 genome assembly of the Col-0 ecotype."
     bioproject: 
     sraproject: 

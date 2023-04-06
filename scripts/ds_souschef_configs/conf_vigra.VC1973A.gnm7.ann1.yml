@@ -23,6 +23,8 @@ readme_info:
     taxid: "157791"
     genotype: VC1973A
     description_genome: "This assembly, of accession VC1973A, is a near-complete genome sequence of mungbean with a scaffold N50 value of 5.2 Mb and only a 0.4% gap, with a total scaffold size of 475 Mb. Primary sequence was generated with PacBio RS II and assembled with Canu version 1. The corrected reads were assembled into contigs using Falcon (Version 0.3.0). The contigs were scaffolded with Illumina mate-pair reads with library sizes of 5, 10, and 40 kb using SSPACE (Version 3.0). Gaps in the superscaffolds were filled by Illumina short reads using Gapfiller (Version 1.10)."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "The assembled genome was annotated via the pipeline described by Ha et al. (2019) based on transcriptome data from JJMO00000000."
     bioproject: "PRJNA560716"
     sraproject: "SRR9994113"

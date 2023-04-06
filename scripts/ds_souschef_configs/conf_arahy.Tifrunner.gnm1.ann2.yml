@@ -23,6 +23,8 @@ readme_info:
     taxid: "3818"
     genotype: Tifrunner
     description_genome: "Genome assembly for Arachis hypogaea cultivar Tifrunner. A total of 48.25x of PACBIO sequence (avg. read length of 11,525) was used to generate the initial MECAT assembly, which was subsequently polished using ARROW. Synteny with the diploid A. duranensis and A. ipaensis, along with 1 genetic map and 2 synthetic maps (provided by David Bertioli) were used to identify misjoins in the raw assembly. A total of 856 breaks were identified. The broken assembly was then scaffolded using HiC data by Rajeev Varshney. Post scaffolding, 6 additional breaks were made to resolve misjoins introduced during the scaffolding procedure. Seven tetrasomic regions were identified and duplicated, as described in the original README file. Additionally, homozygous SNPs and INDELs were corrected in the release sequence using ~40x of illumina reads (2x250, 800bp insert, library ID ICIH and ICID). See the original README file for additional details."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCF_003086295.2, Apr 29 2019"
     bioproject: "PRJNA419393"
     sraproject: 

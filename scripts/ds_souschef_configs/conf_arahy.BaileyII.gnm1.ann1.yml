@@ -23,6 +23,8 @@ readme_info:
     genotype: BaileyII
     taxid: "3818"
     description_genome: "Bailey II PacBio CLR reads greater than 8,150 bp were assembled by CANU (Koren et al., 2017) v. 1.9. Resulting contigs underwent one round of polishing with Arrow (Pacific BioSciences SMRT Tools Reference Guide, 2019), followed by additional polishing with Pilon (Walker et al., 2014) v. 1.23. Circular contigs, as labeled in the output of CANU (Koren et al., 2017) v.  1.9, were removed from the assembly. Bionano optical data was used to scaffold the assembly and then RagTag (Alonge et al., 2019) was used to generate pseudomolecules. See full description at Newman et al. (2022), below."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "Gene annotation resources. See full description at Newman et al. (2022), below."
     bioproject: 
     sraproject: 

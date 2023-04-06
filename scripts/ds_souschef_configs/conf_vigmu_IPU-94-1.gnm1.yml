@@ -23,6 +23,8 @@ readme_info:
     taxid: "3915"
     genotype: IPU-94-1
     description_genome: "This is the Jun. 2022 release of the draft genome and v1.0 annotation of Vigna mungo (Black gram) by Botany, University of Delhi Main Campus, Chattra Marg, Delhi, India group. Please see Genoscope and the publication below."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "Gene annotation resources. https://doi.org/10.5061/dryad.dr7sqvb1r."
     bioproject: "PRJNA668459"
     sraproject: 

@@ -23,6 +23,8 @@ readme_info:
     taxid: "3818"
     genotype: Tifrunner
     description: "Genome assembly for Arachis hypogaea cultivar Tifrunner. This version is essentially the same as Tifrunner version 1 (arahy.Tifrunner.gnm1.KYV3.genome_main.fna) at the basepair level, but has several large structural rearrangements, on the basis of HiC assessments. The largest changes are: a translocation of ~8 Mbp in the pericentromere of A02; several rearrangements in the pericentromere of A03; a swap in the telomeric regions of A06 and B06; inversion of a small scaffold from the distal end of A08; inversion of a telomeric region in B05; other small changes in telomeric regions of several pseudomolecules: B10, B09, A08."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "This annotation was produced by Jacqueline Campbell, Connor Cameron, and Andrew Farmer, using the BIND annotation pipeline."
     bioproject: "PRJNA419393"
     sraproject: 

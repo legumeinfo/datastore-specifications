@@ -23,6 +23,8 @@ readme_info:
     taxid: "167791"
     genotype: BV-YZ2020
     description_genome: "This assembly is released on April 2022 and the chromosomal-level genome of Bauhinia variegata using PacBio and Illumina sequencing, and Hi-C scaffolding technologies." 
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCA_022379115.2, June 06 2022"
     bioproject: "PRJNA801801"
     sraproject: 

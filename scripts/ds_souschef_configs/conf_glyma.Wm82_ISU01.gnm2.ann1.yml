@@ -23,6 +23,8 @@ readme_info:
     genotype: Wm82_ISU01
     taxid: "3847"
     description_genome: "This release (Glycine max var. Williams 82-ISU-01) is an inbred line developed by Robert Stupar (University of Minnesota) by inbreeding original W82 seed. The resulting genome is a haploid version of W82. The original W82 is from an agronomic line and contains variation between the two haplotypes. This genome can be used as an updated version of W82 -- the soybean reference genome, however, it is not an identical genotype to previous reference. Where possible, we have maintained continuity with the previous reference and the annotation is based on all available W82 transcript evidence. It is the most complete and highest quality soybean genome completed to date. Genome assembly consists of 47.07x of single haplotype CCS PACBIO coverage (17,049 bp average read size), assembled using HiFiAsm and HIC and the resulting sequence was polished using RACON. See full description at Phytozome/JGI repository (address above)."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
     bioproject: 
     sraproject: 

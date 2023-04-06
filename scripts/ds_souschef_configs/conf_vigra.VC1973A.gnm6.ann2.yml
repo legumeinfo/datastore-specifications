@@ -23,6 +23,8 @@ readme_info:
     taxid: "157791"
     genotype: VC1973A
     description_genome: "Genome assembly (scaffolds and pseudomolecules) for Vigna radiata -- first published genome assembly"
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCF_000741045.1, circa 2015."
     bioproject: "PRJNA243847"
     sraproject: 
