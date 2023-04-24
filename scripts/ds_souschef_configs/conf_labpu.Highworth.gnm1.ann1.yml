@@ -1,0 +1,87 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Lablab/purpureus
+    from_annot_dir: lablab_ILRI
+    from_genome_dir: lablab_ILRI
+prefixes:
+    from_annot_prefix: "lablab_purpureus."
+    from_genome_prefix: "lablab_purpureus."
+collection_info:
+    genus: Lablab
+    species: purpureus
+    gensp: labpu
+    coll_genotype: Highworth
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: 8K16
+    annot_key: HJ3B
+readme_info:
+    provenance: "The files in this directory originated from the ILRI (International Livestock Research Institute), https://hpc.ilri.cgiar.org/~bngina/lablab_longread_sequencing_March_2022/. The ILRI repository is considered primary and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://hpc.ilri.cgiar.org/~bngina/lablab_longread_sequencing_March_2022"
+    synopsis_genome: Lablab purpureus accession Highworth, genome assembly 1
+    synopsis_annot: Annotation 1 for Lablab purpureus accession Highworth, genome assembly 1
+    genotype: Highworth
+    taxid: "35936"
+    description_genome: "The cultivar Highworth was sequenced using the Oxford Nanopore Technology MinION platform, for 28.4 Gbp and 67x estimated coverage. The reads were initially assembled into 2260 contigs with an N50 of 11.0Mbp and total assembly length of 426.2 Mbp. The assembly was polished for error correction using ~380x of publicly available Illumina short reads previously generated from the same cultivar. Scaffolding was conducted using Hi-C into 11 chromosomes."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
+    description_annot: "Gene annotation resources. See full description at the associated primary reference."
+    bioproject: PRJNA474418
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: 2022-10-10
+    local_file_creation_date: 2023-04-24
+    dataset_release_date: 2023-05-01
+    contributors: "Njaci I, Waweru B, Kamal N, Muktar MS, Fisher D, Gundlach H, Muli C, Muthui L, Maranga M, Kiambi D, Maass BL, Emmrich PMF, Domelevo Entfellner JB, Spannagl M, Chapman MA, Shorinola O, Jones CS."
+    publication_doi: "10.1038/s41467-023-37489-7"
+    citation: "Njaci I, Waweru B, Kamal N, Muktar MS, Fisher D, Gundlach H, Muli C, Muthui L, Maranga M, Kiambi D, Maass BL, Emmrich PMF, Domelevo Entfellner JB, Spannagl M, Chapman MA, Shorinola O, Jones CS. Chromosome-level genome assembly and population genomic resource to accelerate orphan crop lablab breeding. Nat Commun. 2023 Apr 17;14(1):1915. doi: 10.1038/s41467-023-37489-7. PMID: 37069152; PMCID: PMC10110558."
+    publication_title: "Chromosome-level genome assembly and population genomic resource to accelerate orphan crop lablab breeding."
+    data_curators: Steven Cannon, Hyunoh Lee, Andrew Farmer
+    public_access_level: public
+    license: Open
+    keywords: "Lablab, Highworth"
+from_to_genome:
+  - 
+    from: assembly.softmasked_chr_and_contigs_renamed.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+from_to_annot_as_is:
+  - 
+    from: with-TEs.longest.gff3.gz
+    to: gene_models_with-TEs.longest.gff3
+    description: "Gene models with TEs - longest only (not prefixed)"
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: non-TE.longest.cds.fasta.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: non-TE.longest.cds.fasta.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+#  - 
+#    from: XX
+#    to: mrna.fna
+#    description: "Transcript sequences"
+#  - 
+#    from: XX
+#    to: mrna_primary.fna
+#    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: non-TE.longest.aa.fasta.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
+  - 
+    from: non-TE.longest.aa.fasta.gz
+    to: protein.faa
+    description: "Protein sequences"
+from_to_gff:
+  - 
+    from: non-TE.longest.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+
