@@ -88,6 +88,5 @@ from_to_gff:
   - 
     from: genomic_mod.gff.gz
     to: gene_models_main.gff3
-    strip: 'gnl\|WGS:JAKRYI\|'
     description: "Gene models - main"
 
