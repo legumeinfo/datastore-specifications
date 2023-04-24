@@ -26,7 +26,7 @@ my $usage = <<EOS;
          Example 1: For transcripts like Gene1234.1,      use "\\.\\d+"  
          Example 2: For transcripts like Gene1234-mRNA-1, use "-mRNA-\\d+" 
          Example 3: For proteins like    Gene1234.1.p,    use "\\.\\d+\\.p"
-  -strip_regex    (string) regular expression to use for stripping unwanted characters
+  -strip_suffix    (string) regular expression to use for stripping unwanted characters
                   from splice variant.
          Example 1: For transcripts like Gene1234.1,      Omit. Nothing to strip.
          Example 2: For transcripts like Gene1234-mRNA-1, use "-mRNA" (note "-" left as delimiter)
@@ -36,7 +36,7 @@ my $usage = <<EOS;
   
 EOS
 
-my ($hash_file, $fasta_file, $out_file, $splice_regex, $strip_regex, $swap_IDs, $nodef, $help);
+my ($hash_file, $fasta_file, $out_file, $splice_regex, $strip_suffix, $swap_IDs, $nodef, $help);
 my ($SPL_RX, $STR_RX);
 
 
@@ -44,7 +44,7 @@ GetOptions (
   "hash_file=s" =>     \$hash_file,   # required
   "fasta_file=s" =>    \$fasta_file,  # required
   "splice_regex:s" =>  \$splice_regex,   
-  "strip_regex:s" =>   \$strip_regex,   
+  "strip_suffix:s" =>   \$strip_suffix,   
   "out_file:s" =>      \$out_file,   
   "swap_IDs" =>        \$swap_IDs,
   "nodef" =>           \$nodef,   
@@ -57,7 +57,7 @@ die "$usage\n" if ($help);
 if ( $splice_regex ){ $SPL_RX=qr/$splice_regex/ }
 else { $SPL_RX=qr/$/ }
 
-if ( $strip_regex ){ $STR_RX=qr/$strip_regex/ }
+if ( $strip_suffix ){ $STR_RX=qr/$strip_suffix/ }
 else { $STR_RX=qr/$/ }
 
 # read hash in
@@ -97,7 +97,7 @@ while ( <$FASTA_FH> ){
     # strip off splice variant
     $display_id =~ m/(.+)($STR_RX)$/;
     ($base_id, $suffix) = ($1, $2);
-    if ($strip_regex){
+    if ($strip_suffix){
       $suffix =~ s/$STR_RX//; 
       $suffix =~ s/-/./; 
     }
@@ -129,7 +129,7 @@ while ( <$FASTA_FH> ){
     # strip off splice variant
     $display_id =~ m/(.+)($STR_RX)$/;
     ($base_id, $suffix) = ($1, $2);
-    if ($strip_regex){
+    if ($strip_suffix){
       $suffix =~ s/$STR_RX//; 
       $suffix =~ s/-/./; 
     }
@@ -158,7 +158,8 @@ Versions
             Change handling of the splice variant matching.
 2022-10-11 Take sequence file as parameter, handling compressed and uncompressed files.
             Print to named file or to STDOUT.
-            Add flag "-strip_regex" to remove e.g. ".p" from protein gene IDs: Gene123.1.p --> Gene123.1
+            Add flag "-strip_suffix" to remove e.g. ".p" from protein gene IDs: Gene123.1.p --> Gene123.1
 2022-11-07 Switch to zcat from gzcat. Handle deflines containing spaces or tabs.
-2022-11-27 Fix bug in "-strip_regex" code
+2022-11-27 Fix bug in "-strip_suffix" code
 2022-12-26 Add option -swap_IDs to print new ID and old ID
+2023-04-22 Change -strip_regex to -strip_suffix, to distinguish from potential prefix regex
