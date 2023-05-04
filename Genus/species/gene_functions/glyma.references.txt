@@ -1,0 +1,2854 @@
+##### PUB RECORD #####
+## 10.1007/s00122-016-2819-7  27832313  null  Samanfar et al., 2017  "Samanfar B, Molnar SJ, Charette M, Schoenrock A, Dehne F, Golshani A, Belzile F, Cober ER. Mapping and identification of a potential candidate gene for a novel maturity locus, E10, in soybean. Theor Appl Genet. 2017 Feb;130(2):377-390. doi: 10.1007/s00122-016-2819-7. Epub 2016 Nov 10. PMID: 27832313." ##
+
+PMID- 27832313
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20170209
+LR  - 20220310
+IS  - 1432-2242 (Electronic)
+IS  - 0040-5752 (Linking)
+VI  - 130
+IP  - 2
+DP  - 2017 Feb
+TI  - Mapping and identification of a potential candidate gene for a novel maturity 
+      locus, E10, in soybean.
+PG  - 377-390
+LID - 10.1007/s00122-016-2819-7 [doi]
+AB  - E10 is a new maturity locus in soybean and FT4 is the predicted/potential 
+      functional gene underlying the locus. Flowering and maturity time traits play 
+      crucial roles in economic soybean production. Early maturity is critical for 
+      north and west expansion of soybean in Canada. To date, 11 genes/loci have been 
+      identified which control time to flowering and maturity; however, the molecular 
+      bases of almost half of them are not yet clear. We have identified a new maturity 
+      locus called "E10" located at the end of chromosome Gm08. The gene symbol E10e10 
+      has been approved by the Soybean Genetics Committee. The e10e10 genotype results 
+      in 5-10 days earlier maturity than E10E10. A set of presumed E10E10 and e10e10 
+      genotypes was used to identify contrasting SSR and SNP haplotypes. These 
+      haplotypes, and their association with maturity, were maintained through five 
+      backcross generations. A functional genomics approach using a predicted 
+      protein-protein interaction (PPI) approach (Protein-protein Interaction 
+      Prediction Engine, PIPE) was used to investigate approximately 75 genes located 
+      in the genomic region that SSR and SNP analyses identified as the location of the 
+      E10 locus. The PPI analysis identified FT4 as the most likely candidate gene 
+      underlying the E10 locus. Sequence analysis of the two FT4 alleles identified 
+      three SNPs, in the 5'UTR, 3'UTR and fourth exon in the coding region, which 
+      result in differential mRNA structures. Allele-specific markers were developed 
+      for this locus and are available for soybean breeders to efficiently develop 
+      earlier maturing cultivars using molecular marker assisted breeding.
+FAU - Samanfar, Bahram
+AU  - Samanfar B
+AD  - Agriculture and Agri-Food Canada, Ottawa Research and Development Centre, Ottawa, 
+      ON, K1A 0C6, Canada.
+FAU - Molnar, Stephen J
+AU  - Molnar SJ
+AD  - Agriculture and Agri-Food Canada, Ottawa Research and Development Centre, Ottawa, 
+      ON, K1A 0C6, Canada.
+FAU - Charette, Martin
+AU  - Charette M
+AD  - Agriculture and Agri-Food Canada, Ottawa Research and Development Centre, Ottawa, 
+      ON, K1A 0C6, Canada.
+FAU - Schoenrock, Andrew
+AU  - Schoenrock A
+AD  - School of Computer Science, Carleton University, Ottawa, ON, K1S 5B6, Canada.
+FAU - Dehne, Frank
+AU  - Dehne F
+AD  - School of Computer Science, Carleton University, Ottawa, ON, K1S 5B6, Canada.
+FAU - Golshani, Ashkan
+AU  - Golshani A
+AD  - Department of Biology and Ottawa Institute of Systems Biology, Carleton 
+      University, Ottawa, ON, K1S 5B6, Canada.
+FAU - Belzile, Francois
+AU  - Belzile F
+AD  - Departement de Phytologie and Institut de Biologie Integrative et des Systemes, 
+      Universite Laval, Quebec City, QC, G1V 0A6, Canada.
+FAU - Cober, Elroy R
+AU  - Cober ER
+AUID- ORCID: 0000-0002-4673-1808
+AD  - Agriculture and Agri-Food Canada, Ottawa Research and Development Centre, Ottawa, 
+      ON, K1A 0C6, Canada. elroy.cober@agr.gc.ca.
+LA  - eng
+PT  - Journal Article
+DEP - 20161110
+PL  - Germany
+TA  - Theor Appl Genet
+JT  - TAG. Theoretical and applied genetics. Theoretische und angewandte Genetik
+JID - 0145600
+RN  - 0 (DNA, Plant)
+RN  - 0 (Genetic Markers)
+RN  - 0 (RNA, Messenger)
+SB  - IM
+MH  - *Chromosome Mapping
+MH  - Computational Biology
+MH  - DNA, Plant/genetics
+MH  - *Genetic Loci
+MH  - Genetic Markers
+MH  - Genotype
+MH  - Haplotypes
+MH  - Microsatellite Repeats
+MH  - Nucleic Acid Conformation
+MH  - Plant Breeding
+MH  - Polymorphism, Single Nucleotide
+MH  - RNA, Messenger/chemistry
+MH  - Soybeans/*genetics/physiology
+EDAT- 2016/11/11 06:00
+MHDA- 2017/02/10 06:00
+CRDT- 2016/11/11 06:00
+PHST- 2016/07/18 00:00 [received]
+PHST- 2016/10/27 00:00 [accepted]
+PHST- 2016/11/11 06:00 [pubmed]
+PHST- 2017/02/10 06:00 [medline]
+PHST- 2016/11/11 06:00 [entrez]
+AID - 10.1007/s00122-016-2819-7 [pii]
+AID - 10.1007/s00122-016-2819-7 [doi]
+PST - ppublish
+SO  - Theor Appl Genet. 2017 Feb;130(2):377-390. doi: 10.1007/s00122-016-2819-7. Epub 
+      2016 Nov 10.
+
+
+##### PUB RECORD #####
+## 10.1016/j.molp.2016.12.004  27979775  null  Yue et al., 2017  "Yue Y, Liu N, Jiang B, Li M, Wang H, Jiang Z, Pan H, Xia Q, Ma Q, Han T, Nian H. A Single Nucleotide Deletion in J Encoding GmELF3 Confers Long Juvenility and Is Associated with Adaption of Tropic Soybean. Mol Plant. 2017 Apr 3;10(4):656-658. doi: 10.1016/j.molp.2016.12.004. Epub 2016 Dec 12. PMID: 27979775." ##
+
+PMID- 27979775
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20181113
+LR  - 20181113
+IS  - 1752-9867 (Electronic)
+IS  - 1674-2052 (Linking)
+VI  - 10
+IP  - 4
+DP  - 2017 Apr 3
+TI  - A Single Nucleotide Deletion in J Encoding GmELF3 Confers Long Juvenility and Is 
+      Associated with Adaption of Tropic Soybean.
+PG  - 656-658
+LID - S1674-2052(16)30303-3 [pii]
+LID - 10.1016/j.molp.2016.12.004 [doi]
+FAU - Yue, Yanlei
+AU  - Yue Y
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      MOA Key Lab of Soybean Biology (Beijing), Institute of Crop Science, The Chinese 
+      Academy of Agricultural Sciences, Beijing 100081, China; Guangdong Provincial Key 
+      Laboratory of Plant Molecular Breeding, South China Agricultural University, 
+      Guangzhou 510642, China.
+FAU - Liu, Nianxi
+AU  - Liu N
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Guangdong Provincial Key Laboratory of Plant Molecular Breeding, South China 
+      Agricultural University, Guangzhou 510642, China.
+FAU - Jiang, Bingjun
+AU  - Jiang B
+AD  - MOA Key Lab of Soybean Biology (Beijing), Institute of Crop Science, The Chinese 
+      Academy of Agricultural Sciences, Beijing 100081, China.
+FAU - Li, Mu
+AU  - Li M
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Guangdong Provincial Key Laboratory of Plant Molecular Breeding, South China 
+      Agricultural University, Guangzhou 510642, China.
+FAU - Wang, Haijie
+AU  - Wang H
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Institute of Crop Sciences, Hainan Academy of Agricultural Sciences, Haikou 
+      571100, China.
+FAU - Jiang, Ze
+AU  - Jiang Z
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Guangdong Provincial Key Laboratory of Plant Molecular Breeding, South China 
+      Agricultural University, Guangzhou 510642, China.
+FAU - Pan, Huanting
+AU  - Pan H
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Guangdong Provincial Key Laboratory of Plant Molecular Breeding, South China 
+      Agricultural University, Guangzhou 510642, China.
+FAU - Xia, Qiuju
+AU  - Xia Q
+AD  - BGI-Shenzhen, Shenzhen 518083, China.
+FAU - Ma, Qibin
+AU  - Ma Q
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Guangdong Provincial Key Laboratory of Plant Molecular Breeding, South China 
+      Agricultural University, Guangzhou 510642, China.
+FAU - Han, Tianfu
+AU  - Han T
+AD  - MOA Key Lab of Soybean Biology (Beijing), Institute of Crop Science, The Chinese 
+      Academy of Agricultural Sciences, Beijing 100081, China. Electronic address: 
+      hantianfu@caas.cn.
+FAU - Nian, Hai
+AU  - Nian H
+AD  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-Bioresources, South China Agricultural University, Guangzhou 510642, China; 
+      Guangdong Provincial Key Laboratory of Plant Molecular Breeding, South China 
+      Agricultural University, Guangzhou 510642, China. Electronic address: 
+      hnian@scau.edu.cn.
+LA  - eng
+PT  - Letter
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20161212
+PL  - England
+TA  - Mol Plant
+JT  - Molecular plant
+JID - 101465514
+RN  - 0 (Nucleotides)
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Adaptation, Physiological/*genetics
+MH  - Alleles
+MH  - Nucleotides/*genetics
+MH  - Plant Proteins/*genetics
+MH  - Polymorphism, Single Nucleotide/*genetics
+MH  - *Quantitative Trait, Heritable
+MH  - Sequence Deletion/*genetics
+MH  - Soybeans/*genetics/*physiology
+EDAT- 2016/12/17 06:00
+MHDA- 2018/11/14 06:00
+CRDT- 2016/12/17 06:00
+PHST- 2016/09/02 00:00 [received]
+PHST- 2016/11/10 00:00 [revised]
+PHST- 2016/12/06 00:00 [accepted]
+PHST- 2016/12/17 06:00 [pubmed]
+PHST- 2018/11/14 06:00 [medline]
+PHST- 2016/12/17 06:00 [entrez]
+AID - S1674-2052(16)30303-3 [pii]
+AID - 10.1016/j.molp.2016.12.004 [doi]
+PST - ppublish
+SO  - Mol Plant. 2017 Apr 3;10(4):656-658. doi: 10.1016/j.molp.2016.12.004. Epub 2016 
+      Dec 12.
+
+
+##### PUB RECORD #####
+## 10.1038/ng.3819  28319089  null  Lu, Zhao et al., 2017  "Lu S, Zhao X, Hu Y, Liu S, Nan H, Li X, Fang C, Cao D, Shi X, Kong L, Su T, Zhang F, Li S, Wang Z, Yuan X, Cober ER, Weller JL, Liu B, Hou X, Tian Z, Kong F. Natural variation at the soybean J locus improves adaptation to the tropics and enhances yield. Nat Genet. 2017 May;49(5):773-779. doi: 10.1038/ng.3819. Epub 2017 Mar 20. PMID: 28319089." ##
+
+PMID- 28319089
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20170918
+LR  - 20220330
+IS  - 1546-1718 (Electronic)
+IS  - 1061-4036 (Linking)
+VI  - 49
+IP  - 5
+DP  - 2017 May
+TI  - Natural variation at the soybean J locus improves adaptation to the tropics and 
+      enhances yield.
+PG  - 773-779
+LID - 10.1038/ng.3819 [doi]
+AB  - Soybean is a major legume crop originating in temperate regions, and photoperiod 
+      responsiveness is a key factor in its latitudinal adaptation. Varieties from 
+      temperate regions introduced to lower latitudes mature early and have extremely 
+      low grain yields. Introduction of the long-juvenile (LJ) trait extends the 
+      vegetative phase and improves yield under short-day conditions, thereby enabling 
+      expansion of cultivation in tropical regions. Here we report the cloning and 
+      characterization of J, the major classical locus conferring the LJ trait, and 
+      identify J as the ortholog of Arabidopsis thaliana EARLY FLOWERING 3 (ELF3). J 
+      depends genetically on the legume-specific flowering repressor E1, and J protein 
+      physically associates with the E1 promoter to downregulate its transcription, 
+      relieving repression of two important FLOWERING LOCUS T (FT) genes and promoting 
+      flowering under short days. Our findings identify an important new component in 
+      flowering-time control in soybean and provide new insight into soybean adaptation 
+      to tropical regions.
+FAU - Lu, Sijia
+AU  - Lu S
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - School of Life Sciences, Guangzhou University, Guangzhou, China.
+FAU - Zhao, Xiaohui
+AU  - Zhao X
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - School of Life Sciences, Guangzhou University, Guangzhou, China.
+FAU - Hu, Yilong
+AU  - Hu Y
+AD  - Key Laboratory of South China Agricultural Plant Molecular Analysis and Genetic 
+      Improvement, and Guangdong Provincial Key Laboratory of Applied Botany, South 
+      China Botanical Garden, Chinese Academy of Sciences, Guangzhou, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Liu, Shulin
+AU  - Liu S
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing, China.
+FAU - Nan, Haiyang
+AU  - Nan H
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+FAU - Li, Xiaoming
+AU  - Li X
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Fang, Chao
+AU  - Fang C
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Cao, Dong
+AU  - Cao D
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - School of Life Sciences, Guangzhou University, Guangzhou, China.
+FAU - Shi, Xinyi
+AU  - Shi X
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+FAU - Kong, Lingping
+AU  - Kong L
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Su, Tong
+AU  - Su T
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Zhang, Fengge
+AU  - Zhang F
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Li, Shichen
+AU  - Li S
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - University of the Chinese Academy of Sciences, Beijing, China.
+FAU - Wang, Zheng
+AU  - Wang Z
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing, China.
+FAU - Yuan, Xiaohui
+AU  - Yuan X
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+FAU - Cober, Elroy R
+AU  - Cober ER
+AUID- ORCID: 0000-0002-4673-1808
+AD  - Eastern Cereal and Oilseed Research Centre, Agriculture and Agri-Food Canada, 
+      Central Experimental Farm, Ottawa, Ontario, Canada.
+FAU - Weller, James L
+AU  - Weller JL
+AD  - School of Plant Science, University of Tasmania, Hobart, Tasmania, Australia.
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - School of Life Sciences, Guangzhou University, Guangzhou, China.
+FAU - Hou, Xingliang
+AU  - Hou X
+AD  - Key Laboratory of South China Agricultural Plant Molecular Analysis and Genetic 
+      Improvement, and Guangdong Provincial Key Laboratory of Applied Botany, South 
+      China Botanical Garden, Chinese Academy of Sciences, Guangzhou, China.
+FAU - Tian, Zhixi
+AU  - Tian Z
+AUID- ORCID: 0000-0001-6051-9670
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing, China.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, China.
+AD  - School of Life Sciences, Guangzhou University, Guangzhou, China.
+LA  - eng
+PT  - Journal Article
+DEP - 20170320
+PL  - United States
+TA  - Nat Genet
+JT  - Nature genetics
+JID - 9216904
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Adaptation, Physiological/*genetics
+MH  - Amino Acid Sequence
+MH  - Base Sequence
+MH  - *Biomass
+MH  - China
+MH  - Flowers/genetics/growth & development
+MH  - Gene Expression Regulation, Developmental
+MH  - Gene Expression Regulation, Plant
+MH  - Gene Regulatory Networks
+MH  - Genetic Loci/*genetics
+MH  - *Genetic Variation
+MH  - Geography
+MH  - Mutation
+MH  - Plant Proteins/genetics/metabolism
+MH  - Promoter Regions, Genetic/genetics
+MH  - Sequence Homology, Amino Acid
+MH  - Sequence Homology, Nucleic Acid
+MH  - Soybeans/classification/*genetics/growth & development
+MH  - Species Specificity
+MH  - *Tropical Climate
+EDAT- 2017/03/21 06:00
+MHDA- 2017/09/19 06:00
+CRDT- 2017/03/21 06:00
+PHST- 2016/10/10 00:00 [received]
+PHST- 2017/02/24 00:00 [accepted]
+PHST- 2017/03/21 06:00 [pubmed]
+PHST- 2017/09/19 06:00 [medline]
+PHST- 2017/03/21 06:00 [entrez]
+AID - ng.3819 [pii]
+AID - 10.1038/ng.3819 [doi]
+PST - ppublish
+SO  - Nat Genet. 2017 May;49(5):773-779. doi: 10.1038/ng.3819. Epub 2017 Mar 20.
+
+
+##### PUB RECORD #####
+## 10.1038/s41588-020-0604-7  32231277  null  Lu, Dong et al., 2020  "Lu S, Dong L, Fang C, Liu S, Kong L, Cheng Q, Chen L, Su T, Nan H, Zhang D, Zhang L, Wang Z, Yang Y, Yu D, Liu X, Yang Q, Lin X, Tang Y, Zhao X, Yang X, Tian C, Xie Q, Li X, Yuan X, Tian Z, Liu B, Weller JL, Kong F. Stepwise selection on homeologous PRR genes controlling flowering and maturity during soybean domestication. Nat Genet. 2020 Apr;52(4):428-436. doi: 10.1038/s41588-020-0604-7. Epub 2020 Mar 30. PMID: 32231277." ##
+
+PMID- 32231277
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20200626
+LR  - 20220607
+IS  - 1546-1718 (Electronic)
+IS  - 1061-4036 (Linking)
+VI  - 52
+IP  - 4
+DP  - 2020 Apr
+TI  - Stepwise selection on homeologous PRR genes controlling flowering and maturity 
+      during soybean domestication.
+PG  - 428-436
+LID - 10.1038/s41588-020-0604-7 [doi]
+AB  - Adaptive changes in plant phenology are often considered to be a feature of the 
+      so-called 'domestication syndrome' that distinguishes modern crops from their 
+      wild progenitors, but little detailed evidence supports this idea. In soybean, a 
+      major legume crop, flowering time variation is well characterized within 
+      domesticated germplasm and is critical for modern production, but its importance 
+      during domestication is unclear. Here, we identify sequential contributions of 
+      two homeologous pseudo-response-regulator genes, Tof12 and Tof11, to ancient 
+      flowering time adaptation, and demonstrate that they act via LHY homologs to 
+      promote expression of the legume-specific E1 gene and delay flowering under long 
+      photoperiods. We show that Tof12-dependent acceleration of maturity accompanied a 
+      reduction in dormancy and seed dispersal during soybean domestication, possibly 
+      predisposing the incipient crop to latitudinal expansion. Better understanding of 
+      this early phase of crop evolution will help to identify functional variation 
+      lost during domestication and exploit its potential for future crop improvement.
+FAU - Lu, Sijia
+AU  - Lu S
+AUID- ORCID: 0000-0002-3110-0915
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+AD  - The Innovative Academy of Seed Design, Key Laboratory of Soybean Molecular Design 
+      Breeding, Northeast Institute of Geography and Agroecology, Chinese Academy of 
+      Sciences, Harbin, China.
+FAU - Dong, Lidong
+AU  - Dong L
+AUID- ORCID: 0000-0002-8085-1678
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Fang, Chao
+AU  - Fang C
+AUID- ORCID: 0000-0003-0564-7586
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Liu, Shulin
+AU  - Liu S
+AUID- ORCID: 0000-0002-0154-2966
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Innovative Academy of Seed Design, Chinese 
+      Academy of Sciences, Beijing, China.
+AD  - University of Chinese Academy of Sciences, Beijing, China.
+FAU - Kong, Lingping
+AU  - Kong L
+AUID- ORCID: 0000-0002-2671-7443
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Cheng, Qun
+AU  - Cheng Q
+AUID- ORCID: 0000-0001-5595-2058
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Chen, Liyu
+AU  - Chen L
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Su, Tong
+AU  - Su T
+AD  - The Innovative Academy of Seed Design, Key Laboratory of Soybean Molecular Design 
+      Breeding, Northeast Institute of Geography and Agroecology, Chinese Academy of 
+      Sciences, Harbin, China.
+AD  - University of Chinese Academy of Sciences, Beijing, China.
+FAU - Nan, Haiyang
+AU  - Nan H
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Zhang, Dan
+AU  - Zhang D
+AD  - Collaborative Innovation Center of Henan Grain Crops, Henan Agricultural 
+      University, Zhengzhou, China.
+FAU - Zhang, Lei
+AU  - Zhang L
+AD  - Anhui Academy of Agricultural Sciences, Hefei, China.
+FAU - Wang, Zhijuan
+AU  - Wang Z
+AD  - State Key Laboratory of Agricultural Microbiology, College of Plant Science and 
+      Technology, Huazhong Agricultural University, Wuhan, China.
+FAU - Yang, Yongqing
+AU  - Yang Y
+AD  - Root Biology Center, College of Resources and Environment, Fujian Agriculture and 
+      Forestry University, Fuzhou, China.
+FAU - Yu, Deyue
+AU  - Yu D
+AD  - National Center for Soybean Improvement, National Key Laboratory of Crop Genetics 
+      and Germplasm Enhancement, Nanjing Agricultural University, Nanjing, China.
+FAU - Liu, Xiaolei
+AU  - Liu X
+AD  - Key Laboratory of Agricultural Animal Genetics, Breeding and Reproduction, 
+      Ministry of Education & College of Animal Science and Technology, Huazhong 
+      Agricultural University, Wuhan, China.
+FAU - Yang, Qingyong
+AU  - Yang Q
+AUID- ORCID: 0000-0002-3510-8906
+AD  - Hubei Key Laboratory of Agricultural Bioinformatics, College of Informatics, 
+      Huazhong Agricultural University, Wuhan, China.
+FAU - Lin, Xiaoya
+AU  - Lin X
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Tang, Yang
+AU  - Tang Y
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Zhao, Xiaohui
+AU  - Zhao X
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Yang, Xinquan
+AU  - Yang X
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Tian, Changen
+AU  - Tian C
+AUID- ORCID: 0000-0002-8410-6624
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China.
+FAU - Xie, Qiguang
+AU  - Xie Q
+AD  - Key Laboratory of Plant Stress Biology, School of Life Sciences, Henan 
+      University, Kaifeng, China.
+FAU - Li, Xia
+AU  - Li X
+AD  - State Key Laboratory of Agricultural Microbiology, College of Plant Science and 
+      Technology, Huazhong Agricultural University, Wuhan, China.
+FAU - Yuan, Xiaohui
+AU  - Yuan X
+AUID- ORCID: 0000-0003-0661-5332
+AD  - School of Computer Science and Technology, Wuhan University of Technology, Wuhan, 
+      China. yuanxiaohui@whut.edu.cn.
+FAU - Tian, Zhixi
+AU  - Tian Z
+AUID- ORCID: 0000-0001-6051-9670
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Innovative Academy of Seed Design, Chinese 
+      Academy of Sciences, Beijing, China. zxtian@genetics.ac.cn.
+AD  - University of Chinese Academy of Sciences, Beijing, China. zxtian@genetics.ac.cn.
+FAU - Liu, Baohui
+AU  - Liu B
+AUID- ORCID: 0000-0003-3491-8293
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China. liubh@iga.ac.cn.
+AD  - The Innovative Academy of Seed Design, Key Laboratory of Soybean Molecular Design 
+      Breeding, Northeast Institute of Geography and Agroecology, Chinese Academy of 
+      Sciences, Harbin, China. liubh@iga.ac.cn.
+FAU - Weller, James L
+AU  - Weller JL
+AUID- ORCID: 0000-0003-2423-8286
+AD  - School of Natural Sciences, University of Tasmania, Hobart, Tasmania, Australia. 
+      jim.weller@utas.edu.au.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AUID- ORCID: 0000-0001-7138-1478
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, China. kongfj@gzhu.edu.cn.
+AD  - The Innovative Academy of Seed Design, Key Laboratory of Soybean Molecular Design 
+      Breeding, Northeast Institute of Geography and Agroecology, Chinese Academy of 
+      Sciences, Harbin, China. kongfj@gzhu.edu.cn.
+AD  - University of Chinese Academy of Sciences, Beijing, China. kongfj@gzhu.edu.cn.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20200330
+PL  - United States
+TA  - Nat Genet
+JT  - Nature genetics
+JID - 9216904
+SB  - IM
+MH  - Crops, Agricultural/*genetics
+MH  - Domestication
+MH  - Fabaceae/genetics
+MH  - Flowers/*genetics
+MH  - Genes, Plant/*genetics
+MH  - Photoperiod
+MH  - Seeds/genetics
+MH  - Soybeans/*genetics
+EDAT- 2020/04/02 06:00
+MHDA- 2020/06/27 06:00
+CRDT- 2020/04/02 06:00
+PHST- 2019/10/09 00:00 [received]
+PHST- 2020/02/27 00:00 [accepted]
+PHST- 2020/04/02 06:00 [pubmed]
+PHST- 2020/06/27 06:00 [medline]
+PHST- 2020/04/02 06:00 [entrez]
+AID - 10.1038/s41588-020-0604-7 [pii]
+AID - 10.1038/s41588-020-0604-7 [doi]
+PST - ppublish
+SO  - Nat Genet. 2020 Apr;52(4):428-436. doi: 10.1038/s41588-020-0604-7. Epub 2020 Mar 
+      30.
+
+
+##### PUB RECORD #####
+## 10.1093/aob/mct269  24284817  PMC3906962  Tsubokura, Watanabe et al., 2013  "Tsubokura Y, Watanabe S, Xia Z, Kanamori H, Yamagata H, Kaga A, Katayose Y, Abe J, Ishimoto M, Harada K. Natural variation in the genes responsible for maturity loci E1, E2, E3 and E4 in soybean. Ann Bot. 2014 Feb;113(3):429-41. doi: 10.1093/aob/mct269. Epub 2013 Nov 26. PMID: 24284817; PMCID: PMC3906962." ##
+
+PMID- 24284817
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20140929
+LR  - 20220309
+IS  - 1095-8290 (Electronic)
+IS  - 0305-7364 (Print)
+IS  - 0305-7364 (Linking)
+VI  - 113
+IP  - 3
+DP  - 2014 Feb
+TI  - Natural variation in the genes responsible for maturity loci E1, E2, E3 and E4 in 
+      soybean.
+PG  - 429-41
+LID - 10.1093/aob/mct269 [doi]
+AB  - BACKGROUND AND AIMS: The timing of flowering has a direct impact on successful 
+      seed production in plants. Flowering of soybean (Glycine max) is controlled by 
+      several E loci, and previous studies identified the genes responsible for the 
+      flowering loci E1, E2, E3 and E4. However, natural variation in these genes has 
+      not been fully elucidated. The aims of this study were the identification of new 
+      alleles, establishment of allele diagnoses, examination of allelic combinations 
+      for adaptability, and analysis of the integrated effect of these loci on 
+      flowering. METHODS: The sequences of these genes and their flanking regions were 
+      determined for 39 accessions by primer walking. Systematic discrimination among 
+      alleles was performed using DNA markers. Genotypes at the E1-E4 loci were 
+      determined for 63 accessions covering several ecological types using DNA markers 
+      and sequencing, and flowering times of these accessions at three sowing times 
+      were recorded. KEY RESULTS: A new allele with an insertion of a long interspersed 
+      nuclear element (LINE) at the promoter of the E1 locus (e1-re) was identified. 
+      Insertion and deletion of 36 bases in the eighth intron (E2-in and E2-dl) were 
+      observed at the E2 locus. Systematic discrimination among the alleles at the 
+      E1-E3 loci was achieved using PCR-based markers. Allelic combinations at the 
+      E1-E4 loci were found to be associated with ecological types, and about 62-66 % 
+      of variation of flowering time could be attributed to these loci. CONCLUSIONS: 
+      The study advances understanding of the combined roles of the E1-E4 loci in 
+      flowering and geographic adaptation, and suggests the existence of unidentified 
+      genes for flowering in soybean.
+FAU - Tsubokura, Yasutaka
+AU  - Tsubokura Y
+AD  - National Institute of Agrobiological Sciences, Tsukuba, Ibaraki 306-8602, Japan.
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+FAU - Xia, Zhengjun
+AU  - Xia Z
+FAU - Kanamori, Hiroyuki
+AU  - Kanamori H
+FAU - Yamagata, Harumi
+AU  - Yamagata H
+FAU - Kaga, Akito
+AU  - Kaga A
+FAU - Katayose, Yuichi
+AU  - Katayose Y
+FAU - Abe, Jun
+AU  - Abe J
+FAU - Ishimoto, Masao
+AU  - Ishimoto M
+FAU - Harada, Kyuya
+AU  - Harada K
+LA  - eng
+SI  - GENBANK/AB795360
+SI  - GENBANK/AB795361
+SI  - GENBANK/AB795362
+SI  - GENBANK/AB795363
+SI  - GENBANK/AB795364
+SI  - GENBANK/AB795365
+SI  - GENBANK/AB795366
+SI  - GENBANK/AB795367
+SI  - GENBANK/AB795368
+SI  - GENBANK/AB795369
+SI  - GENBANK/AB795370
+SI  - GENBANK/AB795371
+SI  - GENBANK/AB795372
+SI  - GENBANK/AB795373
+SI  - GENBANK/AB795374
+SI  - GENBANK/AB795375
+SI  - GENBANK/AB795376
+SI  - GENBANK/AB795377
+SI  - GENBANK/AB795378
+SI  - GENBANK/AB795379
+SI  - GENBANK/AB795380
+SI  - GENBANK/AB795381
+SI  - GENBANK/AB795382
+SI  - GENBANK/AB795383
+SI  - GENBANK/AB795384
+SI  - GENBANK/AB795385
+SI  - GENBANK/AB795386
+SI  - GENBANK/AB795387
+SI  - GENBANK/AB795388
+SI  - GENBANK/AB795389
+SI  - GENBANK/AB795390
+SI  - GENBANK/AB795391
+SI  - GENBANK/AB795392
+SI  - GENBANK/AB797147
+SI  - GENBANK/AB797148
+SI  - GENBANK/AB797149
+SI  - GENBANK/AB797150
+SI  - GENBANK/AB797151
+SI  - GENBANK/AB797152
+SI  - GENBANK/AB797153
+SI  - GENBANK/AB797154
+SI  - GENBANK/AB797155
+SI  - GENBANK/AB797156
+SI  - GENBANK/AB797157
+SI  - GENBANK/AB797158
+SI  - GENBANK/AB797159
+SI  - GENBANK/AB797160
+SI  - GENBANK/AB797161
+SI  - GENBANK/AB797162
+SI  - GENBANK/AB797163
+SI  - GENBANK/AB797164
+SI  - GENBANK/AB797165
+SI  - GENBANK/AB797166
+SI  - GENBANK/AB797167
+SI  - GENBANK/AB797168
+SI  - GENBANK/AB797169
+SI  - GENBANK/AB797170
+SI  - GENBANK/AB797171
+SI  - GENBANK/AB797172
+SI  - GENBANK/AB797173
+SI  - GENBANK/AB797174
+SI  - GENBANK/AB797175
+SI  - GENBANK/AB797176
+SI  - GENBANK/AB797177
+SI  - GENBANK/AB797178
+SI  - GENBANK/AB797179
+SI  - GENBANK/AB797180
+SI  - GENBANK/AB797181
+SI  - GENBANK/AB797182
+SI  - GENBANK/AB797183
+SI  - GENBANK/AB797184
+SI  - GENBANK/AB797185
+SI  - GENBANK/AB797186
+SI  - GENBANK/AB797187
+SI  - GENBANK/AB797188
+SI  - GENBANK/AB797189
+SI  - GENBANK/AB797190
+SI  - GENBANK/AB797191
+SI  - GENBANK/AB797192
+SI  - GENBANK/AB797193
+SI  - GENBANK/AB797194
+SI  - GENBANK/AB797195
+SI  - GENBANK/AB797196
+SI  - GENBANK/AB797197
+SI  - GENBANK/AB797198
+SI  - GENBANK/AB797199
+SI  - GENBANK/AB797200
+SI  - GENBANK/AB797201
+SI  - GENBANK/AB797202
+SI  - GENBANK/AB797203
+SI  - GENBANK/AB797204
+SI  - GENBANK/AB797205
+SI  - GENBANK/AB797206
+SI  - GENBANK/AB797207
+SI  - GENBANK/AB797208
+SI  - GENBANK/AB797209
+SI  - GENBANK/AB797210
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20131126
+PL  - England
+TA  - Ann Bot
+JT  - Annals of botany
+JID - 0372347
+RN  - 0 (Genetic Markers)
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Adaptation, Physiological
+MH  - Alleles
+MH  - Base Sequence
+MH  - Chromosome Mapping
+MH  - Flowers/genetics/physiology
+MH  - *Gene Expression Regulation, Plant
+MH  - Genetic Loci/genetics
+MH  - Genetic Markers/genetics
+MH  - *Genetic Variation
+MH  - Genotype
+MH  - Haplotypes
+MH  - Molecular Sequence Data
+MH  - Photoperiod
+MH  - Plant Proteins/*genetics/metabolism
+MH  - Polymorphism, Single Nucleotide
+MH  - Quantitative Trait Loci/*genetics
+MH  - Seeds/genetics/physiology
+MH  - Sequence Alignment
+MH  - Sequence Analysis, DNA
+MH  - Soybeans/*genetics/physiology
+MH  - Time Factors
+PMC - PMC3906962
+OTO - NOTNLM
+OT  - E locus
+OT  - Glycine max
+OT  - SNP
+OT  - ecological type
+OT  - flowering time
+OT  - haplotype
+OT  - marker-assisted selection
+OT  - single nucleotide polymorphism
+OT  - soybean
+EDAT- 2013/11/29 06:00
+MHDA- 2014/09/30 06:00
+CRDT- 2013/11/29 06:00
+PHST- 2013/11/29 06:00 [entrez]
+PHST- 2013/11/29 06:00 [pubmed]
+PHST- 2014/09/30 06:00 [medline]
+AID - mct269 [pii]
+AID - 10.1093/aob/mct269 [doi]
+PST - ppublish
+SO  - Ann Bot. 2014 Feb;113(3):429-41. doi: 10.1093/aob/mct269. Epub 2013 Nov 26.
+
+
+##### PUB RECORD #####
+## 10.1093/jxb/erw283  27422993  PMC5014162  Takeshima, Hayashi et al., 2016  "Takeshima R, Hayashi T, Zhu J, Zhao C, Xu M, Yamaguchi N, Sayama T, Ishimoto M, Kong L, Shi X, Liu B, Tian Z, Yamada T, Kong F, Abe J. A soybean quantitative trait locus that promotes flowering under long days is identified as FT5a, a FLOWERING LOCUS T ortholog. J Exp Bot. 2016 Sep;67(17):5247-58. doi: 10.1093/jxb/erw283. Epub 2016 Jul 15. PMID: 27422993; PMCID: PMC5014162." ##
+
+PMID- 27422993
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20171107
+LR  - 20181113
+IS  - 1460-2431 (Electronic)
+IS  - 0022-0957 (Print)
+IS  - 0022-0957 (Linking)
+VI  - 67
+IP  - 17
+DP  - 2016 Sep
+TI  - A soybean quantitative trait locus that promotes flowering under long days is 
+      identified as FT5a, a FLOWERING LOCUS T ortholog.
+PG  - 5247-58
+LID - 10.1093/jxb/erw283 [doi]
+AB  - FLOWERING LOCUS T (FT) is an important floral integrator whose functions are 
+      conserved across plant species. In soybean, two orthologs, FT2a and FT5a, play a 
+      major role in initiating flowering. Their expression in response to different 
+      photoperiods is controlled by allelic combinations at the maturity loci E1 to E4, 
+      generating variation in flowering time among cultivars. We determined the 
+      molecular basis of a quantitative trait locus (QTL) for flowering time in linkage 
+      group J (Chromosome 16). Fine-mapping delimited the QTL to a genomic region of 
+      107kb that harbors FT5a We detected 15 DNA polymorphisms between parents with the 
+      early-flowering (ef) and late-flowering (lf) alleles in the promoter region, an 
+      intron, and the 3' untranslated region of FT5a, although the FT5a coding regions 
+      were identical. Transcript abundance of FT5a was higher in near-isogenic lines 
+      for ef than in those for lf, suggesting that different transcriptional activities 
+      or mRNA stability caused the flowering time difference. Single-nucleotide 
+      polymorphism (SNP) calling from re-sequencing data for 439 cultivated and wild 
+      soybean accessions indicated that ef is a rare haplotype that is distinct from 
+      common haplotypes including lf The ef allele at FT5a may play an adaptive role at 
+      latitudes where early flowering is desirable.
+CI  - (c) The Author 2016. Published by Oxford University Press on behalf of the Society 
+      for Experimental Biology.
+FAU - Takeshima, Ryoma
+AU  - Takeshima R
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido 060-8589, 
+      Japan.
+FAU - Hayashi, Takafumi
+AU  - Hayashi T
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido 060-8589, 
+      Japan.
+FAU - Zhu, Jianghui
+AU  - Zhu J
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido 060-8589, 
+      Japan.
+FAU - Zhao, Chen
+AU  - Zhao C
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido 060-8589, 
+      Japan.
+FAU - Xu, Meilan
+AU  - Xu M
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China.
+FAU - Yamaguchi, Naoya
+AU  - Yamaguchi N
+AD  - Hokkaido Research Organization Tokachi Agricultural Experiment Station, Memuro, 
+      Hokkaido 082-0081, Japan.
+FAU - Sayama, Takashi
+AU  - Sayama T
+AD  - National Institute of Agrobiological Sciences, Kannondai, Ibaraki 305-8602, 
+      Japan.
+FAU - Ishimoto, Masao
+AU  - Ishimoto M
+AD  - National Institute of Agrobiological Sciences, Kannondai, Ibaraki 305-8602, 
+      Japan.
+FAU - Kong, Lingping
+AU  - Kong L
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China.
+FAU - Shi, Xinyi
+AU  - Shi X
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China.
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China.
+FAU - Tian, Zhixi
+AU  - Tian Z
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 1001014, 
+      China.
+FAU - Yamada, Tetsuya
+AU  - Yamada T
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido 060-8589, 
+      Japan.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      kongfj@iga.ac.cn jabe@res.agr.hokucai.ac.jp.
+FAU - Abe, Jun
+AU  - Abe J
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido 060-8589, 
+      Japan kongfj@iga.ac.cn jabe@res.agr.hokucai.ac.jp.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20160715
+PL  - England
+TA  - J Exp Bot
+JT  - Journal of experimental botany
+JID - 9882906
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Flowers/*genetics/growth & development/physiology
+MH  - Gene Expression Regulation, Plant
+MH  - Genes, Plant/genetics/physiology
+MH  - Photoperiod
+MH  - Plant Proteins/genetics/physiology
+MH  - Polymorphism, Single Nucleotide/genetics
+MH  - Quantitative Trait Loci/*genetics/physiology
+MH  - Sequence Analysis, DNA
+MH  - Soybeans/*genetics/growth & development/physiology
+PMC - PMC5014162
+OTO - NOTNLM
+OT  - FLOWERING LOCUS T
+OT  - SNP calling
+OT  - flowering time
+OT  - near-isogenic line
+OT  - photoperiod sensitivity
+OT  - quantitative trait locus
+OT  - soybean.
+EDAT- 2016/07/17 06:00
+MHDA- 2017/11/08 06:00
+CRDT- 2016/07/17 06:00
+PHST- 2016/07/17 06:00 [entrez]
+PHST- 2016/07/17 06:00 [pubmed]
+PHST- 2017/11/08 06:00 [medline]
+AID - erw283 [pii]
+AID - 10.1093/jxb/erw283 [doi]
+PST - ppublish
+SO  - J Exp Bot. 2016 Sep;67(17):5247-58. doi: 10.1093/jxb/erw283. Epub 2016 Jul 15.
+
+
+##### PUB RECORD #####
+## 10.1104/pp.15.00763  26134161  PMC4528769  Xu, Yamagishi et al., 2015  "Xu M, Yamagishi N, Zhao C, Takeshima R, Kasai M, Watanabe S, Kanazawa A, Yoshikawa N, Liu B, Yamada T, Abe J. The Soybean-Specific Maturity Gene E1 Family of Floral Repressors Controls Night-Break Responses through Down-Regulation of FLOWERING LOCUS T Orthologs. Plant Physiol. 2015 Aug;168(4):1735-46. doi: 10.1104/pp.15.00763. Epub 2015 Jul 1. PMID: 26134161; PMCID: PMC4528769." ##
+
+PMID- 26134161
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20160511
+LR  - 20220309
+IS  - 1532-2548 (Electronic)
+IS  - 0032-0889 (Print)
+IS  - 0032-0889 (Linking)
+VI  - 168
+IP  - 4
+DP  - 2015 Aug
+TI  - The Soybean-Specific Maturity Gene E1 Family of Floral Repressors Controls 
+      Night-Break Responses through Down-Regulation of FLOWERING LOCUS T Orthologs.
+PG  - 1735-46
+LID - 10.1104/pp.15.00763 [doi]
+AB  - Photoperiodism is a rhythmic change of sensitivity to light, which helps plants 
+      to adjust flowering time according to seasonal changes in daylength and to adapt 
+      to growing conditions at various latitudes. To reveal the molecular basis of 
+      photoperiodism in soybean (Glycine max), a facultative short-day plant, we 
+      analyzed the transcriptional profiles of the maturity gene E1 family and two 
+      FLOWERING LOCUS T (FT) orthologs (FT2a and FT5a). E1, a repressor for FT2a and 
+      FT5a, and its two homologs, E1-like-a (E1La) and E1Lb, exhibited two peaks of 
+      expression in long days. Using two different approaches (experiments with 
+      transition between light and dark phases and night-break experiments), we 
+      revealed that the E1 family genes were expressed only during light periods and 
+      that their induction after dawn in long days required a period of light before 
+      dusk the previous day. In the cultivar Toyomusume, which lacks the E1 gene, 
+      virus-induced silencing of E1La and E1Lb up-regulated the expression of FT2a and 
+      FT5a and led to early flowering. Therefore, E1, E1La, and E1Lb function similarly 
+      in flowering. Regulation of E1 and E1L expression by light was under the control 
+      of E3 and E4, which encode phytochrome A proteins. Our data suggest that 
+      phytochrome A-mediated transcriptional induction of E1 and its homologs by light 
+      plays a critical role in photoperiodic induction of flowering in soybean.
+CI  - (c) 2015 American Society of Plant Biologists. All Rights Reserved.
+FAU - Xu, Meilan
+AU  - Xu M
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Yamagishi, Noriko
+AU  - Yamagishi N
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Zhao, Chen
+AU  - Zhao C
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Takeshima, Ryoma
+AU  - Takeshima R
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Kasai, Megumi
+AU  - Kasai M
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Kanazawa, Akira
+AU  - Kanazawa A
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Yoshikawa, Nobuyuki
+AU  - Yoshikawa N
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.) 
+      liubh@neigaehrb.ac.cn jabe@res.agr.hokudai.ac.jp.
+FAU - Yamada, Tetsuya
+AU  - Yamada T
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.).
+FAU - Abe, Jun
+AU  - Abe J
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin 150081, China 
+      (M.X., B.L.);Faculty of Agriculture, Iwate University, Morioka, Iwate 020-8550, 
+      Japan (N.Ya., N.Yo.);Research Faculty of Agriculture, Hokkaido University, 
+      Sapporo, Hokkaido 060-8589, Japan (C.Z., R.T., M.K., A.K., T.Y., J.A.); 
+      andandFaculty of Agriculture, Saga University, Saga 840-0027, Japan (S.W.) 
+      liubh@neigaehrb.ac.cn jabe@res.agr.hokudai.ac.jp.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20150701
+PL  - United States
+TA  - Plant Physiol
+JT  - Plant physiology
+JID - 0401224
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Amino Acid Sequence
+MH  - *Down-Regulation
+MH  - Flowers/*genetics
+MH  - Gene Expression Regulation, Plant/radiation effects
+MH  - Light
+MH  - Molecular Sequence Data
+MH  - Photoperiod
+MH  - Plant Proteins/*genetics
+MH  - RNA Interference
+MH  - Reverse Transcriptase Polymerase Chain Reaction
+MH  - Sequence Homology, Amino Acid
+MH  - Soybeans/*genetics
+PMC - PMC4528769
+EDAT- 2015/07/03 06:00
+MHDA- 2016/05/12 06:00
+CRDT- 2015/07/03 06:00
+PHST- 2015/05/21 00:00 [received]
+PHST- 2015/06/29 00:00 [accepted]
+PHST- 2015/07/03 06:00 [entrez]
+PHST- 2015/07/03 06:00 [pubmed]
+PHST- 2016/05/12 06:00 [medline]
+AID - pp.15.00763 [pii]
+AID - PP201500763 [pii]
+AID - 10.1104/pp.15.00763 [doi]
+PST - ppublish
+SO  - Plant Physiol. 2015 Aug;168(4):1735-46. doi: 10.1104/pp.15.00763. Epub 2015 Jul 
+      1.
+
+
+##### PUB RECORD #####
+## 10.1104/pp.110.160796  20864544  PMC2971601  Kong, Liu et al., 2010  "Kong F, Liu B, Xia Z, Sato S, Kim BM, Watanabe S, Yamada T, Tabata S, Kanazawa A, Harada K, Abe J. Two coordinately regulated homologs of FLOWERING LOCUS T are involved in the control of photoperiodic flowering in soybean. Plant Physiol. 2010 Nov;154(3):1220-31. doi: 10.1104/pp.110.160796. Epub 2010 Sep 23. PMID: 20864544; PMCID: PMC2971601." ##
+
+PMID- 20864544
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20110210
+LR  - 20220408
+IS  - 1532-2548 (Electronic)
+IS  - 0032-0889 (Print)
+IS  - 0032-0889 (Linking)
+VI  - 154
+IP  - 3
+DP  - 2010 Nov
+TI  - Two coordinately regulated homologs of FLOWERING LOCUS T are involved in the 
+      control of photoperiodic flowering in soybean.
+PG  - 1220-31
+LID - 10.1104/pp.110.160796 [doi]
+AB  - FLOWERING LOCUS T (FT) is a key flowering integrator in Arabidopsis (Arabidopsis 
+      thaliana), with homologs that encode florigens in many plant species regardless 
+      of the type of photoperiodic response. We identified 10 FT homologs, which were 
+      arranged as five pairs of linked genes in different homoeologous chromosomal 
+      regions, in soybean (Glycine max), a paleopolyploid species. Two of the FT 
+      homologs, GmFT2a and GmFT5a, were highly up-regulated under short-day (SD) 
+      conditions (inductive for flowering in soybean) and had diurnal expression 
+      patterns with the highest expression 4 h after dawn. Under long-day (LD) 
+      conditions, expression of GmFT2a and GmFT5a was down-regulated and did not follow 
+      a diurnal pattern. Flowering took much longer to initiate under LD than under SD, 
+      and only the GmFT5a transcript accumulated late in development under LD. Ectopic 
+      expression analysis in Arabidopsis confirmed that both GmFT2a and GmFT5a had the 
+      same function as Arabidopsis FT, but the effect of GmFT5a was more prominent. A 
+      double-mutant soybean line for two PHYTOCHROME A (PHYA) genes expressed high 
+      levels of GmFT2a and GmFT5a under LD, and it flowered slightly earlier under LD 
+      than the wild type grown under SD. The expression levels of GmFT2a and GmFT5a 
+      were regulated by the PHYA-mediated photoperiodic regulation system, and the 
+      GmFT5a expression was also regulated by a photoperiod-independent system in LD. 
+      Taken together, our results suggest that GmFT2a and GmFT5a coordinately control 
+      flowering and enable the adaptation of soybean to a wide range of photoperiodic 
+      environments.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - Northeast Institute of Geography and Agroecology, Chinese Academy of Sciences, 
+      Harbin, China.
+FAU - Liu, Baohui
+AU  - Liu B
+FAU - Xia, Zhengjun
+AU  - Xia Z
+FAU - Sato, Shusei
+AU  - Sato S
+FAU - Kim, Bo Min
+AU  - Kim BM
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+FAU - Yamada, Tetsuya
+AU  - Yamada T
+FAU - Tabata, Satoshi
+AU  - Tabata S
+FAU - Kanazawa, Akira
+AU  - Kanazawa A
+FAU - Harada, Kyuya
+AU  - Harada K
+FAU - Abe, Jun
+AU  - Abe J
+LA  - eng
+SI  - GENBANK/AB550120
+SI  - GENBANK/AB550121
+SI  - GENBANK/AB550122
+SI  - GENBANK/AB550124
+SI  - GENBANK/AB550125
+SI  - GENBANK/AB550126
+SI  - GENBANK/AP011804
+SI  - GENBANK/AP011805
+SI  - GENBANK/AP011806
+SI  - GENBANK/AP011807
+SI  - GENBANK/AP011808
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20100923
+PL  - United States
+TA  - Plant Physiol
+JT  - Plant physiology
+JID - 0401224
+RN  - 0 (DNA, Plant)
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Amino Acid Sequence
+MH  - Arabidopsis/genetics
+MH  - Chromosome Mapping
+MH  - DNA, Plant/genetics
+MH  - Flowers/*physiology
+MH  - Gene Expression Regulation, Plant
+MH  - Molecular Sequence Data
+MH  - *Photoperiod
+MH  - Plant Proteins/genetics/*metabolism
+MH  - Plants, Genetically Modified/genetics
+MH  - Sequence Alignment
+MH  - Sequence Analysis, DNA
+MH  - Soybeans/*genetics/metabolism/physiology
+PMC - PMC2971601
+EDAT- 2010/09/25 06:00
+MHDA- 2011/02/11 06:00
+CRDT- 2010/09/25 06:00
+PHST- 2010/09/25 06:00 [entrez]
+PHST- 2010/09/25 06:00 [pubmed]
+PHST- 2011/02/11 06:00 [medline]
+AID - pp.110.160796 [pii]
+AID - 160796 [pii]
+AID - 10.1104/pp.110.160796 [doi]
+PST - ppublish
+SO  - Plant Physiol. 2010 Nov;154(3):1220-31. doi: 10.1104/pp.110.160796. Epub 2010 Sep 
+      23.
+
+
+##### PUB RECORD #####
+## 10.1105/tpc.114.135103  25663621  PMC4456927  Wang, Zhou et al., 2015  "Wang Z, Zhou Z, Liu Y, Liu T, Li Q, Ji Y, Li C, Fang C, Wang M, Wu M, Shen Y, Tang T, Ma J, Tian Z. Functional evolution of phosphatidylethanolamine binding proteins in soybean and Arabidopsis. Plant Cell. 2015 Feb;27(2):323-36. doi: 10.1105/tpc.114.135103. Epub 2015 Feb 6. PMID: 25663621; PMCID: PMC4456927." ##
+
+PMID- 25663621
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20151201
+LR  - 20220309
+IS  - 1532-298X (Electronic)
+IS  - 1040-4651 (Print)
+IS  - 1040-4651 (Linking)
+VI  - 27
+IP  - 2
+DP  - 2015 Feb
+TI  - Functional evolution of phosphatidylethanolamine binding proteins in soybean and 
+      Arabidopsis.
+PG  - 323-36
+LID - 10.1105/tpc.114.135103 [doi]
+AB  - Gene duplication provides resources for novel gene functions. Identification of 
+      the amino acids responsible for functional conservation and divergence of 
+      duplicated genes will strengthen our understanding of their evolutionary course. 
+      Here, we conducted a systemic functional investigation of 
+      phosphatidylethanolamine binding proteins (PEBPs) in soybean (Glycine max) and 
+      Arabidopsis thaliana. Our results demonstrated that after the ancestral 
+      duplication, the lineage of the common ancestor of the FLOWERING LOCUS T (FT) and 
+      TERMINAL FLOWER1 (TFL1) subfamilies functionally diverged from the MOTHER OF FT 
+      AND TFL1 (MFT) subfamily to activate flowering and repress flowering, 
+      respectively. They also underwent further specialization after subsequent 
+      duplications. Although the functional divergence increased with duplication age, 
+      we observed rapid functional divergence for a few pairs of young duplicates in 
+      soybean. Association analysis between amino acids and functional variations 
+      identified critical amino acid residues that led to functional differences in 
+      PEBP members. Using transgenic analysis, we validated a subset of these 
+      differences. We report clear experimental evidence for the functional evolution 
+      of the PEBPs in the MFT, FT, and TFL1 subfamilies, which predate the origin of 
+      angiosperms. Our results highlight the role of amino acid divergence in driving 
+      evolutionary novelty after duplication.
+CI  - (c) 2015 American Society of Plant Biologists. All rights reserved.
+FAU - Wang, Zheng
+AU  - Wang Z
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China.
+FAU - Zhou, Zhengkui
+AU  - Zhou Z
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China.
+FAU - Liu, Yunfeng
+AU  - Liu Y
+AD  - Department of Agronomy, Purdue University, West Lafayette, Indiana 47907.
+FAU - Liu, Tengfei
+AU  - Liu T
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Li, Qing
+AU  - Li Q
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Ji, Yuanyuan
+AU  - Ji Y
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Li, Congcong
+AU  - Li C
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Fang, Chao
+AU  - Fang C
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Wang, Min
+AU  - Wang M
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Wu, Mian
+AU  - Wu M
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China.
+FAU - Shen, Yanting
+AU  - Shen Y
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China University of Chinese Academy of Sciences, Beijing 100039, China.
+FAU - Tang, Tian
+AU  - Tang T
+AD  - State Key Laboratory of Biocontrol and Key Laboratory of Biodiversity Dynamics 
+      and Conservation of Guangdong Higher Education Institutes, Grant School of Life 
+      Sciences, Sun Yat-Sen University, Guangzhou 510080, China lsstt@mail.sysu.edu.cn 
+      maj@purdue.edu zxtian@genetics.ac.cn.
+FAU - Ma, Jianxin
+AU  - Ma J
+AD  - Department of Agronomy, Purdue University, West Lafayette, Indiana 47907 
+      lsstt@mail.sysu.edu.cn maj@purdue.edu zxtian@genetics.ac.cn.
+FAU - Tian, Zhixi
+AU  - Tian Z
+AD  - State Key Laboratory of Plant Cell and Chromosome Engineering, Institute of 
+      Genetics and Developmental Biology, Chinese Academy of Sciences, Beijing 100101, 
+      China lsstt@mail.sysu.edu.cn maj@purdue.edu zxtian@genetics.ac.cn.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20150206
+PL  - England
+TA  - Plant Cell
+JT  - The Plant cell
+JID - 9208688
+RN  - 0 (Amino Acids)
+RN  - 0 (Phosphatidylethanolamine Binding Protein)
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Amino Acid Sequence
+MH  - Amino Acids/metabolism
+MH  - Arabidopsis/*genetics/metabolism
+MH  - *Evolution, Molecular
+MH  - Flowers/physiology
+MH  - Gene Expression Regulation, Plant
+MH  - Genes, Duplicate
+MH  - Genes, Plant
+MH  - Molecular Sequence Data
+MH  - Phosphatidylethanolamine Binding Protein/chemistry/*genetics/*metabolism
+MH  - Plant Proteins/metabolism
+MH  - Protein Binding
+MH  - Protein Transport
+MH  - Soybeans/*genetics/metabolism
+MH  - Subcellular Fractions/metabolism
+PMC - PMC4456927
+EDAT- 2015/02/11 06:00
+MHDA- 2015/12/15 06:00
+CRDT- 2015/02/10 06:00
+PHST- 2015/02/10 06:00 [entrez]
+PHST- 2015/02/11 06:00 [pubmed]
+PHST- 2015/12/15 06:00 [medline]
+AID - tpc.114.135103 [pii]
+AID - 135103 [pii]
+AID - 10.1105/tpc.114.135103 [doi]
+PST - ppublish
+SO  - Plant Cell. 2015 Feb;27(2):323-36. doi: 10.1105/tpc.114.135103. Epub 2015 Feb 6.
+
+
+##### PUB RECORD #####
+## 10.1111/j.1365-313x.2004.02072.x  15125772  null  Noh, Bizzell et al., 2004  "Noh YS, Bizzell CM, Noh B, Schomburg FM, Amasino RM. EARLY FLOWERING 5 acts as a floral repressor in Arabidopsis. Plant J. 2004 May;38(4):664-72. doi: 10.1111/j.1365-313X.2004.02072.x. PMID: 15125772." ##
+
+PMID- 15125772
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20040709
+LR  - 20061115
+IS  - 0960-7412 (Print)
+IS  - 0960-7412 (Linking)
+VI  - 38
+IP  - 4
+DP  - 2004 May
+TI  - EARLY FLOWERING 5 acts as a floral repressor in Arabidopsis.
+PG  - 664-72
+AB  - EARLY FLOWERING 5 (ELF5) is a single-copy gene involved in flowering time 
+      regulation in Arabidopsis. ELF5 encodes a nuclear-targeted protein that is 
+      related to the human nuclear protein containing a WW domain (Npw)38-binding 
+      protein (NpwBP). Lesions in ELF5 cause early flowering in both long days and 
+      short days. elf5 mutations partially suppress the late flowering of both 
+      autonomous-pathway mutants and FRIGIDA (FRI)-containing lines by reducing the 
+      expression of FLOWERING LOCUS C (FLC), a floral repressor upon which many of the 
+      flowering pathways converge. elf5 mutations also partially suppress 
+      photoperiod-pathway mutants, and this, along with the ability of elf5 mutations 
+      to cause early flowering in short days, indicates that ELF5 also affects 
+      flowering independently of FLC.
+FAU - Noh, Yoo-Sun
+AU  - Noh YS
+AD  - Department of Biochemistry, College of Agricultural and Life Sciences, University 
+      of Wisconsin, Madison, WI 53706-1544, USA.
+FAU - Bizzell, Colleen M
+AU  - Bizzell CM
+FAU - Noh, Bosl
+AU  - Noh B
+FAU - Schomburg, Fritz M
+AU  - Schomburg FM
+FAU - Amasino, Richard M
+AU  - Amasino RM
+LA  - eng
+SI  - GENBANK/AY526094
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+PT  - Research Support, U.S. Gov't, Non-P.H.S.
+PL  - England
+TA  - Plant J
+JT  - The Plant journal : for cell and molecular biology
+JID - 9207397
+RN  - 0 (5' Untranslated Regions)
+RN  - 0 (Arabidopsis Proteins)
+RN  - 0 (DNA Primers)
+RN  - 0 (ELF5 protein, Arabidopsis)
+RN  - 0 (Repressor Proteins)
+SB  - IM
+MH  - 5' Untranslated Regions/genetics
+MH  - Amino Acid Sequence
+MH  - Arabidopsis/*genetics
+MH  - Arabidopsis Proteins/*genetics
+MH  - Base Sequence
+MH  - Circadian Rhythm
+MH  - DNA Primers
+MH  - Flowers/genetics
+MH  - Molecular Sequence Data
+MH  - Polymerase Chain Reaction
+MH  - Protein Biosynthesis/genetics
+MH  - Repressor Proteins/*genetics
+MH  - Seasons
+MH  - Sequence Alignment
+MH  - Sequence Homology, Amino Acid
+EDAT- 2004/05/06 05:00
+MHDA- 2004/07/10 05:00
+CRDT- 2004/05/06 05:00
+PHST- 2004/05/06 05:00 [pubmed]
+PHST- 2004/07/10 05:00 [medline]
+PHST- 2004/05/06 05:00 [entrez]
+AID - TPJ2072 [pii]
+AID - 10.1111/j.1365-313X.2004.02072.x [doi]
+PST - ppublish
+SO  - Plant J. 2004 May;38(4):664-72. doi: 10.1111/j.1365-313X.2004.02072.x.
+
+
+##### PUB RECORD #####
+## 10.1111/jipb.13021  33090664  null  Lin, Liu et al., 2021  "Lin X, Liu B, Weller JL, Abe J, Kong F. Molecular mechanisms for the photoperiodic regulation of flowering in soybean. J Integr Plant Biol. 2021 Jun;63(6):981-994. doi: 10.1111/jipb.13021. Epub 2021 Apr 26. PMID: 33090664." ##
+
+PMID- 33090664
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20210804
+LR  - 20210804
+IS  - 1744-7909 (Electronic)
+IS  - 1672-9072 (Linking)
+VI  - 63
+IP  - 6
+DP  - 2021 Jun
+TI  - Molecular mechanisms for the photoperiodic regulation of flowering in soybean.
+PG  - 981-994
+LID - 10.1111/jipb.13021 [doi]
+AB  - Photoperiodic flowering is one of the most important factors affecting regional 
+      adaptation and yield in soybean (Glycine max). Plant adaptation to long-day 
+      conditions at higher latitudes requires early flowering and a reduction or loss 
+      of photoperiod sensitivity; adaptation to short-day conditions at lower latitudes 
+      involves delayed flowering, which prolongs vegetative growth for maximum yield 
+      potential. Due to the influence of numerous major loci and quantitative trait 
+      loci (QTLs), soybean has broad adaptability across latitudes. Forward genetic 
+      approaches have uncovered the molecular basis for several of these major maturity 
+      genes and QTLs. Moreover, the molecular characterization of orthologs of 
+      Arabidopsis thaliana flowering genes has enriched our understanding of the 
+      photoperiodic flowering pathway in soybean. Building on early insights into the 
+      importance of the photoreceptor phytochrome A, several circadian clock components 
+      have been integrated into the genetic network controlling flowering in soybean: 
+      E1, a repressor of FLOWERING LOCUS T orthologs, plays a central role in this 
+      network. Here, we provide an overview of recent progress in elucidating 
+      photoperiodic flowering in soybean, how it contributes to our fundamental 
+      understanding of flowering time control, and how this information could be used 
+      for molecular design and breeding of high-yielding soybean cultivars.
+CI  - (c) 2020 Institute of Botany, Chinese Academy of Sciences.
+FAU - Lin, Xiaoya
+AU  - Lin X
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, 510642, China.
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, 510642, China.
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China.
+FAU - Weller, James L
+AU  - Weller JL
+AD  - School of Natural Sciences, University of Tasmania, Hobart, Tasmania, 7001, 
+      Australia.
+FAU - Abe, Jun
+AU  - Abe J
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, 060-8589, Japan.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - Innovative Center of Molecular Genetics and Evolution, School of Life Sciences, 
+      Guangzhou University, Guangzhou, 510642, China.
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China.
+LA  - eng
+GR  - National Natural Science Foundation of China/
+GR  - State Key Laboratory for Conservation and Utilization of Subtropical 
+      Agro-bioresources/
+PT  - Journal Article
+PT  - Review
+DEP - 20210426
+PL  - China (Republic : 1949- )
+TA  - J Integr Plant Biol
+JT  - Journal of integrative plant biology
+JID - 101250502
+SB  - IM
+MH  - Circadian Rhythm/genetics/physiology
+MH  - Flowers/genetics/*physiology
+MH  - Gene Expression Regulation, Plant/genetics/physiology
+MH  - Gene Regulatory Networks/genetics/physiology
+MH  - *Photoperiod
+MH  - Plant Breeding
+MH  - Quantitative Trait Loci/genetics
+MH  - Soybeans/genetics/*physiology
+OTO - NOTNLM
+OT  - molecular-designed breeding
+OT  - photoperiodic flowering
+OT  - soybean
+EDAT- 2020/10/23 06:00
+MHDA- 2021/08/05 06:00
+CRDT- 2020/10/22 12:22
+PHST- 2020/08/08 00:00 [received]
+PHST- 2020/09/27 00:00 [accepted]
+PHST- 2020/10/23 06:00 [pubmed]
+PHST- 2021/08/05 06:00 [medline]
+PHST- 2020/10/22 12:22 [entrez]
+AID - 10.1111/jipb.13021 [doi]
+PST - ppublish
+SO  - J Integr Plant Biol. 2021 Jun;63(6):981-994. doi: 10.1111/jipb.13021. Epub 2021 
+      Apr 26.
+
+
+##### PUB RECORD #####
+## 10.1111/nph.14884  29120038  PMC5900889  Liu, Jiang et al., 2008a  "Liu W, Jiang B, Ma L, Zhang S, Zhai H, Xu X, Hou W, Xia Z, Wu C, Sun S, Wu T, Chen L, Han T. Functional diversification of Flowering Locus T homologs in soybean: GmFT1a and GmFT2a/5a have opposite roles in controlling flowering and maturation. New Phytol. 2018 Feb;217(3):1335-1345. doi: 10.1111/nph.14884. Epub 2017 Nov 9. PMID: 29120038; PMCID: PMC5900889." ##
+
+PMID- 29120038
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20191002
+LR  - 20200930
+IS  - 1469-8137 (Electronic)
+IS  - 0028-646X (Print)
+IS  - 0028-646X (Linking)
+VI  - 217
+IP  - 3
+DP  - 2018 Feb
+TI  - Functional diversification of Flowering Locus T homologs in soybean: GmFT1a and 
+      GmFT2a/5a have opposite roles in controlling flowering and maturation.
+PG  - 1335-1345
+LID - 10.1111/nph.14884 [doi]
+AB  - Soybean flowering and maturation are strictly regulated by photoperiod. 
+      Photoperiod-sensitive soybean varieties can undergo flowering reversion when 
+      switched from short-day (SD) to long-day (LD) conditions, suggesting the presence 
+      of a 'floral-inhibitor' under LD conditions. We combined gene expression 
+      profiling with a study of transgenic plants and confirmed that GmFT1a, soybean 
+      Flowering Locus T (FT) homolog, is a floral inhibitor. GmFT1a is expressed 
+      specifically in leaves, similar to the flowering-promoting FT homologs GmFT2a/5a. 
+      However, in Zigongdongdou (ZGDD), a model variety for studying flowering 
+      reversion, GmFT1a expression was induced by LD but inhibited by SD conditions. 
+      This was unexpected, as it is the complete opposite of the expression of 
+      flowering promoters GmFT2a/5a. Moreover, the key soybean maturity gene E1 may 
+      up-regulate GmFT1a expression. It is also notable that GmFT1a expression was 
+      conspicuously high in late-flowering varieties. Transgenic overexpression of 
+      GmFT1a delayed flowering and maturation in soybean, confirming that GmFT1a 
+      functions as a flowering inhibitor. This discovery highlights the complex impacts 
+      of the functional diversification of the FT gene family in soybean, and implies 
+      that antagonism between flowering-inhibiting and flowering-promoting FT homologs 
+      in this highly photoperiod-sensitive plant may specify vegetative vs reproductive 
+      development.
+CI  - (c) 2017 The Authors. New Phytologist (c) 2017 New Phytologist Trust.
+FAU - Liu, Wei
+AU  - Liu W
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Jiang, Bingjun
+AU  - Jiang B
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Ma, Liming
+AU  - Ma L
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Zhang, Shouwei
+AU  - Zhang S
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Zhai, Hong
+AU  - Zhai H
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China.
+FAU - Xu, Xin
+AU  - Xu X
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Hou, Wensheng
+AU  - Hou W
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Xia, Zhengjun
+AU  - Xia Z
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China.
+FAU - Wu, Cunxiang
+AU  - Wu C
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Sun, Shi
+AU  - Sun S
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Wu, Tingting
+AU  - Wu T
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Chen, Li
+AU  - Chen L
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+FAU - Han, Tianfu
+AU  - Han T
+AD  - MOA Key Laboratory of Soybean Biology (Beijing), Institute of Crop Science, The 
+      Chinese Academy of Agricultural Sciences, 12 Zhongguancun South Street, Beijing, 
+      100081, China.
+LA  - eng
+SI  - GENBANK/MG030499
+SI  - GENBANK/MG030623
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20171109
+PL  - England
+TA  - New Phytol
+JT  - The New phytologist
+JID - 9882884
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Flowers/genetics/*physiology
+MH  - Gene Expression Regulation, Plant
+MH  - Haplotypes/genetics
+MH  - Models, Biological
+MH  - Phenotype
+MH  - Plant Proteins/*genetics/metabolism
+MH  - Plants, Genetically Modified
+MH  - *Sequence Homology, Amino Acid
+MH  - Soybeans/*genetics
+MH  - Transcriptome/genetics
+PMC - PMC5900889
+OTO - NOTNLM
+OT  - Flowering Locus T (FT) homolog
+OT  - GmFT1a
+OT  - flowering inhibitor
+OT  - maturation
+OT  - soybean
+EDAT- 2017/11/10 06:00
+MHDA- 2019/10/03 06:00
+CRDT- 2017/11/10 06:00
+PHST- 2017/05/01 00:00 [received]
+PHST- 2017/10/03 00:00 [accepted]
+PHST- 2017/11/10 06:00 [pubmed]
+PHST- 2019/10/03 06:00 [medline]
+PHST- 2017/11/10 06:00 [entrez]
+AID - NPH14884 [pii]
+AID - 10.1111/nph.14884 [doi]
+PST - ppublish
+SO  - New Phytol. 2018 Feb;217(3):1335-1345. doi: 10.1111/nph.14884. Epub 2017 Nov 9.
+
+
+##### PUB RECORD #####
+## 10.1186/1471-2229-14-9  24397545  PMC3890618  Fan, Hu et al., 2014  "Fan C, Hu R, Zhang X, Wang X, Zhang W, Zhang Q, Ma J, Fu YF. Conserved CO-FT regulons contribute to the photoperiod flowering control in soybean. BMC Plant Biol. 2014 Jan 7;14:9. doi: 10.1186/1471-2229-14-9. PMID: 24397545; PMCID: PMC3890618." ##
+
+PMID- 24397545
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20140910
+LR  - 20211021
+IS  - 1471-2229 (Electronic)
+IS  - 1471-2229 (Linking)
+VI  - 14
+DP  - 2014 Jan 7
+TI  - Conserved CO-FT regulons contribute to the photoperiod flowering control in 
+      soybean.
+PG  - 9
+LID - 10.1186/1471-2229-14-9 [doi]
+AB  - BACKGROUND: CO and FT orthologs, belonging to the BBX and PEBP family, 
+      respectively, have important and conserved roles in the photoperiod regulation of 
+      flowering time in plants. Soybean genome experienced at least three rounds of 
+      whole genome duplications (WGDs), which resulted in multiple copies of about 75% 
+      of genes. Subsequent subfunctionalization is the main fate for paralogous gene 
+      pairs during the evolutionary process. RESULTS: The phylogenic relationships 
+      revealed that CO orthologs were widespread in the plant kingdom while FT 
+      orthologs were present only in angiosperms. Twenty-eight CO homologous genes and 
+      twenty-four FT homologous genes were gained in the soybean genome. Based on the 
+      collinear relationship, the soybean ancestral CO ortholog experienced three WGD 
+      events, but only two paralogous gene pairs (GmCOL1/2 and GmCOL5/13) survived in 
+      the modern soybean. The paralogous gene pairs, GmCOL1/2 or GmCOL5/13, showed 
+      similar expression patterns in pair but different between pairs, indicating that 
+      they functionally diverged. GmFTL1 to 7 were derived from the same ancestor prior 
+      to the whole genome triplication (WGT) event, and after the Legume WGD event the 
+      ancestor diverged into two branches, GmFTL3/5/7 and GmFTL1/2/4/6. GmFTL7 were 
+      truncated in the N-terminus compared to other FT-lineage genes, but ubiquitously 
+      expressed. Expressions of GmFTL1 to 6 were higher in leaves at the flowering 
+      stage than that at the seedling stage. GmFTL3 was expressed at the highest level 
+      in all tissues except roots at the seedling stage, and its circadian pattern was 
+      different from the other five ones. The transcript of GmFTL6 was highly 
+      accumulated in seedling roots. The circadian rhythms of GmCOL5/13 and 
+      GmFT1/2/4/5/6 were synchronized in a day, demonstrating the complicate 
+      relationship of CO-FT regulons in soybean leaves. Over-expression of GmCOL2 did 
+      not rescue the flowering phenotype of the Arabidopsis co mutant. However, ectopic 
+      expression of GmCOL5 did rescue the co mutant phenotype. All GmFTL1 to 6 showed 
+      flower-promoting activities in Arabidopsis. CONCLUSIONS: After three recent 
+      rounds of whole genome duplications in the soybean, the paralogous genes of CO-FT 
+      regulons showed subfunctionalization through expression divergence. Then, only 
+      GmCOL5/13 kept flowering-promoting activities, while GmFTL1 to 6 contributed to 
+      flowering control. Additionally, GmCOL5/13 and GmFT1/2/3/4/5/6 showed similar 
+      circadian expression profiles. Therefore, our results suggested that GmCOL5/13 
+      and GmFT1/2/3/4/5/6 formed the complicate CO-FT regulons in the photoperiod 
+      regulation of flowering time in soybean.
+FAU - Fan, Chengming
+AU  - Fan C
+FAU - Hu, Ruibo
+AU  - Hu R
+FAU - Zhang, Xiaomei
+AU  - Zhang X
+FAU - Wang, Xu
+AU  - Wang X
+FAU - Zhang, Wenjing
+AU  - Zhang W
+FAU - Zhang, Qingzhe
+AU  - Zhang Q
+FAU - Ma, Jinhua
+AU  - Ma J
+FAU - Fu, Yong-Fu
+AU  - Fu YF
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing 
+      100081, China. fufu19cn@163.com.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20140107
+PL  - England
+TA  - BMC Plant Biol
+JT  - BMC plant biology
+JID - 100967807
+RN  - 0 (Plant Proteins)
+SB  - IM
+MH  - Circadian Rhythm/physiology
+MH  - Flowers/genetics/*metabolism
+MH  - Gene Duplication/genetics/physiology
+MH  - Photoperiod
+MH  - Phylogeny
+MH  - Plant Proteins/genetics/metabolism
+MH  - Soybeans/genetics/*metabolism
+PMC - PMC3890618
+EDAT- 2014/01/09 06:00
+MHDA- 2014/09/11 06:00
+CRDT- 2014/01/09 06:00
+PHST- 2013/07/28 00:00 [received]
+PHST- 2013/11/25 00:00 [accepted]
+PHST- 2014/01/09 06:00 [entrez]
+PHST- 2014/01/09 06:00 [pubmed]
+PHST- 2014/09/11 06:00 [medline]
+AID - 1471-2229-14-9 [pii]
+AID - 10.1186/1471-2229-14-9 [doi]
+PST - epublish
+SO  - BMC Plant Biol. 2014 Jan 7;14:9. doi: 10.1186/1471-2229-14-9.
+
+
+##### PUB RECORD #####
+## 10.1186/s12870-016-0704-9  26786479  PMC4719747  Zhao, Takeshima et al., 2016  "Zhao C, Takeshima R, Zhu J, Xu M, Sato M, Watanabe S, Kanazawa A, Liu B, Kong F, Yamada T, Abe J. A recessive allele for delayed flowering at the soybean maturity locus E9 is a leaky allele of FT2a, a FLOWERING LOCUS T ortholog. BMC Plant Biol. 2016 Jan 19;16:20. doi: 10.1186/s12870-016-0704-9. PMID: 26786479; PMCID: PMC4719747." ##
+
+PMID- 26786479
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20160906
+LR  - 20220330
+IS  - 1471-2229 (Electronic)
+IS  - 1471-2229 (Linking)
+VI  - 16
+DP  - 2016 Jan 19
+TI  - A recessive allele for delayed flowering at the soybean maturity locus E9 is a 
+      leaky allele of FT2a, a FLOWERING LOCUS T ortholog.
+PG  - 20
+LID - 10.1186/s12870-016-0704-9 [doi]
+LID - 20
+AB  - BACKGROUND: Understanding the molecular mechanisms of flowering and maturity is 
+      important for improving the adaptability and yield of seed crops in different 
+      environments. In soybean, a facultative short-day plant, genetic variation at 
+      four maturity genes, E1 to E4, plays an important role in adaptation to 
+      environments with different photoperiods. However, the molecular basis of natural 
+      variation in time to flowering and maturity is poorly understood. Using a cross 
+      between early-maturing soybean cultivars, we performed a genetic and molecular 
+      study of flowering genes. The progeny of this cross segregated for two maturity 
+      loci, E1 and E9. The latter locus was subjected to detailed molecular analysis to 
+      identify the responsible gene. RESULTS: Fine mapping, sequencing, and expression 
+      analysis revealed that E9 is FT2a, an ortholog of Arabidopsis FLOWERING LOCUS T. 
+      Regardless of daylength conditions, the e9 allele was transcribed at a very low 
+      level in comparison with the E9 allele and delayed flowering. Despite identical 
+      coding sequences, a number of single nucleotide polymorphisms and 
+      insertions/deletions were detected in the promoter, untranslated regions, and 
+      introns between the two cultivars. Furthermore, the e9 allele had a 
+      Ty1/copia-like retrotransposon, SORE-1, inserted in the first intron. Comparison 
+      of the expression levels of different alleles among near-isogenic lines and 
+      photoperiod-insensitive cultivars indicated that the SORE-1 insertion attenuated 
+      FT2a expression by its allele-specific transcriptional repression. SORE-1 was 
+      highly methylated, and did not appear to disrupt FT2a RNA processing. 
+      CONCLUSIONS: The soybean maturity gene E9 is FT2a, and its recessive allele 
+      delays flowering because of lower transcript abundance that is caused by 
+      allele-specific transcriptional repression due to the insertion of SORE-1. The 
+      FT2a transcript abundance is thus directly associated with the variation in 
+      flowering time in soybean. The e9 allele may maintain vegetative growth in 
+      early-flowering genetic backgrounds, and also be useful as a long-juvenile 
+      allele, which causes late flowering under short-daylength conditions, in 
+      low-latitude regions.
+FAU - Zhao, Chen
+AU  - Zhao C
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. zhaochen_1112@126.com.
+FAU - Takeshima, Ryoma
+AU  - Takeshima R
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. take-ryo@res.agr.hokudai.ac.jp.
+FAU - Zhu, Jianghui
+AU  - Zhu J
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. zhu622@res.agr.hokudai.ac.jp.
+FAU - Xu, Meilan
+AU  - Xu M
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China. 
+      xumeilan_1984@yahoo.co.jp.
+FAU - Sato, Masako
+AU  - Sato M
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. satomasa@res.agr.hokudai.ac.jp.
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+AD  - Faculty of Agriculture, Saga University, Saga, 840-0027, Japan. 
+      nabemame@cc.saga-u.ac.jp.
+FAU - Kanazawa, Akira
+AU  - Kanazawa A
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. kanazawa@res.agr.hokudai.ac.jp.
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China. 
+      liubh@neigaehrb.ac.cn.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - The Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, 150081, China. 
+      kongfj@iga.ac.cn.
+FAU - Yamada, Tetsuya
+AU  - Yamada T
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. tetsuyay@res.agr.hokudai.ac.jp.
+FAU - Abe, Jun
+AU  - Abe J
+AD  - Research Faculty of Agriculture, Hokkaido University, Sapporo, Hokkaido, 
+      060-8589, Japan. jabe@res.agr.hokudai.ac.jp.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20160119
+PL  - England
+TA  - BMC Plant Biol
+JT  - BMC plant biology
+JID - 100967807
+SB  - IM
+MH  - Alleles
+MH  - Flowers/*genetics/growth & development
+MH  - *Genes, Plant
+MH  - Genes, Recessive
+MH  - Soybeans/*genetics/growth & development
+PMC - PMC4719747
+EDAT- 2016/01/21 06:00
+MHDA- 2016/09/07 06:00
+CRDT- 2016/01/21 06:00
+PHST- 2015/10/16 00:00 [received]
+PHST- 2016/01/06 00:00 [accepted]
+PHST- 2016/01/21 06:00 [entrez]
+PHST- 2016/01/21 06:00 [pubmed]
+PHST- 2016/09/07 06:00 [medline]
+AID - 10.1186/s12870-016-0704-9 [pii]
+AID - 704 [pii]
+AID - 10.1186/s12870-016-0704-9 [doi]
+PST - epublish
+SO  - BMC Plant Biol. 2016 Jan 19;16:20. doi: 10.1186/s12870-016-0704-9.
+
+
+##### PUB RECORD #####
+## 10.1371/journal.pone.0089030  24586488  PMC3929636  Zhai et al., 2014  "Zhai H, Lü S, Liang S, Wu H, Zhang X, Liu B, Kong F, Yuan X, Li J, Xia Z. GmFT4, a homolog of FLOWERING LOCUS T, is positively regulated by E1 and functions as a flowering repressor in soybean. PLoS One. 2014 Feb 19;9(2):e89030. doi: 10.1371/journal.pone.0089030. PMID: 24586488; PMCID: PMC3929636." ##
+
+PMID- 24586488
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20150110
+LR  - 20220409
+IS  - 1932-6203 (Electronic)
+IS  - 1932-6203 (Linking)
+VI  - 9
+IP  - 2
+DP  - 2014
+TI  - GmFT4, a homolog of FLOWERING LOCUS T, is positively regulated by E1 and 
+      functions as a flowering repressor in soybean.
+PG  - e89030
+LID - 10.1371/journal.pone.0089030 [doi]
+LID - e89030
+AB  - The major maturity gene E1 has the most prominent effect on flowering time and 
+      photoperiod sensitivity of soybean, but the pathway mediated by E1 is largely 
+      unknown. Here, we found the expression of GmFT4, a homolog of Flowering Locus T, 
+      was strongly up-regulated in transgenic soybean overexpressing E1, whereas 
+      expression of flowering activators, GmFT2a and GmFT5a, was suppressed. GmFT4 
+      expression was strongly up-regulated by long days exhibiting a diurnal rhythm, 
+      but down-regulated by short days. Notably, the basal expression level of GmFT4 
+      was elevated when transferred to continous light, whereas repressed when 
+      transferred to continuous dark. GmFT4 was primarily expressed in fully expanded 
+      leaves. Transcript abundance of GmFT4 was significantly correlated with that of 
+      functional E1, as well as flowering time phenotype in different cultivars. 
+      Overexpression of GmFT4 delayed the flowering time in transgenic Arabidopsis. 
+      Taken together, we propose that GmFT4 acts downstream of E1 and functions as a 
+      flowering repressor, and the balance of two antagonistic factors (GmFT4 vs 
+      GmFT2a/5a) determines the flowering time of soybean.
+FAU - Zhai, Hong
+AU  - Zhai H
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Lu, Shixiang
+AU  - Lu S
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Liang, Shuang
+AU  - Liang S
+AD  - College of Life Science, Northeast Agricultural University, Harbin, Heilongjiang, 
+      China.
+FAU - Wu, Hongyan
+AU  - Wu H
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Zhang, Xingzheng
+AU  - Zhang X
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Yuan, Xiaohui
+AU  - Yuan X
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+FAU - Li, Jing
+AU  - Li J
+AD  - College of Life Science, Northeast Agricultural University, Harbin, Heilongjiang, 
+      China.
+FAU - Xia, Zhengjun
+AU  - Xia Z
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, Chinese Academy of Sciences, Harbin, Heilongjiang, 
+      China.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20140219
+PL  - United States
+TA  - PLoS One
+JT  - PloS one
+JID - 101285081
+RN  - 0 (Arabidopsis Proteins)
+RN  - 0 (FT protein, Arabidopsis)
+RN  - 0 (Plant Proteins)
+RN  - 0 (Repressor Proteins)
+RN  - 0 (Transcription Factors)
+SB  - IM
+MH  - Amino Acid Sequence
+MH  - Arabidopsis/genetics
+MH  - Arabidopsis Proteins/genetics
+MH  - Flowers/*genetics
+MH  - Gene Expression Regulation, Plant
+MH  - Molecular Sequence Data
+MH  - Phylogeny
+MH  - Plant Proteins/*genetics
+MH  - Plants, Genetically Modified
+MH  - Repressor Proteins/*genetics
+MH  - Sequence Homology
+MH  - Soybeans/*genetics
+MH  - Transcription Factors/*genetics
+PMC - PMC3929636
+COIS- Competing Interests: The authors have declared that no competing interests exist.
+EDAT- 2014/03/04 06:00
+MHDA- 2015/01/13 06:00
+CRDT- 2014/03/04 06:00
+PHST- 2013/09/14 00:00 [received]
+PHST- 2014/01/19 00:00 [accepted]
+PHST- 2014/03/04 06:00 [entrez]
+PHST- 2014/03/04 06:00 [pubmed]
+PHST- 2015/01/13 06:00 [medline]
+AID - PONE-D-13-37961 [pii]
+AID - 10.1371/journal.pone.0089030 [doi]
+PST - epublish
+SO  - PLoS One. 2014 Feb 19;9(2):e89030. doi: 10.1371/journal.pone.0089030. eCollection 
+      2014.
+
+
+##### PUB RECORD #####
+## 10.1371/journal.pone.0097669  24845624  PMC4028237  Nan, Cao et al., 2014  "Nan H, Cao D, Zhang D, Li Y, Lu S, Tang L, Yuan X, Liu B, Kong F. GmFT2a and GmFT5a redundantly and differentially regulate flowering through interaction with and upregulation of the bZIP transcription factor GmFDL19 in soybean. PLoS One. 2014 May 20;9(5):e97669. doi: 10.1371/journal.pone.0097669. PMID: 24845624; PMCID: PMC4028237." ##
+
+PMID- 24845624
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20150212
+LR  - 20211021
+IS  - 1932-6203 (Electronic)
+IS  - 1932-6203 (Linking)
+VI  - 9
+IP  - 5
+DP  - 2014
+TI  - GmFT2a and GmFT5a redundantly and differentially regulate flowering through 
+      interaction with and upregulation of the bZIP transcription factor GmFDL19 in 
+      soybean.
+PG  - e97669
+LID - 10.1371/journal.pone.0097669 [doi]
+LID - e97669
+AB  - FLOWERING LOCUS T (FT) is the key flowering integrator in Arabidopsis 
+      (Arabidopsis thaliana), and its homologs encode florigens in many plant species 
+      regardless of their photoperiodic response. Two FT homologs, GmFT2a and GmFT5a, 
+      are involved in photoperiod-regulated flowering and coordinately control 
+      flowering in soybean. However, the molecular and genetic understanding of the 
+      roles played by GmFT2a and GmFT5a in photoperiod-regulated flowering in soybean 
+      is very limited. In this study, we demonstrated that GmFT2a and GmFT5a were able 
+      to promote early flowering in soybean by overexpressing these two genes in the 
+      soybean cultivar Williams 82 under noninductive long-day (LD) conditions. The 
+      soybean homologs of several floral identity genes, such as GmAP1, GmSOC1 and 
+      GmLFY, were significantly upregulated by GmFT2a and GmFT5a in a redundant and 
+      differential pattern. A bZIP transcription factor, GmFDL19, was identified as 
+      interacting with both GmFT2a and GmFT5a, and this interaction was confirmed by 
+      yeast two-hybridization and bimolecular fluorescence complementation (BiFC). The 
+      overexpression of GmFDL19 in soybean caused early flowering, and the 
+      transcription levels of the flowering identity genes were also upregulated by 
+      GmFDL19, as was consistent with the upregulation of GmFT2a and GmFT5a. The 
+      transcription of GmFDL19 was also induced by GmFT2a. The results of the 
+      electrophoretic mobility shift assay (EMSA) indicated that GmFDL19 was able to 
+      bind with the cis-elements in the promoter of GmAP1a. Taken together, our results 
+      suggest that GmFT2a and GmFT5a redundantly and differentially control 
+      photoperiod-regulated flowering in soybean through both physical interaction with 
+      and transcriptional upregulation of the bZIP transcription factor GmFDL19, 
+      thereby inducing the expression of floral identity genes.
+FAU - Nan, Haiyang
+AU  - Nan H
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China; 
+      University of Chinese Academy of Sciences, Beijing, China.
+FAU - Cao, Dong
+AU  - Cao D
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China.
+FAU - Zhang, Dayong
+AU  - Zhang D
+AD  - Institute of Biotechnology, Jiangsu Academy of Agricultural Sciences, Nanjing, 
+      China.
+FAU - Li, Ying
+AU  - Li Y
+AD  - State Key Laboratory of Tree Genetics and Breeding, Northeast Forestry 
+      University, Harbin, China.
+FAU - Lu, Sijia
+AU  - Lu S
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China; 
+      University of Chinese Academy of Sciences, Beijing, China.
+FAU - Tang, Lili
+AU  - Tang L
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China.
+FAU - Yuan, Xiaohui
+AU  - Yuan X
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China.
+FAU - Liu, Baohui
+AU  - Liu B
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China.
+FAU - Kong, Fanjiang
+AU  - Kong F
+AD  - The Key of Soybean Molecular Design Breeding, Northeast Institute of Geography 
+      and Agroecology, Chinese Academy of Sciences, Nangang District, Harbin, China.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20140520
+PL  - United States
+TA  - PLoS One
+JT  - PloS one
+JID - 101285081
+RN  - 0 (Plant Proteins)
+RN  - 0 (Transcription Factors)
+SB  - IM
+MH  - Flowers/genetics/*metabolism
+MH  - Gene Expression Regulation, Plant/*physiology
+MH  - Plant Proteins/genetics/*metabolism
+MH  - Soybeans/genetics/*metabolism
+MH  - Transcription Factors/genetics/*metabolism
+MH  - Up-Regulation/*physiology
+PMC - PMC4028237
+COIS- Competing Interests: The authors have declared that no competing interests exist.
+EDAT- 2014/05/23 06:00
+MHDA- 2015/02/13 06:00
+CRDT- 2014/05/22 06:00
+PHST- 2014/03/20 00:00 [received]
+PHST- 2014/04/14 00:00 [accepted]
+PHST- 2014/05/22 06:00 [entrez]
+PHST- 2014/05/23 06:00 [pubmed]
+PHST- 2015/02/13 06:00 [medline]
+AID - PONE-D-14-12622 [pii]
+AID - 10.1371/journal.pone.0097669 [doi]
+PST - epublish
+SO  - PLoS One. 2014 May 20;9(5):e97669. doi: 10.1371/journal.pone.0097669. eCollection 
+      2014.
+
+
+##### PUB RECORD #####
+## 10.1371/journal.pone.0136601  26371882  PMC4570765  Guo, Xu et al., 2015  "Guo G, Xu K, Zhang X, Zhu J, Lu M, Chen F, Liu L, Xi ZY, Bachmair A, Chen Q, Fu YF. Extensive Analysis of GmFTL and GmCOL Expression in Northern Soybean Cultivars in Field Conditions. PLoS One. 2015 Sep 15;10(9):e0136601. doi: 10.1371/journal.pone.0136601. PMID: 26371882; PMCID: PMC4570765." ##
+
+PMID- 26371882
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20160519
+LR  - 20181113
+IS  - 1932-6203 (Electronic)
+IS  - 1932-6203 (Linking)
+VI  - 10
+IP  - 9
+DP  - 2015
+TI  - Extensive Analysis of GmFTL and GmCOL Expression in Northern Soybean Cultivars in 
+      Field Conditions.
+PG  - e0136601
+LID - 10.1371/journal.pone.0136601 [doi]
+LID - e0136601
+AB  - The FLOWERING LOCUS T (FT) gene is a highly conserved florigen gene among 
+      flowering plants. Soybean genome encodes six homologs of FT, which display 
+      flowering activity in Arabidopsis thaliana. However, their contributions to 
+      flowering time in different soybean cultivars, especially in field conditions, 
+      are unclear. We employed six soybean cultivars with different maturities to 
+      extensively investigate expression patterns of GmFTLs (Glycine max FT-like) and 
+      GmCOLs (Glycine max CO-like) in the field conditions. The results show that 
+      GmFTL3 is an FT homolog with the highest transcript abundance in soybean, but 
+      other GmFTLs may also contribute to flower induction with different extents, 
+      because they have more or less similar expression patterns in developmental-, 
+      leaf-, and circadian-specific modes. And four GmCOL genes (GmCOL1/2/5/13) may 
+      confer to the expression of GmFTL genes. Artificial manipulation of GmFTL 
+      expression by transgenic strategy (overexpression and RNAi) results in a distinct 
+      change in soybean flowering time, indicating that GmFTLs not only impact on the 
+      control of flowering time, but have potential applications in the manipulation of 
+      photoperiodic adaptation in soybean. Additionally, transgenic plants show that 
+      GmFTLs play a role in formation of the first flowers and in vegetative growth.
+FAU - Guo, Guangyu
+AU  - Guo G
+AD  - College of Agriculture, Northeast Agricultural University, Harbin, China.
+FAU - Xu, Kun
+AU  - Xu K
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China; Graduate School of Chinese Academy of Agricultural Sciences, Beijing, 
+      China.
+FAU - Zhang, Xiaomei
+AU  - Zhang X
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China.
+FAU - Zhu, Jinlong
+AU  - Zhu J
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China.
+FAU - Lu, Mingyang
+AU  - Lu M
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China; Graduate School of Chinese Academy of Agricultural Sciences, Beijing, 
+      China.
+FAU - Chen, Fulu
+AU  - Chen F
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China.
+FAU - Liu, Linpo
+AU  - Liu L
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China.
+FAU - Xi, Zhang-Ying
+AU  - Xi ZY
+AD  - College of Agronomy, Henan Agricultural University, Zhengzhou, China.
+FAU - Bachmair, Andreas
+AU  - Bachmair A
+AD  - Dept. of Biochemistry and Cell Biology, Max F. Perutz Laboratories, University of 
+      Vienna, Vienna Biocenter, Dr. Bohr Gasse 9, A-1030 Vienna, Austria.
+FAU - Chen, Qingshan
+AU  - Chen Q
+AD  - College of Agriculture, Northeast Agricultural University, Harbin, China.
+FAU - Fu, Yong-Fu
+AU  - Fu YF
+AD  - MOA Key Lab of Soybean Biology (Beijing), National Key Facility of Crop Gene 
+      Resource and Genetic Improvement, Institute of Crop Sciences, Chinese Academy of 
+      Agricultural Sciences, 12 Zhongguancun Nandajie, Haidian District, Beijing, 
+      China.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20150915
+PL  - United States
+TA  - PLoS One
+JT  - PloS one
+JID - 101285081
+RN  - 0 (Plant Proteins)
+RN  - 0 (Transcription Factors)
+SB  - IM
+MH  - Arabidopsis/genetics/metabolism
+MH  - Flowers/genetics/*metabolism
+MH  - Gene Expression Regulation, Plant/*physiology
+MH  - Plant Proteins/*biosynthesis/genetics
+MH  - Soybeans/genetics/*metabolism
+MH  - Transcription Factors/genetics/*metabolism
+PMC - PMC4570765
+COIS- Competing Interests: The authors have declared that no competing interests exist.
+EDAT- 2015/09/16 06:00
+MHDA- 2016/05/20 06:00
+CRDT- 2015/09/16 06:00
+PHST- 2015/04/28 00:00 [received]
+PHST- 2015/08/06 00:00 [accepted]
+PHST- 2015/09/16 06:00 [entrez]
+PHST- 2015/09/16 06:00 [pubmed]
+PHST- 2016/05/20 06:00 [medline]
+AID - PONE-D-15-18351 [pii]
+AID - 10.1371/journal.pone.0136601 [doi]
+PST - epublish
+SO  - PLoS One. 2015 Sep 15;10(9):e0136601. doi: 10.1371/journal.pone.0136601. 
+      eCollection 2015.
+
+
+##### PUB RECORD #####
+## 10.1534/genetics.108.098772  19474204  PMC2728863  Watanabe, Hideshima et al., 2009  "Watanabe S, Hideshima R, Xia Z, Tsubokura Y, Sato S, Nakamoto Y, Yamanaka N, Takahashi R, Ishimoto M, Anai T, Tabata S, Harada K. Map-based cloning of the gene associated with the soybean maturity locus E3. Genetics. 2009 Aug;182(4):1251-62. doi: 10.1534/genetics.108.098772. Epub 2009 May 27. PMID: 19474204; PMCID: PMC2728863." ##
+
+PMID- 19474204
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20100201
+LR  - 20220330
+IS  - 1943-2631 (Electronic)
+IS  - 0016-6731 (Print)
+IS  - 0016-6731 (Linking)
+VI  - 182
+IP  - 4
+DP  - 2009 Aug
+TI  - Map-based cloning of the gene associated with the soybean maturity locus E3.
+PG  - 1251-62
+LID - 10.1534/genetics.108.098772 [doi]
+AB  - Photosensitivity plays an essential role in the response of plants to their 
+      changing environments throughout their life cycle. In soybean [Glycine max (L.) 
+      Merrill], several associations between photosensitivity and maturity loci are 
+      known, but only limited information at the molecular level is available. The FT3 
+      locus is one of the quantitative trait loci (QTL) for flowering time that 
+      corresponds to the maturity locus E3. To identify the gene responsible for this 
+      QTL, a map-based cloning strategy was undertaken. One phytochrome A gene 
+      (GmPhyA3) was considered a strong candidate for the FT3 locus. Allelism tests and 
+      gene sequence comparisons showed that alleles of Misuzudaizu (FT3/FT3; JP28856) 
+      and Harosoy (E3/E3; PI548573) were identical. The GmPhyA3 alleles of Moshidou 
+      Gong 503 (ft3/ft3; JP27603) and L62-667 (e3/e3; PI547716) showed weak or complete 
+      loss of function, respectively. High red/far-red (R/FR) long-day conditions 
+      enhanced the effects of the E3/FT3 alleles in various genetic backgrounds. 
+      Moreover, a mutant line harboring the nonfunctional GmPhyA3 flowered earlier than 
+      the original Bay (E3/E3; PI553043) under similar conditions. These results 
+      suggest that the variation in phytochrome A may contribute to the complex systems 
+      of soybean flowering response and geographic adaptation.
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+AD  - National Institute of Agrobiological Sciences, Tsukuba, Ibaraki 305-8602, Japan.
+FAU - Hideshima, Rumiko
+AU  - Hideshima R
+FAU - Xia, Zhengjun
+AU  - Xia Z
+FAU - Tsubokura, Yasutaka
+AU  - Tsubokura Y
+FAU - Sato, Shusei
+AU  - Sato S
+FAU - Nakamoto, Yumi
+AU  - Nakamoto Y
+FAU - Yamanaka, Naoki
+AU  - Yamanaka N
+FAU - Takahashi, Ryoji
+AU  - Takahashi R
+FAU - Ishimoto, Masao
+AU  - Ishimoto M
+FAU - Anai, Toyoaki
+AU  - Anai T
+FAU - Tabata, Satoshi
+AU  - Tabata S
+FAU - Harada, Kyuya
+AU  - Harada K
+LA  - eng
+SI  - GENBANK/AB462634
+SI  - GENBANK/AB462635
+SI  - GENBANK/AB462636
+SI  - GENBANK/AB462637
+SI  - GENBANK/AB462638
+SI  - GENBANK/AB462639
+SI  - GENBANK/AB462640
+SI  - GENBANK/AB462641
+SI  - GENBANK/AB465249
+SI  - GENBANK/AB465250
+SI  - GENBANK/AB465251
+SI  - GENBANK/AB465252
+SI  - GENBANK/AB465253
+SI  - GENBANK/AB465254
+SI  - GENBANK/AB465255
+SI  - GENBANK/AB465256
+SI  - GENBANK/AB465257
+SI  - GENBANK/AB465258
+SI  - GENBANK/AB468152
+SI  - GENBANK/AB468153
+SI  - GENBANK/AB468154
+SI  - GENBANK/AB468155
+SI  - GENBANK/AP010916
+SI  - GENBANK/AP010917
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20090527
+PL  - United States
+TA  - Genetics
+JT  - Genetics
+JID - 0374636
+RN  - 0 (Phytochrome A)
+SB  - IM
+MH  - Alleles
+MH  - Base Sequence
+MH  - Cloning, Molecular/*methods
+MH  - Flowers/genetics
+MH  - Genes, Plant/*genetics
+MH  - Molecular Sequence Data
+MH  - Phytochrome A/*genetics
+MH  - *Quantitative Trait Loci
+MH  - Soybeans/*genetics
+PMC - PMC2728863
+EDAT- 2009/05/29 09:00
+MHDA- 2010/02/02 06:00
+CRDT- 2009/05/29 09:00
+PHST- 2009/05/29 09:00 [entrez]
+PHST- 2009/05/29 09:00 [pubmed]
+PHST- 2010/02/02 06:00 [medline]
+AID - genetics.108.098772 [pii]
+AID - gen18241251 [pii]
+AID - 10.1534/genetics.108.098772 [doi]
+PST - ppublish
+SO  - Genetics. 2009 Aug;182(4):1251-62. doi: 10.1534/genetics.108.098772. Epub 2009 
+      May 27.
+
+
+##### PUB RECORD #####
+## 10.1534/genetics.110.125062  21406680  PMC3122305  Watanabe, Xia et al., 2011  "Watanabe S, Xia Z, Hideshima R, Tsubokura Y, Sato S, Yamanaka N, Takahashi R, Anai T, Tabata S, Kitamura K, Harada K. A map-based cloning strategy employing a residual heterozygous line reveals that the GIGANTEA gene is involved in soybean maturity and flowering. Genetics. 2011 Jun;188(2):395-407. doi: 10.1534/genetics.110.125062. Epub 2011 Mar 15. PMID: 21406680; PMCID: PMC3122305." ##
+
+PMID- 21406680
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20111020
+LR  - 20220420
+IS  - 1943-2631 (Electronic)
+IS  - 0016-6731 (Print)
+IS  - 0016-6731 (Linking)
+VI  - 188
+IP  - 2
+DP  - 2011 Jun
+TI  - A map-based cloning strategy employing a residual heterozygous line reveals that 
+      the GIGANTEA gene is involved in soybean maturity and flowering.
+PG  - 395-407
+LID - 10.1534/genetics.110.125062 [doi]
+AB  - Flowering is indicative of the transition from vegetative to reproductive phase, 
+      a critical event in the life cycle of plants. In soybean (Glycine max), a 
+      flowering quantitative trait locus, FT2, corresponding to the maturity locus E2, 
+      was detected in recombinant inbred lines (RILs) derived from the varieties 
+      "Misuzudaizu" (ft2/ft2; JP28856) and "Moshidou Gong 503" (FT2/FT2; JP27603). A 
+      map-based cloning strategy using the progeny of a residual heterozygous line 
+      (RHL) from the RIL was employed to isolate the gene responsible for this 
+      quantitative trait locus. A GIGANTEA ortholog, GmGIa (Glyma10g36600), was 
+      identified as a candidate gene. A common premature stop codon at the 10th exon 
+      was present in the Misuzudaizu allele and in other near isogenic lines (NILs) 
+      originating from Harosoy (e2/e2; PI548573). Furthermore, a mutant line harboring 
+      another premature stop codon showed an earlier flowering phenotype than the 
+      original variety, Bay (E2/E2; PI553043). The e2/e2 genotype exhibited elevated 
+      expression of GmFT2a, one of the florigen genes that leads to early flowering. 
+      The effects of the E2 allele on flowering time were similar among NILs and 
+      constant under high (43 degrees N) and middle (36 degrees N) latitudinal regions in Japan. These 
+      results indicate that GmGIa is the gene responsible for the E2 locus and that a 
+      null mutation in GmGIa may contribute to the geographic adaptation of soybean.
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+AD  - National Institute of Agrobiological Sciences, Tsukuba, Ibaraki, Japan.
+FAU - Xia, Zhengjun
+AU  - Xia Z
+FAU - Hideshima, Rumiko
+AU  - Hideshima R
+FAU - Tsubokura, Yasutaka
+AU  - Tsubokura Y
+FAU - Sato, Shusei
+AU  - Sato S
+FAU - Yamanaka, Naoki
+AU  - Yamanaka N
+FAU - Takahashi, Ryoji
+AU  - Takahashi R
+FAU - Anai, Toyoaki
+AU  - Anai T
+FAU - Tabata, Satoshi
+AU  - Tabata S
+FAU - Kitamura, Keisuke
+AU  - Kitamura K
+FAU - Harada, Kyuya
+AU  - Harada K
+LA  - eng
+SI  - GENBANK/AB554196
+SI  - GENBANK/AB554197
+SI  - GENBANK/AB554198
+SI  - GENBANK/AB554199
+SI  - GENBANK/AB554200
+SI  - GENBANK/AB554201
+SI  - GENBANK/AB554202
+SI  - GENBANK/AB554203
+SI  - GENBANK/AB554204
+SI  - GENBANK/AB554205
+SI  - GENBANK/AB554206
+SI  - GENBANK/AB554207
+SI  - GENBANK/AB554208
+SI  - GENBANK/AB554209
+SI  - GENBANK/AB554210
+SI  - GENBANK/AB554211
+SI  - GENBANK/AB554212
+SI  - GENBANK/AB554213
+SI  - GENBANK/AB554214
+SI  - GENBANK/AB554215
+SI  - GENBANK/AB554216
+SI  - GENBANK/AB554217
+SI  - GENBANK/AB554218
+SI  - GENBANK/AB554219
+SI  - GENBANK/AB554220
+SI  - GENBANK/AB554221
+SI  - GENBANK/AB554222
+SI  - GENBANK/AP011810
+SI  - GENBANK/AP011811
+SI  - GENBANK/AP011813
+SI  - GENBANK/AP011821
+SI  - GENBANK/AP011822
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+DEP - 20110315
+PL  - United States
+TA  - Genetics
+JT  - Genetics
+JID - 0374636
+RN  - 0 (DNA, Plant)
+RN  - 0 (Plant Proteins)
+RN  - 0 (Soybean Proteins)
+SB  - IM
+MH  - Acclimatization/genetics
+MH  - Altitude
+MH  - Amplified Fragment Length Polymorphism Analysis
+MH  - Chromosome Mapping
+MH  - Chromosomes, Plant/genetics
+MH  - Cloning, Molecular/*methods
+MH  - DNA, Plant/chemistry/genetics
+MH  - Flowers/*genetics/growth & development
+MH  - Gene Expression Regulation, Developmental
+MH  - Gene Expression Regulation, Plant
+MH  - Heterozygote
+MH  - Lod Score
+MH  - Molecular Sequence Data
+MH  - Mutation
+MH  - Phylogeny
+MH  - Plant Proteins/classification/*genetics
+MH  - Quantitative Trait Loci/genetics
+MH  - Reverse Transcriptase Polymerase Chain Reaction
+MH  - Sequence Analysis, DNA
+MH  - Soybean Proteins/genetics
+MH  - Soybeans/*genetics/growth & development
+MH  - Time Factors
+PMC - PMC3122305
+EDAT- 2011/03/17 06:00
+MHDA- 2011/10/21 06:00
+CRDT- 2011/03/17 06:00
+PHST- 2011/03/17 06:00 [entrez]
+PHST- 2011/03/17 06:00 [pubmed]
+PHST- 2011/10/21 06:00 [medline]
+AID - genetics.110.125062 [pii]
+AID - 125062 [pii]
+AID - 10.1534/genetics.110.125062 [doi]
+PST - ppublish
+SO  - Genetics. 2011 Jun;188(2):395-407. doi: 10.1534/genetics.110.125062. Epub 2011 
+      Mar 15.
+
+
+##### PUB RECORD #####
+## 10.3389/fpls.2019.01221  31787988  PMC6856076  Wu, Kang et al., 2019  "Wu F, Kang X, Wang M, Haider W, Price WB, Hajek B, Hanzawa Y. Transcriptome-Enabled Network Inference Revealed the <i>GmCOL1</i> Feed-Forward Loop and Its Roles in Photoperiodic Flowering of Soybean. Front Plant Sci. 2019 Nov 8;10:1221. doi: 10.3389/fpls.2019.01221. PMID: 31787988; PMCID: PMC6856076." ##
+
+PMID- 31787988
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+LR  - 20201001
+IS  - 1664-462X (Print)
+IS  - 1664-462X (Electronic)
+IS  - 1664-462X (Linking)
+VI  - 10
+DP  - 2019
+TI  - Transcriptome-Enabled Network Inference Revealed the GmCOL1 Feed-Forward Loop and 
+      Its Roles in Photoperiodic Flowering of Soybean.
+PG  - 1221
+LID - 10.3389/fpls.2019.01221 [doi]
+LID - 1221
+AB  - Photoperiodic flowering, a plant response to seasonal photoperiod changes in the 
+      control of reproductive transition, is an important agronomic trait that has been 
+      a central target of crop domestication and modern breeding programs. However, our 
+      understanding about the molecular mechanisms of photoperiodic flowering 
+      regulation in crop species is lagging behind. To better understand the regulatory 
+      gene networks controlling photoperiodic flowering of soybeans, we elucidated 
+      global gene expression patterns under different photoperiod regimes using the 
+      near isogenic lines (NILs) of maturity loci (E loci). Transcriptome signatures 
+      identified the unique roles of the E loci in photoperiodic flowering and a set of 
+      genes controlled by these loci. To elucidate the regulatory gene networks 
+      underlying photoperiodic flowering regulation, we developed the network inference 
+      algorithmic package CausNet that integrates sparse linear regression and Granger 
+      causality heuristics, with Gaussian approximation of bootstrapping to provide 
+      reliability scores for predicted regulatory interactions. Using the transcriptome 
+      data, CausNet inferred regulatory interactions among soybean flowering genes. 
+      Published reports in the literature provided empirical verification for several 
+      of CausNet's inferred regulatory interactions. We further confirmed the inferred 
+      regulatory roles of the flowering suppressors GmCOL1a and GmCOL1b using GmCOL1 
+      RNAi transgenic soybean plants. Combinations of the alleles of GmCOL1 and the 
+      major maturity locus E1 demonstrated positive interaction between these genes, 
+      leading to enhanced suppression of flowering transition. Our work provides novel 
+      insights and testable hypotheses in the complex molecular mechanisms of 
+      photoperiodic flowering control in soybean and lays a framework for de novo 
+      prediction of biological networks controlling important agronomic traits in 
+      crops.
+CI  - Copyright (c) 2019 Wu, Kang, Wang, Haider, Price, Hajek and Hanzawa.
+FAU - Wu, Faqiang
+AU  - Wu F
+AD  - Department of Biology, California State University, Northridge, CA, United 
+      States.
+FAU - Kang, Xiaohan
+AU  - Kang X
+AD  - Department of Electrical Computer Engineering, University of Illinois at 
+      Urbana-Champaign, Champaign, IL, United States.
+FAU - Wang, Minglei
+AU  - Wang M
+AD  - Department of Crop Sciences, University of Illinois at Urbana-Champaign, 
+      Champaign, IL, United States.
+FAU - Haider, Waseem
+AU  - Haider W
+AD  - Department of Biosciences, COMSATS University Islamabad, Pakistan.
+FAU - Price, William B
+AU  - Price WB
+AD  - Department of Electrical Computer Engineering, University of Illinois at 
+      Urbana-Champaign, Champaign, IL, United States.
+FAU - Hajek, Bruce
+AU  - Hajek B
+AD  - Department of Crop Sciences, University of Illinois at Urbana-Champaign, 
+      Champaign, IL, United States.
+FAU - Hanzawa, Yoshie
+AU  - Hanzawa Y
+AD  - Department of Biology, California State University, Northridge, CA, United 
+      States.
+LA  - eng
+PT  - Journal Article
+DEP - 20191108
+PL  - Switzerland
+TA  - Front Plant Sci
+JT  - Frontiers in plant science
+JID - 101568200
+PMC - PMC6856076
+OTO - NOTNLM
+OT  - Glycine max
+OT  - feedforward loop
+OT  - network inference
+OT  - photoperiodic flowering
+OT  - transcriptome
+EDAT- 2019/12/04 06:00
+MHDA- 2019/12/04 06:01
+CRDT- 2019/12/03 06:00
+PHST- 2019/06/21 00:00 [received]
+PHST- 2019/09/04 00:00 [accepted]
+PHST- 2019/12/03 06:00 [entrez]
+PHST- 2019/12/04 06:00 [pubmed]
+PHST- 2019/12/04 06:01 [medline]
+AID - 10.3389/fpls.2019.01221 [doi]
+PST - epublish
+SO  - Front Plant Sci. 2019 Nov 8;10:1221. doi: 10.3389/fpls.2019.01221. eCollection 
+      2019.
+
+
+##### PUB RECORD #####
+## 10.3389/fpls.2021.632754  33995435  PMC8113421  Xia, Zhai et al., 2012  "Xia Z, Zhai H, Wu H, Xu K, Watanabe S, Harada K. The Synchronized Efforts to Decipher the Molecular Basis for Soybean Maturity Loci <i>E1</i>, <i>E2</i>, and <i>E3</i> That Regulate Flowering and Maturity. Front Plant Sci. 2021 Apr 28;12:632754. doi: 10.3389/fpls.2021.632754. PMID: 33995435; PMCID: PMC8113421." ##
+
+PMID- 33995435
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+LR  - 20210518
+IS  - 1664-462X (Print)
+IS  - 1664-462X (Electronic)
+IS  - 1664-462X (Linking)
+VI  - 12
+DP  - 2021
+TI  - The Synchronized Efforts to Decipher the Molecular Basis for Soybean Maturity 
+      Loci E1, E2, and E3 That Regulate Flowering and Maturity.
+PG  - 632754
+LID - 10.3389/fpls.2021.632754 [doi]
+LID - 632754
+AB  - The general concept of photoperiodism, i.e., the photoperiodic induction of 
+      flowering, was established by Garner and Allard (1920). The genetic factor 
+      controlling flowering time, maturity, or photoperiodic responses was observed in 
+      soybean soon after the discovery of the photoperiodism. E1, E2, and E3 were named 
+      in 1971 and, thereafter, genetically characterized. At the centennial celebration 
+      of the discovery of photoperiodism in soybean, we recount our endeavors to 
+      successfully decipher the molecular bases for the major maturity loci E1, E2, and 
+      E3 in soybean. Through systematic efforts, we successfully cloned the E3 gene in 
+      2009, the E2 gene in 2011, and the E1 gene in 2012. Recently, successful 
+      identification of several circadian-related genes such as PRR3a, LUX, and J has 
+      enriched the known major E1-FTs pathway. Further research progresses on the 
+      identification of new flowering and maturity-related genes as well as coordinated 
+      regulation between flowering genes will enable us to understand profoundly 
+      flowering gene network and determinants of latitudinal adaptation in soybean.
+CI  - Copyright (c) 2021 Xia, Zhai, Wu, Xu, Watanabe and Harada.
+FAU - Xia, Zhengjun
+AU  - Xia Z
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, The Innovative Academy of Seed Design, Chinese Academy 
+      of Sciences, Harbin, China.
+FAU - Zhai, Hong
+AU  - Zhai H
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, The Innovative Academy of Seed Design, Chinese Academy 
+      of Sciences, Harbin, China.
+FAU - Wu, Hongyan
+AU  - Wu H
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, The Innovative Academy of Seed Design, Chinese Academy 
+      of Sciences, Harbin, China.
+FAU - Xu, Kun
+AU  - Xu K
+AD  - Key Laboratory of Soybean Molecular Design Breeding, Northeast Institute of 
+      Geography and Agroecology, The Innovative Academy of Seed Design, Chinese Academy 
+      of Sciences, Harbin, China.
+FAU - Watanabe, Satoshi
+AU  - Watanabe S
+AD  - Faculty of Agriculture, Saga University, Saga, Japan.
+FAU - Harada, Kyuya
+AU  - Harada K
+AD  - Department of Biotechnology, Graduate School of Engineering, Osaka University, 
+      Suita, Japan.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20210428
+PL  - Switzerland
+TA  - Front Plant Sci
+JT  - Frontiers in plant science
+JID - 101568200
+PMC - PMC8113421
+OTO - NOTNLM
+OT  - E1
+OT  - flowering time
+OT  - maturity
+OT  - photoperiodic response
+OT  - positional cloning
+OT  - soybean
+COIS- The authors declare that the research was conducted in the absence of any 
+      commercial or financial relationships that could be construed as a potential 
+      conflict of interest.
+EDAT- 2021/05/18 06:00
+MHDA- 2021/05/18 06:01
+CRDT- 2021/05/17 06:04
+PHST- 2020/11/24 00:00 [received]
+PHST- 2021/03/02 00:00 [accepted]
+PHST- 2021/05/17 06:04 [entrez]
+PHST- 2021/05/18 06:00 [pubmed]
+PHST- 2021/05/18 06:01 [medline]
+AID - 10.3389/fpls.2021.632754 [doi]
+PST - epublish
+SO  - Front Plant Sci. 2021 Apr 28;12:632754. doi: 10.3389/fpls.2021.632754. 
+      eCollection 2021.
+
+
+##### PUB RECORD #####
+## 10.3389/fpls.2022.889066  35574141  PMC9100572  Dietz, Chan et al., 2023  "Dietz N, Chan YO, Scaboo A, Graef G, Hyten D, Happ M, Diers B, Lorenz A, Wang D, Joshi T, Bilyeu K. Candidate Genes Modulating Reproductive Timing in Elite US Soybean Lines Identified in Soybean Alleles of <i>Arabidopsis</i> Flowering Orthologs With Divergent Latitude Distribution. Front Plant Sci. 2022 Apr 29;13:889066. doi: 10.3389/fpls.2022.889066. PMID: 35574141; PMCID: PMC9100572." ##
+
+PMID- 35574141
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+LR  - 20220519
+IS  - 1664-462X (Print)
+IS  - 1664-462X (Electronic)
+IS  - 1664-462X (Linking)
+VI  - 13
+DP  - 2022
+TI  - Candidate Genes Modulating Reproductive Timing in Elite US Soybean Lines 
+      Identified in Soybean Alleles of Arabidopsis Flowering Orthologs With Divergent 
+      Latitude Distribution.
+PG  - 889066
+LID - 10.3389/fpls.2022.889066 [doi]
+LID - 889066
+AB  - Adaptation of soybean cultivars to the photoperiod in which they are grown is 
+      critical for optimizing plant yield. However, despite its importance, only the 
+      major loci conferring variation in flowering time and maturity of US soybean have 
+      been isolated. By contrast, over 200 genes contributing to floral induction in 
+      the model organism Arabidopsis thaliana have been described. In this work, 
+      putative alleles of a library of soybean orthologs of these Arabidopsis flowering 
+      genes were tested for their latitudinal distribution among elite US soybean lines 
+      developed in the United States. Furthermore, variants comprising the alleles of 
+      genes with significant differences in latitudinal distribution were assessed for 
+      amino acid conservation across disparate genera to infer their impact on gene 
+      function. From these efforts, several candidate genes from various biological 
+      pathways were identified that are likely being exploited toward adaptation of US 
+      soybean to various maturity groups.
+CI  - Copyright (c) 2022 Dietz, Chan, Scaboo, Graef, Hyten, Happ, Diers, Lorenz, Wang, 
+      Joshi and Bilyeu.
+FAU - Dietz, Nicholas
+AU  - Dietz N
+AD  - Division of Plant Science and Technology, University of Missouri, Columbia, MO, 
+      United States.
+FAU - Chan, Yen On
+AU  - Chan YO
+AD  - Christopher S. Bond Life Sciences Center, University of Missouri, Columbia, MO, 
+      United States.
+AD  - MU Data Science and Informatics Institute, University of Missouri, Columbia, MO, 
+      United States.
+FAU - Scaboo, Andrew
+AU  - Scaboo A
+AD  - Division of Plant Science and Technology, University of Missouri, Columbia, MO, 
+      United States.
+FAU - Graef, George
+AU  - Graef G
+AD  - Department of Agronomy and Horticulture, University of Nebraska, Lincoln, NE, 
+      United States.
+FAU - Hyten, David
+AU  - Hyten D
+AD  - Department of Agronomy and Horticulture, University of Nebraska, Lincoln, NE, 
+      United States.
+FAU - Happ, Mary
+AU  - Happ M
+AD  - Department of Agronomy and Horticulture, University of Nebraska, Lincoln, NE, 
+      United States.
+FAU - Diers, Brian
+AU  - Diers B
+AD  - Department of Crop Sciences, University of Illinois, Urbana, IL, United States.
+FAU - Lorenz, Aaron
+AU  - Lorenz A
+AD  - Department of Agronomy and Plant Genetics, University of Minnesota, Saint Paul, 
+      MN, United States.
+FAU - Wang, Dechun
+AU  - Wang D
+AD  - Department of Plant, Soil and Microbial Sciences, Michigan State University, East 
+      Lansing, MI, United States.
+FAU - Joshi, Trupti
+AU  - Joshi T
+AD  - Christopher S. Bond Life Sciences Center, University of Missouri, Columbia, MO, 
+      United States.
+AD  - MU Data Science and Informatics Institute, University of Missouri, Columbia, MO, 
+      United States.
+AD  - Department of Electrical Engineering and Computer Science, University of 
+      Missouri, Columbia, MO, United States.
+AD  - Department of Health Management and Informatics, School of Medicine, University 
+      of Missouri, Columbia, MO, United States.
+FAU - Bilyeu, Kristin
+AU  - Bilyeu K
+AD  - USDA/ARS Plant Genetics Research Unit, Columbia, MO, United States.
+LA  - eng
+PT  - Journal Article
+DEP - 20220429
+PL  - Switzerland
+TA  - Front Plant Sci
+JT  - Frontiers in plant science
+JID - 101568200
+PMC - PMC9100572
+OTO - NOTNLM
+OT  - development
+OT  - flowering time
+OT  - genomics
+OT  - orthologs
+OT  - reproductive phase
+OT  - soybean
+OT  - vegetative phase
+COIS- The authors declare that the research was conducted in the absence of any 
+      commercial or financial relationships that could be construed as a potential 
+      conflict of interest.
+EDAT- 2022/05/17 06:00
+MHDA- 2022/05/17 06:01
+CRDT- 2022/05/16 04:37
+PHST- 2022/03/03 00:00 [received]
+PHST- 2022/04/08 00:00 [accepted]
+PHST- 2022/05/16 04:37 [entrez]
+PHST- 2022/05/17 06:00 [pubmed]
+PHST- 2022/05/17 06:01 [medline]
+AID - 10.3389/fpls.2022.889066 [doi]
+PST - epublish
+SO  - Front Plant Sci. 2022 Apr 29;13:889066. doi: 10.3389/fpls.2022.889066. 
+      eCollection 2022.
+
+
