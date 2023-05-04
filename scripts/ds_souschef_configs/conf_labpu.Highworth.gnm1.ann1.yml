@@ -62,14 +62,14 @@ from_to_cds_mrna:
     from: non-TE.longest.cds.fasta.gz
     to: cds_primary.fna
     description: "cds sequences - primary only"
-#  - 
-#    from: XX
-#    to: mrna.fna
-#    description: "Transcript sequences"
-#  - 
-#    from: XX
-#    to: mrna_primary.fna
-#    description: "Transcript sequences - primary only"
+  - 
+    from: non-TE.longest.mrna.fasta.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  - 
+    from: non-TE.longest.mrna.fasta.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
 from_to_protein:
   - 
     from: non-TE.longest.aa.fasta.gz
