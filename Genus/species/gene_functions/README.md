@@ -1,6 +1,6 @@
 # Gene Function and Phenotype
 
-### NOTE: This README and the other files in this directory constitute a Request For Objections regarding formats, filenames, etc. Once it is acceptible, the example files would go into the Data Store-proper, and trimmed-down examples would be left here in datastore-specifications.
+### NOTE: This README and the other files in this directory constitute a Request For Objections regarding formats, filenames, etc. Once these are acceptible, the example files would go into the Data Store-proper, and trimmed-down examples would be left here in datastore-specifications.
 
 Experimentally-based information about gene function and plant phenotype, and the associated supporting references, are stored in three files per species, in a **gene_functions** directory.
 Those files are the following - with "gensp" being the abbreviation for the present **gen**us and **sp**ecies:
