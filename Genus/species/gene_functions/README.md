@@ -27,22 +27,26 @@ gene_symbol_long: Earliness 2
 gene_model_pub_name: Glyma.10G221500
 gene_model_full_id: glyma.Wm82.gnm2.ann1.Glyma.10G221500
 confidence: 5
-comments: ~
+comments: null
 traits:
-  - entity: TO:0002616    # flowering time trait
-    relation: RO:0002212  # negatively regulates
-  - entity: TO:0000469    # days to maturity
-    relation: RO:0002212  # negatively regulates
+  - entity_name: flowering time
+    entity: TO:0002616
+  - relation_name: negatively regulates
+    relation: RO:0002212
+  - entity_name: days to maturity
+    entity: TO:0000469
+  - relation_name: negatively regulates
+    relation: RO:0002212
 references:
   - citation: Tsubokura, Watanabe et al., 2013
     doi: 10.1093/aob/mct269
-    pmid: ~
+    pmid: 24284817
   - citation: Dietz, Chan et al., 2023
     doi: 10.3389/fpls.2022.889066
-    pmid: ~
+    pmid: 35574141
   - citation: Lin, Liu et al., 2021
     doi: 10.1111/jipb.13021
-    pmid: ~
+    pmid: 33090664
 ```
 
 The **classical_locus** block is optional. It holds the name of a locus that has been defined in literature about this species, typically naming a mapped phenotype. For example, in soybean, the "E2" locus is one of several named "earliness" loci. In pea, the "I" locus was used by Mendel to name the yellow-or-green seed-color locus ("I" indicating  yellow and "i" indicating green). This block holds a single value.
