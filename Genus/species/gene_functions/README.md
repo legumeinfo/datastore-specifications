@@ -1,12 +1,12 @@
 # Gene Function and Phenotype
 
-### NOTE: The material in this repository (including the content below) is a Request For Objections regarding formats, filenames, etc. Once it is acceptible to the team(s), these files would go into the Data Store-proper, in a gene_functions/ directory for each species for which we have this kind of information.
+### NOTE: This README and the other files in this directory constitute a Request For Objections regarding formats, filenames, etc. Once it is acceptible, the example files would go into the Data Store-proper, and trimmed-down examples would be left here in datastore-specifications.
 
 Experimentally-based information about gene function and plant phenotype, and the associated supporting references, are stored in three files per species, in a **gene_functions** directory.
 Those files are the following - with "gensp" being the abbreviation for the present **gen**us and **sp**ecies:
 - gensp.functions.yml
-- gensp.citations.txt
-- gensp.references.txt
+- gensp.citations.txt   (Note the "txt" extension; I propose this to be uncompressed. The alternative would be .tsv, compressed)
+- gensp.references.txt  (Note the "txt" extension; I propose this to be uncompressed. The alternative would be .tsv, compressed)
 
 The **gensp.functions.yml** file is produced by a curator (with some assistance from the get_citations.pl script; see below*), and represents minimal essential information about a gene and its function as described by literature cited in the file.
 
