@@ -25,10 +25,10 @@ The primary pan-gene sets are calculated using the [pandagma](https://github.com
 - `Genus.panVERSION.KEY4.inclusive_protein.faa.gz`
 
 #### Protein and CDS sequence Fastas, with some filtering and with derived pan-gene IDs based on consensus chromosome and ordinal position:
-- `Genus.panVERSION.KEY4.pctl25_named_cds.fna.gz`: CDS sequences, omitting pan-genes < 25% of the mode.
-- `Genus.panVERSION.KEY4.pctl25_named_protein.faa.gz`: Protein sequences, omitting pan-genes < 25% of the mode.
-- `Genus.panVERSION.KEY4.pctl25_named_trim_cds.fna.gz`: CDS sequences, omitting pan-genes < 25% of the mode.
-- `Genus.panVERSION.KEY4.pctl25_named_trim_protein.faa.gz`: Protein sequencess, omitting pan-genes < 25% of the mode.
+- `Genus.panVERSION.KEY4.pctl25_named_cds.fna.gz`: CDS sequences, omitting pan-genes < 25% of the gene-count mode.
+- `Genus.panVERSION.KEY4.pctl25_named_protein.faa.gz`: Protein sequences, omitting pan-genes < 25% of the gene-count mode.
+- `Genus.panVERSION.KEY4.pctl25_named_trim_cds.fna.gz`: CDS sequences, omitting pan-genes < 25% of the gene-count mode.
+- `Genus.panVERSION.KEY4.pctl25_named_trim_protein.faa.gz`: Protein sequencess, omitting pan-genes < 25% of the gene-count mode.
 
 #### Statistics and reports:
 - `Genus.panVERSION.KEY4.counts.tsv.gz`: Matrix of counts of genes per annotation set for each pan-gene set.
