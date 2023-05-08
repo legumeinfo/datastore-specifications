@@ -33,7 +33,10 @@ Optional files:
 - _gensp.strain.gnmVERSION.annVERSION.KEY4_.mrna_primary.fna.gz.gzi
 
 All FASTA files should be bgzipped and faidx indexed.
-The "primary" files may be absent if the given annotation set does not represent splicing variants.
+The "primary" files may be absent if the given annotation set does not represent splicing variants. If the "primary" files are present, they should all represent the same isoform selections, which will typically be done choosing the longest translated protein; NB: this may mean that the mrna file does not contain the longest transcribed isoforms. Subselection of primary proteins and cds can be accomplished using the longest_variant_from_fasta.sh script; selection of the corresponding mrnas can then be done using something like:
+```
+samtools faidx --region-file <(awk '{print $1}' vicfa.Hedin2.gnm1.ann1.PTNK.cds_primary.fna.gz.fai) vicfa.Hedin2.gnm1.ann1.PTNK.mrna.fna.gz | bgzip -l9 -c > vicfa.Hedin2.gnm1.ann1.PTNK.mrna_primary.fna.gz
+```
 
 Note that although the GFF3 specification does not require that every feature have an ID attribute specified, this is required for any gff3 to be loaded into Intermine. IDs typically follow the convention _gensp.strain.gnmVERSION.annVERSION.ORIGINAL_NAME_ although if no ORIGINAL_NAME is supplied, we will generate an ID by appending type and sequential count to the ID of the Parent feature (if any).
 
