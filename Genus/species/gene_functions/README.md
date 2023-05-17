@@ -27,7 +27,8 @@ gene_symbol_long: Earliness 2
 gene_model_pub_name: Glyma.10G221500
 gene_model_full_id: glyma.Wm82.gnm2.ann1.Glyma.10G221500
 confidence: 5
-comments: Mutational and association analysis relative to classical locus.
+comments: 
+  - Mutational and association analysis relative to classical locus.
 traits:
   - entity_name: flowering time
     entity: TO:0002616
