@@ -44,11 +44,9 @@
             "minimum": 1000
         },
         "scientific_name_abbrev": {
-            "description": "LIS datastore gensp identifier: first three letters of genus plus first two letters of species, all lower case.",
+            "description": "LIS datastore gensp identifier: first three letters of genus plus first two letters of species, all lower case. Genus if at genus level.",
             "type": "string",
             "pattern": "^[a-z0-9]+$",
-            "minLength": 5,
-            "maxLength": 5,
             "pattern": "^(?!none).*$"
         },
         "genotype": {
