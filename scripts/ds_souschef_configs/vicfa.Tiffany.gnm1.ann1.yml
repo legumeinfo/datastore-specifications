@@ -1,0 +1,84 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Vicia/faba
+    from_annot_dir: prep1
+    from_genome_dir: prep1
+prefixes:
+    from_annot_prefix: "Vfaba.Tiffany.v1."
+    from_genome_prefix: "Vfaba.Tiffany.v1."
+collection_info:
+    genus: Vicia
+    species: faba
+    gensp: vicfa
+    coll_genotype: Tiffany
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: M2F3
+    annot_key: Y54X
+readme_info:
+    provenance: "The files in this directory originated from www.fabagenome.dk. The FabaGenome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://projects.au.dk/fabagenome/genomics-data"
+    synopsis_genome: Vicia faba accession Tiffany, genome assembly 1
+    synopsis_annot: Annotation 1 for Vicia faba accession Tiffany, genome assembly 1
+    genotype: Tiffany
+    taxid: "3906"
+    description_genome: "This release is from the German cultivar ‘Tiffany’ and assembled these into a set of contigs with an N50 of 1.6 Mb, spanning 11.4 Gb. For full description of assembly methods and characteristics, see the description at the associated primary reference."
+    chromosome_prefix: chr
+    supercontig_prefix: contig_
+    description_annot: "Gene annotation resources. See full description at the associated primary reference."
+    bioproject: PRJEB52541
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: 2023-03-09
+    local_file_creation_date: 2023-04-24
+    dataset_release_date: 2023-05-01
+    contributors: "Jayakodi M, Golicz AA, Kreplak J, Fechete LI, Angra D, Bednář P, Bornhofen E, Zhang H, Boussageon R, Kaur S, Cheung K, Čížková J, Gundlach H, Hallab A, Imbert B, Keeble-Gagnère G, Koblížková A, Kobrlová L, Krejčí P, Mouritzen TW, Neumann P, Nadzieja M, Nielsen LK, Novák P, Orabi J, Padmarasu S, Robertson-Shersby-Harvie T, Robledillo LÁ, Schiemann A, Tanskanen J, Törönen P, Warsame AO, Wittenberg AHJ, Himmelbach A, Aubert G, Courty PE, Doležel J, Holm LU, Janss LL, Khazaei H, Macas J, Mascher M, Smýkal P, Snowdon RJ, Stein N, Stoddard FL, Stougaard J, Tayeh N, Torres AM, Usadel B, Schubert I, O'Sullivan DM, Schulman AH, Andersen SU."
+    publication_doi: "10.1038/s41586-023-05791-5"
+    citation: "Jayakodi M, Golicz AA, Kreplak J, Fechete LI, Angra D, Bednář P, Bornhofen E, Zhang H, Boussageon R, Kaur S, Cheung K, Čížková J, Gundlach H, Hallab A, Imbert B, Keeble-Gagnère G, Koblížková A, Kobrlová L, Krejčí P, Mouritzen TW, Neumann P, Nadzieja M, Nielsen LK, Novák P, Orabi J, Padmarasu S, Robertson-Shersby-Harvie T, Robledillo LÁ, Schiemann A, Tanskanen J, Törönen P, Warsame AO, Wittenberg AHJ, Himmelbach A, Aubert G, Courty PE, Doležel J, Holm LU, Janss LL, Khazaei H, Macas J, Mascher M, Smýkal P, Snowdon RJ, Stein N, Stoddard FL, Stougaard J, Tayeh N, Torres AM, Usadel B, Schubert I, O'Sullivan DM, Schulman AH, Andersen SU. The giant diploid faba genome unlocks variation in a global protein crop. Nature. 2023 Mar;615(7953):652-659. doi: 10.1038/s41586-023-05791-5. Epub 2023 Mar 8. PMID: 36890232; PMCID: PMC10033403."
+    publication_title: 
+    data_curators: Steven Cannon, Hyunoh Lee, Andrew Farmer
+    public_access_level: public
+    license: Open
+    keywords: "faba bean, Vicia faba, Tiffany"
+from_to_genome:
+  - 
+    from: genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+from_to_annot_as_is:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: gffread.cds.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: gffread.cds_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  - 
+    from: gffread.mrna.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  - 
+    from: gffread.mrna_primary.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: gffread.protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
+  - 
+    from: gffread.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+from_to_gff:
+  - 
+    from: agat.gff3.gz
+    to: gene_models_main.gff3
+    strip: "Vfaba.Tiffany.R1."
+    description: "Gene models - main"
+

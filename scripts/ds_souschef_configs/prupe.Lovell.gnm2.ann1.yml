@@ -1,0 +1,122 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Prunus/persica
+    from_annot_dir: Ppersica/annotation
+    from_genome_dir: Ppersica/assembly
+prefixes:
+    from_annot_prefix: "Ppersica_298_v2.1."
+    from_genome_prefix: "Ppersica_298_v2.0."
+collection_info:
+    genus: Prunus
+    species: persica
+    gensp: prupe
+    coll_genotype: Lovell
+    gnm_ver: gnm2
+    ann_ver: ann1
+    genome_key: TVVK
+    annot_key: S2ZZ
+readme_info:
+    provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov. The Phytozome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://phytozome-next.jgi.doe.gov/info/Ppersica_v2_1"
+    synopsis_genome: Prunus persica (peach) accession Lovell, genome assembly 2, by the International Peach Genome Initiative
+    synopsis_annot: Annotation 1 for peach accession Lovell, genome assembly 2
+    genotype: Lovell
+    taxid: "3760"
+    description_genome: "Peach v2.0 was generated from DNA from the doubled haploid cultivar 'Lovell' (PLOV2-2N) which means that the genes and intervening DNA is fixed or identical for all alleles and both chromosomal copies of the genome. This doubled haploid nature has facilitated a highly accurate and consistent assembly of the peach genome. Peach v2.0 currently consists of 8 pseudomolecules representing the 8 chromosomes of peach, and are numbered according to their corresponding linkage groups. The genome sequencing consisted of approximately 8.47 fold whole genome shotgun sequencing employing the accurate Sanger methodology and was assembled using Arachne. See full description at Phytozome/JGI repository (address above)."
+    chromosome_prefix: chr
+    supercontig_prefix: scaffold
+    description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
+    bioproject: "PRJNA31227"
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: "AKXU02000000"
+    original_file_creation_date: 2017-02-02
+    local_file_creation_date: 2022-11-27
+    dataset_release_date: 2022-11-27
+    contributors: Ignazio Verde, Albert Abbott, Jeremy Schmutz, Michele Morgante, Daniel Rokhsar
+    publication_doi: 
+    citation: "Verde I, Jenkins J, Dondini L, Micali S, Pagliarani G, Vendramin E, Paris R, Aramini V, Gazza L, Rossini L, Bassi D, Troggio M, Shu S, Grimwood J, Tartarini S, Dettori MT, Schmutz J. The Peach v2.0 release: high-resolution linkage mapping and deep resequencing improve chromosome-scale assembly and contiguity. BMC Genomics. 2017 Mar 11;18(1):225. doi: 10.1186/s12864-017-3606-9. PMID: 28284188; PMCID: PMC5346207."
+    publication_title: "The Peach v2.0 release: high-resolution linkage mapping and deep resequencing improve chromosome-scale assembly and contiguity."
+    data_curators: Steven Cannon
+    public_access_level: public
+    license: open
+    keywords: "peach, Lovell, double haploid"
+from_to_genome:
+  - 
+    from: fa.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+  - 
+    from: hardmasked.fa.gz
+    to: genome_hardmasked.fna
+    description: "Genome assembly - softmasked"
+  - 
+    from: softmasked.fa.gz
+    to: genome_softmasked.fna
+    description: "Genome assembly - hardmasked"
+original_readme_and_usage:
+  - 
+    from_full_filename: Ppersica_298_v2.1.readme.txt
+    to: original_readme.txt
+    description: "Original JGI data README file"
+from_to_annot_as_is:
+  - 
+    from: repeatmasked_assembly_v2.0.gff3.gz
+    to: repeatmasked_assembly.gff3
+    description: "GFF with repeat-masking coordinates"
+  - 
+    from: annotation_info.txt
+    to: annotation_info.txt
+    description: "Table of gene annotations from JGI"
+  - 
+    from: defline.txt
+    to: defline.txt
+    description: "Defline for genes from JGI"
+  - 
+    from: synonym.txt
+    to: synonym.txt
+    description: "Gene-ID synonyms from JGI"
+  - 
+    from: locus_transcript_name_map.txt
+    to: locus_transcript_name_map.txt
+    description: "Table of gene ID correspondences among Wm82 assemblies"
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: cds.fa.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: cds_primaryTranscriptOnly.fa.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  - 
+    from: transcript.fa.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  - 
+    from: transcript_primaryTranscriptOnly.fa.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: protein_primaryTranscriptOnly.fa.gz
+    to: protein_primary.faa
+    strip: '\.p'
+    description: "Protein sequences - primary only"
+  - 
+    from: protein.fa.gz
+    to: protein.faa
+    strip: '\.p'
+    description: "Protein sequences"
+from_to_gff:
+  - 
+    from: gene_exons.no_suffix.gff3.gz
+    to: gene_models_exons.gff3
+    description: "Gene models, with exon features"
+  - 
+    from: gene.no_suffix.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+
