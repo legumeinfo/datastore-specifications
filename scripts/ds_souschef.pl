@@ -432,7 +432,8 @@ sub readme {
       say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
     }
     elsif ( length($readme_hsh{$key}) == 0 ){
-      say $GNM_README_FH "$key: \n";
+      #say $GNM_README_FH "$key: \n";
+      # Print nothing (no key, no value).
     }
     elsif ( $key =~ /genotype/ ){
       say $GNM_README_FH "$key:";
@@ -772,7 +773,8 @@ sub print_to_readme {
     say $FH "$key: $value\n";
   }
   elsif (length($value) == 0){
-    say $FH "$key: \n";
+    #say $FH "$key: \n";
+    # Do nothing, since there is no value.
   }
 }
 
