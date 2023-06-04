@@ -9,9 +9,9 @@ Every file-containing directory, AKA "collection", in the LIS datastore should c
 Filename: [README.[collection].yml](README.collection.yml)
 
 Examples:
-- [README.IT97K-499-35.gnm1.QnBW.yml](https://legumeinfo.org/data/v2/Vigna/unguiculata/genomes/IT97K-499-35.gnm1.QnBW/README.IT97K-499-35.gnm1.QnBW.yml)
-- [README.IT97K-499-35.gnm1.ann1.zb5D.yml](https://legumeinfo.org/data/v2/Vigna/unguiculata/annotations/IT97K-499-35.gnm1.ann1.zb5D/README.IT97K-499-35.gnm1.ann1.zb5D.yml)
-- [README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml](https://legumeinfo.org/data/v2/Vigna/unguiculata/genetic/CB27_x_IT82E-18.gen.Pottorff_Li_2014/README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml)
+- [README.IT97K-499-35.gnm1.QnBW.yml](https://data.legumeinfo.org/Vigna/unguiculata/genomes/IT97K-499-35.gnm1.QnBW/README.IT97K-499-35.gnm1.QnBW.yml)
+- [README.IT97K-499-35.gnm1.ann1.zb5D.yml](https://data.legumeinfo.org/Vigna/unguiculata/annotations/IT97K-499-35.gnm1.ann1.zb5D/README.IT97K-499-35.gnm1.ann1.zb5D.yml)
+- [README.CB27_x_IT82E-18.gen.Pottorff_Li_2014.yml](https://data.legumeinfo.org/Vigna/unguiculata/mstmap/CB27_x_IT82E-18.mst.Pottorff_Li_2014/README.CB27_x_IT82E-18.mst.Pottorff_Li_2014.yml)
 
 ### Validation
 The basic README structure (acceptable field names, strings vs. lists vs. dates) can be validated using the following command:
