@@ -20,6 +20,17 @@ When starting to curate a manuscript, the manuscript should be selected from (or
 
 As we are just working out new curation protocols (as of mid-2023), it is likely that the curation protocol and practices will evolve, as we figure out how to streamline the process and make it more robust. It is likely that different curators will have somewhat different practices. What matters is the quality and uniformity of the final product.
 
+## Accessing manuscripts
+Most publications that we work on will be available in [PubMed](https://pubmed.ncbi.nlm.nih.gov) and [PubMedCentral](https://www.ncbi.nlm.nih.gov/pmc/). Additionally, [PubAg](https://pubag.nal.usda.gov), maintained by the USDA, holds some documents that are not in PubMed or PubMedCentral.
+
+Both the PubMed and PubMedCentral "libraries" are managed by the National Library of Medicine, but they have different characteristics. PubMed holds references to many more manuscripts than PubMedCentral, but only the abstracts. PubMedCentral holds fewer manuscripts, but provides the full text and content of the manuscripts. Thus, PubMed should generally be the starting point when working on a new manuscript. This will link to the full text if available in PubMedCentral - or otherwise in the source journal.
+
+An important tool at PubMed is the "\" Cite" button. This returns a citation (by default, in NLM format, which we will use), that can be copied into the clipboard. This contains the essential information for referencing an article: authors, title, journal, year, DOI, PMID, and PMCID (if available).
+
+An example of an abstract at PubMed is this one: [Ma, Xia, et al., 2019](https://pubmed.ncbi.nlm.nih.gov/30740122/). Note that the PMID is a numeric string (30740122), the PMCID is a numeric string prefixed by PMC (PMC6357947), and the DOI is a dot- and slash-separated string, always beginning "10." (10.3389/fpls.2018.01979).
+
+It is up to the curator how to interact with a publication that they are working on. In some cases, dealing with it online may be sufficient. In other cases, it may be helpful to download it and work on it locally - or to load it into Zotero. This aspect of the curatorial workflow is still to be determined, but will probably vary somewhat by curator's preference - and by consensus of curators who are working together.
+
 ## Requirements
 The primary requirements are that the "gensp.traits.yml" files in the datastore be correct and in valid format. The curatorial process leading up to this point may vary, and is not a "requirement" per se. The reason that the ".traits.yml" are crucial is that these will be loaded into InterMine instances, so they are the main source files. The two other files in the gene_functions collections, gensp.citations.txt and gensp.references.txt, are derived programmatically from the gensp.traits.yml files.
 
@@ -28,24 +39,31 @@ Before new yaml records/documents are added to these files (a record or document
 ## Working on gene function documents in GitHub
 
 Clone (or update/refresh) a copy of the gene-function-registry:
+```
     git clone https://github.com/legumeinfo/gene-function-registry.git
     cd gene-function-registry
+```
 
 Or update/refresh an existing copy:
+```
     cd gene-function-registry
     git status
     git fetch
     git pull
+```
 
 Copy the template to start a new yaml document. Though this will eventually be added to a single yaml file that contains multiple yaml "documents" (one per gene or locus), it is probably easier and safer to work on a single isolated yaml file per gene. 
 
 The temporary/working file should be named in a consistent way (though recognizing that it will be incorporated into the combined document). A good practice is: Author_Author_YEAR.yml
-  cp templates/gensp.traits.yml Glycine/max/gene_functions/Chiasson_Loughlin_2014.yml
+```  
+    cp templates/gensp.traits.yml Glycine/max/gene_functions/Chiasson_Loughlin_2014.yml
+```
 
 When done, push the file back to the repository (not the datastore proper, but https://github.com/legumeinfo/gene-function-registry.git).
+```
     git status
     git add Glycine/max/gene_functions/Chiasson_Loughlin_2014.yml
     git commit -m "Added Glycine max Chiasson_Loughlin_2014 for review."
     git push
-
+```
 
