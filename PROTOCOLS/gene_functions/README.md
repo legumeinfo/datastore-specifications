@@ -9,9 +9,10 @@ The focus is genes for which phenotypes have been observed for known mutants. In
 The curation approach has been designed to be relatively efficient and non-cumbersome for the curator - in the sense that limited information is required, and some portions of the process are aided by scripts.
 
 ## File and path specifications
-The file and directory-path specifications are given in the README file in two locations (eventually probably destined to be merged):
-  - [datastore-specifications](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/species/gene_functions).
+The file and directory-path specifications are given in the README file in two locations:
+  - [datastore-specifications](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/species/gene_functions)
   - [gene-function-registry](https://github.com/legumeinfo/gene-function-registry)
+The reason for the dupliction is the files will be prepared and reviewed away from the main Data Store. Specifications and protocols (this document) are in datastore-specifications, and the work-in-progress is at the gene-function-registry. After review and revision if needed, new gene records (as yaml documents) will be added to the appropriate gensp.traits.yml file in the Data Store. Draft curation work will go into the [gene-function-registry](https://github.com/legumeinfo/gene-function-registry) repository, and then go into the Data Store file system -- and from there, into the [datastore-metadata](https://github.com/legumeinfo/datastore-metadata) repository.
 
 ## Workflows
 Since we have several curators, with varying levels of experience, new gene function records (yaml documents) should be reviewed before they are incorporated into the main datastore. The workspace for drafting and reviewing the records is at the [gene-function-registry](https://github.com/legumeinfo/gene-function-registry), with the yaml documents going into the respective Genus/species directories. The work should begin in a curator's "work-in-progress" (wip) directory. For example, here is Steven's Glycine/max [wip directory](https://github.com/legumeinfo/gene-function-registry/tree/main/Glycine/max/wip_steven).
@@ -33,6 +34,8 @@ It is up to the curator how to interact with a publication that they are working
 
 ## Requirements
 The primary requirements are that the "gensp.traits.yml" files in the datastore be correct and in valid format. The curatorial process leading up to this point may vary, and is not a "requirement" per se. The reason that the ".traits.yml" are crucial is that these will be loaded into InterMine instances, so they are the main source files. The two other files in the gene_functions collections, gensp.citations.txt and gensp.references.txt, are derived programmatically from the gensp.traits.yml files.
+
+Here is a good brief guide to the [yaml format](https://learnxinyminutes.com/docs/yaml/).
 
 Before new yaml records/documents are added to these files (a record or document holding the information about a single gene), they should be checked for valid yaml format - for example, in the [yamllint validator](https://www.yamllint.com). A validator will also be added to the Data Store for this file type (XX to be done).
 
