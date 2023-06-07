@@ -38,6 +38,22 @@ Here is a good brief guide to the [yaml format](https://learnxinyminutes.com/doc
 
 Before new yaml records/documents are added to these files (a record or document holding the information about a single gene), they should be checked for valid yaml format - for example, in the [yamllint validator](https://www.yamllint.com). A validator will also be added to the Data Store for this file type (XX to be done).
 
+## Representing traits using ontologies
+The essence of a trait "record" in our system is the trio of the gene ID, the associated phenotype description, and the supporting reference. A brief informal phenotype description should be entered as the value for phenotype_synopsis, and then formally using ontology terms and accessions in the traits section.The main ontologies we will use are the Plant Ontology (TO), for anatomical terms (root, seed, etc.); and the Plant Trait Ontology (TO), for traits. These can be accessed here: [PO](https://www.ebi.ac.uk/ols4/ontologies/po) and [TO](https://www.ebi.ac.uk/ols4/ontologies/to). Other ontologies may be used if needed; but before going to another ontology, check with one of the senior staff. The advantage to using the broader, more general ontologies where possible is that it is (usually) easier to traverse across different species to find comparable traits if all are using a common few ontologies. When specialize ontologies are needed, they should be added lower in the list under the "traits" section.
+
+The traits block should contain (underneath the "traits" key) one or more entities - both by name and by accession, like this:
+```
+traits:
+  - entity_name: anthocyanin content
+    entity: TO:0000071
+  - entity_name: leaf
+    entity: PO:0025034
+  - entity_name: seed
+    entity: PO:0009010
+```
+
+Note that the dash precedes the entity_name key, and no dash preceds the entity: key. When these two key-value pairs are associated this way, they are linked (as members of an anonymous hash/mapping/dictionary). So: the entity_name of leaf describes the entity of PO:0025034.
+
 ## Working on gene function documents in GitHub
 
 Clone (or update/refresh) a copy of the gene-function-registry:
