@@ -90,8 +90,8 @@ glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
 ```
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
-#### Move the collection from v2 to private
-Move the directory from from v2 to private, e.g.
+#### Move the collection from private to v2
+Move the directory from private to v2, e.g.
 ```
   DIR=MY_NEW_DIRECTORY
   mv /usr/local/www/data/private/Glycine/max/$DIR /usr/local/www/data/v2/Glycine/max/$DIR
