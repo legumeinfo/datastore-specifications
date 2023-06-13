@@ -131,22 +131,9 @@ When you have a yaml document that is ready for review, note that in the
 [tracking spreadsheet](https://docs.google.com/spreadsheets/d/1iDdaIQNqK8jvkyQZHATSC1gI-FVhlKv5xde4yPR-Rzs/edit#gid=1914121906))
 ("to review" column), and then request to merge the change(s) to main.
 
-See an overview of the [merging process here](https://stackabuse.com/git-merge-branch-into-master/).
+See an overview of the [merging process here](https://stackabuse.com/git-merge-branch-into-master/) -- but our process will differ in the details. In particular ...
 
-Merging best practice for a new paper : First checkout main, and update your local copy:
-```
-  git branch
-  git checkout main
-  git fetch
-  git pull
-```
-
-Then merge your branch into main, add a comment about the merge, then push it to the remote:
-```
-  git merge yourname
-```
-
-The merge won't automatically occur, but it will trigger a request for review. After review, the reviewer will either respond with requests for changes, or will approve the merge request.
+Since a review will generally be required when branches are merged to main, this will be best handled via the GitHub web interface for this repository. Select your (checked-in) branch from the "branches" drop-down. Then under the "Contribute" link, choose "Open pull request" and add a brief comment, e.g., "Author_Author_Trait.yml is ready for review." You can assign/request reviewers if you want. After review, the reviewer will either respond with requests for changes, or will approve the merge request.
 
 ## Miscellaneous notes / gotchas / FAQ <a name="faq"/>
 
