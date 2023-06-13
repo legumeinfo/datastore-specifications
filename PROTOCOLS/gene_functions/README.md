@@ -18,7 +18,84 @@ Since we have several curators, with varying levels of experience, new gene func
 
 When starting to curate a manuscript, the manuscript should be selected from (or added to) the Google Docs [tracking spreadsheet](https://docs.google.com/spreadsheets/d/1iDdaIQNqK8jvkyQZHATSC1gI-FVhlKv5xde4yPR-Rzs/edit), and then note in the spreadsheet the status, i.e., Steven would note "wip_steven" in the second column (doc status). When ready to review, he would note the date in "to review". The date would be noted when the review is completed, and also when it is incorporated into the datastore.
 
-As we are just working out new curation protocols (as of mid-2023), it is likely that the curation protocol and practices will evolve, as we figure out how to streamline the process and make it more robust. It is likely that different curators will have somewhat different practices. What matters is the quality and uniformity of the final product.
+As we are just working out new curation protocols (as of mid-2023), it is likely that the curation protocol and practices will evolve, as we figure out how to streamline the process and make it more robust. As of mid-June 2023, the following GitHub practices are encouraged. We'll modify if needed.
+
+## GitHub and spreadsheet practices and review patterns
+
+To start, clone the repository (do this once only):
+  ```
+  git clone https://github.com/legumeinfo/gene-function-registry.git
+  ```
+
+Change into that directory, and into your work area
+  ```
+  cd gene-function-registry/Genus/species/wip_yourname
+  ```
+
+Check out a new branch under your name
+  ```
+  git checkout -b yourname
+  ```
+
+Confirm that you're on the new branch
+  ```
+  git branch
+  ```
+
+Check the status of your work in your repository
+  ```
+  git status
+  ```
+
+Update from the remote (not necessary if you have just cloned the repository, but otherwise important practice)
+  ```
+  git fetch
+  git pull
+  ```
+
+Start work on a selected paper (noting which one you are working on in the "doc status" column
+at the [tracking spreadsheet](https://docs.google.com/spreadsheets/d/1iDdaIQNqK8jvkyQZHATSC1gI-FVhlKv5xde4yPR-Rzs/edit#gid=1914121906)).
+Copy from the template to a new yaml file, naming it as `Author_Author_Year_Symbol.yml` if possible
+... where Symbol is e.g. GmLHY2a  if provided in the paper; otherwise, some one-word name of the trait or
+contents, e.g. "height"
+  ```
+  cp glyma_work.traits.yml Chen_Dong_2019_GmLHY2a.yml
+  ```
+
+Fill out the yaml document, then check for valid format using [yamllint.com](https://www.yamllint.com).
+
+Periodically as you work check in your changes (to your branch; you can do this without requesting review):
+  ```
+  git status
+  git add Author_Author_Symbol.yml
+  git commit -m "Initial commit of Author_Author_Symbol.yml"
+  git push
+  ```
+
+Do some more work, and check it in (add, commit, push)
+
+When you have a yaml document that is ready for review, note that in the
+[tracking spreadsheet](https://docs.google.com/spreadsheets/d/1iDdaIQNqK8jvkyQZHATSC1gI-FVhlKv5xde4yPR-Rzs/edit#gid=1914121906))
+("to review" column), and then request to merge the change(s) to main.
+
+See an overview of the [merging process here](https://stackabuse.com/git-merge-branch-into-master/).
+
+Merging best practice for a new paper : First checkout main, and update your local copy:
+  ```
+  git branch
+  git checkout main
+  git fetch
+  git pull
+  ```
+
+Then merge your branch into main, add a comment about the merge, then push it to the remote:
+  ```
+  git merge yourname
+  ```
+
+The merge won't automatically occur, but it will trigger a request for review. After review, the reviewer will either respond with requests for changes, or will approve the merge request.
+
+
 
 ## Accessing manuscripts
 Most publications that we work on will be available in [PubMed](https://pubmed.ncbi.nlm.nih.gov) and [PubMedCentral](https://www.ncbi.nlm.nih.gov/pmc/). Additionally, [PubAg](https://pubag.nal.usda.gov), maintained by the USDA, holds some documents that are not in PubMed or PubMedCentral.
