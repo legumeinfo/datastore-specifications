@@ -8,6 +8,7 @@
 [Requirements](#requirements) <br>
 [Representing traits using ontologies](#ontologies) <br>
 [Working on gene function documents in GitHub](#github_work) <br>
+[Miscellaneous notes / gotchas / FAQ](#faq) <br>
 
 
 ## General approach, philosophy, and objectives <a name="general"/>
@@ -72,28 +73,24 @@ To start, clone the repository (do this once only):
     git clone https://github.com/legumeinfo/gene-function-registry.git
 ```
 
-Change into that directory, and into your work area
+Change into that directory, and into your work area:
 ```
   cd gene-function-registry/Genus/species/wip_yourname
 ```
 
-Check out a new branch under your name
+Check out a new branch under your name:
 ```
   git checkout -b yourname
 ```
 
-Confirm that you're on the new branch
+Confirm that you're on the new branch and check the status of your work in your repository:
 ```
   git branch
-```
-
-Check the status of your work in your repository
-```
   git status
 ```
 
 
-Copy the template to start a new yaml document. Though this will eventually be added to a single yaml file that contains multiple yaml "documents" (one per gene or locus), it is probably easier and safer to work on a single isolated yaml file per gene. 
+Copy the template to start a new yaml document. Though this will eventually be added to a single yaml file that contains multiple yaml "documents" (one per gene or locus), it is probably easier and safer to work on a single isolated yaml file per gene. This will also make it easier to manage merge/review requests and to get feedback at an appropriate granularity.
 
 Start work on a selected paper (noting which one you are working on in the "doc status" column
 at the [tracking spreadsheet](https://docs.google.com/spreadsheets/d/1iDdaIQNqK8jvkyQZHATSC1gI-FVhlKv5xde4yPR-Rzs/edit#gid=1914121906)).
@@ -109,8 +106,8 @@ Fill out the yaml document, then check for valid format using [yamllint.com](htt
 Periodically as you work check in your changes (to your branch; you can do this without requesting review):
 ```
   git status
-  git add Author_Author_Symbol.yml
-  git commit -m "Initial commit of Author_Author_Symbol.yml"
+  git add Author_Author_Year_Symbol.yml
+  git commit -m "Initial commit of Author_Author_Year_Symbol.yml"
   git push
 ```
 
@@ -150,4 +147,25 @@ Then merge your branch into main, add a comment about the merge, then push it to
 ```
 
 The merge won't automatically occur, but it will trigger a request for review. After review, the reviewer will either respond with requests for changes, or will approve the merge request.
+
+## Miscellaneous notes / gotchas / FAQ <a name="faq"/>
+
+How to find the `gene_model_full_id`? The `gene_model_full_id` is required in a finished gene-function yaml document. This identifier needs to be present in our databases (loosely speaking) -- specifically, the ID needs to be in the relevant InterMine instance (e.g., [GlycineMine](https://mines.legumeinfo.org/glycinemine/begin.do), [MedicagoMine](https://mines.legumeinfo.org/medicagomine/begin.do), etc.). The form of these identifiers is:
+```
+  gensp.Accn.gnm#.ann#.geneID
+  glyma.Wm82.gnm2.ann1.Glyma.01G086900
+  medtr.A17_HM341.gnm4.ann2.Medtr4g113520
+```
+ - gensp is the Genus species abbreviation: glyma, medtr, phavu, ...
+ - Accn is the accession or variety name: Wm82, A17_HM341, G19833, ...
+ - gnm# is the genome assembly number: gnm1, gnm2, gnm3, ...
+ - ann# is the genome annotation number for that genome assembly: ann1, ann2, ...
+ - geneID is the core gene identifier: Glyma.01G086900, Medtr4g113520, Phvul.002G040500, ...
+
+Easy cases: Enter the identifier in the paper into either the "Search" or the "Analyze" fields at the appropriate InterMine instance, and copy the first name that has the five-part form above.
+
+Hard cases: The gene ID from the paper isn't found at the relevant InterMine instance. In that case, you'll probably need to find the gene sequence - either from the paper or from GenBank. For example, the Medicago gene GU966590: Enter this at [GenBank in a general search](https://www.ncbi.nlm.nih.gov/search/). Click on the [FASTA report for that gene](https://www.ncbi.nlm.nih.gov/nuccore/GU966590.1/?report=fasta), and copy that sequence into the clipboard, and paste it into [SequenceServer at LIS](https://sequenceserver.legumeinfo.org). Select CDS sequence for the appropriate organism and assembly (in this case, Medicago truncatula A17 v5.1.6 mRNAs). The top hit, with 100% identity, is `medtr.A17.gnm5.ann1_6.MtrunA17Chr5g0439381.1`.
+
+Alternatively, paste the sequence into the [LIS Funnotate tool](https://funnotate.legumeinfo.org) to annotate your sequence and place it into a phylogenetic tree. Select the sequence type (nucleotide or protein), then "Upload Sequence(s)", then "Begin Annotation". From the report page, click on the little tool icon under Gene Family. This will place the query sequence into the respective gene family -- in this case, giving [this gene family page](https://funnotate.legumeinfo.org/?job=N6X4Q&family=L_LS3QMY). This identifies the gene `medtr.A17_HM341.gnm4.ann2.Medtr5g085850' as the query gene.
+
 
