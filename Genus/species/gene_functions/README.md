@@ -32,6 +32,8 @@ gene_symbol_long: Earliness 2
 gene_model_pub_name: Glyma.10G221500
 gene_model_full_id: glyma.Wm82.gnm2.ann1.Glyma.10G221500
 confidence: 5
+curators:
+  - Steven Cannon
 comments: 
   - Mutational and association analysis relative to classical locus.
 phenotype_synopsis: GmGI modulates flowering time, delaying expression of GmFT2a under long days.
@@ -67,6 +69,8 @@ The **gene_model_pub_name** block is required. It holds the name of a gene as id
 The **gene_model_full_id** block is required. It holds the fully-qualified gene ID, with components "gensp.Accession.gnm#.ann#.gene_ID". The "gene_ID" may be the same as **gene_model_pub_name**, but may be different if a corresponding and preferable gene model is available from another assembly and/or annotation. The purpose of this ID is to enable linking this gene to other resources at SoyBase/LIS/PeanutBase.
 
 The **confidence** block is to have values [1-5]. This field indicates level of experimental support, with 5 being the strongest -- typically consisting of evidence at the level of a genetic complementation test, or otherwise observed as a mutant phenotype (experimental evidence code IMP) associated with the mutated form of the indicated gene. A level of 3 would be strong associational support, but lacking experimental lab validation such as genetic complementation. Levels 1 and 2 would be high-throughput evidence, and generally will NOT be collected in the SoyBase/LIS/PeanutBase projects. Papers that report lists of "candidate genes" in the vicinity of a GWAS or QTL region would be level 1 or 2 support, and should generally not be collected here.
+
+The **curators** block is for the names of curators who prepared the present gene function record. Names (whether one or several) must be entered as an array - i.e. with leading spaces and dash before each comment string.
 
 The **comments** block is for unstructured text, if needed for curatorial comments or other purposes. Comments must be entered as an array - i.e. with leading spaces and dash before each comment string.
 
