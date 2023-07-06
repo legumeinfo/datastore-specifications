@@ -194,7 +194,13 @@ for my $split_line (@split_lines){
       my @parents_ary = split(/,/, $1);
       my @new_parents_ary;
       for my $parent (@parents_ary){
-        my $new_parent = $featid_map{$parent};
+        my $new_parent;
+        if (defined $featid_map{$parent}){
+          $new_parent = $featid_map{$parent};
+        }
+        else {
+          $new_parent = $parent;
+        }
         unless ($suppress_hsh{$parent}){
           push @new_parents_ary, $new_parent;
         }
@@ -205,12 +211,24 @@ for my $split_line (@split_lines){
     elsif ($attr =~ /ID=([^;]+)/){
       $old_ID = $1;
       #say "old_ID: [$old_ID]";
-      my $new_ID_str = "ID=$featid_map{$old_ID}";
+      my $new_ID_str;
+      if (defined $featid_map{$old_ID}){
+        $new_ID_str = "ID=$featid_map{$old_ID}";
+      }
+      else {
+        $new_ID_str = "ID=$old_ID"
+      }
       push @new_attrs, $new_ID_str;
     }
     elsif ($attr =~ /Name=([^;]+)/){
       # Use $old_ID from ID=() above. This assumes Name follows ID
-      my $new_Name_str = "Name=$featid_map{$old_ID}";
+      my $new_Name_str;
+      if (defined $featid_map{$old_ID}){
+        $new_Name_str = "Name=$featid_map{$old_ID}";
+      }
+      else {
+        $new_Name_str = "Name=$old_ID";
+      } 
       if ($strip_regex){ # Strip from ID to produce Name
         $new_Name_str =~ s/$STR_RX//g;
       }
@@ -243,3 +261,4 @@ Steven Cannon
            Rework hashing of attributes (ID, Parent, Name). Recover positional sortring routine, after briefly removing it.
 2022-12-10 Permit hashing of EITHER seqid or featid 
 2023-03-03 Add some feature types for collate sort
+2023-07-05 Print old attribute name if no hash replacement is found.
