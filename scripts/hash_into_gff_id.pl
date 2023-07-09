@@ -12,7 +12,7 @@ my $usage = <<EOS;
   Swap the feature (gene) IDs with the values from a gene hash file, if provided.
   Swap the seqIDs (column 1) with the values from a seqid hash file, if provided.
   Optionally, exclude records for features in a provided list of feature IDs.
-  This script will apply a positional sorting method -sort is specified.
+  This script will apply a positional sorting method if -sort is specified.
   
   Required:
     -gff_file     GFF file; may be compressed or not.
@@ -111,30 +111,30 @@ else {
 # Sorting method by Sam Hokin. Standalone script: sort_gff.pl
 my @gff_lines;
 my %type_collate = (
-  region => 0,
-  gene => 1,
-  pseudogene => 2,
-  mRNA => 3,
-  transcript => 4,
-  ncRNA => 5,
-  lnc_RNA => 6,
-  snoRNA => 7,
-  snRNA => 8,
-  rRNA => 9,
-  tRNA => 10,
-  exon => 11,
-  three_prime_UTR => 12,
-  CDS => 13,
-  five_prime_UTR => 14,
-  protein_match => 15,
-  cDNA_match => 16,
-  match => 17,
-  match_part => 18,
-  protein_match => 19,
-  expressed_sequence_match => 20,
-  translated_nucleotide_match => 21,
-  expressed_sequence_match => 22,
-  contig => 23,
+  region => 0.00,
+  gene => 0.01,
+  pseudogene => 0.02,
+  mRNA => 0.03,
+  transcript => 0.04,
+  ncRNA => 0.05,
+  lnc_RNA => 0.06,
+  snoRNA => 0.07,
+  snRNA => 0.08,
+  rRNA => 0.09,
+  tRNA => 0.10,
+  exon => 0.11,
+  three_prime_UTR => 0.12,
+  CDS => 0.13,
+  five_prime_UTR => 0.14,
+  protein_match => 0.15,
+  cDNA_match => 0.16,
+  match => 0.17,
+  match_part => 0.18,
+  protein_match => 0.19,
+  expressed_sequence_match => 0.20,
+  translated_nucleotide_match => 0.21,
+  expressed_sequence_match => 0.22,
+  contig => 0.23,
 );
 
 while (<$GFF_FH>) {
@@ -199,6 +199,7 @@ for my $split_line (@split_lines){
           $new_parent = $featid_map{$parent};
         }
         else {
+          warn "No map item found for $parent.\n";
           $new_parent = $parent;
         }
         unless ($suppress_hsh{$parent}){
@@ -216,6 +217,7 @@ for my $split_line (@split_lines){
         $new_ID_str = "ID=$featid_map{$old_ID}";
       }
       else {
+        warn "No map item found for $old_ID.\n";
         $new_ID_str = "ID=$old_ID"
       }
       push @new_attrs, $new_ID_str;
@@ -227,6 +229,7 @@ for my $split_line (@split_lines){
         $new_Name_str = "Name=$featid_map{$old_ID}";
       }
       else {
+        warn "No map item found for $old_ID.\n";
         $new_Name_str = "Name=$old_ID";
       } 
       if ($strip_regex){ # Strip from ID to produce Name
@@ -262,3 +265,4 @@ Steven Cannon
 2022-12-10 Permit hashing of EITHER seqid or featid 
 2023-03-03 Add some feature types for collate sort
 2023-07-05 Print old attribute name if no hash replacement is found.
+2023-07-08 Print warning if no hash replacement is found. Fix collate sort by using floats to order them.
