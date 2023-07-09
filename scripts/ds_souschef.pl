@@ -408,8 +408,9 @@ sub make_featid_map {
 ##################################################
 sub readme {
   say "\n== Writing README files ==";
-  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
-       genotype description bioproject sraproject dataset_doi genbank_accession original_file_creation_date 
+  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid 
+       genotype supercontig_prefix chromosome_prefix supercontig_prefix description 
+       supercontig_prefix dataset_doi genbank_accession original_file_creation_date 
        local_file_creation_date dataset_release_date publication_doi publication_title 
        contributors citation data_curators public_access_level license keywords);
   
@@ -848,3 +849,4 @@ Versions
 2023-02-08 Remove scientific_name_abbrev from pangene README
 2023-03-04 In make_featid_map, handle features in which the 9th column has only one attribute, e.g. ID=Identifier
 2023-03-18 Permit more variation in GFF filename
+2023-06-09 Handle genomes README keys supercontig_prefix and chromosome_prefix 
