@@ -23,7 +23,7 @@ perl -pe 's/\|WGS:\w+//g; s/\w+-gnl\|//g; s/;(Note=|gbkey=|Dbxref=|Name=).+//' |
   awk -v OFS="\t" '$3 ~ /CDS/ && $9 != prev {ct=1; print $1, $2, $3, $4, $5, $6, $7, $8, $9 "-" ct, $10; prev=$9; next}
                    $3 ~ /CDS/ && $9 == prev {ct++; print $1, $2, $3, $4, $5, $6, $7, $8, $9 "-" ct, $10; prev=$9}
                    $3 !~ /CDS/ {print}' |
-  awk -v OFS="\t" '$3 ~ /exon/ {ID_val = substr($9,3); print $1, $2, $3, $4, $5, $6, $7, $8, "ID=exon-" $9, $10}
+  awk -v OFS="\t" '$3 ~ /exon/ {ID_val = substr($9,4); print $1, $2, $3, $4, $5, $6, $7, $8, "ID=exon-" ID_val, $10}
                    $3 !~ /exon/ {print}' |
   perl -pe 's/ID=(\S+)$/ID=$1;Name=$1/; s/ID=(\S+)\tParent=(\S+)/ID=$1;Parent=$2;Name=$1/'
 
@@ -31,4 +31,4 @@ perl -pe 's/\|WGS:\w+//g; s/\w+-gnl\|//g; s/;(Note=|gbkey=|Dbxref=|Name=).+//' |
 ##########
 # Versions
 # 2023-07-05 First version. 
-
+# 2023-07-08 Fix bug in naming of exon features
