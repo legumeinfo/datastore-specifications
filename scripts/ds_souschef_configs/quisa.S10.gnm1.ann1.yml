@@ -1,0 +1,76 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Quillaja/saponaria
+    from_annot_dir: GCA_029379385.1
+    from_genome_dir: GCA_029379385.1
+prefixes:
+    from_annot_prefix: "quisa." 
+    from_genome_prefix: "GCA_029379385.1_"
+collection_info:
+    genus: Quillaja
+    species: saponaria
+    gensp: quisa
+    coll_genotype: S10
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: RGZP
+    annot_key: RQ4J
+readme_info:
+    provenance: "The files in this directory originated from GenBank, for RefSeq genome sequence GCA_029379385.1, submitted by the Ann Osbourn Lab, John Innes Centre. The GenBank source is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://www.ncbi.nlm.nih.gov/data-hub/genome/GCA_029379385.1"
+    synopsis_genome: Genome assembly for Quillaja saponaria, isolate S10, GCA_029379385.1
+    synopsis_annot: Annotation for Quillaja saponaria, isolate S10, GCA_029379385.1, prepared by the John Innes Centre
+    taxid: "32244"
+    genotype: S10
+    description_genome: "This assembly is based on PacBio Sequel, assembled with HGAP v. 2018, at the John Innes Centre"
+    chromosome_prefix: chr
+    supercontig_prefix: JARAOO01
+    description_annot: "This annotation was produced by the John Innes Centre, by RNA-seq read alignment, filtering, gene model generation, and selection of final gene models."
+    bioproject: "PRJNA914519"
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: "GCA_029379385.1"
+    original_file_creation_date: 2023-03-24
+    local_file_creation_date: 2023-07-08
+    dataset_release_date: 2023-07-17
+    contributors: Reed J, Orme A, El-Demerdash A, Owen C, Martin LBB, Misra RC, Kikuchi S, Rejzek M, Martin AC, Harkess A, Leebens-Mack J, Louveau T, Stephenson MJ, Osbourn A.
+    publication_doi: 10.1126/science.adf3727
+    citation: "Reed J, Orme A, El-Demerdash A, Owen C, Martin LBB, Misra RC, Kikuchi S, Rejzek M, Martin AC, Harkess A, Leebens-Mack J, Louveau T, Stephenson MJ, Osbourn A. Elucidation of the pathway for biosynthesis of saponin adjuvants from the soapbark tree. Science. 2023 Mar 24;379(6638):1252-1264. doi: 10.1126/science.adf3727. Epub 2023 Mar 23. PMID: 36952412."
+    publication_title: "Elucidation of the pathway for biosynthesis of saponin adjuvants from the soapbark tree"
+    data_curators: Steven Cannon, Hyunoh Lee
+    public_access_level: public
+    license: open
+    keywords: "Soapbark tree, saponin biosynthesis"
+from_to_genome:
+  - 
+    from: Quisap_AO_1.2_genomic.fna.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+original_readme_and_usage:
+from_to_annot_as_is:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: gffread.cds.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: gffread.cds_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+from_to_protein:
+  - 
+    from: gffread.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+  - 
+    from: gffread.protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
+from_to_gff:
+  - 
+    from: genomic_mod2.gff.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+
