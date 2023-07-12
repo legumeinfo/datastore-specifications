@@ -23,8 +23,8 @@ readme_info:
     taxid: "167791"
     genotype: BV-YZ2020
     description_genome: "This assembly is released on April 2022 and the chromosomal-level genome of Bauhinia variegata using PacBio and Illumina sequencing, and Hi-C scaffolding technologies." 
-    chromosome_prefix: chr
-    supercontig_prefix: scaffold
+    chromosome_prefix: Chr
+    supercontig_prefix: JAKRYI02
     description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCA_022379115.2, June 06 2022"
     bioproject: "PRJNA801801"
     sraproject: 
@@ -32,8 +32,8 @@ readme_info:
     dataset_doi_annot: 
     genbank_accession: "GCA_022379115.2"
     original_file_creation_date: 2022-06-06
-    local_file_creation_date: 2022-12-18
-    dataset_release_date: 2022-12-20
+    local_file_creation_date: 2023-07-11
+    dataset_release_date: 2023-07-11
     contributors: The China Sun Yat-sen University in Guangzhou
     publication_doi: "10.1093/dnares/dsac012"
     citation: "Zhong Y, Chen Y, Zheng D, Pang J, Liu Y, Luo S, Meng S, Qian L, Wei D, Dai S, Zhou R. Chromosomal-level genome assembly of the orchid tree Bauhinia variegata (Leguminosae; Cercidoideae) supports the allotetraploid origin hypothesis of Bauhinia. DNA Res. 2022 Feb 27;29(2):dsac012. doi: 10.1093/dnares/dsac012. PMID: 35438173; PMCID: PMC9052405."
