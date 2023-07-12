@@ -409,8 +409,8 @@ sub make_featid_map {
 sub readme {
   say "\n== Writing README files ==";
   my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid 
-       genotype supercontig_prefix chromosome_prefix supercontig_prefix description 
-       supercontig_prefix dataset_doi genbank_accession original_file_creation_date 
+       genotype chromosome_prefix supercontig_prefix description 
+       dataset_doi genbank_accession original_file_creation_date 
        local_file_creation_date dataset_release_date publication_doi publication_title 
        contributors citation data_curators public_access_level license keywords);
   
