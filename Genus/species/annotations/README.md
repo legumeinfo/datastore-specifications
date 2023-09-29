@@ -57,14 +57,14 @@ The following are examples of acceptable names:
 | glyma.Wm82.gnm1.ann1.Glyma01g21510 | Glyma01g21510 | OK |
 | glyma.Wm82.gnm2.ann1.Glyma.01G067400 | Glyma.01G067400 | OK (prefix original) |
 | glyma.Zh13_IGA1005.gnm1.ann1.SoyZH13_01R004482 | SoyZH13_01R004482 | OK |
-| phavu.UI111.gnm1.ann1.PvUI111.01G074900 | PvUI111.01G074900 | OK |
+| phavu.UI111.gnm1.ann1.PvUI111.01G074900 | PvUI111.01G074900 | OK (prefix original) |
 | trisu.Daliak.gnm2.ann1.Ts_00473 | Ts_00473 | OK |
 | vigra.VC1973A.gnm6.ann1.Vradi01g06280 | Vradi01g06280 | OK |
 | vigun.UCR779.gnm1.ann1.VuUCR779.01G029300 | VuUCR779.01G029300 | OK (prefix original) |
 | medtr.A17.gnm5.ann1_6.MtrunA17Chr1g0152141 | MtrunA17Chr1g0152141 | OK
 
 
-The following are examples of _UN_acceptable names (and the reason): 
+The following are examples of **UN**acceptable names (and the reason): 
 
 | ID | Name | Reason |
 | :--- | :---: | :---- |
