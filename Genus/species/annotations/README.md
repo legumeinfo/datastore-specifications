@@ -60,7 +60,7 @@ The following are examples of acceptable names:
 | phavu.UI111.gnm1.ann1.PvUI111.01G074900 | PvUI111.01G074900 | OK |
 | trisu.Daliak.gnm2.ann1.Ts_00473 | Ts_00473 | OK |
 | vigra.VC1973A.gnm6.ann1.Vradi01g06280 | Vradi01g06280 | OK |
-| vigun.UCR779.gnm1.ann1.VuUCR779.01G029300 | VuUCR779.01G029300 | OK |
+| vigun.UCR779.gnm1.ann1.VuUCR779.01G029300 | VuUCR779.01G029300 | OK (prefix original) |
 | medtr.A17.gnm5.ann1_6.MtrunA17Chr1g0152141 | MtrunA17Chr1g0152141 | OK
 
 
@@ -77,6 +77,7 @@ The following are examples of _UN_acceptable names (and the reason):
 | medtr.HM004.gnm1.ann1.g876 | HM004.g876 | gratuitous prefix |
 | tripr.MilvusB.gnm2.ann1.gene6109 | tripr.gene6109 | gratuitous prefix
 
+<hr>
 
 The featid_map.tsv.gz file contains two tab-separated fields: before_feature_ID  prefixed_feature_ID
 Examples:
