@@ -61,21 +61,20 @@ The following are examples of acceptable names:
 | trisu.Daliak.gnm2.ann1.Ts_00473 | Ts_00473 | OK |
 | vigra.VC1973A.gnm6.ann1.Vradi01g06280 | Vradi01g06280 | OK |
 | vigun.UCR779.gnm1.ann1.VuUCR779.01G029300 | VuUCR779.01G029300 | OK (prefix original) |
-| medtr.A17.gnm5.ann1_6.MtrunA17Chr1g0152141 | MtrunA17Chr1g0152141 | OK
+| medtr.A17.gnm5.ann1_6.MtrunA17Chr1g0152141 | MtrunA17Chr1g0152141 | OK |
 
 
 The following are examples of **UN**acceptable names (and the reason): 
 
 | ID | Name | Comment |
 | :--- | :---: | :---- |
-| cajca.ICPL87119.gnm1.ann1.C.cajan_04851 | cajca.C.cajan_04851 | gratuitous prefix |
-| cicar.CDCFrontier.gnm1.ann1.Ca_02646 | cicar.CDCFrontier.Ca_02646 | gratuitous prefix |
-| cicar.ICC4958.gnm2.ann1.Ca_00646 | cicar.ICC4958.Ca_00646 | gratuitous prefix |
-| glyma.Hwangkeum.gnm1.ann1.GmHk_01G000541 | exosc3_1 | doesn't correspond with ID or sequences |
-| lupal.Amiga.gnm1.ann1.gene:Lalb_Chr01g0003511 | lupal.Lalb_Chr01g0003511 | gratuitous prefix |
-| lupan.Tanjil.gnm1.ann1.Lup031547 | lupan.Lup031547 | gratuitous prefix |
-| medtr.HM004.gnm1.ann1.g876 | HM004.g876 | gratuitous prefix |
-| tripr.MilvusB.gnm2.ann1.gene6109 | tripr.gene6109 | gratuitous prefix
+| cajca.ICPL87119.gnm1.ann1.C.cajan_04851 | cajca.C.cajan_04851 | gratuitous prefix; reduce to C.cajan_04851 |
+| cicar.CDCFrontier.gnm1.ann1.Ca_02646 | cicar.CDCFrontier.Ca_02646 | gratuitous prefix; reduce to Ca_02646 |
+| glyma.Hwangkeum.gnm1.ann1.GmHk_01G000541 | exosc3_1 | doesn't correspond with ID or sequences; change to GmHk_01G000541 |
+| lupal.Amiga.gnm1.ann1.gene:Lalb_Chr01g0003511 | lupal.Lalb_Chr01g0003511 | gratuitous prefix; reduce to Lalb_Chr01g0003511 |
+| lupan.Tanjil.gnm1.ann1.Lup031547 | lupan.Lup031547 | gratuitous prefix; reduce to Lup031547 |
+| medtr.HM004.gnm1.ann1.g876 | HM004.g876 | gratuitous prefix; reduce to g876 |
+| tripr.MilvusB.gnm2.ann1.gene6109 | tripr.gene6109 | gratuitous prefix; reduce to gene6109 |
 
 <hr>
 
