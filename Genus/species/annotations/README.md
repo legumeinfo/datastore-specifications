@@ -48,7 +48,7 @@ When gene Name is not supplied in the original annotation file, it should be det
 
 The following are examples of acceptable names:
 
-| ID | Name | Reason |
+| ID | Name | Comment |
 | :--- | :---: | :---- |
 | arahy.Tifrunner.gnm1.ann1.HA8THR | HA8THR | OK |
 | arahy.Tifrunner.gnm2.ann2.Ah01g088800 | Ah01g088800 | OK |
@@ -66,7 +66,7 @@ The following are examples of acceptable names:
 
 The following are examples of **UN**acceptable names (and the reason): 
 
-| ID | Name | Reason |
+| ID | Name | Comment |
 | :--- | :---: | :---- |
 | cajca.ICPL87119.gnm1.ann1.C.cajan_04851 | cajca.C.cajan_04851 | gratuitous prefix |
 | cicar.CDCFrontier.gnm1.ann1.Ca_02646 | cicar.CDCFrontier.Ca_02646 | gratuitous prefix |
