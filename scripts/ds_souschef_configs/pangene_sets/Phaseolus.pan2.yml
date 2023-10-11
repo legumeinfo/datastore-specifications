@@ -1,0 +1,75 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Phaseolus/GENUS
+    from_pan_dir: out_Phaseolus_7_1
+prefixes:
+    from_pan_prefix: 
+collection_info:
+    genus: Phaseolus
+    pan_ver: pan2
+    pan_key: G5HV
+readme_info:
+    provenance: "The files in this directory are a product of the staff of the SoyBase and LegumeInfo project teams. The method is described here: https://github.com/legumeinfo/pandagma"
+    source: "https://data.legumeinfo.org"
+    synopsis: "Pangene set for Phaseolus species, based primarily on P. vulgaris but also including P. acutifolius and P. lunatus. This pangene set includes 8 annotation sets."
+    taxid: "3883"
+    annotations_main: phaac.Frijol_Bayo.gnm1.ann1,phaac.W6_15578.gnm2.ann1,phalu.G27455.gnm1.ann1,phavu.5-593.gnm1.ann1,phavu.G19833.gnm2.ann1,phavu.LaborOvalle.gnm1.ann1,phavu.UI111.gnm1.ann1
+    annotations_extra: phavu.G19833.gnm1.ann1
+    description: "Pan-gene set for Phaseolus species, spanning 3 species and 8 annotation sets, calculated using the pandagma pipeline, version 2023-09-15"
+    bioproject: 
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: 2023-09-15
+    local_file_creation_date: 2023-09-15
+    dataset_release_date: 2023-09-15
+    contributors: Steven Cannon, Hyunoh Lee
+    publication_doi: 
+    citation: 
+    publication_title: 
+    data_curators: Steven Cannon
+    public_access_level: public
+    license: Open
+    keywords: "Phaseolus, common bean, lima bean, pan-gene, pangene, orthogroup"
+from_to_pan_tsv:
+  - 
+    from: 18_syn_pan_aug_extra.clust.tsv
+    to: clust.tsv
+    description: "Pan-gene sets, in cluster format: ID in first column, followed by tab-separated gene list."
+  - 
+    from: 18_syn_pan_aug_extra.counts.tsv
+    to: counts.tsv
+    description: "Matrix of counts of genes per annotation set for each pan-gene set."
+  - 
+    from: 18_syn_pan_aug_extra.hsh.tsv
+    to: hsh.tsv
+    description: "Pan-gene sets, in a two-column hash format, with the set ID in the first column and genes in the second."
+from_to_pan_fasta:
+  - 
+    from: 21_pan_fasta_clust_rep_cds.fna
+    to: inclusive_cds.fna
+    description: "CDS pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
+  - 
+    from: 21_pan_fasta_clust_rep_prot.faa
+    to: inclusive_protein.faa
+    description: "Protein pan-gene sequence, inclusive (not filtered by minimum cluster size or annotation-set representation)."
+  - 
+    from: 23_syn_pan_pctl25_posn_cds.fna
+    to: pctl25_named_cds.fna
+    strip: '\w+\.pan\d+\.'
+    description: "CDS pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
+  - 
+    from: 23_syn_pan_pctl25_posn_prot.faa
+    to: pctl25_named_protein.faa
+    strip: '\w+\.pan\d+\.'
+    description: "Protein pan-gene sequence, omitting pan-genes smaller than 25% of the mode, with derived pan-gene IDs corresponding with consensus chromosome and ordinal position."
+from_to_pan_as_is:
+  - 
+    from: 18_syn_pan_aug_extra_complement.fna
+    to: complement.fna
+    description: "Complement of genes in this pan-gene set; i.e. not clustered, presumed to be singletons."
+  - 
+    from: stats.Phaseolus_7_1.txt
+    to: stats.txt
+    description: "Descriptive statistics about program parameters, input sequences, and pan-gene products."
