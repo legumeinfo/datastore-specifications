@@ -51,7 +51,6 @@ while ( my $line = <> ) {
         say join("\t", @fields[0 .. 7]), "\t$cds_id", "-$ct;$ninth_remainder";
       }
       $seen_feat{$cds_id}++;
-      $ct++;
     }
   }
   else {
@@ -82,6 +81,6 @@ if ( $check || $verbose ){
 __END__
 VERSIONS
 S. Cannon
-2023-02-08 initial version. Tested on a GenBank RefSeq GFF.
-
+2023-02-08 Initial version. Tested on a GenBank RefSeq GFF.
+2023-10-11 Fix count incrementing (count had been skipping 2, e.g. 1 3 4 5 6)
 
