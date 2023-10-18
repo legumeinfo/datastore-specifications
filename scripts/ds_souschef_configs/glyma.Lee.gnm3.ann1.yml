@@ -4,23 +4,23 @@ directories:
     from_annot_dir: annot_orig
     from_genome_dir: gnm_orig
 prefixes:
-    from_annot_prefix: "Wm82.a5."
-    from_genome_prefix: "Wm82.a5."
+    from_annot_prefix: "Lee.a3."
+    from_genome_prefix: "Lee.a3."
 collection_info:
     genus: Glycine
     species: max
     gensp: glyma
-    coll_genotype: Wm82
-    gnm_ver: gnm5
+    coll_genotype: Lee
+    gnm_ver: gnm3
     ann_ver: ann1
-    genome_key: NRKG
-    annot_key: J7HW
+    genome_key: VG1C
+    annot_key: ZYY3
 readme_info:
     provenance: "The files in this directory originated from https://doi.org/10.6084/m9.figshare.22688281.v3. That repository is considered the primary and authoritative for this data; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
     source: "https://doi.org/10.6084/m9.figshare.22688281.v3"
-    synopsis_genome: Glycine max accession Williams 82 (Wm82), genome assembly 5
-    synopsis_annot: Annotation 1 for Glycine max accession Williams 82 (Wm82), genome assembly 5
-    genotype: Wm82
+    synopsis_genome: Glycine max accession Lee, genome assembly 3
+    synopsis_annot: Annotation 1 for Glycine max accession Lee, genome assembly 3
+    genotype: Lee
     taxid: "3847"
     description_genome: "Sequenced using PacBio RSII and HiFi reads, with Bionano optical maps to aid in scaffolding. See full description at Garg, Khan et al., 2023."
     chromosome_prefix: Chr
@@ -41,7 +41,7 @@ readme_info:
     data_curators: Steven Cannon
     public_access_level: public
     license: Open, with usage agreement
-    keywords: "soybean, Wm82, Williams 82"
+    keywords: "soybean, Lee"
 from_to_genome:
   - 
     from: genome.softmasked.fasta.gz
