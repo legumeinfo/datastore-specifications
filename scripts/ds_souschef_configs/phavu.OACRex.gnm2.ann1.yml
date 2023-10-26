@@ -22,7 +22,7 @@ readme_info:
     synopsis_annot: Annotation 1 for Phaseolus vulgaris accession OACRex, genome assembly 2
     genotype: OACRex
     taxid: 3885
-    description_genome: ~
+    description_genome: "Genome assembly for OAC Rex is a white-seeded, high-yielding cultivar, with resistance to common bacterial blight."
     chromosome_prefix: Chr
     supercontig_prefix: scaffold
     description_annot: "Gene annotation resources."
