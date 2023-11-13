@@ -28,8 +28,8 @@ readme_info:
     description_annot: "Gene annotation resources. See full description at Garg, Khan et al., 2023."
     bioproject: PRJNA919186
     sraproject: 
-    dataset_doi_genome: https://doi.org/10.6084/m9.figshare.22688281.v3
-    dataset_doi_annot: https://doi.org/10.6084/m9.figshare.22688281.v3
+    dataset_doi_genome: 10.6084/m9.figshare.22688281.v3
+    dataset_doi_annot: 10.6084/m9.figshare.22688281.v3
     genbank_accession: 
     original_file_creation_date: 2023-07-22
     local_file_creation_date: 2023-10-11
