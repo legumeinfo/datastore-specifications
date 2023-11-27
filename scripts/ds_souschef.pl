@@ -617,8 +617,8 @@ sub gff {
       say "  Generating CDS bed file from GFF";
       my $bed_file = $TO_FILE;
       $bed_file =~ s/gene_models.*gff3/cds.bed/;
-      my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed6_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
-      `$gff_to_bed_command`; # or die "system call of gff_to_bed6_mRNA.awk failed: $?";
+      my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
+      `$gff_to_bed_command`; # or die "system call of gff_to_bed7_mRNA.awk failed: $?";
       &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, 
         "BED-format file, derived from gene_models.*gff3");
     }
@@ -850,3 +850,4 @@ Versions
 2023-03-04 In make_featid_map, handle features in which the 9th column has only one attribute, e.g. ID=Identifier
 2023-03-18 Permit more variation in GFF filename
 2023-06-09 Handle genomes README keys supercontig_prefix and chromosome_prefix 
+2023-11-27 Change from gff_to_bed6_mRNA.awk to gff_to_bed7_mRNA.awk
