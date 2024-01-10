@@ -15,6 +15,10 @@
 #         A file containing GFF data
 
 BEGIN { FS = OFS = "\t" }
+NF == 9 && $3 == "gene" {
+  match($9, /Name=[^;]+/)
+  Name=substr($9, RSTART+5, RLENGTH-5)
+}
 NF == 9 && $3 == "mRNA" {
   match($9, /ID=[^;]+/)
   mRNA_ID=substr($9, RSTART+3, RLENGTH-3)
@@ -22,7 +26,7 @@ NF == 9 && $3 == "mRNA" {
   match($9, /Parent=[^;]+/)
   Parent=substr($9, RSTART+7, RLENGTH-7)
 
-  transcript_Parent[mRNA_ID] = Parent
+  transcript_Name[mRNA_ID] = Name
 }
 NF == 9 && $3 == "CDS" { 
   match($9, /Parent=[^;]+/)
@@ -39,7 +43,7 @@ NF == 9 && $3 == "CDS" {
 END {
   for (mRNA_ID in transcript_CDS) { 
     split(transcript_CDS[mRNA_ID], A, ",")
-    print A[1], A[2]-1, A[3], mRNA_ID, 0, A[4], transcript_Parent[mRNA_ID]
+    print A[1], A[2]-1, A[3], mRNA_ID, 0, A[4], transcript_Name[mRNA_ID]
   }
 }
 
