@@ -1,0 +1,87 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Glycine/max/Wm82_NJAU.gnm1.N4GV
+    from_annot_dir: derived
+    from_genome_dir: derived
+prefixes:
+    from_annot_prefix: GWHCAYC00000000.modID.
+    from_genome_prefix: GWHCAYC00000000.modID.
+collection_info:
+    genus: Glycine
+    species: max
+    gensp: glyma
+    coll_genotype: Wm82_NJAU
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: N4GV
+    annot_key: KM71
+readme_info:
+    provenance: "The files in this directory originated from https://ngdc.cncb.ac.cn/gwh/Assembly/37536/show. The Genome Warehouse repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://ngdc.cncb.ac.cn/gwh/Assembly/37536/show"
+    synopsis_genome: Glycine max accession Williams 82 from Nanjing Agricultural University (Wm82-NJAU), genome assebly v1
+    synopsis_annot: Annotation 1 for Glycine max accession Williams 82 from Nanjing Agricultural University (Wm82-NJAU), genome assembly v1
+    genotype: Wm82_NJAU
+    taxid: 3847
+    description_genome: "Sequenced using PacBio HiFi, Nanopore ONT ulta-long, and short read Illumina sequencing; assembled with hifisam v0.16.1; minimap2 v2.24; Racon v1.5.0; RagTag v2.1.0"
+    chromosome_prefix: Gm
+    description_annot: "Gene annotation resources. See full description in supplemental methods at Wang, Lomngfei et al., 2023"
+    bioproject: PRJCA015288
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: 2023-08-19
+    local_file_creation_date: 2023-12-01
+    dataset_release_date: 2023-08-19
+    contributors: Longfei Wang, Mengzhu Zhang, Mengna Li, Xinyu Jiang, Wu Jiao, Qingxin Song
+    publication_doi: 10.1016/j.molp.2023.08.012
+    citation: "Wang L, Zhang M, Li M, Jiang X, Jiao W, Song Q. A telomere-to-telomere gap-free assembly of soybean genome. Mol Plant. 2023 Nov 6;16(11):1711-1714. doi: 10.1016/j.molp.2023.08.012. Epub 2023 Aug 26. PMID: 37634078."
+    publication_title: "A telomere-to-telomere gap-free assembly of soybean genome"
+    data_curators: Jacqueline Campbell, Steven Cannon
+    public_access_level: public
+    license: open
+    keywords: "soybean, Wm82, Williams 82, Wm82_NJAU, Wm82-NJAU"
+from_to_genome:
+  - 
+    from: genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+original_readme_and_usage:
+from_to_annot_as_is:
+  - 
+    from: gff.gz
+    to: gene_models_main.gff3
+    description: "GFF with repeat-masking coordinates"
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  - 
+    from: transcripts.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  - 
+    from: transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+  - 
+    from: protein_primary.faa.gz
+    to: protein_primary.faa.gz
+    description: "Protein sequences - primary only"
+from_to_gff:
+  - 
+    from: gff.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+

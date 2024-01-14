@@ -1,0 +1,66 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Cercis/chinensis/
+    from_annot_dir: GWHBHAK
+    from_genome_dir: GWHBHAK
+prefixes:
+    from_annot_prefix: GWHBHAK00000000.
+    from_genome_prefix: GWHBHAK00000000.
+collection_info:
+    genus: Cercis
+    species: chinensis
+    gensp: cerch
+    coll_genotype: GXIB
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: 5DZH
+    annot_key: L8L4
+readme_info:
+    provenance: "The files in this directory originated from the Genome Warehouse of the China National Center for Bioinformation, https://ngdc.cncb.ac.cn/gwh. The Genome Warehouse repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: https://ngdc.cncb.ac.cn/gwh/Assembly/24066/show
+    synopsis_genome: Genome assembly for Cercis chinensis, from a plant at the campus of Guangxi Institute of Botany, Chinese Academy of Sciences.
+    synopsis_annot: Gene annotations for Cercis chinensis, from a plant at the campus of Guangxi Institute of Botany, Chinese Academy of Sciences.
+    taxid: 161750
+    genotype: GXIB
+    description_genome: Genome assembly for Cercis chinensis, from a plant at the campus of Guangxi Institute of Botany (GXIB), from Li, Shen et al., 2023.  The genome assembly was derived from PacBio HiFi reads with 130.9x coverage.
+    description_annot: Gene annotations for Cercis chinensis were based on deep transcriptome sequencing of five plant tissues, and transcriptome-based, homolog-based, and ab initio methods.
+    bioproject: PRJCA007288
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: GWHBHAK00000000
+    original_file_creation_date: "2021-11-20"
+    local_file_creation_date: "2024-01-08"
+    dataset_release_date: "2024-02-01"
+    contributors: Li J, Shen J, Wang R, Chen Y, Zhang T, Wang H, Guo C, Qi J.
+    publication_doi: 10.1016/j.xplc.2022.100422
+    citation: "Li J, Shen J, Wang R, Chen Y, Zhang T, Wang H, Guo C, Qi J. The nearly complete assembly of the Cercis chinensis genome and Fabaceae phylogenomic studies provide insights into new gene evolution. Plant Commun. 2023 Jan 9;4(1):100422. doi: 10.1016/j.xplc.2022.100422. Epub 2022 Aug 11. PMID: 35957520; PMCID: PMC9860166."
+    publication_title: The nearly complete assembly of the Cercis chinensis genome and Fabaceae phylogenomic studies provide insights into new gene evolution
+    data_curators: Steven Cannon, Andrew Farmer
+    public_access_level: public
+    license: open
+    keywords: "Chinese redbud tree"
+from_to_genome:
+  -
+    from: genome_modID.fasta.gz
+    to: genome_main.fna
+    description: Primary genome assembly
+from_to_cds_mrna:
+  -
+    from: CDS.fna.gz
+    to: cds.fna
+    description: CDS sequences
+  -
+    from: mRNA.fna.gz
+    to: mRNA.fna
+    description: mRNA sequences
+from_to_protein:
+  -
+    from: protein.faa.gz
+    to: protein.faa
+    description: Protein sequences
+from_to_gff:
+  -
+    from: modID.gff3.gz
+    to: gene_models_main.gff3
+    description: Gene models - main
