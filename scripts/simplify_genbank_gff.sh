@@ -11,14 +11,15 @@ cat <<Usage-message
 
   May be used with hash_into_gff_id.pl and a hash file of gene IDs and/or seqids.
 
-  Tested on only one GFF. Use at your own risk. Modification will probably be needed to handle other GenBank GFF forms.
+  Lightly tested. Modification will probably be needed to handle other GenBank GFF forms.
 
 Usage-message
 exit
 fi
 
 perl -pe 's/\|WGS:\w+//g; s/\w+-gnl\|//g; s/;(Note=|gbkey=|Dbxref=|Name=).+//' | # Simplify 9th col to ID or ID+Parent
-  perl -pe 's/ID=(cds-[^;]+);Parent=(.+)/ID=cds-$2;Parent=$2/' |  # For CDS features, replace with name of parent
+  perl -pe 's/rna-//g; s/gene-//g; s/exon-//g' | # Strip feature types from IDs except cds
+  perl -pe 's/ID=(cds-[^;]+);Parent=(.+)/ID=$2;Parent=$2/' |  # For CDS features, replace with name of parent
   perl -pe 's/;/\t/g' |  # Temporarily split 9th column on semicolons
   awk -v OFS="\t" '$3 ~ /CDS/ && $9 != prev {ct=1; print $1, $2, $3, $4, $5, $6, $7, $8, $9 "-" ct, $10; prev=$9; next}
                    $3 ~ /CDS/ && $9 == prev {ct++; print $1, $2, $3, $4, $5, $6, $7, $8, $9 "-" ct, $10; prev=$9}
