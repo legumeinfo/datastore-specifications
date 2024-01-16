@@ -7,7 +7,7 @@ use Getopt::Long;
 
 my $usage = <<EOS;
   Synopsis: gzcat GFF_FILE.gff3.gz | rename_gff_IDs.pl [options] 
-       OR     hash_into_gff_id.pl [options] < GFF_FILE.gff3
+       OR     rename_gff_IDs.pl [options] < GFF_FILE.gff3
   
   Read a GFF file from STDIN. 
   Swap the feature IDs with the values from the Name or the Parent attribute.
@@ -57,7 +57,7 @@ while (<STDIN>) {
     }
     $id_names{$ID} = $Name;
     $id_parents{$ID} = $Parent;
-    # say "AA: $ID\t$Name\t$Parent";
+     say "AA: $ID\t$Name\t$Parent";
   }
 }
 
