@@ -81,7 +81,7 @@ if ($verbose){
 
 @lines = map {my @a = split /\t/; \@a;} @lines;
 @lines = sort {
-  $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} cmp $type_collate{$b->[2]}
+  $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} <=> $type_collate{$b->[2]}
 } @lines;
 foreach my $line (@lines) {
   say join("\t", @$line);
@@ -91,4 +91,4 @@ __END__
 Versions
 2023-07-08 Add some types for collate sort. With extra items
 2023-12-18 Handle arbitrary types (col 3), adding nonstandard ones to the end of the type_collate hash.
-
+2024-01-16 Fix collate sort, sorting numerically by array of type-values -- for example, putting exon:150 after gene:40
