@@ -6,7 +6,7 @@ use feature "say";
 use Getopt::Long;
 
 my $usage = <<EOS;
-  Synopsis: gzcat GFF_FILE.gff3.gz | rename_gff_gene_IDs.pl [options] 
+  Synopsis: cat GFF_FILE.gff3 | rename_gff_gene_IDs.pl [options] 
        OR     rename_gff_gene_IDs.pl [options] < GFF_FILE.gff3
   
   Read a GFF file from STDIN. 
@@ -15,7 +15,14 @@ my $usage = <<EOS;
   For example, if the gene ID=LOC130969383 and mRNA ID=XM_057895071.1, then
   use XM_057895071 as the gene ID.
 
-  NOTE: The GFF input file should be structurally correct and sorted.
+  The GFF input file should be structurally correct and sorted.
+
+  Example, for a GenBank GFF - first simplifying the GFF and then replacing 
+  GenBank's locus IDs with the base of the mRNA IDs:
+
+    hash_into_gff_id.pl -gff \$FROM/genomic.gff -seqid_map derived/init_seqid_map.tsv |
+      simplify_genbank_gff.sh |
+      rename_gff_gene_IDs.pl > derived/\$ACCN.modID.gff
   
   Required:
     GFF file in stream via STDIN
@@ -119,6 +126,5 @@ __END__
 
 Steven Cannon
 Versions
-v01 2024-01-14 New script. 
-
-
+2024-01-14 New script. 
+2024-01-16 Escape variables in usage string and correct the synopsis
