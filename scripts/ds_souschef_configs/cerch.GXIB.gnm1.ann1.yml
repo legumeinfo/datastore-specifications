@@ -40,6 +40,11 @@ readme_info:
     public_access_level: public
     license: open
     keywords: "Chinese redbud tree"
+from_to_genome_as_is:
+  - 
+    from: initial_seqid_map.tsv
+    to: initial_seqid_map.tsv
+    description: "Mapping between original and modified sequence IDs"
 from_to_genome:
   -
     from: genome_modID.fasta.gz
@@ -51,8 +56,8 @@ from_to_cds_mrna:
     to: cds.fna
     description: CDS sequences
   -
-    from: mRNA.fna.gz
-    to: mRNA.fna
+    from: mrna.fna.gz
+    to: mrna.fna
     description: mRNA sequences
 from_to_protein:
   -
