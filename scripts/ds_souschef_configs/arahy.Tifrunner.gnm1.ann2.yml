@@ -70,11 +70,11 @@ from_to_cds_mrna:
   - 
     from: gffread.mrna.fna.gz
     to: mrna.fna
-    description: "cds sequences"
+    description: "mRNA transcript sequences"
   - 
     from: gffread.mrna_primary.fna.gz
     to: mrna_primary.fna
-    description: "cds sequences - primary only"
+    description: "mRNA transcript sequences - primary only"
 from_to_protein:
   - 
     from: gffread.protein.faa.gz
