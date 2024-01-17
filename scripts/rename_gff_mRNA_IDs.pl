@@ -140,16 +140,19 @@ foreach my $line (@whole_gff) {
       else {
         $ID =~ /(exon)-(.+)\.\d+-(\d+)$/;
         my $new_ID = "$1-$new_mRNA_ID-$3";
-        #say "CC: ID=$ID";
-        #say "DD: new_ID=$new_ID";
-        say join("\t", @fields[0..7], "ID=$new_ID;Name=$Parent.$tcpt_ct;Parent=$Parent");
+        my $exon_Parent = "$new_mRNA_ID";
+        say join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent");
       }
+    }
+    elsif ($fields[2] =~ /CDS/) {
+      $ID =~ /.+\.\d+-(\d+)$/;
+      my $new_ID = "$new_mRNA_ID-$1";
+      my $cds_Parent = "$new_mRNA_ID";
+      say join("\t", @fields[0..7], "ID=$new_ID;Name=$cds_Parent;Parent=$cds_Parent");
     }
     else {
       $ID =~ /(.+)\.\d+-(\d+)$/;
       my $new_ID = "$new_mRNA_ID-$2";
-      #say "EE: ID=$ID";
-      #say "FF: new_ID=$new_ID";
       say join("\t", @fields[0..7], "ID=$new_ID;Name=$Parent.$tcpt_ct;Parent=$Parent");
     }
   }
