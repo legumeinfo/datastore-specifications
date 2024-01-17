@@ -340,7 +340,7 @@ sub make_featid_map {
   my $GFF_EXONS_FILE_START = "";
   my ($strip_regex, $STRIP_RX);
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ # Get the "strip" regex, if any, from the conf file
-    if ($fr_to_hsh->{to} =~ /gene_models.*gff3/){
+    if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/){
       $GFF_FILE_START = 
         "$dir_hsh{work_dir}/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
       say "  There is a gff_main file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
@@ -359,7 +359,7 @@ sub make_featid_map {
       say "  There is a gene_models_exons file: $prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     }
     else {
-      say "Please ensure that the from_to_gff config block contains \"to: gene_models.*gff3\"";  
+      say "Please ensure that the from_to_gff config block contains \"to: gene_models_main.gff3\"";  
     }
   }
   say "GFF_FILE_START: $GFF_FILE_START";
