@@ -1,44 +1,27 @@
-# Objective: Prepare assembly and annotation collection for Glycine max accession 
-# Wm82 from Nanjing Agricultural University / Wm82-NJAU
-# Started on 2023-12-01 (JDC)
-# Continued/finished on 2024-01-12 (SBC)
+# Objective: prepare assembly for Data Store. File-prep started 2019-09; i
+# work on GenBank annotation ccontinued on 2023-12-19
+# S. Cannon
 
 # See the document here for detailed (general) instructions:
-#   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/README.md
+#   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS
 
-<< REFERENCE
-Wang L, Zhang M, Li M, Jiang X, Jiao W, Song Q. A telomere-to-telomere gap-free assembly of soybean genome. Mol Plant. 2023 Nov 6;16(11):1711-1714. doi: 10.1016/j.molp.2023.08.012. Epub 2023 Aug 26. PMID: 37634078.
-REFERENCE
-
-# Assembly was downloaded on 2023-11-21 from Genome Warehouse
-# https://ngdc.cncb.ac.cn/gwh/Assembly/37536/show
-
-# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
-# If not added already to the PATH, do:
-    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
+# Data from https://www.ncbi.nlm.nih.gov/genome/annotation_euk/Arachis_stenosperma/GCF_014773155.1-RS_2023_06/
+#RefSeq assembly GCF_014773155.1 (arast.V10309.gnm1.PFL2)
+#https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_014773155.1/
 
 # Variables for this job
   PRIVATE=   # Set this to the Data Store private root directory, i.e. ...data/private/
-  ACCN=GWHCAYC00000000
-  STRAIN=Wm82_NJAU
-  GENUS=Glycine
-  SP=max
-  GENSP=glyma
+  ACCN=GCF_014773155.1
+  STRAIN=V10309
+  GENUS=Arachis
+  SP=stenosperma
+  GENSP=arast
   GNM=gnm1
-  ANN=ann1  
-  GENOME=GWHCAYC00000000.genome.fasta
+  ANN=ann2  
+  GENOME=GCF_014773155.1_arast.V10309.gnm1.PFL2_genomic.fna
   CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
   TO=derived
-
-# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
-# NOTE: Remember to fetch and pull before generating new keys.
-  cd /usr/local/www/data/datastore-registry
-  ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
-  ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
-# NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
-  GKEY=N4GV
-  AKEY=KM71
 
 # Make and cd into a work directory
   mkdir -p $PRIVATE/$GENUS/$SP
@@ -46,24 +29,58 @@ REFERENCE
   mkdir $STRAIN.$GNM.$ANN
   cd $STRAIN.$GNM.$ANN
 
-# Put the original files in original/ and manually derived files in derived/
+# Get the genome assembly and annotations
+  curl -O https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_014773155.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT
+
+# Uncompress and move files into an easily accessible "from" directory
+  unzip download
+  mv ncbi_dataset/data/* .
+  mv assembly_data_report.jsonl dataset_catalog.json GCF*/
+  rm -rf ncbi_dataset/ download
+
+<< REFERENCE
+[none]
+REFERENCE
+
+# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
+# If not added already to the PATH, do:
+    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
+
+# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
+# NOTE: Remember to fetch and pull before generating new keys.
+  cd /usr/local/www/data/datastore-registry
+  ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
+  ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
+# NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
+  GKEY=PFL2
+  AKEY=CZRZ
+
+# Prepare the data here:
+  cd /usr/local/www/data/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
+
+# Make a directory for derived files if needed
   mkdir -p $TO $FROM
 
 # Check the files.
-# The assembly has the sequence wrapped lines with a width of 100 to permit subsequent indexing.
+# The assembly has the sequence wrapped lines with a width of 80 to permit subsequent indexing.
 
 # Swap the chromosome/seq IDs and the ACCN IDs in the assembly,
 # to get a defline like this:
 #   >Chr1 GWHCAYC00000001 Complete=T Circular=F OriSeqID=Gm01 Len=59641292
-  zcat $FROM/$ACCN.genome.fasta.gz | 
-    perl -pe 's/^>(\S+)\s+.+SeqID=(\w+)\s+Len=(\d+)/>$2 $1 Len=$3/' > $TO/$ACCN.modID.genome.fasta
+  cat $FROM/$GENOME |
+    perl -pe 's/^>(\S+)\s+.+chromosome (\d+), .+/>Chr$2 $1/;
+              s/^>(\S+)\s+.+(Scaffold_\d+),.+/>$2 $1/' > $TO/$ACCN.modID.genome.fasta
 
 # Also in the molecule IDs in the gff. 
 # First, make an initial hash/map of the molecule IDs (ACCN and $FROM)
-  zcat $FROM/$ACCN.gff.gz | 
-    awk '$1~/^#OriSeqID/ {print substr($2, 11) "\t" substr($1, 11)}' > $TO/$ACCN.initial_seqid_map.tsv
+  grep '>' $FROM/$GENOME |
+    perl -pe 's/^>(\S+)\s+.+chromosome (\d+), .+/$1\tChr$2/;
+              s/^>(\S+)\s+.+(Scaffold_\d+),.+/$1\t$2/' > $TO/$ACCN.initial_seqid_map.tsv
 
-  hash_into_gff_id.pl -gff $FROM/$ACCN.gff.gz -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
+# Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs
+  hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
+    simplify_genbank_gff.sh | 
+    rename_gff_mRNA_IDs.pl | 
     sort_gff.pl > $TO/$ACCN.modID.genes_exons.gff3
 
 # Also make a version without exons (seems necessary for extracting transcript sequences with gffread)
@@ -96,7 +113,7 @@ REFERENCE
 # cd back to the main work directory
   cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
-# Prepare the config for ds_souschef 
+# Prepare the config for ds_souschef, in the datastore-specifications/scripts/ds_souschef_configs directory
   vim $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
 
 # Run ds_souschef.pl with the config above
@@ -122,4 +139,5 @@ REFERENCE
   mv genomes/$STRAIN.$GNM.$GKEY /usr/local/www/data/annex/$GENUS/$SP/genomes/
 
 # Push the ds_souschef config to GitHub
+
 
