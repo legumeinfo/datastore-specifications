@@ -9,5 +9,5 @@ notes generic, using variables wherever possible - and to test the notes careful
 <a href="CNCB_Genome_Warehouse/Wm82_NJAU.gnm1.ann1.sh">CNCB_Genome_Warehouse/Wm82_NJAU.gnm1.ann1.sh</a>
 
 ## NCBI GenBank
-<a href="NCBI_GenBank/Wm82_NJAU.gnm1.ann1.sh">NCBI_GenBank/Wm82_NJAU.gnm1.ann1.sh</a>
+<a href="NCBI_GenBank/V10309.gnm1.ann1.sh">NCBI_GenBank/V10309.gnm1.ann1.sh</a>
 
