@@ -1,6 +1,6 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Arachis/stenosperma/V10309.gnm1.ann2
+    work_dir: /usr/local/www/data/private/Arachis/stenosperma/V10309.gnm1.ann1
     from_annot_dir: derived
     from_genome_dir: derived
 prefixes:
@@ -12,7 +12,7 @@ collection_info:
     gensp: arast
     coll_genotype: V10309
     gnm_ver: gnm1
-    ann_ver: ann2
+    ann_ver: ann1
     genome_key: PFL2
     annot_key: CZRZ
 readme_info:
