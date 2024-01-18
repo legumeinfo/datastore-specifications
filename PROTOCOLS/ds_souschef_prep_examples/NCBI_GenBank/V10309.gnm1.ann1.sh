@@ -9,24 +9,41 @@
 #RefSeq assembly GCF_014773155.1 (arast.V10309.gnm1.PFL2)
 #https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_014773155.1/
 
+<< REFERENCE
+[none]
+REFERENCE
+
+# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
+# If not added already to the PATH, do:
+    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
+
 # Variables for this job
-  PRIVATE=   # Set this to the Data Store private root directory, i.e. ...data/private/
+  PRIVATE=   # Set this to the Data Store private root directory, i.e. ...data/private
   ACCN=GCF_014773155.1
   STRAIN=V10309
   GENUS=Arachis
   SP=stenosperma
   GENSP=arast
   GNM=gnm1
-  ANN=ann2  
+  ANN=ann1  
   GENOME=GCF_014773155.1_arast.V10309.gnm1.PFL2_genomic.fna
   CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
   TO=derived
 
+# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
+# NOTE: Remember to fetch and pull before generating new keys.
+  cd /usr/local/www/data/datastore-registry
+  ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
+  ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
+# NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
+  GKEY=PFL2
+  AKEY=CZRZ
+
 # Make and cd into a work directory
   mkdir -p $PRIVATE/$GENUS/$SP
   cd $PRIVATE/$GENUS/$SP
-  mkdir $STRAIN.$GNM.$ANN
+  mkdir -p $STRAIN.$GNM.$ANN
   cd $STRAIN.$GNM.$ANN
 
 # Get the genome assembly and annotations
@@ -37,23 +54,6 @@
   mv ncbi_dataset/data/* .
   mv assembly_data_report.jsonl dataset_catalog.json GCF*/
   rm -rf ncbi_dataset/ download
-
-<< REFERENCE
-[none]
-REFERENCE
-
-# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
-# If not added already to the PATH, do:
-    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
-
-# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
-# NOTE: Remember to fetch and pull before generating new keys.
-  cd /usr/local/www/data/datastore-registry
-  ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
-  ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
-# NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
-  GKEY=PFL2
-  AKEY=CZRZ
 
 # Prepare the data here:
   cd /usr/local/www/data/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
