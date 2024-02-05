@@ -18,6 +18,7 @@ my ($input_fas, $list_IDs, $help, $verbose, $output_fas);
 my $xclude = 0;
 my $fasta_order = 0;
 my $clobber = 0;
+my $width = 100;
 
 GetOptions (
   "input_fas=s" =>  \$input_fas,   # required
@@ -26,6 +27,7 @@ GetOptions (
   "xclude" =>       \$xclude, 
   "fasta_order" =>  \$fasta_order,
   "clobber" =>      \$clobber,
+  "width:i" =>     \$width,
   "verbose+" =>     \$verbose,
   "help" =>         \$help
 );
@@ -49,6 +51,7 @@ my $usage = <<EOS;
          (False; default) means report sequences in list order.
            Has no effect if -xclude is true.
    -clobber    (boolean) clobber (overwrite) existing output file
+   -width      (integer) width for wrapping fasta sequence; default 100
    -verbose    (boolean) for more stuff to terminal; may call multiple times
    -help       for more info
    
@@ -95,6 +98,7 @@ while ( my $seq = $in->next_seq ) {
   my $display_id = $seq->display_id();
   my $desc = $seq->desc();
   my $sequence = $seq->seq();
+  $sequence =~ s/(.{$width})/$1\n/gs; # break lines at $width;
   
   if ($xclude) {
     unless (defined($hash{$display_id})) {
@@ -155,4 +159,4 @@ VERSIONS
 2015-07-13 don't clobber existing fasta file
 2017-03-28 When reading list into file, skip blank lines. Allow clobbering, with -c
 2023-03-12 Strip trailing whitespace in list and in fasta output. Add some intermediate/debugging statements.
-
+2024-02-05 Add fasta line-wrap option and default
