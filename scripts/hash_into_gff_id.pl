@@ -108,39 +108,42 @@ else {
   open ( $GFF_FH, "<", $gff_file ) or die "Can't open in $gff_file: $!\n";
 }
 
-# Sorting method by Sam Hokin. Standalone script: sort_gff.pl
+# Sorting method by Sam Hokin & S. Cannon. Standalone script: sort_gff.pl
 my @gff_lines;
 my %type_collate = (
-  region => 0.00,
-  gene => 0.01,
-  pseudogene => 0.02,
-  mRNA => 0.03,
-  transcript => 0.04,
-  ncRNA => 0.05,
-  lnc_RNA => 0.06,
-  snoRNA => 0.07,
-  snRNA => 0.08,
-  rRNA => 0.09,
-  tRNA => 0.10,
-  exon => 0.11,
-  three_prime_UTR => 0.12,
-  CDS => 0.13,
-  five_prime_UTR => 0.14,
-  protein_match => 0.15,
-  cDNA_match => 0.16,
-  match => 0.17,
-  match_part => 0.18,
-  protein_match => 0.19,
-  expressed_sequence_match => 0.20,
-  translated_nucleotide_match => 0.21,
-  expressed_sequence_match => 0.22,
-  contig => 0.23,
+  region => 10,
+  scaffold => 20,
+  contig => 30,
+  gene => 40,
+  pseudogene => 50,
+  transposable_element_gene => 60,
+  mRNA => 70,
+  transcript => 80,
+  ncRNA => 90,
+  lnc_RNA => 100,
+  snoRNA => 110,
+  snRNA => 120,
+  rRNA => 130,
+  tRNA => 140,
+  exon => 150,
+  three_prime_UTR => 160,
+  CDS => 170,
+  five_prime_UTR => 180,
+  protein_match => 190,
+  cDNA_match => 200,
+  match => 210,
+  match_part => 220,
+  expressed_sequence_match => 230,
+  translated_nucleotide_match => 240,
 );
+
+my $last_collate_number = 10*(keys %type_collate);
 
 while (<$GFF_FH>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
   my $line = $_;
+  next if ($line =~ /^\s*$/);
   if ( $line =~ /^###$/ ) { next } # Skip spacer lines
   if ( $line =~ /^#.+/ ) { # print comment line 
     say $OUT_FH $line;
@@ -152,6 +155,12 @@ while (<$GFF_FH>) {
       $line =~ s/$STR_RX//g;
     }
     push(@gff_lines, $line);
+    
+    my $type = $parts[2];
+    unless ($type_collate{$type}){
+      $last_collate_number += 10;
+      $type_collate{$type} = $last_collate_number;
+    }
   }
 }
 
@@ -159,7 +168,7 @@ my @split_lines = map {my @a = split /\t/; \@a;} @gff_lines;
 
 if ($sort) { # Sorting method by Sam Hokin
   @split_lines = sort {
-    $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} cmp $type_collate{$b->[2]}
+    $a->[0] cmp $b->[0] || $a->[3] <=> $b->[3] || $type_collate{$a->[2]} <=> $type_collate{$b->[2]}
   } @split_lines;
 }
 else { 
@@ -266,3 +275,5 @@ Steven Cannon
 2023-03-03 Add some feature types for collate sort
 2023-07-05 Print old attribute name if no hash replacement is found.
 2023-07-08 Print warning if no hash replacement is found. Fix collate sort by using floats to order them.
+2024-02-05 Update sorting method, now handling arbitrary types (col 3), adding nonstandard ones to the end of the type_collate hash.
+
