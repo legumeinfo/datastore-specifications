@@ -13,7 +13,7 @@ my $usage = <<EOS;
 Sort gff3 by feature type and position, such that child features occur below their parents. 
 The sorted output should be suitable for indexing using Samtools tabix.
 
-Usage: histplot.pl < file.gff3 
+Usage: sort_gff.pl < file.gff3 
 
     -verbose   Some debug info, printed as comments to top of file (not for production)
     -help      This message
