@@ -1,0 +1,90 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Phanera/championii/longxuteng.gnm1.ann1
+    from_annot_dir: derived
+    from_genome_dir: derived
+prefixes:
+    from_annot_prefix: "GWHCBFY00000000.1." 
+    from_genome_prefix: "GWHCBFY00000000.1."
+collection_info:
+    genus: Phanera
+    species: championii
+    gensp: phach
+    coll_genotype: longxuteng
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: WJG7
+    annot_key: KGX9
+readme_info:
+    provenance: "The files in this directory originated from National Genomics Data Center (NGDC), for genome sequence GWHCBFY00000000.1, submitted by the Guangxi University in 2023-10-13. The GenBank source is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and Peanutbase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and Peanutbase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://ngdc.cncb.ac.cn/gwh/Assembly/68870/show"
+    synopsis_genome: Genome assembly of Phanera championii (two haplotypes)
+    synopsis_annot: Annotation of Phanera championii genome assembly (two haplotypes)
+    taxid: "228514"
+    genotype: "longxuteng"
+    description_genome: "Genome assembly 1 for Phanera championii, accession longxuteng, with sequenced generated using PacBio-Sequel II; Illumina-sequenced Hi-C. Phanera championii, a perennial evergreen liana of the Fabaceae family, is widely distributed in the karst areas of Southwest China. Its well-developed root system and strong adaptability make it an ideal plant species for the ecological management of rock desertification. They performed high-coverage PacBio, Hi-C, and transcriptome sequencing of this highly heterozygous genome and obtained haplotype-resolved genomes." 
+    chromosome_prefix: Chr
+    supercontig_prefix:
+    description_annot: "This annotation was produced by National Genomics Data Center (NGDC) on the assembly GWHCBFY00000000.1 in 2023-10-13"
+    bioproject: "GWHCBFY00000000.1"
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: "2023-10-13"
+    local_file_creation_date: "2024-02-02"
+    dataset_release_date: "2024-02-05"
+    contributors: "College of agriculture, Guangxi University; Lu Y, Chen X, Yu H, Zhang C, Xue Y, Zhang Q, Wang H.; YL and HW designed the study. XC, HY, and CZ performed the genome assembly and comparative genomics. YL, HY, and YX executed the analyses of structural variations and transcriptomes. YL and QZ collected the samples. YL wrote the article. QZ and HW revised the article. All authors read and approved the final version for publication."
+    publication_doi: "10.1111/tpj.16620"
+    citation: "Lu Y, Chen X, Yu H, Zhang C, Xue Y, Zhang Q, Wang H. Haplotype-resolved genome assembly of Phanera championii reveals molecular mechanisms of flavonoid synthesis and adaptive evolution. Plant J. 2024 Jan 3. doi: 10.1111/tpj.16620. Epub ahead of print. PMID: 38173092."
+    publication_title: "Haplotype-resolved genome assembly of Phanera championii reveals molecular mechanisms of flavonoid synthesis and adaptive evolution"
+    data_curators: Hyunoh Lee, Steven Cannon, Andrew Farmer
+    public_access_level: public
+    license: open
+    keywords: "Phanera championii, Bauhinia championii"
+from_to_genome:
+  - 
+    from: hap2.modID.genome.fasta.gz
+    to: hap2_genome_main.fna
+    description: "Genome assembly - haplotype 2"
+original_readme_and_usage:
+from_to_genome_as_is:
+  - 
+    from: hap2.initial_seqid_map.tsv
+    to: hap2_initial_seqid_map.tsv
+    description: "Mapping between original and modified sequence IDs - haplotype 2"
+from_to_cds_mrna:
+  - 
+    from: hap2.modID.CDS.fna.gz
+    to: hap2_cds.fna
+    description: "cds sequences - haplotype 2"
+  - 
+    from: hap2.modID.CDS_primary.fna.gz
+    to: hap2_cds_primary.fna
+    description: "cds sequences - longest variant for each gene - haplotype 2"
+  - 
+    from: hap2.modID.protein.faa.gz
+    to: hap2_protein.faa
+    description: "Protein sequences - haplotype 2"
+  - 
+    from: hap2.modID.protein_primary.faa.gz
+    to: hap2_protein_primary.faa
+    description: "Protein sequences - longest variant for each gene - haplotype 2"
+from_to_gff:
+  - 
+    from: hap2.modID.genes.gff3.gz
+    to: hap2_gene_models_main.gff3
+    description: "Gene models - haplotype 2"
+  - 
+    from: hap2.modID.genes_exons.gff3.gz
+    to: hap2_gene_models_exons.gff3
+    description: "Gene models, with exons - haplotype 2"
+  -     
+    from: hap2.modID.transcripts.fna.gz
+    to: hap2_transcripts.fna
+    description: "Transcripts - main - haplotype 2"
+  - 
+    from: hap2.modID.transcripts_primary.fna.gz
+    to: hap2_transcripts_primary.fna
+    description: "Transcripts - longest variant for each transcript - haplotype 2"
+
