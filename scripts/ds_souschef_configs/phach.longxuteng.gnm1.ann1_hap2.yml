@@ -45,46 +45,47 @@ readme_info:
 from_to_genome:
   - 
     from: hap2.modID.genome.fasta.gz
-    to: hap2_genome_main.fna
-    description: "Genome assembly - haplotype 2"
+    to: genome_main.fna
+    description: "Primary genome assembly - haplotype 1"
 original_readme_and_usage:
 from_to_genome_as_is:
   - 
     from: hap2.initial_seqid_map.tsv
-    to: hap2_initial_seqid_map.tsv
-    description: "Mapping between original and modified sequence IDs - haplotype 2"
+    to: initial_seqid_map.tsv
+    description: "Mapping between original and modified sequence IDs - haplotype 1"
 from_to_cds_mrna:
   - 
     from: hap2.modID.CDS.fna.gz
-    to: hap2_cds.fna
-    description: "cds sequences - haplotype 2"
+    to: cds.fna
+    description: "cds sequences - haplotype 1"
   - 
     from: hap2.modID.CDS_primary.fna.gz
-    to: hap2_cds_primary.fna
-    description: "cds sequences - longest variant for each gene - haplotype 2"
+    to: cds_primary.fna
+    description: "cds sequences - longest variant for each gene - haplotype 1"
+  -     
+    from: hap2.modID.transcripts.fna.gz
+    to: transcripts.fna
+    description: "Transcripts - main - haplotype 1"
+  - 
+    from: hap2.modID.transcripts_primary.fna.gz
+    to: transcripts_primary.fna
+    description: "Transcripts - longest variant for each transcript - haplotype 1"
+from_to_protein:
   - 
     from: hap2.modID.protein.faa.gz
-    to: hap2_protein.faa
-    description: "Protein sequences - haplotype 2"
+    to: protein.faa
+    description: "Protein sequences - haplotype 1"
   - 
     from: hap2.modID.protein_primary.faa.gz
-    to: hap2_protein_primary.faa
-    description: "Protein sequences - longest variant for each gene - haplotype 2"
+    to: protein_primary.faa
+    description: "Protein sequences - longest variant for each gene - haplotype 1"
 from_to_gff:
   - 
     from: hap2.modID.genes.gff3.gz
-    to: hap2_gene_models_main.gff3
-    description: "Gene models - haplotype 2"
+    to: gene_models_main.gff3
+    description: "Gene models - main - haplotype 1"
   - 
     from: hap2.modID.genes_exons.gff3.gz
-    to: hap2_gene_models_exons.gff3
-    description: "Gene models, with exons - haplotype 2"
-  -     
-    from: hap2.modID.transcripts.fna.gz
-    to: hap2_transcripts.fna
-    description: "Transcripts - main - haplotype 2"
-  - 
-    from: hap2.modID.transcripts_primary.fna.gz
-    to: hap2_transcripts_primary.fna
-    description: "Transcripts - longest variant for each transcript - haplotype 2"
+    to: gene_models_exons.gff3
+    description: "Gene models, with exons - haplotype 1"
 

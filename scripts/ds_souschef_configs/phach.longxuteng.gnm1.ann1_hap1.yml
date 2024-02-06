@@ -62,6 +62,15 @@ from_to_cds_mrna:
     from: hap1.modID.CDS_primary.fna.gz
     to: cds_primary.fna
     description: "cds sequences - longest variant for each gene - haplotype 1"
+  -     
+    from: hap1.modID.transcripts.fna.gz
+    to: transcripts.fna
+    description: "Transcripts - main - haplotype 1"
+  - 
+    from: hap1.modID.transcripts_primary.fna.gz
+    to: transcripts_primary.fna
+    description: "Transcripts - longest variant for each transcript - haplotype 1"
+from_to_protein:
   - 
     from: hap1.modID.protein.faa.gz
     to: protein.faa
@@ -79,12 +88,4 @@ from_to_gff:
     from: hap1.modID.genes_exons.gff3.gz
     to: gene_models_exons.gff3
     description: "Gene models, with exons - haplotype 1"
-  -     
-    from: hap1.modID.transcripts.fna.gz
-    to: transcripts.fna
-    description: "Transcripts - main - haplotype 1"
-  - 
-    from: hap1.modID.transcripts_primary.fna.gz
-    to: transcripts_primary.fna
-    description: "Transcripts - longest variant for each transcript - haplotype 1"
 
