@@ -6,8 +6,9 @@ for similar datasets from these major data sources. Some effort has been made to
 notes generic, using variables wherever possible - and to test the notes carefully. Please report errors or questions.
 
 ## CNCB Genome Warehosue (GWH)
-<a href="CNCB_Genome_Warehouse/Wm82_NJAU.gnm1.ann1.sh">CNCB_Genome_Warehouse/Wm82_NJAU.gnm1.ann1.sh</a>
+<a href="CNCB_Genome_Warehouse/notes_Wm82_NJAU.gnm1.ann1.sh">CNCB_Genome_Warehouse/notes_Wm82_NJAU.gnm1.ann1.sh</a>
+<a href="CNCB_Genome_Warehouse/notes_longxuteng.gmn1.ann1_haplotypes.sh">CNCB_Genome_Warehouse/notes_longxuteng.gmn1.ann1_haplotypes.sh</a>
 
 ## NCBI GenBank
-<a href="NCBI_GenBank/V10309.gnm1.ann1.sh">NCBI_GenBank/V10309.gnm1.ann1.sh</a>
+<a href="notes_NCBI_GenBank/V10309.gnm1.ann1.sh">notes_NCBI_GenBank/V10309.gnm1.ann1.sh</a>
 
