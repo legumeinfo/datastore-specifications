@@ -59,7 +59,7 @@ from_to_cds_mrna:
     to: cds.fna
     description: "cds sequences"
   - 
-    from: modID.CDS.fna.gz
+    from: modID.CDS_primary.fna.gz
     to: cds_primary.fna
     description: "cds sequences - longest variant for each gene"
   - 
@@ -67,7 +67,7 @@ from_to_cds_mrna:
     to: mrna.fna
     description: "mRNA sequences"
   - 
-    from: modID.transcripts.fna.gz
+    from: modID.transcripts_primary.fna.gz
     to: mrna_primary.fna
     description: "mRNA sequences - longest variant for each gene"
 from_to_protein:
