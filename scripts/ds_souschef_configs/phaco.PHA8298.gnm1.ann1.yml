@@ -1,0 +1,120 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Phaseolus/coccineus/PHA8298.gnm1.ann1
+    from_annot_dir: v1.1/annotation
+    from_genome_dir: v1.1/assembly
+prefixes:
+    from_annot_prefix: "Pcoccineus_703_v1.1."
+    from_genome_prefix: "Pcoccineus_703_v1.0."
+collection_info:
+    genus: Phaseolus
+    species: coccineus
+    gensp: phaco
+    coll_genotype: PHA8298
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: PYJ1
+    annot_key: 0Q14
+readme_info:
+    provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov. The Phytozome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://phytozome-next.jgi.doe.gov/info/Pcoccineus_v1_1"
+    synopsis_genome: Phaseolus coccineus accession PHA8298, genome assembly v1
+    synopsis_annot: Annotation 1 for Phaseolus coccineus accession PHA8298, genome assembly v1
+    genotype: PHA8298
+    taxid: "3886"
+    description_genome: "This release (Phaseolus coccineus var. PHA8298, Pc_12) was sequenced within the European project BEAN_ADAPT, in collaboration with the HudsonAlpha Institute for Biotechnology. The BEAN_ADAPT projects, funded through the 2nd ERA-CAPS call, ERA-NET for Coordinating Action in Plant Science, was designed to investigate the genetic basis and phenotypic consequences of the adaptation to new environments of the common bean and its sister species, the runner bean, through the study of their introduction and expansion through Europe, as a recent and historically well-defined event of rapid adaptation. Please see https://phytozome-next.jgi.doe.gov/info/Pcoccineus_v1_1 for additional information."
+    chromosome_prefix: Chr
+    supercontig_prefix: scaffold
+    description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
+    bioproject: 
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: 
+    original_file_creation_date: 2022-11-08
+    local_file_creation_date: 2024-02-10
+    dataset_release_date: 2024-02-15
+    contributors: Roberto Papa, Elisa Bellucci, Elena Bitocchi, Tania Gioia, Scott Jackson, Jeremy Schmutz
+    publication_doi: 
+    citation: "Guerra-Garcia A, Rojas-Barrera IC, Ross-Ibarra J, Papa R, Pinero D. The genomic signature of wild-to-crop introgression during the domestication of scarlet runner bean (Phaseolus coccineus L.). Evol Lett. 2022 Jun 15;6(4):295-307. doi: 10.1002/evl3.285. PMID: 35937471; PMCID: PMC9346085."
+    publication_title: "The genomic signature of wild-to-crop introgression during the domestication of scarlet runner bean (Phaseolus coccineus L.)"
+    data_curators: Steven Cannon
+    public_access_level: public
+    license: Restricted, with usage agreement
+    keywords: "Scarlet runner bean"
+from_to_genome:
+  - 
+    from: fa.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+  - 
+    from: hardmasked.fa.gz
+    to: genome_hardmasked.fna
+    description: "Genome assembly - softmasked"
+  - 
+    from: softmasked.fa.gz
+    to: genome_softmasked.fna
+    description: "Genome assembly - hardmasked"
+original_readme_and_usage:
+  - 
+    from_full_filename: Pcoccineus_703_v1.1.DataReleasePolicy.html
+    to: DataReleasePolicy.html
+    description: "Original JGI data release policy"
+  - 
+    from_full_filename: Pcoccineus_703_v1.1.readme.txt
+    to: original_readme.txt
+    description: "Original JGI data README file"
+from_to_annot_as_is:
+  - 
+    from: annotation_info.txt.gz
+    to: annotation_info.txt
+    description: "Table of gene annotations from JGI"
+  - 
+    from: defline.txt.gz
+    to: defline.txt
+    description: "Defline for genes from JGI"
+#  - 
+#    from: locus_transcript_name_map.txt.gz
+#    to: locus_transcript_name_map.txt
+#    description: "Table of gene ID correspondences among Wm82 assemblies"
+from_to_genome_as_is:
+from_to_cds_mrna:
+  - 
+    from: cds.fa.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: cds_primaryTranscriptOnly.fa.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  - 
+    from: transcript.fa.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+  - 
+    from: transcript_primaryTranscriptOnly.fa.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  - 
+    from: protein_primaryTranscriptOnly.fa.gz
+    to: protein_primary.faa
+    strip: '\.p'
+    description: "Protein sequences - primary only"
+  - 
+    from: protein.fa.gz
+    to: protein.faa
+    strip: '\.p'
+    description: "Protein sequences"
+from_to_gff:
+  - 
+    from: gene_exons.gff3.gz
+    to: gene_models_exons.gff3
+    strip: '\.v2\.1'
+    description: "Gene models, with exon features"
+  - 
+    from: gene.gff3.gz
+    to: gene_models_main.gff3
+    strip: '\.v2\.1'
+    description: "Gene models - main"
+
