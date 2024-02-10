@@ -10,5 +10,8 @@ notes generic, using variables wherever possible - and to test the notes careful
 <a href="CNCB_Genome_Warehouse/notes_longxuteng.gmn1.ann1_haplotypes.sh">CNCB_Genome_Warehouse/notes_longxuteng.gmn1.ann1_haplotypes.sh</a>
 
 ## NCBI GenBank
-<a href="notes_NCBI_GenBank/V10309.gnm1.ann1.sh">notes_NCBI_GenBank/V10309.gnm1.ann1.sh</a>
+<a href="NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh">NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh</a>
+
+## Phytozome
+<a href="Phytozome/notes_phaco.PHA8298.gnm1.ann1.sh">Phytozome/notes_phaco.PHA8298.gnm1.ann1.sh</a>
 
