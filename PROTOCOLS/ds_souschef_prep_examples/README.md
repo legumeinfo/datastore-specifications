@@ -7,7 +7,12 @@ notes generic, using variables wherever possible - and to test the notes careful
 
 ## CNCB Genome Warehosue (GWH)
 
-A challenge with data from GWH is that the assembly molecules (chromomes, scaffolds) are renamed to GWH accessions
+A challenge with data from GWH is that the assembly molecules (chromomes, scaffolds) are renamed to GWH accessions.
+
+For handling an assembly and annotations with two haplotypes, see the example for <i>Phanera championii</i>. The general
+processing strategy (as of early 2024) is to pull the two haplotype datasets out of the combined GWH files, 
+then run `ds_souschef.pl` on each haplotype (using one config for each haplotype), then move the respective files
+back into a single Data Store collection directory.
 
 <a href="CNCB_Genome_Warehouse/notes_glyma.Wm82_NJAU.gnm1.ann1.sh">CNCB_Genome_Warehouse/notes_glyma.Wm82_NJAU.gnm1.ann1.sh</a>
 <a href="CNCB_Genome_Warehouse/notes_phach.longxuteng.gmn1.ann1_haplotypes.sh">CNCB_Genome_Warehouse/notes_phach.longxuteng.gmn1.ann1_haplotypes.sh</a>
