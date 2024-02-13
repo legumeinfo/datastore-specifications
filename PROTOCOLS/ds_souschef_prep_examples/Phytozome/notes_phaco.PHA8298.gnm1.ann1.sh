@@ -16,7 +16,6 @@ echo; exit 1;
 Guerra-García A, Rojas-Barrera IC, Ross-Ibarra J, Papa R, Piñero D. The genomic signature of wild-to-crop introgression during the domestication of scarlet runner bean (Phaseolus coccineus L.). Evol Lett. 2022 Jun 15;6(4):295-307. doi: 10.1002/evl3.285. PMID: 35937471; PMCID: PMC9346085.
 REFERENCE
 
-
 # NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
 # If not added already to the PATH, do:
     PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
@@ -24,7 +23,7 @@ REFERENCE
 # Variables for this job
   PRIVATE=/usr/local/www/data/private   # Set this to the Data Store private root directory, i.e. ...data/private/
   PZGSP=Pcoccineus  # For Phytozome, use the (G)(species) name, e.g. Gmax
-  PZVER=v1.1  # For Phytozome, use the directory name that indicates the version, e.g. v1.1 or V3.1
+  export PZVER="v1.1"  # For Phytozome, use the directory name that indicates the version, e.g. v1.1 or V3.1
   STRAIN=PHA8298
   GENUS=Phaseolus
   SP=coccineus
@@ -60,6 +59,9 @@ REFERENCE
 # Assembly was downloaded on 2023-10-23
 # https://phytozome-next.jgi.doe.gov/info/Pcoccineus_v1_1
 
+# change into the $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN directory for most of the preparation work
+  cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
+
 # Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
   cp $PZVER/*DataReleasePolicy.html $PZVER/*readme.txt $PZVER/annotation/
   cp $PZVER/*DataReleasePolicy.html $PZVER/*readme.txt $PZVER/assembly/
@@ -72,9 +74,20 @@ REFERENCE
 # Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
 # Also check the form of the chromosome and scaffold names. 
 
-# Derive bed file
+#####
+# A challenge with Phytozome files is that they have a version suffix in the gene.gff3 file, 
+# e.g. `.v1.1` in `Phcoc.01G000300.v1.1`
+# Currently (early 2024), these are best handled by stripping the version suffix from IDs in the gff3 file,
+# but the fasta files do not, e.g. `Phcoc.01G000300`
+# Fix this inconsistency by removing the version string from the gff3.
+  
   zcat $PZVER/annotation/$ANNOTATION.gene.gff3.gz | 
-    gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n | gzip --stdout > $PZVER/annotation/$ANNOTATION.gene.bed.gz
+    perl -pe 'BEGIN{$VER=$ENV{"PZVER"}; $REX=qr/\.$VER/}; s/$REX//g' |
+    gzip -c > $PZVER/annotation/$ANNOTATION.gene_strip.gff3.gz
+
+  zcat $PZVER/annotation/$ANNOTATION.gene_exons.gff3.gz | 
+    perl -pe 'BEGIN{$VER=$ENV{"PZVER"}; $REX=qr/\.$VER/}; s/$REX//g' |
+    gzip -c > $PZVER/annotation/$ANNOTATION.gene_exons_strip.gff3.gz
 
 # Compress annotation_info and defline  text files in annotations
   gzip $PZVER/annotation/*annotation_info.txt
@@ -89,13 +102,20 @@ REFERENCE
 # Run ds_souschef.pl with the config above
   ds_souschef.pl -config $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
 
+# NOTE: Check the results for sanity. 
+# The fasta files (cds, transcript, protein) should all have prefixes (gensp.genotype.gnm#.ann#.)
+# If there are any cases of "HASH UNDEFINED", then check whether the gff "strip" step produced
+# the desired result. If not (if the Phytozome version suffix is still present), check that 
+# $PZVER is correct and was exported.  
+
 # In the working directory, validate the READMEs and correct (upstream, in the ds_souschef yml) if necessary
   validate.sh readme annotations/$STRAIN.$GNM.$ANN.$AKEY/README*
   validate.sh readme genomes/$STRAIN.$GNM.$GKEY/README*
 
 # Compress and index
-  compress_and_index.sh annotations/$STRAIN.$GNM.$ANN.$AKEY
-  compress_and_index.sh genomes/$STRAIN.$GNM.$GKEY
+  compress_and_index.sh annotations/$STRAIN.$GNM.$ANN.$AKEY &
+  compress_and_index.sh genomes/$STRAIN.$GNM.$GKEY &
+  wait
 
 # Calculate md5sum
   mdsum-folder.bash annotations/$STRAIN.$GNM.$ANN.$AKEY
@@ -109,4 +129,6 @@ REFERENCE
   mv genomes/$STRAIN.$GNM.$GKEY /usr/local/www/data/annex/$GENUS/$SP/genomes/
 
 # Push the ds_souschef config to GitHub
+  cd $CONFIGDIR
+  git status  # etc.
 

@@ -108,13 +108,13 @@ from_to_protein:
     description: "Protein sequences"
 from_to_gff:
   - 
-    from: gene_exons.gff3.gz
+    from: gene_exons_strip.gff3.gz
     to: gene_models_exons.gff3
-    strip: '\.v2\.1'
+    strip: '\.v1\.1'
     description: "Gene models, with exon features"
   - 
-    from: gene.gff3.gz
+    from: gene_strip.gff3.gz
     to: gene_models_main.gff3
-    strip: '\.v2\.1'
+    strip: '\.v1\.1'
     description: "Gene models - main"
 

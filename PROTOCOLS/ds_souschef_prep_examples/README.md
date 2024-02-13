@@ -27,7 +27,12 @@ via the `Parent=` attribute, rather than via lexical patterns.
 
 ## Phytozome
 
-The phytozome assemblies and annotations are quite regular and are generally handled well by `ds_souschef.pl`.
+The phytozome assemblies and annotations are quite regular and are generally handled well by `ds_souschef.pl`,
+but there are some challenges particular to these annotations. The Phytozome annotations have a
+version suffix in the gene.gff3 file, e.g. `.v1.1` in `Phcoc.01G000300.v1.1`; 
+and the IDs in the protein files have a `.p` suffix, e.g. `Phcoc.L027000.1.p`.
+Currently (early 2024), these are best handled by stripping the version suffix from IDs in the gff3 file,
+and in the `ds_souschef.pl` config file, add e.g. `strip: '\.p'` for the protein files.
 
 <a href="Phytozome/notes_phaco.PHA8298.gnm1.ann1.sh">Phytozome/notes_phaco.PHA8298.gnm1.ann1.sh</a>
 
