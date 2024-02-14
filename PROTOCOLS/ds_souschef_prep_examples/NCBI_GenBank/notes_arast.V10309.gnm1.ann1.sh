@@ -10,10 +10,9 @@
 #https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_014773155.1/
 
 cat << DONT_RUN_ME
-NOTE: This file contains notes about creation of files for genome and annotation collections for the Data Store.
-The notes are meant to be read critically, revised if necessary, and copy-pasted in an interactive terminal session.
-The file has a suffix ".sh" merely in order to get syntax highlighting in an editor (e.g. vim).
-The file is NOT expected to be runnable as a shell script.
+This file contains notes for creating genome and annotation collections for the Data Store. Read them critically,
+revise for your particular job, and copy-paste in an interactive terminal session. The file has a suffix ".sh"
+only to get syntax highlighting in an editor (e.g. vim). It should not be executied as a shell script.
 DONT_RUN_ME
 echo; exit 1;
 
@@ -39,14 +38,16 @@ REFERENCE
   FROM=$ACCN
   TO=derived
 
+# NOTE: Get the keys with register_key.pl below !
+  GKEY=PFL2
+  AKEY=CZRZ
+
 # Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
   cd /usr/local/www/data/datastore-registry
   ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
   ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
 # NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
-  GKEY=PFL2
-  AKEY=CZRZ
 
 # Make and cd into a work directory
   mkdir -p $PRIVATE/$GENUS/$SP

@@ -42,3 +42,12 @@ Assemblies and annotations at Dryad should be assumed to be unique per Dryad col
 
 <a href="Dryad/notes_acacr.Acra3RX.gmn1.ann1.sh">Dryad/notes_acacr.Acra3RX.gmn1.ann1.sh</a>
 
+## Pangenes
+
+The notes in this section are for preparation of pangene datasets produced by <a href="Pandagma">https://github.com/legumeinfo/pandagma</a>.
+They have been tested with output from pandagma v2.0, February 2024, on runs for eight genera: 
+Arachis, Cicer, Glycine, Medicago, Phaseolus, and Vigna.
+
+<a href="Pangenes/notes_Phaseolus.pan3.sh">Pangenes/notes_Phaseolus.pan3.sh</a>
+
+
