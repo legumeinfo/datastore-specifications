@@ -39,6 +39,11 @@ echo; exit 1;
 # Run ds_souschef.pl
   ds_souschef.pl -conf $CONFIGDIR/$GENUS.$PANNUM.yml
 
+# NOTE: Check the results for sanity.
+# The fasta files (cds, transcript, protein) should all have prefixes (gensp.genotype.gnm#.ann#.)
+  echo "Testing for hashing correctness. Counts of UNDEFINED should be 0 in all files."
+  grep -c UNDEFINED annotations/$STRAIN.$GNM.$ANN.$AKEY/*
+
 # Move files in collection directory into place in the ANNEX data store
   mkdir $ANNEX/$GENUS/GENUS/pangenes/$GENUS.$PANNUM.$KEY4
   mv $PRIVATE/$GENUS/GENUS/pangenes/$GENUS.$PANNUM.$KEY4/* \

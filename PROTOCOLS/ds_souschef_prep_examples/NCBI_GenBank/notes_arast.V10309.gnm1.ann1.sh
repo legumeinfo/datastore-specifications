@@ -50,10 +50,8 @@ REFERENCE
 # NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
 
 # Make and cd into a work directory
-  mkdir -p $PRIVATE/$GENUS/$SP
-  cd $PRIVATE/$GENUS/$SP
-  mkdir -p $STRAIN.$GNM.$ANN
-  cd $STRAIN.$GNM.$ANN
+  mkdir -p $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
+  cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
 # Get the genome assembly and annotations
   curl -O https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_014773155.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT
@@ -127,6 +125,11 @@ REFERENCE
 
 # Run ds_souschef.pl with the config above
   ds_souschef.pl -config $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
+
+# NOTE: Check the results for sanity.
+# The fasta files (cds, transcript, protein) should all have prefixes (gensp.genotype.gnm#.ann#.)
+  echo "Testing for hashing correctness. Counts of UNDEFINED should be 0 in all files."
+  grep -c UNDEFINED annotations/$STRAIN.$GNM.$ANN.$AKEY/*
 
 # In the working directory, validate the READMEs and correct (upstream, in the ds_souschef yml) if necessary
   validate.sh readme annotations/$STRAIN.$GNM.$ANN.$AKEY/README*

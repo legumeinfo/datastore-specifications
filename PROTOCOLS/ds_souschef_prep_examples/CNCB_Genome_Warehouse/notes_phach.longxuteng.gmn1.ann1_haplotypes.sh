@@ -172,6 +172,12 @@ REFERENCE
 
   ds_souschef.pl -config $CONFIGDIR/$GENSP.$STRAIN.$GNM.${ANN}_hap2.yml
   mv annotations/ genomes/ hap2
+
+# NOTE: Check the results for sanity.
+# The fasta files (cds, transcript, protein) should all have prefixes (gensp.genotype.gnm#.ann#.)
+  echo "Testing for hashing correctness. Counts of UNDEFINED should be 0 in all files."
+  grep -c UNDEFINED annotations/$STRAIN.$GNM.$ANN.$AKEY/*
+
   
 # Move the hap1 and hap2 files into common annotations/ and genomes/ directories, renaming the hap2 files
 

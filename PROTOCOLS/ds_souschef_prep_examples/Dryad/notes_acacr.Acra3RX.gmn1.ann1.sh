@@ -115,6 +115,11 @@ REFERENCE
 # Run ds_souschef.pl with the config above 
   ds_souschef.pl -config $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
 
+# NOTE: Check the results for sanity.
+# The fasta files (cds, transcript, protein) should all have prefixes (gensp.genotype.gnm#.ann#.)
+  echo "Testing for hashing correctness. Counts of UNDEFINED should be 0 in all files."
+  grep -c UNDEFINED annotations/$STRAIN.$GNM.$ANN.$AKEY/*
+
 # In the working directory, validate the READMEs and correct (upstream, in the ds_souschef yml) if necessary
   validate.sh readme annotations/$STRAIN.$GNM.$ANN.$AKEY/README*
   validate.sh readme genomes/$STRAIN.$GNM.$GKEY/README*

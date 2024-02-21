@@ -1,5 +1,5 @@
-# Objective: Prepare assembly and annotation collection for Phaseolus coccineus accession PHA8298
-# Started on 2024-02-09
+# Objective: Prepare assembly and annotation collection for Glycine max accession Wm82
+# Started on 2024-02-20
 
 # See the document here for detailed (general) instructions:
 #   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/README.md
@@ -12,7 +12,6 @@ DONT_RUN_ME
 echo; exit 1;
 
 << REFERENCE
-Guerra-García A, Rojas-Barrera IC, Ross-Ibarra J, Papa R, Piñero D. The genomic signature of wild-to-crop introgression during the domestication of scarlet runner bean (Phaseolus coccineus L.). Evol Lett. 2022 Jun 15;6(4):295-307. doi: 10.1002/evl3.285. PMID: 35937471; PMCID: PMC9346085.
 REFERENCE
 
 # NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
@@ -21,21 +20,21 @@ REFERENCE
 
 # Variables for this job
   PRIVATE=/usr/local/www/data/private   # Set this to the Data Store private root directory, i.e. ...data/private/
-  PZGSP=Pcoccineus  # For Phytozome, use the (G)(species) name, e.g. Gmax
-  export PZVER="v1.1"  # For Phytozome, use the directory name that indicates the version, e.g. v1.1 or V3.1
-  STRAIN=PHA8298
-  GENUS=Phaseolus
-  SP=coccineus
-  GENSP=phaco
-  GNM=gnm1
+  PZGSP=Gmax # For Phytozome, use the (G)(species) name, e.g. Gmax
+  export PZVER="Wm82.a6.v1"  # For Phytozome, use the directory name that indicates the version, e.g. v1.1 or V3.1
+  STRAIN=Wm82
+  GENUS=Glycine
+  SP=max
+  GENSP=glyma
+  GNM=gnm6
   ANN=ann1  
-  GENOME=Pcoccineus_703_v1.0
-  ANNOTATION=Pcoccineus_703_v1.1
+  GENOME=Gmax_880_v6.0
+  ANNOTATION=Gmax_880_Wm82.a6.v1
   CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
 
 # NOTE: Get the keys with register_key.pl below !
-  GKEY=PYJ1
-  AKEY=0Q14
+  GKEY=S97D
+  AKEY=PKSW
 
 # Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
@@ -79,19 +78,19 @@ REFERENCE
   gzip $PZVER/annotation/*annotation_info.txt
   gzip $PZVER/annotation/*defline.txt
 
+  gzip $PZVER/annotation/$ANNOTATION.locus_transcript_name_map.txt
+
 # Prepare the config for ds_souschef. Typically, copy from a similar config file and revise.
   vim $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
 
 # Run ds_souschef.pl with the config above
   ds_souschef.pl -config $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
 
-# NOTE: Check the results for sanity.
+# NOTE: Check the results for sanity. 
 # The fasta files (cds, transcript, protein) should all have prefixes (gensp.genotype.gnm#.ann#.)
 # If there are any cases of "HASH UNDEFINED", then check whether the gff "strip" step produced
-# the desired result. If not (if the Phytozome version suffix is still present), check that
-# $PZVER is correct and was exported.
-  echo "Testing for hashing correctness. Counts of UNDEFINED should be 0 in all files."
-  grep -c UNDEFINED annotations/$STRAIN.$GNM.$ANN.$AKEY/*
+# the desired result. If not (if the Phytozome version suffix is still present), check that 
+# $PZVER is correct and was exported.  
 
 # In the working directory, validate the READMEs and correct (upstream, in the ds_souschef yml) if necessary
   validate.sh readme annotations/$STRAIN.$GNM.$ANN.$AKEY/README*
