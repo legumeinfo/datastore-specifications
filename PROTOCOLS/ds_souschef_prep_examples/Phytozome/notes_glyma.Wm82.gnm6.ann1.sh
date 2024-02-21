@@ -91,6 +91,8 @@ REFERENCE
 # If there are any cases of "HASH UNDEFINED", then check whether the gff "strip" step produced
 # the desired result. If not (if the Phytozome version suffix is still present), check that 
 # $PZVER is correct and was exported.  
+  echo "Testing for hashing correctness. Counts of UNDEFINED should be 0 in all files."
+  grep -c UNDEFINED annotations/$STRAIN.$GNM.$ANN.$AKEY/*
 
 # In the working directory, validate the READMEs and correct (upstream, in the ds_souschef yml) if necessary
   validate.sh readme annotations/$STRAIN.$GNM.$ANN.$AKEY/README*
