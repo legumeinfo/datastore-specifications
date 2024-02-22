@@ -16,7 +16,7 @@ Examples:
 ### Validation
 The basic README structure (acceptable field names, strings vs. lists vs. dates) can be validated using the following command:
 ```
-pajv -s readme.schema.json -d README.[collection].yml --all-errors --coerce-types=array --remove-additional=all --changes
+ajv -s readme.schema.json -d README.[collection].yml --all-errors --coerce-types=array --remove-additional=all --changes
 ```
 using the JSON schema definition [readme.schema.json](/readme.schema.json).
 

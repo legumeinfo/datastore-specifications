@@ -1,5 +1,5 @@
 #!/bin/sh
-## This script uses yamllint and pajv to validate a YAML file against a provided JSON schema
+## This script uses yamllint and ajv to validate a YAML file against a provided JSON schema
 ##
 ## $ ./validate readme.schema.json README.CDCFrontier.gnm1.GkHc.yml
 #
