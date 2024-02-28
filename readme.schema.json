@@ -189,6 +189,6 @@
             "uniqueItems": true
         }
     },
-    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name" ],
+    "required": [ "identifier", "taxid", "synopsis", "description", "scientific_name", "scientific_name_abbrev" ],
     "additionalProperties": false
 }
