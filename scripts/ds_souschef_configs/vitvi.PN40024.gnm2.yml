@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Vitis
     species: vinifera
-    gensp: vitvi
+    scientific_name_abbrev: vitvi
     coll_genotype: PN40024
     gnm_ver: gnm2
     ann_ver: ann1

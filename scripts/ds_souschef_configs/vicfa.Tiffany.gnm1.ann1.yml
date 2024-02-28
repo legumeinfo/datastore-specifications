@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Vicia
     species: faba
-    gensp: vicfa
+    scientific_name_abbrev: vicfa
     coll_genotype: Tiffany
     gnm_ver: gnm1
     ann_ver: ann1

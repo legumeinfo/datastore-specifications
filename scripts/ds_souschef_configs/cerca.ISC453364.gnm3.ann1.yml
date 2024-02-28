@@ -14,7 +14,7 @@ prefixes:
 collection_info:
     genus: Cercis
     species: canadensis
-    gensp: cerca
+    scientific_name_abbrev: cerca
     coll_genotype: ISC453364
     gnm_ver: gnm3
     ann_ver: ann1

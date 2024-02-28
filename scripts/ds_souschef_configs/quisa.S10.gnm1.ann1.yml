@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Quillaja
     species: saponaria
-    gensp: quisa
+    scientific_name_abbrev: quisa
     coll_genotype: S10
     gnm_ver: gnm1
     ann_ver: ann1

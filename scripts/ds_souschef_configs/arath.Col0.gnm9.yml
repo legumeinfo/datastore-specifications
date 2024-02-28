@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Arabidopsis
     species: thaliana
-    gensp: arath
+    scientific_name_abbrev: arath
     coll_genotype: Col0
     gnm_ver: gnm9
     ann_ver: ann11

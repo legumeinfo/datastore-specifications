@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Phaseolus
     species: coccineus
-    gensp: phaco
+    scientific_name_abbrev: phaco
     coll_genotype: PHA8298
     gnm_ver: gnm1
     ann_ver: ann1

@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Dalbergia
     species: odorifera
-    gensp: dalod
+    scientific_name_abbrev: dalod
     coll_genotype: SKLTGB
     gnm_ver: gnm1
     ann_ver: ann1

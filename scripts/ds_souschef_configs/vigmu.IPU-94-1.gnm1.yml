@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Vigna
     species: mungo
-    gensp: vigmu
+    scientific_name_abbrev: vigmu
     coll_genotype: IPU-94-1
     gnm_ver: gnm1
     ann_ver: ann1

@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Phaseolus
     species: vulgaris
-    gensp: phavu
+    scientific_name_abbrev: phavu
     coll_genotype: OACRex
     gnm_ver: gnm2
     ann_ver: ann1

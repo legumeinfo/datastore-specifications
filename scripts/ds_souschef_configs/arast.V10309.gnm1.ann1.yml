@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Arachis
     species: stenosperma
-    gensp: arast
+    scientific_name_abbrev: arast
     coll_genotype: V10309
     gnm_ver: gnm1
     ann_ver: ann1

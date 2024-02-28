@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Chamaecrista
     species: fasciculata
-    gensp: chafa
+    scientific_name_abbrev: chafa
     coll_genotype: ISC494698
     gnm_ver: gnm1
     ann_ver: ann1

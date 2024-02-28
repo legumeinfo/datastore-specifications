@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Glycine
     species: max
-    gensp: glyma
+    scientific_name_abbrev: glyma
     coll_genotype: QiHuangNo_34
     gnm_ver: gnm1
     ann_ver: ann1

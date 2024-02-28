@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Vigna
     species: umbellata
-    gensp: vigum
+    scientific_name_abbrev: vigum
     coll_genotype: FF25
     gnm_ver: gnm1
     ann_ver: ann1

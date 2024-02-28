@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Prunus
     species: persica
-    gensp: prupe
+    scientific_name_abbrev: prupe
     coll_genotype: Lovell
     gnm_ver: gnm2
     ann_ver: ann1

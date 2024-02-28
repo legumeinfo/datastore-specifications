@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Acacia
     species: crassicarpa
-    gensp: acacr
+    scientific_name_abbrev: acacr
     coll_genotype: Acra3RX
     gnm_ver: gnm1
     ann_ver: ann1

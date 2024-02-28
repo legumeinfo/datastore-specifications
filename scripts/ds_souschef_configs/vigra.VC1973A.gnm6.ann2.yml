@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Vigna
     species: radiata
-    gensp: vigra
+    scientific_name_abbrev: vigra
     coll_genotype: VC1973A
     gnm_ver: gnm6
     ann_ver: ann2

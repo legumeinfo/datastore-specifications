@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Arachis
     species: hypogaea
-    gensp: arahy
+    scientific_name_abbrev: arahy
     coll_genotype: Tifrunner
     gnm_ver: gnm1
     ann_ver: ann2

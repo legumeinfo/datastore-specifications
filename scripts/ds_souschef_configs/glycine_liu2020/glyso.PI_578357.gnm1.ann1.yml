@@ -9,7 +9,7 @@ prefixes:
 collection_info:
     genus: Glycine
     species: soja
-    gensp: glyso
+    scientific_name_abbrev: glyso
     coll_genotype: PI_578357
     gnm_ver: gnm1
     ann_ver: ann1
