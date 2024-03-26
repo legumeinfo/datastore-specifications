@@ -106,7 +106,7 @@ while (<STDIN>) {
 
 # Process the GFF contents
 my $comment_string = "";
-my ($new_ID, $new_gene_ID, %seen_mRNA_base,%seen_feat_to_skip,%seen_pseudogene);
+my ($new_ID, $new_gene_ID, %seen_mRNA_base, %seen_feat_to_skip, %seen_pseudogene, %seen_out_line);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
 foreach my $line (@whole_gff) {
@@ -178,7 +178,7 @@ foreach my $line (@whole_gff) {
       }
       else {
         $ID =~ /(.+)\.\d+-(\d+)$/;
-        &printstr( join("\t", "XX: ", @fields[0..8]) );
+        warn "XX: Unexpected type: ", join("\t", @fields[0..8]), "\n";
       }
     }
   }
@@ -187,11 +187,17 @@ foreach my $line (@whole_gff) {
 #####################
 sub printstr {
   my $str_to_print = join("", @_);
-  if ($outfile) {
-    say $OUTFH $str_to_print;
-  }
-  else {
-    say $str_to_print;
+  if ($seen_out_line{$str_to_print}){
+    warn "SS: Duplicate line: [$str_to_print]\n";
+    return
+  } else {
+    $seen_out_line{$str_to_print}++;
+    if ($outfile) {
+      say $OUTFH $str_to_print;
+    }
+    else {
+      say $str_to_print;
+    }
   }
 }
 
@@ -201,4 +207,4 @@ Steven Cannon
 Versions
 2024-01-16 New script.
 2024-03-25 Handle list of feature types to exclude
-
+2024-03-26 Warn of duplicate output lines
