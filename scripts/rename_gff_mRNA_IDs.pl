@@ -33,15 +33,19 @@ my $usage = <<EOS;
   Options:
     -ID_regex  (string) Pattern for the base ID, to capture the portion preceeding e.g. .1 .mRNA.1 
                         Default: '(\\w+)\\.\\d+\$'
+    -xclude    (string) List of features to exclude from output; comma-separated, e.g. "lnc_RNA,pseudogene,tRNA"
+    -out       (string) Output file for gff; otherwise, to STDOUT
     -help      (boolean) This message.
 EOS
 
-my $help;
+my ($help, $xclude, $outfile);
 my $ID_regex = '(\w+)\.\d+$';
 my $splice_regex = '.+\.(\d+)$';
 
 GetOptions (
   "ID_regex:s" =>  \$ID_regex,
+  "xclude:s" =>    \$xclude,
+  "outfile:s" =>   \$outfile,
   "help" =>        \$help,
 );
 
@@ -50,21 +54,28 @@ die "$usage" if ($help);
 my $ID_REX = qr/$ID_regex/;
 my $SP_REX = qr/$splice_regex/;
 
+my $OUTFH;
+if ($outfile){
+  open ($OUTFH, ">", $outfile) or die "Can't open out $outfile: $!\n";
+}
+
+my @xclude_ary;
+if ($xclude){
+  @xclude_ary = split(/,/, $xclude);
+}
+
 # Read the GFF contents. Store for later use, and remember ID :: Name pairs for mRNA features
-my (%id_mRNA_of_gene, @whole_gff, %gene_record);
-my @provisional_gff;  # Use this to accumulate the new GFF. It may have extra gene records, which will be pruned at the end.
+my (%id_mRNA_of_gene, %id_of_feat_to_xclude, @whole_gff, %gene_record);
 while (<STDIN>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
   push(@whole_gff, $_);
   next if ($_ =~ /^#/);
-  
+
   my @fields = split(/\t/, $_);
+  my $type = $fields[2];
   my @attrs = split(/;/, $fields[8]);
-  if ($fields[2] =~ /CDS|exon|region|gene|pseudogene|cDNA_match/){ 
-    next;  # skip region, gene, and lower sub-features. This leaves mRNA, rRNA, transcript
-  }
-  else { # mRNA and similar features directly below gene
+  if ($fields[8] =~ /Parent=/){ # should be mRNA and similar features directly below gene.
     my ($ID, $mRNA_ID_base, $Name, $Parent);
     foreach my $attr (@attrs){
       my ($k, $v) = split(/=/, $attr);
@@ -75,8 +86,16 @@ while (<STDIN>) {
       $mRNA_ID_base = $ID;
       $mRNA_ID_base =~ s/$ID_REX/$1/;
     }
-    $id_mRNA_of_gene{$Parent} = $mRNA_ID_base;
-    # say "AA: ID=$ID\tmRNA_ID_base=$mRNA_ID_base\tParent=$Parent\tid_mRNA_of_gene=$id_mRNA_of_gene{$Parent}";
+
+    if ( grep(/$type/, @xclude_ary) || $type =~ /pseudogene/ ){
+      $id_of_feat_to_xclude{$Parent} = $mRNA_ID_base;
+      # say "XX: type=$type\tID=$ID\tmRNA_ID_base=$mRNA_ID_base\tParent=$Parent\t" .
+      #     "id_of_feat_to_xclude=$id_of_feat_to_xclude{$Parent}";
+    }
+    else {
+      $id_mRNA_of_gene{$Parent} = $mRNA_ID_base;
+      # say "AA: ID=$ID\tmRNA_ID_base=$mRNA_ID_base\tParent=$Parent\tid_mRNA_of_gene=$id_mRNA_of_gene{$Parent}";
+    }
 
     # Make a gene record for this feature, to be used only if the GFF has none.
     my $attr_string = "ID=$mRNA_ID_base;Name=$mRNA_ID_base;locus=$ID";
@@ -87,18 +106,19 @@ while (<STDIN>) {
 
 # Process the GFF contents
 my $comment_string = "";
-my ($new_ID, $new_gene_ID, %seen_mRNA_base,%seen_pseudogene);
+my ($new_ID, $new_gene_ID, %seen_mRNA_base,%seen_feat_to_skip,%seen_pseudogene);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
 foreach my $line (@whole_gff) {
   if ($line =~ /(^#.+)/) { # print comment line 
-    say $line;
+    &printstr( $line );
   }
   else { # body of the GFF
     my @fields = split(/\t/, $line);
     
-    next if ($line =~ /cDNA_match/); # These features in GenBank GFFs don't have proper gene structure. Skip.
+    next if ($line =~ /cDNA_match/); # In GenBank GFFs, these lack proper gene structure. Skip.
 
+    my $type = $fields[2];
     my $ninth = $fields[8];
     my @attrs = split(/;/, $ninth);
     my ($ID, $Name, $Parent);
@@ -109,52 +129,69 @@ foreach my $line (@whole_gff) {
       elsif ($k =~ /\bParent/){ $Parent = $v }
     }
 
+    foreach my $skip_ID (keys %id_of_feat_to_xclude) {
+      if ($line =~ /$skip_ID/){ # Exclude these and their sub-features
+        $seen_feat_to_skip{$ID}++;
+        next;
+      }
+    }
+    
     if ($line =~ /pseudogene/){ # These lack mRNA records. Exclude them and their sub-features (exons).
+      # say "YY: SKIPPING $type: $ID";
       $seen_pseudogene{$ID} = $ID;
       next;
     }
 
-    if ($line =~ /tRNA/i){ # GenBank record structure seems OK for these. Just print.
-      say join("\t", @fields[0..8]);
+    if ($seen_feat_to_skip{$ID}){
+      # say "YY: SKIPPING $type: $ID";
       next;
     }
-    
-    my $mRNA_ID;
-    if ($fields[2] eq "gene" | $fields[2] =~ /region/){ 
-      $tcpt_ct = 0;
-      say join("\t", @fields[0..8]);
-    }
-    elsif ($fields[2] =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|rRNA/) {
-      $tcpt_ct++;
-      $mRNA_ID = $ID;
-      $mRNA_ID_base = $ID;
-      $mRNA_ID_base =~ s/$ID_REX/$1/;
-      $seen_mRNA_base{$mRNA_ID_base}++;
-      $new_mRNA_ID = "$Parent.$tcpt_ct";
-      say join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent");
-    }
-    elsif ($fields[2] =~ /exon/) {
-      if ($seen_pseudogene{$Parent}){
-        next;
+    else {
+      my $mRNA_ID;
+      if ($fields[2] eq "gene" | $fields[2] =~ /region/){
+        $tcpt_ct = 0;
+        &printstr( join("\t", @fields[0..8]) );
       }
-      else {
+      elsif ($fields[2] =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|rRNA|lnc_RNA/) {
+        $tcpt_ct++;
+        $mRNA_ID = $ID;
+        $mRNA_ID_base = $ID;
+        $mRNA_ID_base =~ s/$ID_REX/$1/;
+        $seen_mRNA_base{$mRNA_ID_base}++;
+        $new_mRNA_ID = "$Parent.$tcpt_ct";
+        &printstr( join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
+      }
+      elsif ($fields[2] =~ /exon/) {
+        if ($seen_pseudogene{$Parent}){
+          next;
+        }
         $ID =~ /(exon)-(.+)\.\d+-(\d+)$/;
         my $new_ID = "$1-$new_mRNA_ID-$3";
         my $exon_Parent = "$new_mRNA_ID";
-        say join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent");
+        &printstr( join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent") );
+      }
+      elsif ($fields[2] =~ /CDS/) {
+        $ID =~ /.+\.\d+-(\d+)$/;
+        my $new_ID = "$new_mRNA_ID-$1";
+        my $cds_Parent = "$new_mRNA_ID";
+        &printstr( join("\t", @fields[0..7], "ID=$new_ID;Name=$cds_Parent;Parent=$cds_Parent") );
+      }
+      else {
+        $ID =~ /(.+)\.\d+-(\d+)$/;
+        &printstr( join("\t", "XX: ", @fields[0..8]) );
       }
     }
-    elsif ($fields[2] =~ /CDS/) {
-      $ID =~ /.+\.\d+-(\d+)$/;
-      my $new_ID = "$new_mRNA_ID-$1";
-      my $cds_Parent = "$new_mRNA_ID";
-      say join("\t", @fields[0..7], "ID=$new_ID;Name=$cds_Parent;Parent=$cds_Parent");
-    }
-    else {
-      $ID =~ /(.+)\.\d+-(\d+)$/;
-      my $new_ID = "$new_mRNA_ID-$2";
-      say join("\t", @fields[0..7], "ID=$new_ID;Name=$Parent.$tcpt_ct;Parent=$Parent");
-    }
+  }
+}
+
+#####################
+sub printstr {
+  my $str_to_print = join("", @_);
+  if ($outfile) {
+    say $OUTFH $str_to_print;
+  }
+  else {
+    say $str_to_print;
   }
 }
 
@@ -163,4 +200,5 @@ __END__
 Steven Cannon
 Versions
 2024-01-16 New script.
+2024-03-25 Handle list of feature types to exclude
 
