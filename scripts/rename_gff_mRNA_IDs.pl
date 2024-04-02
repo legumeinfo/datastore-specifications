@@ -106,7 +106,8 @@ while (<STDIN>) {
 
 # Process the GFF contents
 my $comment_string = "";
-my ($new_ID, $new_gene_ID, %seen_mRNA_base, %seen_feat_to_skip, %seen_pseudogene, %seen_out_line);
+my ($new_ID, $new_gene_ID, %seen_mRNA_base);
+my (%seen_feat_to_skip, %seen_lnc_RNA, %seen_pseudogene, %seen_transcript, %seen_out_line);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
 foreach my $line (@whole_gff) {
@@ -136,9 +137,21 @@ foreach my $line (@whole_gff) {
       }
     }
     
-    if ($line =~ /pseudogene/){ # These lack mRNA records. Exclude them and their sub-features (exons).
+    if ($type eq "pseudogene"){ # These lack mRNA records. Exclude them and their sub-features (exons).
       # say "YY: SKIPPING $type: $ID";
-      $seen_pseudogene{$ID} = $ID;
+      $seen_pseudogene{$ID}++;
+      next;
+    }
+    
+    if ($type eq "lnc_RNA"){ # These lack mRNA records. Exclude them and their sub-features (exons).
+      # say "YY: SKIPPING $type: $ID";
+      $seen_lnc_RNA{$ID}++;
+      next;
+    }
+    
+    if ($type eq "transcript"){ # These are redundant withmRNA records. Exclude them and their sub-features (exons).
+      # say "YY: SKIPPING $type: $ID";
+      $seen_transcript{$ID}++;
       next;
     }
 
@@ -152,7 +165,7 @@ foreach my $line (@whole_gff) {
         $tcpt_ct = 0;
         &printstr( join("\t", @fields[0..8]) );
       }
-      elsif ($fields[2] =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|rRNA|lnc_RNA/) {
+      elsif ($fields[2] =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
         $tcpt_ct++;
         $mRNA_ID = $ID;
         $mRNA_ID_base = $ID;
@@ -162,7 +175,7 @@ foreach my $line (@whole_gff) {
         &printstr( join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
       }
       elsif ($fields[2] =~ /exon/) {
-        if ($seen_pseudogene{$Parent}){
+        if ( $seen_pseudogene{$Parent} || $seen_lnc_RNA{$Parent} || $seen_transcript{$Parent} ){
           next;
         }
         $ID =~ /(exon)-(.+)\.\d+-(\d+)$/;
@@ -178,7 +191,7 @@ foreach my $line (@whole_gff) {
       }
       else {
         $ID =~ /(.+)\.\d+-(\d+)$/;
-        warn "XX: Unexpected type: ", join("\t", @fields[0..8]), "\n";
+        warn "ZZ: Unexpected type: ", join("\t", @fields[0..8]), "\n";
       }
     }
   }
@@ -208,3 +221,4 @@ Versions
 2024-01-16 New script.
 2024-03-25 Handle list of feature types to exclude
 2024-03-26 Warn of duplicate output lines
+2024-03-27 Handle superfulous transcripts and lnc_RNA
