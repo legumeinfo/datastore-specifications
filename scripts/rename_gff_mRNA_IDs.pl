@@ -35,18 +35,20 @@ my $usage = <<EOS;
                         Default: '(\\w+)\\.\\d+\$'
     -xclude    (string) List of features to exclude from output; comma-separated, e.g. "lnc_RNA,pseudogene,tRNA"
     -out       (string) Output file for gff; otherwise, to STDOUT
+    -verbose   (boolean) Report removed features to STDOUT. Best to specify -out if -verbose is indicated.
     -help      (boolean) This message.
 EOS
 
-my ($help, $xclude, $outfile);
+my ($help, $xclude, $verbose, $outfile);
 my $ID_regex = '(\w+)\.\d+$';
 my $splice_regex = '.+\.(\d+)$';
 
 GetOptions (
-  "ID_regex:s" =>  \$ID_regex,
-  "xclude:s" =>    \$xclude,
-  "outfile:s" =>   \$outfile,
-  "help" =>        \$help,
+  "ID_regex:s" => \$ID_regex,
+  "xclude:s" =>   \$xclude,
+  "outfile:s" =>  \$outfile,
+  "verbose" =>    \$verbose,
+  "help" =>       \$help,
 );
 
 die "$usage" if ($help);
@@ -130,6 +132,8 @@ foreach my $line (@whole_gff) {
       elsif ($k =~ /\bParent/){ $Parent = $v }
     }
 
+    #say "TYPE: $type";
+
     foreach my $skip_ID (keys %id_of_feat_to_xclude) {
       if ($line =~ /$skip_ID/){ # Exclude these and their sub-features
         $seen_feat_to_skip{$ID}++;
@@ -138,34 +142,34 @@ foreach my $line (@whole_gff) {
     }
     
     if ($type eq "pseudogene"){ # These lack mRNA records. Exclude them and their sub-features (exons).
-      # say "YY: SKIPPING $type: $ID";
+      if ($verbose){ say "YY: SKIPPING $type: $ID" }
       $seen_pseudogene{$ID}++;
       next;
     }
     
     if ($type eq "lnc_RNA"){ # These lack mRNA records. Exclude them and their sub-features (exons).
-      # say "YY: SKIPPING $type: $ID";
+      if ($verbose){ say "YY: SKIPPING $type: $ID" }
       $seen_lnc_RNA{$ID}++;
       next;
     }
     
     if ($type eq "transcript"){ # These are redundant withmRNA records. Exclude them and their sub-features (exons).
-      # say "YY: SKIPPING $type: $ID";
+      if ($verbose){ say "YY: SKIPPING $type: $ID" }
       $seen_transcript{$ID}++;
       next;
     }
 
     if ($seen_feat_to_skip{$ID}){
-      # say "YY: SKIPPING $type: $ID";
+      if ($verbose){ say "YY: SKIPPING $type: $ID" }
       next;
     }
     else {
       my $mRNA_ID;
-      if ($fields[2] eq "gene" | $fields[2] =~ /region/){
+      if ($type eq "gene" | $type eq "region"){
         $tcpt_ct = 0;
-        &printstr( join("\t", @fields[0..8]) );
+        &printstr( join("\t", @fields[0..8]), "!!!" );
       }
-      elsif ($fields[2] =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
+      elsif ($type =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
         $tcpt_ct++;
         $mRNA_ID = $ID;
         $mRNA_ID_base = $ID;
@@ -174,16 +178,17 @@ foreach my $line (@whole_gff) {
         $new_mRNA_ID = "$Parent.$tcpt_ct";
         &printstr( join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
       }
-      elsif ($fields[2] =~ /exon/) {
+      elsif ($type =~ /exon/) {
         if ( $seen_pseudogene{$Parent} || $seen_lnc_RNA{$Parent} || $seen_transcript{$Parent} ){
           next;
         }
+        #say "SS: [$ID] <$Parent> {$new_mRNA_ID}";
         $ID =~ /(exon)-(.+)\.\d+-(\d+)$/;
         my $new_ID = "$1-$new_mRNA_ID-$3";
         my $exon_Parent = "$new_mRNA_ID";
         &printstr( join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent") );
       }
-      elsif ($fields[2] =~ /CDS/) {
+      elsif ($type =~ /CDS/) {
         $ID =~ /.+\.\d+-(\d+)$/;
         my $new_ID = "$new_mRNA_ID-$1";
         my $cds_Parent = "$new_mRNA_ID";
@@ -222,3 +227,4 @@ Versions
 2024-03-25 Handle list of feature types to exclude
 2024-03-26 Warn of duplicate output lines
 2024-03-27 Handle superfulous transcripts and lnc_RNA
+2024-04-07 Some variable renaming for consistency, and progress output to stdout
