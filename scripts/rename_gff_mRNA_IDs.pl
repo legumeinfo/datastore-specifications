@@ -111,12 +111,18 @@ while (<STDIN>) {
 # Process the GFF contents
 my $comment_string = "";
 my ($new_ID, $new_gene_ID, %seen_mRNA_base);
-my (%seen_feat_to_skip, %seen_lnc_RNA, %seen_pseudogene, %seen_transcript, %seen_out_line);
+my (%seen_feat_to_skip, %seen_lnc_RNA, %seen_pseudogene, %seen_transcript, %seen_out_line, %seen_rest_line);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
 foreach my $line (@whole_gff) {
-  if ($line =~ /(^#.+)/) { # print comment line
+  if ($line =~ /^#.+/) { # print comment line
     &printstr($OUTFH, $line );
+
+    # Also print comment line to the restfile here, since %seen_rest_line prevents second printing via printstr
+    unless ($seen_rest_line{$line}) {
+      $seen_rest_line{$line}++;
+      say $RESTFH $line;
+    }
   }
   else { # body of the GFF
     my @fields = split(/\t/, $line);
@@ -214,12 +220,7 @@ sub printstr {
     return
   } else {
     $seen_out_line{$str_to_print}++;
-    if ($outfile) {
-      say $FH $str_to_print;
-    }
-    else {
-      say $str_to_print;
-    }
+    say $FH $str_to_print;
   }
 }
 
