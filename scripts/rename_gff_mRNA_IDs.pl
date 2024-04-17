@@ -30,16 +30,18 @@ my $usage = <<EOS;
   Required:
     GFF file in stream via STDIN
 
+    -outfile   (string) Output file for gff; otherwise, to STDOUT
+    -restfile  (string) Output file for features excluded from -out
+
   Options:
     -ID_regex  (string) Pattern for the base ID, to capture the portion preceeding e.g. .1 .mRNA.1 
                         Default: '(\\w+)\\.\\d+\$'
     -xclude    (string) List of features to exclude from output; comma-separated, e.g. "lnc_RNA,pseudogene,tRNA"
-    -out       (string) Output file for gff; otherwise, to STDOUT
     -verbose   (boolean) Report removed features to STDOUT. Best to specify -out if -verbose is indicated.
     -help      (boolean) This message.
 EOS
 
-my ($help, $xclude, $verbose, $outfile);
+my ($help, $xclude, $verbose, $outfile, $restfile);
 my $ID_regex = '(\w+)\.\d+$';
 my $splice_regex = '.+\.(\d+)$';
 
@@ -47,6 +49,7 @@ GetOptions (
   "ID_regex:s" => \$ID_regex,
   "xclude:s" =>   \$xclude,
   "outfile:s" =>  \$outfile,
+  "restfile:s" => \$restfile,
   "verbose" =>    \$verbose,
   "help" =>       \$help,
 );
@@ -56,15 +59,14 @@ die "$usage" if ($help);
 my $ID_REX = qr/$ID_regex/;
 my $SP_REX = qr/$splice_regex/;
 
-my $OUTFH;
-if ($outfile){
-  open ($OUTFH, ">", $outfile) or die "Can't open out $outfile: $!\n";
-}
+my ($OUTFH, $RESTFH);
+if ($outfile){ open ($OUTFH, ">", $outfile) or die "Can't open out $outfile: $!\n" }
+if ($restfile){ open ($RESTFH, ">", $restfile) or die "Can't open out $restfile: $!\n" }
+unless ($outfile){ die "Please specify -out and a filename for retained GFF features\n" }
+unless ($restfile){ die "Please specify -rest and a filename for excluded GFF features\n" }
 
 my @xclude_ary;
-if ($xclude){
-  @xclude_ary = split(/,/, $xclude);
-}
+if ($xclude){ @xclude_ary = split(/,/, $xclude) }
 
 # Read the GFF contents. Store for later use, and remember ID :: Name pairs for mRNA features
 my (%id_mRNA_of_gene, %id_of_feat_to_xclude, @whole_gff, %gene_record);
@@ -118,8 +120,6 @@ foreach my $line (@whole_gff) {
   }
   else { # body of the GFF
     my @fields = split(/\t/, $line);
-    
-    next if ($line =~ /cDNA_match/); # In GenBank GFFs, these lack proper gene structure. Skip.
 
     my $type = $fields[2];
     my $ninth = $fields[8];
@@ -132,8 +132,6 @@ foreach my $line (@whole_gff) {
       elsif ($k =~ /\bParent/){ $Parent = $v }
     }
 
-    #say "TYPE: $type";
-
     foreach my $skip_ID (keys %id_of_feat_to_xclude) {
       if ($line =~ /$skip_ID/){ # Exclude these and their sub-features
         $seen_feat_to_skip{$ID}++;
@@ -141,33 +139,38 @@ foreach my $line (@whole_gff) {
       }
     }
     
+    if ($line =~ /cDNA_match/){ # In GenBank GFFs, these lack proper gene structure. Skip.
+      &printstr($RESTFH, join("\t", @fields[0..8]) );
+      next;
+    }
+    
     if ($type eq "pseudogene"){ # These lack mRNA records. Exclude them and their sub-features (exons).
-      if ($verbose){ say "YY: SKIPPING $type: $ID" }
+      &printstr($RESTFH, join("\t", @fields[0..8]) );
       $seen_pseudogene{$ID}++;
       next;
     }
     
     if ($type eq "lnc_RNA"){ # These lack mRNA records. Exclude them and their sub-features (exons).
-      if ($verbose){ say "YY: SKIPPING $type: $ID" }
+      &printstr($RESTFH, join("\t", @fields[0..8]) );
       $seen_lnc_RNA{$ID}++;
       next;
     }
     
-    if ($type eq "transcript"){ # These are redundant withmRNA records. Exclude them and their sub-features (exons).
-      if ($verbose){ say "YY: SKIPPING $type: $ID" }
+    if ($type eq "transcript"){ # These are redundant with mRNA records. Exclude them and their sub-features (exons).
+      &printstr($RESTFH, join("\t", @fields[0..8]) );
       $seen_transcript{$ID}++;
       next;
     }
 
     if ($seen_feat_to_skip{$ID}){
-      if ($verbose){ say "YY: SKIPPING $type: $ID" }
+      &printstr($RESTFH, join("\t", @fields[0..8]) );
       next;
     }
     else {
       my $mRNA_ID;
       if ($type eq "gene" | $type eq "region"){
         $tcpt_ct = 0;
-        &printstr( join("\t", @fields[0..8]), "!!!" );
+        &printstr($OUTFH, join("\t", @fields[0..8]) );
       }
       elsif ($type =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
         $tcpt_ct++;
@@ -176,23 +179,23 @@ foreach my $line (@whole_gff) {
         $mRNA_ID_base =~ s/$ID_REX/$1/;
         $seen_mRNA_base{$mRNA_ID_base}++;
         $new_mRNA_ID = "$Parent.$tcpt_ct";
-        &printstr( join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
+        &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
       }
       elsif ($type =~ /exon/) {
         if ( $seen_pseudogene{$Parent} || $seen_lnc_RNA{$Parent} || $seen_transcript{$Parent} ){
           next;
         }
-        #say "SS: [$ID] <$Parent> {$new_mRNA_ID}";
+        if ($verbose){ say "SS: [$ID] <$Parent> {$new_mRNA_ID}" }
         $ID =~ /(exon)-(.+)\.\d+-(\d+)$/;
         my $new_ID = "$1-$new_mRNA_ID-$3";
         my $exon_Parent = "$new_mRNA_ID";
-        &printstr( join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent") );
+        &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent") );
       }
       elsif ($type =~ /CDS/) {
         $ID =~ /.+\.\d+-(\d+)$/;
         my $new_ID = "$new_mRNA_ID-$1";
         my $cds_Parent = "$new_mRNA_ID";
-        &printstr( join("\t", @fields[0..7], "ID=$new_ID;Name=$cds_Parent;Parent=$cds_Parent") );
+        &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_ID;Name=$cds_Parent;Parent=$cds_Parent") );
       }
       else {
         $ID =~ /(.+)\.\d+-(\d+)$/;
@@ -204,6 +207,7 @@ foreach my $line (@whole_gff) {
 
 #####################
 sub printstr {
+  my $FH = shift;
   my $str_to_print = join("", @_);
   if ($seen_out_line{$str_to_print}){
     warn "SS: Duplicate line: [$str_to_print]\n";
@@ -211,7 +215,7 @@ sub printstr {
   } else {
     $seen_out_line{$str_to_print}++;
     if ($outfile) {
-      say $OUTFH $str_to_print;
+      say $FH $str_to_print;
     }
     else {
       say $str_to_print;
@@ -228,3 +232,5 @@ Versions
 2024-03-26 Warn of duplicate output lines
 2024-03-27 Handle superfulous transcripts and lnc_RNA
 2024-04-07 Some variable renaming for consistency, and progress output to stdout
+2024-04-17 Print excluded features to -restfile FILENAME
+
