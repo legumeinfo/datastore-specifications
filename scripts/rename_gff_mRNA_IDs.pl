@@ -115,8 +115,8 @@ my (%seen_feat_to_skip, %seen_lnc_RNA, %seen_pseudogene, %seen_transcript, %seen
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
 foreach my $line (@whole_gff) {
-  if ($line =~ /(^#.+)/) { # print comment line 
-    &printstr( $line );
+  if ($line =~ /(^#.+)/) { # print comment line
+    &printstr($OUTFH, $line );
   }
   else { # body of the GFF
     my @fields = split(/\t/, $line);
