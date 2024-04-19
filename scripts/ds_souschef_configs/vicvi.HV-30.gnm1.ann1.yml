@@ -1,0 +1,92 @@
+---
+directories:
+    work_dir: /usr/local/www/data/private/Vicia/villosa/HV-30.gnm1.ann1
+    from_annot_dir: derived
+    from_genome_dir: derived
+prefixes:
+    from_annot_prefix: "GCF_029867415.1" 
+    from_genome_prefix: "GCF_029867415.1"
+collection_info:
+    genus: Vicia
+    species: villosa
+    scientific_name_abbrev: vicvi
+    coll_genotype: HV-30
+    gnm_ver: gnm1
+    ann_ver: ann1
+    genome_key: 2TXG
+    annot_key: 6WFF
+readme_info:
+    provenance: "The files in this directory originated from GenBank, for RefSeq genome sequence GCF_029867415.1 submitted by USDA ARS in 2023. The GenBank source is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and Peanutbase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and Peanutbase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+    source: "https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_029867415.1"
+    synopsis_genome: Genome assembly 1 for Vicia villosa, genotype HV-30
+    synopsis_annot: GenBank RefSeq annotation for Genome assembly 1 for Vicia villosa, genotype HV-30
+    taxid: "3911"
+    genotype: HV-30
+    description_genome: "Genome assembly 1 for Vicia villosa, genotype HV-30, with sequenced generated using PacBio Improved Phased Assembler, HiFi assembler version 1.3.0, and approximately 55–60× predicted coverage of HiFi reads. See publication for information about additional assembly and scaffolding details." 
+    chromosome_prefix: Chr
+    supercontig_prefix: scaffold
+    description_annot: "This annotation was produced by GenBank on the RefSeq assembly GCF_029867415.1 in 2023."
+    bioproject: "PRJNA868110"
+    sraproject: 
+    dataset_doi_genome: 
+    dataset_doi_annot: 
+    genbank_accession: "GCF_029867415.1"
+    original_file_creation_date: "2023-04-26"
+    local_file_creation_date: "2024-04-08"
+    dataset_release_date: "2024-05-01"
+    contributors: "Tyson Fuller, Derek Bickhart, Lisa Kucek, Shahjahan Ali, Haley Mangelson, Maria Monteros, Timothy Hernandez, Timothy Smith, Heathcliffe Riday, Michael Sullivan"
+    publication_doi: "10.46471/gigabyte.98"
+    citation: "Fuller T, Bickhart DM, Koch LM, Kucek LK, Ali S, Mangelson H, Monteros MJ, Hernandez T, Smith TPL, Riday H, Sullivan ML. A reference assembly for the legume cover crop hairy vetch (Vicia villosa). GigaByte. 2023 Nov 13;2023:gigabyte98. doi: 10.46471/gigabyte.98. PMID: 38023065; PMCID: PMC10659084."
+    publication_title: A reference assembly for the legume cover crop hairy vetch (Vicia villosa)
+    data_curators: Steven Cannon, Wei Huang, Andrew Farmer
+    public_access_level: public
+    license: open
+    keywords: "Vicia villosa, hairy vetch"
+from_to_genome:
+  - 
+    from: modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+original_readme_and_usage:
+from_to_genome_as_is:
+  - 
+    from: initial_seqid_map.tsv
+    to: initial_seqid_map.tsv
+    description: "Mapping between original and modified sequence IDs"
+from_to_cds_mrna:
+  - 
+    from: modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+  - 
+    from: modID.CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - longest variant for each gene"
+  - 
+    from: modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+  - 
+    from: modID.transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  - 
+    from: modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+  - 
+    from: modID.protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: modID.genes_exons.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+from_to_gff_as_is:
+  -
+    from: modID.noncoding.gff3.gz
+    to: noncoding.gff3
+    description: "Noncoding features"
+
