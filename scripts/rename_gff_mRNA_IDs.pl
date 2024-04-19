@@ -111,7 +111,7 @@ while (<STDIN>) {
 # Process the GFF contents
 my $comment_string = "";
 my ($new_ID, $new_gene_ID, %seen_mRNA_base);
-my (%seen_feat_to_skip, %seen_lnc_RNA, %seen_pseudogene, %seen_transcript, %seen_out_line, %seen_rest_line);
+my (%seen_feat_to_skip, %seen_noncoding, %seen_out_line, %seen_rest_line);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
 foreach my $line (@whole_gff) {
@@ -145,29 +145,13 @@ foreach my $line (@whole_gff) {
       }
     }
     
-    if ($line =~ /cDNA_match/){ # In GenBank GFFs, these lack proper gene structure. Skip.
+    # The following types lack mRNA records and are noncoding. Exclude them and their sub-features.
+    if ($type =~ /cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript|tRNA|rRNA/){ 
       &printstr($RESTFH, join("\t", @fields[0..8]) );
+      $seen_noncoding{$ID}++;
       next;
     }
     
-    if ($type eq "pseudogene"){ # These lack mRNA records. Exclude them and their sub-features (exons).
-      &printstr($RESTFH, join("\t", @fields[0..8]) );
-      $seen_pseudogene{$ID}++;
-      next;
-    }
-    
-    if ($type eq "lnc_RNA"){ # These lack mRNA records. Exclude them and their sub-features (exons).
-      &printstr($RESTFH, join("\t", @fields[0..8]) );
-      $seen_lnc_RNA{$ID}++;
-      next;
-    }
-    
-    if ($type eq "transcript"){ # These are redundant with mRNA records. Exclude them and their sub-features (exons).
-      &printstr($RESTFH, join("\t", @fields[0..8]) );
-      $seen_transcript{$ID}++;
-      next;
-    }
-
     if ($seen_feat_to_skip{$ID}){
       &printstr($RESTFH, join("\t", @fields[0..8]) );
       next;
@@ -188,7 +172,7 @@ foreach my $line (@whole_gff) {
         &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
       }
       elsif ($type =~ /exon/) {
-        if ( $seen_pseudogene{$Parent} || $seen_lnc_RNA{$Parent} || $seen_transcript{$Parent} ){
+        if ( $seen_noncoding{$Parent} ){
           next;
         }
         if ($verbose){ say "SS: [$ID] <$Parent> {$new_mRNA_ID}" }
@@ -234,4 +218,4 @@ Versions
 2024-03-27 Handle superfulous transcripts and lnc_RNA
 2024-04-07 Some variable renaming for consistency, and progress output to stdout
 2024-04-17 Print excluded features to -restfile FILENAME
-
+2024-04-19 Handle noncoding features more generally: cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript
