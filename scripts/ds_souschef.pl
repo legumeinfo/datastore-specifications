@@ -50,6 +50,7 @@ my $usage = <<EOS;
     -make_seqid_map  (boolean) Generate hash file/mapping of chromosome and scaffold IDs.
     -readme    (boolean) Generate the README files. 
     -ann_as_is (boolean) Copy over the "as-is" annotation files (un-transformed).
+    -gff_as_is (boolean) Copy over the "as-is" gff files (un-transformed).
     -gnm_as_is (boolean) Copy over the "as-is" genome files (un-transformed).
     -cds       (boolean) Process the CDS and mRNA files.
     -protein   (boolean) Process the protein files.
@@ -63,7 +64,7 @@ my $usage = <<EOS;
 EOS
 
 my ($config, $seqid_map, $featid_map, $help); 
-my ($readme, $ann_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
+my ($readme, $ann_as_is, $gff_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
 my ($make_featid_map, $make_seqid_map, $SHash);
 
 GetOptions (
@@ -75,6 +76,7 @@ GetOptions (
   "make_seqid_map" =>   \$make_seqid_map,
   "readme" =>      \$readme,
   "ann_as_is" =>   \$ann_as_is,
+  "gff_as_is" =>   \$gff_as_is,
   "gnm_as_is" =>   \$gnm_as_is,
   "cds" =>         \$cds,
   "protein" =>     \$protein,
@@ -103,7 +105,7 @@ if ($featid_map){
 
 # All modules will be run unless flags are set for one or more of the particular modules.
 $all++ unless ($make_featid_map || $make_seqid_map || $readme || 
-               $ann_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
+               $ann_as_is || $gff_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
 
 my $yaml = YAML::Tiny->read( $config );
 
@@ -131,7 +133,7 @@ for (keys %{$confobj->{readme_info}}){ $readme_hsh{$_} = $confobj->{readme_info}
 
 # Make some variables for prefixes, for convenience
 my $WD = "$dir_hsh{work_dir}";
-my $GENSP = $coll_hsh{gensp};
+my $GENSP = $coll_hsh{scientific_name_abbrev};
 
 my ($GNMCOL, $ANN_GT_VER, $ANNCOL, $scientific_name, $TO_GNM_PREFIX, $TO_ANN_PREFIX, $ANNDIR, $GNMDIR);
 my ($GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES);
@@ -204,6 +206,7 @@ else { # Not a pangene job, so presume genomic
   
   if ( $all || $readme ){ &readme }
   if ( $all || $ann_as_is ){ &ann_as_is }
+  if ( $all || $gnm_as_is ){ &gnm_as_is }
   if ( $all || $gnm_as_is ){ &gnm_as_is }
   
   if ( $gff && (!$FEATID_MAP || !$SEQID_MAP) ){
@@ -409,7 +412,7 @@ sub make_featid_map {
 sub readme {
   say "\n== Writing README files ==";
   my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid 
-       genotype chromosome_prefix supercontig_prefix description 
+       scientific_name_abbrev genotype chromosome_prefix supercontig_prefix description 
        dataset_doi genbank_accession original_file_creation_date 
        local_file_creation_date dataset_release_date publication_doi publication_title 
        contributors citation data_curators public_access_level license keywords);
@@ -621,6 +624,27 @@ sub gff {
       `$gff_to_bed_command`; # or die "system call of gff_to_bed7_mRNA.awk failed: $?";
       &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, 
         "BED-format file, derived from gene_models_main.gff3");
+    }
+  }
+}
+
+##################################################
+sub gff_as_is {
+  say "\n== Copying over \"as-is\" gff files, if present, unchanged ==";
+  for my $fr_to_hsh (@{$confobj->{from_to_gff_as_is}}){ 
+    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
+    my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
+    if ($FROM_FILE =~ /gz$/){ 
+      open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+      open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
+      while (<$AS_IS_FROM_FH>) {
+        print $AS_IS_TO_FH $_;
+      }
+    } 
+    else { # else file isn't gzipped, so just copy it
+      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
     }
   }
 }
@@ -852,3 +876,5 @@ Versions
 2023-06-09 Handle genomes README keys supercontig_prefix and chromosome_prefix 
 2023-11-27 Change from gff_to_bed6_mRNA.awk to gff_to_bed7_mRNA.awk
 2024-01-09 Change name of bed file from cds.bed to gene_models_main.bed
+2024-04-19 Add back scientific_name_abbrev for README, and add gff_as_is function to handle noncoding gffs 
+
