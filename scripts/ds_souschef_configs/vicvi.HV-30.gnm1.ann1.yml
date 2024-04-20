@@ -4,8 +4,8 @@ directories:
     from_annot_dir: derived
     from_genome_dir: derived
 prefixes:
-    from_annot_prefix: "GCF_029867415.1" 
-    from_genome_prefix: "GCF_029867415.1"
+    from_annot_prefix: "GCF_029867415.1." 
+    from_genome_prefix: "GCF_029867415.1."
 collection_info:
     genus: Vicia
     species: villosa

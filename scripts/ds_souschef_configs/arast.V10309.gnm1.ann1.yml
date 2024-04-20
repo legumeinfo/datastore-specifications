@@ -80,12 +80,13 @@ from_to_protein:
     to: protein_primary.faa
     description: "Protein sequences - longest variant for each gene"
 from_to_gff:
-  - 
-    from: modID.genes.gff3.gz
+  -
+    from: modID.genes_exons.gff3.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
-  - 
-    from: modID.genes_exons.gff3.gz
-    to: gene_models_exons.gff3
-    description: "Gene models, with exons"
+from_to_gff_as_is:
+  -
+    from: modID.noncoding.gff3.gz
+    to: noncoding.gff3
+    description: "Noncoding features"
 
