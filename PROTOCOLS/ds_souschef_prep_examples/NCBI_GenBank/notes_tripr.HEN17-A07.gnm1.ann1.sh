@@ -1,13 +1,11 @@
-# Objective: prepare assembly for Data Store. File-prep started 2019-09; i
-# work on GenBank annotation ccontinued on 2023-12-19
-# S. Cannon
+# Objective: prepare assembly for Data Store. File-prep started 2024-02-27;
+# W. Huang, S. Cannon
 
 # See the document here for detailed (general) instructions:
 #   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS
 
-# Data from https://www.ncbi.nlm.nih.gov/genome/annotation_euk/Arachis_stenosperma/GCF_014773155.1-RS_2023_06/
-#RefSeq assembly GCF_014773155.1 (arast.V10309.gnm1.PFL2)
-#https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_014773155.1/
+# Data from https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_020283565.1/ 
+#RefSeq assembly  GCF_020283565.1 (tripr.HEN17-A07.gnm1.Y8WV)
 
 cat << DONT_RUN_ME
 This file contains notes for creating genome and annotation collections for the Data Store. Read them critically,
@@ -17,7 +15,9 @@ DONT_RUN_ME
 echo; exit 1;
 
 << REFERENCE
-[none]
+Bickhart DM, Koch LM, Smith TPL, Riday H, Sullivan ML. Chromosome-scale assembly of the highly heterozygous 
+genome of red clover (Trifolium pratense L.), an allogamous forage crop species. GigaByte. 2022 Feb 18;2022:gigabyte42. 
+doi: 10.46471/gigabyte.42. PMID: 36824517; PMCID: PMC9650271.
 REFERENCE
 
 # NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
@@ -25,22 +25,22 @@ REFERENCE
     PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
 
 # Variables for this job
-  PRIVATE=/usr/local/www/data/private   # Set this to the Data Store private root directory, i.e. ...data/private
-  ACCN=GCF_014773155.1
-  STRAIN=V10309
-  GENUS=Arachis
-  SP=stenosperma
-  GENSP=arast
+  PRIVATE=/usr/local/www/data/private  # Set this to the Data Store private root directory, i.e. ...data/private
+  ACCN=GCF_020283565.1
+  STRAIN=HEN17-A07
+  GENUS=Trifolium
+  SP=pratense
+  GENSP=tripr
   GNM=gnm1
   ANN=ann1  
-  GENOME=GCF_014773155.1_arast.V10309.gnm1.PFL2_genomic.fna
+  GENOME=GCF_020283565.1_ARS_RC_1.1_genomic.fna
   CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
   TO=derived
 
 # NOTE: Get the keys with register_key.pl below !
-  GKEY=PFL2
-  AKEY=CZRZ
+  GKEY=Y8WV
+  AKEY=LHG2
 
 # Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
@@ -54,8 +54,7 @@ REFERENCE
   cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
 # Get the genome assembly and annotations
-  curl -O https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_014773155.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT
-
+  curl -O https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_020283565.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT
 # Uncompress and move files into an easily accessible "from" directory
   unzip download
   mv ncbi_dataset/data/* .
@@ -63,7 +62,7 @@ REFERENCE
   rm -rf ncbi_dataset/ download
 
 # Prepare the data here:
-  cd /usr/local/www/data/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
+  cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
 # Make a directory for derived files if needed
   mkdir -p $TO $FROM
@@ -74,45 +73,49 @@ REFERENCE
 # Swap the chromosome/seq IDs and the ACCN IDs in the assembly,
 # to get a defline like this:
 #   >Chr1 GWHCAYC00000001 Complete=T Circular=F OriSeqID=Gm01 Len=59641292
+
   cat $FROM/$GENOME |
-    perl -pe 's/^>(\S+)\s+.+chromosome (\d+), .+/>Chr$2 $1/;
-              s/^>(\S+)\s+.+(Scaffold_\d+),.+/>$2 $1/' > $TO/$ACCN.modID.genome.fasta
-
+	  perl -pe 's/^>(\S+)\s+.+LG(\d+), .+/>Chr$2 $1/; 
+              s/^>(\S+)\s+.+(scaffold_\d+),.+/>$2 $1/; 
+              s/^>(\S+)\s+.+(mitochondrion),.+/>MT $1/; 
+              s/^>(\S+)\s+.+(plastid),.+/>Pltd $1/' > $TO/$ACCN.modID.genome.fasta 
+    
 # Also in the molecule IDs in the gff. 
-# First, make an initial hash/map of the molecule IDs (ACCN and $FROM)
-  grep '>' $FROM/$GENOME |
-    perl -pe 's/^>(\S+)\s+.+chromosome (\d+), .+/$1\tChr$2/;
-              s/^>(\S+)\s+.+(Scaffold_\d+),.+/$1\t$2/' > $TO/$ACCN.initial_seqid_map.tsv
+ grep ">"  $FROM/$GENOME |
+    perl -pe 's/^>(\S+)\s+.+LG(\d+),.+/$1\tChr$2/;
+              s/^>(\S+)\s+.+(scaffold_\d+),.+/$1\t$2/; 
+	      s/^>(\S+)\s+.+(mitochondrion),.+/$1\tMT/;
+	      s/^>(\S+)\s+.+(plastid),.+/$1\tPltd/'> $TO/$ACCN.initial_seqid_map.tsv
 
-# Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs
+# Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs.
+# Also remove MT and Pltd records (which lack strand information so cause errors with gffread)
 # NOTE: This step takes LONG time (perhaps 6-8 hours), so run it with nohup and in the background.
-  hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
-    simplify_genbank_gff.sh > tmp.modID.simplified.gff
+  cd /usr/local/www/data/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
+
+  hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
+    simplify_genbank_gff.sh | awk '$1!~/Pltd/ && $1!~/^MT/' > tmp.modID.simplified.gff 
+  
   nohup cat tmp.modID.simplified.gff |
     rename_gff_mRNA_IDs.pl -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
       -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
+  wait
 
-## Alternatively, the INFILE version of the script:
-#  nohup special_or_deprecated/rename_gff_mRNA_IDs.pl -in tmp.modID.simplified.gff \
-#    -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
-#    -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
-
-
-# Sort GFF
+# Sort GFF 
   cat tmp.modID.simplified.renamed.gff | awk '$1!~/MT/ && $1!~/Pltd/' | sort_gff.pl > $TO/$ACCN.modID.genes_exons.gff3
   cat tmp.modID.simplified.renamed.noncoding.gff | awk '$1!~/MT/ && $1!~/Pltd/' | sort_gff.pl > $TO/$ACCN.modID.noncoding.gff3
+
 
 # Remaining work in the work directory is in the "$TO" subdirectory
   cd $TO  
 
-# Extract CDS, mRNA, and protein sequence. Note that this uses genes.gff3 rather than genes_exons.gff3
+# Extract CDS, mRNA, and protein sequence. 
   gffread -g $ACCN.modID.genome.fasta \
           -w $ACCN.modID.transcripts.fna -x $ACCN.modID.CDS.fna -y $ACCN.modID.protein.faa \
-            $ACCN.modID.genes.gff3
+            $ACCN.modID.genes_exons.gff3
 
 # Derive bed file
-  cat $ACCN.modID.genes.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
+  cat $ACCN.modID.genes_exons.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
 
 # Derive primary/longest CDS, transcript, and protein sequences
   cat $ACCN.modID.transcripts.fna | longest_variant_from_fasta.sh > $ACCN.modID.transcripts_primary.fna &
@@ -124,6 +127,7 @@ REFERENCE
   for file in *gff3 *f?a *bed *.fasta; do 
     bgzip $file &
   done 
+  wait
 
   rm *fai
 

@@ -1,13 +1,12 @@
-# Objective: prepare assembly for Data Store. File-prep started 2019-09; i
-# work on GenBank annotation ccontinued on 2023-12-19
+# Objective: prepare assembly for Data Store. File-prep started 2024-03-01
+# work on GenBank annotation ccontinued on 2024-03-01
 # S. Cannon
 
 # See the document here for detailed (general) instructions:
 #   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS
 
-# Data from https://www.ncbi.nlm.nih.gov/genome/annotation_euk/Arachis_stenosperma/GCF_014773155.1-RS_2023_06/
-#RefSeq assembly GCF_014773155.1 (arast.V10309.gnm1.PFL2)
-#https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_014773155.1/
+# Data from https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_029867415.1/ 
+#RefSeq assembly  GCF_029867415.1 (vicvi.HV-30.gnm1.2TXG)
 
 cat << DONT_RUN_ME
 This file contains notes for creating genome and annotation collections for the Data Store. Read them critically,
@@ -17,7 +16,9 @@ DONT_RUN_ME
 echo; exit 1;
 
 << REFERENCE
-[none]
+Fuller T, Bickhart DM, Koch LM, Kucek LK, Ali S, Mangelson H, Monteros MJ, Hernandez T, Smith TPL, Riday H, Sullivan ML. 
+A reference assembly for the legume cover crop hairy vetch (Vicia villosa). GigaByte. 2023 Nov 13;2023:gigabyte98. 
+doi: 10.46471/gigabyte.98. PMID: 38023065; PMCID: PMC10659084.
 REFERENCE
 
 # NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
@@ -26,21 +27,21 @@ REFERENCE
 
 # Variables for this job
   PRIVATE=/usr/local/www/data/private   # Set this to the Data Store private root directory, i.e. ...data/private
-  ACCN=GCF_014773155.1
-  STRAIN=V10309
-  GENUS=Arachis
-  SP=stenosperma
-  GENSP=arast
+  ACCN=GCF_029867415.1
+  STRAIN=HV-30
+  GENUS=Vicia
+  SP=villosa
+  GENSP=vicvi
   GNM=gnm1
   ANN=ann1  
-  GENOME=GCF_014773155.1_arast.V10309.gnm1.PFL2_genomic.fna
+  GENOME=GCF_029867415.1_Vvil1.0_genomic.fna
   CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
   TO=derived
 
 # NOTE: Get the keys with register_key.pl below !
-  GKEY=PFL2
-  AKEY=CZRZ
+  GKEY=2TXG
+  AKEY=6WFF
 
 # Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
@@ -54,7 +55,7 @@ REFERENCE
   cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
 # Get the genome assembly and annotations
-  curl -O https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_014773155.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT
+ curl -O https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_029867415.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT
 
 # Uncompress and move files into an easily accessible "from" directory
   unzip download
@@ -75,44 +76,41 @@ REFERENCE
 # to get a defline like this:
 #   >Chr1 GWHCAYC00000001 Complete=T Circular=F OriSeqID=Gm01 Len=59641292
   cat $FROM/$GENOME |
-    perl -pe 's/^>(\S+)\s+.+chromosome (\d+), .+/>Chr$2 $1/;
-              s/^>(\S+)\s+.+(Scaffold_\d+),.+/>$2 $1/' > $TO/$ACCN.modID.genome.fasta
+    perl -pe 's/^>(\S+)\s+.+LG(\d+), .+/>Chr$2 $1/;
+              s/^>(\S+)\s+.+(ctg.\S+),.+/>$2 $1/;
+              s/^>(\S+)\s+.+(scaffold\d+),.+/>$2 $1/' > $TO/$ACCN.modID.genome.fasta
 
 # Also in the molecule IDs in the gff. 
 # First, make an initial hash/map of the molecule IDs (ACCN and $FROM)
   grep '>' $FROM/$GENOME |
-    perl -pe 's/^>(\S+)\s+.+chromosome (\d+), .+/$1\tChr$2/;
-              s/^>(\S+)\s+.+(Scaffold_\d+),.+/$1\t$2/' > $TO/$ACCN.initial_seqid_map.tsv
+    perl -pe 's/^>(\S+)\s+.+LG(\d+), .+/$1\tChr$2/;
+              s/^>(\S+)\s+.+(ctg.\S+),.+/$1\t$2/;
+              s/^>(\S+)\s+.+(scaffold\d+),.+/$1\t$2/' > $TO/$ACCN.initial_seqid_map.tsv
 
-# Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs
+# Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs.
+# Also remove MT and Pltd records (which lack strand information so cause errors with gffread)
 # NOTE: This step takes LONG time (perhaps 6-8 hours), so run it with nohup and in the background.
   hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
-    simplify_genbank_gff.sh > tmp.modID.simplified.gff
+    simplify_genbank_gff.sh | awk '$1!~/Pltd/ && $1!~/^MT/' > tmp.modID.simplified.gff
 
   nohup cat tmp.modID.simplified.gff |
     rename_gff_mRNA_IDs.pl -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
       -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
 
-## Alternatively, the INFILE version of the script:
-#  nohup special_or_deprecated/rename_gff_mRNA_IDs.pl -in tmp.modID.simplified.gff \
-#    -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
-#    -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
-
-
-# Sort GFF
+# Sort GFF 
   cat tmp.modID.simplified.renamed.gff | awk '$1!~/MT/ && $1!~/Pltd/' | sort_gff.pl > $TO/$ACCN.modID.genes_exons.gff3
   cat tmp.modID.simplified.renamed.noncoding.gff | awk '$1!~/MT/ && $1!~/Pltd/' | sort_gff.pl > $TO/$ACCN.modID.noncoding.gff3
 
 # Remaining work in the work directory is in the "$TO" subdirectory
-  cd $TO  
+  cd $TO
 
-# Extract CDS, mRNA, and protein sequence. Note that this uses genes.gff3 rather than genes_exons.gff3
+# Extract CDS, mRNA, and protein sequence. 
   gffread -g $ACCN.modID.genome.fasta \
           -w $ACCN.modID.transcripts.fna -x $ACCN.modID.CDS.fna -y $ACCN.modID.protein.faa \
-            $ACCN.modID.genes.gff3
+            $ACCN.modID.genes_exons.gff3
 
 # Derive bed file
-  cat $ACCN.modID.genes.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
+  cat $ACCN.modID.genes_exons.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
 
 # Derive primary/longest CDS, transcript, and protein sequences
   cat $ACCN.modID.transcripts.fna | longest_variant_from_fasta.sh > $ACCN.modID.transcripts_primary.fna &
@@ -124,11 +122,13 @@ REFERENCE
   for file in *gff3 *f?a *bed *.fasta; do 
     bgzip $file &
   done 
+  wait
 
   rm *fai
 
 # cd back to the main work directory
   cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
+
 
 # Prepare the config for ds_souschef, in the datastore-specifications/scripts/ds_souschef_configs directory
   vim $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
