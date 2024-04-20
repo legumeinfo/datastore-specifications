@@ -6,8 +6,8 @@ use feature "say";
 use Getopt::Long;
 
 my $usage = <<EOS;
-  Synopsis: cat GFF_FILE.gff3 | rename_gff_mRNA_IDs.pl [options] 
-       OR     rename_gff_mRNA_IDs.pl [options] < GFF_FILE.gff3
+  Synopsis: rename_gff_mRNA_IDs.pl -in FILE.gff -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" \
+    -out CODING.gff -rest NONCODING.gff
   
   Read a GenBank refseq GFF file and separate coding from noncoding features (putting these into two files).
 
@@ -18,34 +18,34 @@ my $usage = <<EOS;
 
   Example:
     hash_into_gff_id.pl -gff genomic.gff -seqid_map initial_seqid_map.tsv |
-      simplify_genbank_gff.sh > tmp.modID.simplified.gff
+    simplify_genbank_gff.sh > tmp.modID.simplified.gff
 
-    nohup cat tmp.modID.simplified.gff |
-      rename_gff_mRNA_IDs.pl -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
-        -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
-  
+    nohup rename_gff_mRNA_IDs.pl -in tmp.modID.simplified.gff \
+      -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
+      -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
+
   Required:
-    GFF file in stream via STDIN
-
-    -outfile   (string) Output file for gff; otherwise, to STDOUT
+    -infile    (string) GFF file to be processed
+    -outfile   (string) Output file for gff coding features
     -restfile  (string) Output file for features excluded from -out
 
   Options:
-    -regex  (string) Pattern for the base ID, to capture the portion preceeding e.g. .1 .mRNA.1 
+    -regex     (string) Pattern for the base ID, to capture the portion preceeding e.g. .1 .mRNA.1 
                         Default: '(\\w+)\\.\\d+\$'
     -xclude    (string) List of features to exclude from output; comma-separated, e.g. "lnc_RNA,pseudogene,tRNA"
     -verbose   (boolean) Report removed features to STDOUT. Best to specify -out if -verbose is indicated.
     -help      (boolean) This message.
 EOS
 
-my ($help, $xclude, $verbose, $outfile, $restfile);
+my ($help, $xclude, $verbose, $infile, $outfile, $restfile);
 my $regex = '(\w+)\.\d+$';
 
 GetOptions (
-  "regex:s" => \$regex,
+  "infile=s" =>   \$infile,
+  "outfile=s" =>  \$outfile,
+  "restfile=s" => \$restfile,
   "xclude:s" =>   \$xclude,
-  "outfile:s" =>  \$outfile,
-  "restfile:s" => \$restfile,
+  "regex:s" =>    \$regex,
   "verbose" =>    \$verbose,
   "help" =>       \$help,
 );
@@ -54,23 +54,23 @@ die "$usage" if ($help);
 
 my $ID_REX = qr/$regex/;
 
-my ($OUTFH, $RESTFH);
+my ($INFH, $OUTFH, $RESTFH);
+if ($infile){ open ($INFH, "<", $infile) or die "Can't open out $infile: $!\n" }
 if ($outfile){ open ($OUTFH, ">", $outfile) or die "Can't open out $outfile: $!\n" }
 if ($restfile){ open ($RESTFH, ">", $restfile) or die "Can't open out $restfile: $!\n" }
-unless ($outfile){ die "Please specify -out and a filename for retained GFF features\n" }
-unless ($restfile){ die "Please specify -rest and a filename for excluded GFF features\n" }
+unless ($infile){ die "Please specify -in with a filename of GFF to be processed (or -help for usage)" }
+unless ($outfile){ die "Please specify -out with a filename for retained GFF features\n" }
+unless ($restfile){ die "Please specify -rest with a filename for excluded GFF features\n" }
 
 my @xclude_ary;
 if ($xclude){ @xclude_ary = split(/,/, $xclude) }
 
 # Read the GFF contents. Store for later use, and remember ID :: Name pairs for mRNA features
-my (%id_mRNA_of_gene, %id_of_feat_to_xclude, @whole_gff, %gene_record);
-while (<STDIN>) {
+my (%id_mRNA_of_gene, %id_of_feat_to_xclude, %gene_record);
+while (<$INFH>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
-  push(@whole_gff, $_);
   next if ($_ =~ /^#/);
-
   my @fields = split(/\t/, $_);
   my $type = $fields[2];
   my @attrs = split(/;/, $fields[8]);
@@ -104,12 +104,14 @@ while (<STDIN>) {
 }
 
 # Process the GFF contents
+seek $INFH,0,0;
 my $comment_string = "";
 my ($new_ID, $new_gene_ID, %seen_mRNA_base);
 my (%seen_feat_to_skip, %seen_noncoding, %seen_out_line, %seen_rest_line);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
-foreach my $line (@whole_gff) {
+while(my $line = <$INFH>) {
+  chomp $line;
   if ($line =~ /^#.+/) { # print comment line
     &printstr($OUTFH, $line );
 
@@ -215,3 +217,4 @@ Versions
 2024-04-07 Some variable renaming for consistency, and progress output to stdout
 2024-04-17 Print excluded features to -restfile FILENAME
 2024-04-19 Handle noncoding features more generally: cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript
+2024-04-20 Take GFF in as parameter rather than STDIN
