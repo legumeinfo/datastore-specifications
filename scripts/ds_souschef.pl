@@ -207,7 +207,7 @@ else { # Not a pangene job, so presume genomic
   if ( $all || $readme ){ &readme }
   if ( $all || $ann_as_is ){ &ann_as_is }
   if ( $all || $gnm_as_is ){ &gnm_as_is }
-  if ( $all || $gnm_as_is ){ &gnm_as_is }
+  if ( $all || $gff_as_is ){ &gff_as_is }
   
   if ( $gff && (!$FEATID_MAP || !$SEQID_MAP) ){
     die "\nERROR: If the -gff flag is set, then also call -make_seqid_map and -make_featid_map OR " . 
@@ -877,4 +877,4 @@ Versions
 2023-11-27 Change from gff_to_bed6_mRNA.awk to gff_to_bed7_mRNA.awk
 2024-01-09 Change name of bed file from cds.bed to gene_models_main.bed
 2024-04-19 Add back scientific_name_abbrev for README, and add gff_as_is function to handle noncoding gffs 
-
+2024-04-22 Bug fix: call gff_as_is subroutine!
