@@ -109,10 +109,10 @@ REFERENCE
 # Extract CDS, mRNA, and protein sequence. Note that this uses genes.gff3 rather than genes_exons.gff3
   gffread -g $ACCN.modID.genome.fasta \
           -w $ACCN.modID.transcripts.fna -x $ACCN.modID.CDS.fna -y $ACCN.modID.protein.faa \
-            $ACCN.modID.genes.gff3
+            $ACCN.modID.genes_exons.gff3
 
 # Derive bed file
-  cat $ACCN.modID.genes.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
+  cat $ACCN.modID.genes_exons.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
 
 # Derive primary/longest CDS, transcript, and protein sequences
   cat $ACCN.modID.transcripts.fna | longest_variant_from_fasta.sh > $ACCN.modID.transcripts_primary.fna &
