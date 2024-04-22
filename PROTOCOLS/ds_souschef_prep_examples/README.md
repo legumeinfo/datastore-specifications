@@ -19,11 +19,18 @@ back into a single Data Store collection directory.
 
 ## NCBI GenBank
 
-Challenges with data from GenBank are (1) the assembly molecules (chromomes, scaffolds) are renamed to GenBank accessions, and
-(2) The GFF structure is complex, with child features being assigned identifiers that can only be traced to parent features
-via the `Parent=` attribute, rather than via lexical patterns.
+Challenges with data from GenBank are:
+(1) The assembly molecules (chromomes, scaffolds) are renamed to GenBank accessions;
+(2) The GFF structure in RefSeq annotation files is complex, with child features being assigned identifiers that 
+can only be traced to parent features via the `Parent=` attribute, rather than via lexical patterns; and
+(3) There are many noncoding elements (e.g. snRNA, rRNA, contigs, transcript, pseudogene, lnc_RNA), which aren't handled by gffread.
+
+We have handled these by renaming features relative to the gene ID (e.g. mRNA LOC131625884.1 for gene LOC131625884) and by
+separating the annotation into two files -- one with coding elements and one with noncoding elements.
 
 <a href="NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh">NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh</a>
+<a href="NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh">NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh</a>
+<a href="NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh">NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh</a>
 
 ## Phytozome
 
