@@ -28,8 +28,8 @@ can only be traced to parent features via the `Parent=` attribute, rather than v
 We have handled these by renaming features relative to the gene ID (e.g. mRNA LOC131625884.1 for gene LOC131625884) and by
 separating the annotation into two files -- one with coding elements and one with noncoding elements.
 
-<a href="NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh">NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh</a>
-<a href="NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh">NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh</a>
+<a href="NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh">NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh</a><br>
+<a href="NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh">NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh</a><br>
 <a href="NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh">NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh</a>
 
 ## Phytozome
