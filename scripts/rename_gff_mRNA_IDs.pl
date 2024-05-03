@@ -144,9 +144,6 @@ foreach my $line (@whole_gff) {
     # The following types lack mRNA records and are noncoding. Exclude them and their sub-features.
     if ($type =~ /cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript|tRNA|rRNA/){ 
       &printstr($RESTFH, join("\t", @fields[0..8]) );
-      # If the ID of this feature has the form XR_009076932.1-1, strip back to XR_009076932.1
-      # since that will be the base for the exon IDs
-      $ID =~ s/(.+\.\d+)-\d+$/$1/;
       #say "TT: Seen noncoding type $type ID $ID";
       $seen_noncoding{$ID}++;
       next;
@@ -220,4 +217,4 @@ Versions
 2024-04-07 Some variable renaming for consistency, and progress output to stdout
 2024-04-17 Print excluded features to -restfile FILENAME
 2024-04-19 Handle noncoding features more generally: cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript
-2024-05-03 Handle stray exons from noncoding features
+2024-05-03 Handle stray exons from noncoding features ... then revert! Problem was in simplify_genbank_gff.sh
