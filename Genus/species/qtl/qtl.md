@@ -9,7 +9,7 @@ The QTL file places specific QTL identifiers and their traits on genetic maps + 
 5. **start (cM)**
 6. **end (cM)**
 7. peak (cM)
-8. favored allele source
+8. favored allele source (The parent with the highest frequency of favorable alleles contributing to related trait.)
 9. LOD
 10. likelihood ratio
 11. marker r2
