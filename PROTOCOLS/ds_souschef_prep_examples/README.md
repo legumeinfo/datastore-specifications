@@ -9,13 +9,24 @@ notes generic, using variables wherever possible - and to test the notes careful
 
 A challenge with data from GWH is that the assembly molecules (chromomes, scaffolds) are renamed to GWH accessions.
 
-For handling an assembly and annotations with two haplotypes, see the example for <i>Phanera championii</i>. The general
-processing strategy (as of early 2024) is to pull the two haplotype datasets out of the combined GWH files, 
-then run `ds_souschef.pl` on each haplotype (using one config for each haplotype), then move the respective files
-back into a single Data Store collection directory.
-
 <a href="CNCB_Genome_Warehouse/notes_glyma.Wm82_NJAU.gnm1.ann1.sh">CNCB_Genome_Warehouse/notes_glyma.Wm82_NJAU.gnm1.ann1.sh</a>
+
+## Dealing with distinct haplotype assmeblies and the annotations on those assemblies
+For handling an assembly and annotations with two haplotypes, see the `CNCB_Genome_Warehouse` example 
+for <i>Phanera championii</i>, and Phytozome examples for <i>Cercis canadensis</i> and <i>Chamaecrista fasciculata</i>.
+In the case of <i>Phanera championii</i>, The two haplotype datasets were pulled out of the combined GWH files, 
+and then `ds_souschef.pl` was run on each haplotype (using one config for each haplotype).
+In the cases of <i>Cercis canadensis</i> and <i>Chamaecrista fasciculata</i>, the haplotypes were separate
+in the Phytozome collections, and were kept separate during preparation of the Data Store collections.
+
 <a href="CNCB_Genome_Warehouse/notes_phach.longxuteng.gmn1.ann1_haplotypes.sh">CNCB_Genome_Warehouse/notes_phach.longxuteng.gmn1.ann1_haplotypes.sh</a>
+
+<a href="Phytozome/notes_cerca.ISC453364.gnm3.ann1.sh">notes_cerca.ISC453364.gnm3.ann1.sh</a>
+<a href="Phytozome/notes_cerca.ISC453364.gnm3_hap2.ann1.sh">notes_cerca.ISC453364.gnm3_hap2.ann1.sh</a>
+
+<a href="Phytozome/notes_chafa.ISC494698.gnm1.ann1.sh">notes_chafa.ISC494698.gnm1.ann1.sh</a>
+<a href="Phytozome/notes_chafa.ISC494698.gnm1_hap2.ann1.sh">notes_chafa.ISC494698.gnm1_hap2.ann1.sh</a>
+
 
 ## NCBI GenBank
 

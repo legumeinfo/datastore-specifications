@@ -1,11 +1,11 @@
 ---
 directories:
     work_dir: /usr/local/www/data/private/Cercis/canadensis
-    from_annot_dir: ISC453364.gnm3.ann1/V3.1/annotation
-    from_genome_dir: ISC453364.gnm3.ann1/V3.1/assembly
+    from_annot_dir: ISC453364.gnm3_hap2.ann1/V3.1/annotation
+    from_genome_dir: ISC453364.gnm3_hap2.ann1/V3.1/assembly
 prefixes:
-    from_annot_prefix: "Ccanadensis_705_V3.1."
-    from_genome_prefix: "Ccanadensis_705_V3.0."
+    from_annot_prefix: "CcanadensisHAP2_706_V3.1."
+    from_genome_prefix: "CcanadensisHAP2_706_V3.0."
 # Some preprocessing:
 # The GFF features all include ".V3.1", e.g. Cecan.1G000100.V3.1  or  Cecan.1G000100.1.V3.1.CDS.1
 # but the fasta files do not, e.g. Cecan.1G000100.1 
@@ -16,15 +16,15 @@ collection_info:
     species: canadensis
     scientific_name_abbrev: cerca
     coll_genotype: ISC453364
-    gnm_ver: gnm3
+    gnm_ver: gnm3_hap2
     ann_ver: ann1
-    genome_key: GWXB
-    annot_key: 3N1M
+    genome_key: 2S7P
+    annot_key: G88H
 readme_info:
     provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov. The Phytozome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
     source: "https://phytozome-next.jgi.doe.gov/info/GmaxWm82ISU_01_v2_1"
-    synopsis_genome: Cercis canadensis accession ISC453364, genome assembly v3
-    synopsis_annot: Annotation 1 for Cercis canadensis accession ISC453364, genome assembly v3
+    synopsis_genome: Cercis canadensis accession ISC453364, genome assembly v3 haplotype 2
+    synopsis_annot: Annotation 1 for Cercis canadensis accession ISC453364, genome assembly v3 haplotype 2
     genotype: ISC453364
     taxid: "49801"
     description_genome: "This release is from a tree on the Iowa State University campus, registered as accession ISC453364. The resulting genome assembly was resolved into two haplotype assemblies. This particular assembly has been designated as haplotype 1. For full description of assembly methods and characteristics, see the Phytozome description at the URL above."
@@ -62,11 +62,11 @@ from_to_genome:
     description: "Genome assembly - hardmasked"
 original_readme_and_usage:
   - 
-    from_full_filename: Ccanadensis_705_V3.1.DataReleasePolicy.html
+    from_full_filename: CcanadensisHAP2_706_V3.1.DataReleasePolicy.html
     to: DataReleasePolicy.html
     description: "Original JGI data release policy"
   - 
-    from_full_filename: Ccanadensis_705_V3.1.readme.txt
+    from_full_filename: CcanadensisHAP2_706_V3.1.readme.txt
     to: original_readme.txt
     description: "Original JGI data README file"
 from_to_annot_as_is:
