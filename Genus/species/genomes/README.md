@@ -23,6 +23,7 @@ A BUSCO subfolder contains the results of running BUSCO analysis against the gen
 where lineage indicates the busco target (e.g. fabales_odb10)
 
 <hr>
+
 ## Handling haplotype-resolved genome assemblies and annotations
 
 ### Background
