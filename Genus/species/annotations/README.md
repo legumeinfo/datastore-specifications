@@ -152,7 +152,5 @@ Directory and file naming in such cases will follow the typical pattern for geno
 ### Instructions for preparing genome assembly and annotation files for the Data Store
 Because of the large numbers of files involved in genome assembly and annotation files,
 it is best to prepare these with a scripted process. We are using the `ds_souschef.pl` script for this purpose.
-See detailed notes here, with examples about data-handling for data from several different sorces:
-
-https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/ds_souschef_prep_examples
+See [detailed notes here](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/ds_souschef_prep_examples), with examples about data-handling for data from several different sorces.
 
