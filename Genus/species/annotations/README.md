@@ -99,9 +99,7 @@ A BUSCO subfolder contains the results of running BUSCO analysis against the pri
 where lineage indicates the busco target (e.g. fabales_odb10)
 
 <hr>
-## Handling haplotype-resolved genome assemblies and annotations
 
-<hr>
 ## Handling haplotype-resolved genome assemblies and annotations
 
 ### Background
