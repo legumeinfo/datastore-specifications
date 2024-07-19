@@ -114,6 +114,6 @@ from_to_gff:
     description: "Gene models, with exon features"
   - 
     from: gene_strip.gff3.gz
-    to: gene_models_main.gff3.gz
+    to: gene_models_main.gff3
     description: "Gene models - main"
 
