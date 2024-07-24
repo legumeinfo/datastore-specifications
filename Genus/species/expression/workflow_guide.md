@@ -18,7 +18,7 @@ As described in the README in this directory of the repository, 3 files from thi
 
 Format the samplesheet from fetchngs:
 ```
-data/adf/nf-core/fetchngs/for_rex/create_samples_file.pl --genotype_tag=cultivar samplesheet/samplesheet.csv > formatted_table.tsv
+/data/adf/nf-core/fetchngs/for_rex/create_samples_file.pl --genotype_tag=cultivar samplesheet/samplesheet.csv > formatted_table.tsv
 ```
 Check the newly created metadata table. It will likely take some manual editing, depending on the data submitted for each category. Often, the "name" is best copied "description" and with the original column contents supplanted by a more concise shorthand after this operation:
 ```
