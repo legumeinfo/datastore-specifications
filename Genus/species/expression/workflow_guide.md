@@ -48,3 +48,5 @@ Renamed from "gene-to-gene_covariance_correlation.tsv", which is output from the
 ```
 Rscript --vanilla  rnaseq_out/star_salmon/correlation_metrics.R star_salmon_gene_counts.tsv
 ```
+
+gzip all .tsvs before loading to datastore.
