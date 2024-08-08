@@ -25,6 +25,10 @@ File names:
 - _gensp.collection_.values.tsv.gz
 - _README.collection_.yml.gz
 
+Optional file names:
+- _gensp.collection_.coexpression.tsv.gz
+- _gensp.collection_.counts.tsv.gz
+
 ### README
 The `genotype` attribute contains a list of all of the sample genotypes.
 
