@@ -32,7 +32,19 @@ Keep in mind that if growth stage data is present, these ontology terms should a
 
 3) values.tsv
 
-Cut out the second column from this file, that's it:
+Cut out the second column from this file:
 ```
 cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_tpm.tsv 
+```
+4) counts.tsv
+
+Analygous to the above, remove the second column from alternate salmon output file:
+```
+cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
+```
+5) coexpression.tsv
+
+Renamed from "gene-to-gene_covariance_correlation.tsv", which is output from the script in the following command. The script also produces two pairwise comparison matrices which may be deleted if not desired. 
+```
+Rscript --vanilla  rnaseq_out/star_salmon/correlation_metrics.R star_salmon_gene_tpm.tsv
 ```
