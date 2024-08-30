@@ -1,4 +1,4 @@
-The first step in generating an expression dataset for the datastore is to obtain a metadata table. This can be conveniently acheived with nextflow's fetchngs pipeline as so:
+The first step in generating an expression dataset for the datastore is to obtain a metadata table. This can be conveniently achieved with nextflow's fetchngs pipeline as so:
 
 ```
 nextflow run nf-core/fetchngs -r 1.12.0 --input SRR_ids.tsv --outdir fetchngs_out -profile singularity --download_method sratools --nf_core_pipeline rnaseq
@@ -44,9 +44,21 @@ cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
 ```
 5) coexpression.tsv
 
-Renamed from "gene-to-gene_covariance_correlation.tsv", which is output from the script in the following command. The script also produces two pairwise comparison matrices which may be deleted if not desired. 
+The following script will produce "gene-to-gene_covariance_correlation.tsv" which contains coexpression and Pearson correlation coefficient statistics for all all pairwise gene comparisons. It also output a pair-wise matrix for each of these two stats which may be deleted if not desired. 
 ```
-Rscript --vanilla  rnaseq_out/star_salmon/correlation_metrics.R star_salmon_gene_counts.tsv
+Rscript --vanilla  /erdos/elavelle/correlation_metrics.R star_salmon_gene_counts.tsv
 ```
+The data should be limited to a 0.7 PCC threshold for the sake of size. This can be accomplished with the following commands:
+```
+tail -n+2 gene-to-gene_covariance_correlation.tsv | awk '$4 >= .7+0 {print $0}' | sort -gr -k4 > coexpression_sorted.tsv
+```
+To make a numerical comparison of the data in the 4th column (excluding the header), then sort the rows in descending order by the values in that column (the PCCs). Save the header with:
+```
+head -1 gene-to-gene_covariance_correlation.tsv > coexpression_header.tsv
+```
+Then:
+```sed '$ d' coexpression_sorted.tsv | awk '$4 != "NA" {print $0}' > coexpression_sorted_filtered.tsv && cat ~/coexpression_header.tsv coexpression_sorted_filtered.tsv > <dataset_prefix>.coexpression.tsv 
+```
+to remove non-applicable values and tack the header back on.
 
 gzip all .tsvs before loading to datastore.
