@@ -38,7 +38,7 @@ cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_tpm.tsv
 ```
 4) counts.tsv
 
-Analygous to the above, remove the second column from alternate salmon output file:
+Analogous to the above, remove the second column from alternate salmon output file:
 ```
 cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
 ```
