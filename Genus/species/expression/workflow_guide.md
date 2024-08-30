@@ -57,7 +57,9 @@ To make a numerical comparison of the data in the 4th column (excluding the head
 head -1 gene-to-gene_covariance_correlation.tsv > coexpression_header.tsv
 ```
 Then:
-```sed '$ d' coexpression_sorted.tsv | awk '$4 != "NA" {print $0}' > coexpression_sorted_filtered.tsv && cat ~/coexpression_header.tsv coexpression_sorted_filtered.tsv > <dataset_prefix>.coexpression.tsv 
+
+```
+sed '$ d' coexpression_sorted.tsv | awk '$4 != "NA" {print $0}' > coexpression_sorted_filtered.tsv && cat ~/coexpression_header.tsv coexpression_sorted_filtered.tsv > <dataset_prefix>.coexpression.tsv 
 ```
 to remove non-applicable values and tack the header back on.
 
