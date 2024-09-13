@@ -44,9 +44,9 @@ cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
 ```
 5) coexpression.tsv
 
-The following script will produce "gene-to-gene_covariance_correlation.tsv" which contains coexpression and Pearson correlation coefficient statistics for all all pairwise gene comparisons. It also output a pair-wise matrix for each of these two stats which may be deleted if not desired. 
+The following script will produce "gene-to-gene_covariance_correlation.tsv" which contains coexpression and Pearson correlation coefficient statistics for all all pairwise gene comparisons. It also output a pair-wise matrix for each of these two stats which may be deleted if not desired. Requires doParallel package.
 ```
-Rscript --vanilla  /erdos/elavelle/correlation_metrics.R star_salmon_gene_counts.tsv
+Rscript --vanilla  /erdos/elavelle/correlation_metrics.R star.salmon.gene_counts.tsv
 ```
 The data should be limited to a 0.7 PCC threshold for the sake of size. This can be accomplished with the following commands:
 ```
