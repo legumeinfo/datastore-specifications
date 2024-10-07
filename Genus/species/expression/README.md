@@ -28,6 +28,7 @@ File names:
 Optional file names:
 - _gensp.collection_.coexpression.tsv.gz
 - _gensp.collection_.counts.tsv.gz
+- - _gensp.collection_.<replicate_group>.bw
 
 ### README
 The `genotype` attribute contains a list of all of the sample genotypes.
