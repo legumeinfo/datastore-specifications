@@ -65,7 +65,7 @@ to remove non-applicable values and tack the header back on.
 
 gzip all .tsvs before loading to datastore.
 
-6) <condition>.bw
+6) replicate_group.bw
 
 Run the script make_bigwigs.sh:
 ./make_bigwigs.sh <samples.tsv.gz> <chromosome_sizes_file>
