@@ -44,7 +44,7 @@ cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
 ```
 5) coexpression.tsv
 
-The following script will produce "gene-to-gene_covariance_correlation.tsv" which contains coexpression and Pearson correlation coefficient statistics for all all pairwise gene comparisons. It also output a pair-wise matrix for each of these two stats which may be deleted if not desired. Requires doParallel package.
+The following script will produce "gene-to-gene_covariance_correlation.tsv" which contains coexpression and Pearson correlation coefficient statistics for all all pairwise gene comparisons. It also output a pair-wise matrix for each of these two stats which may be deleted if not desired. Requires the doParallel package (within the doparallel conda environment).
 ```
 Rscript --vanilla  correlation_metrics.R rnaseq_out/star_salmon/salmon.merged.gene_counts.tsv
 ```
@@ -77,4 +77,6 @@ NOTE:
 - The working directory should be where the .bam alignments are.
 
 - The .bw files from the sample replicate groups are merged (Column 9 of the samples.tsv). These groups are determined by the curator and do not necessarily reflect the divisions of the experiment. For example, bigwigs might include all samples of the same tissue, but different time points.
+
+- The chromosome sizes file consists of the first two columns of the .fai
 
