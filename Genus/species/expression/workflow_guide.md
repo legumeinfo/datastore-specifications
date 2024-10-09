@@ -20,7 +20,7 @@ Format the samplesheet from fetchngs:
 ```
 /data/adf/nf-core/fetchngs/for_rex/create_samples_file.pl --genotype_tag=cultivar samplesheet/samplesheet.csv > formatted_table.tsv
 ```
-Check the newly created metadata table. It will likely take some manual editing, depending on the data submitted for each category. Often, the "name" is best copied "description" and with the original column contents supplanted by a more concise shorthand after this operation:
+Check the newly created metadata table. It will likely take some manual editing, depending on the data submitted for each category. Often, the original "name" contents are best copied to "description" and the "name" contents supplanted by a more concise shorthand. This will copy column 2 to column 3:
 ```
 awk 'BEGIN{FS=OFS="\t"} NR!=1 {$3=$2}'1 formatted_table.tsv
 ```
