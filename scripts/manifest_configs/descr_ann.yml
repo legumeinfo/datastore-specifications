@@ -1,0 +1,58 @@
+---
+annotation_info.txt.gz: Table of gene annotations
+cds_lowqual.fna.gz: CDS sequences; low confidence
+cds_primary_low_confidence.fna.gz: CDS sequences; low confidence
+cds_primary.fna.gz: CDS sequences - primary only
+cds.bed.gz: BED-format file, derived from gene_models_main.gff3
+cds.fna.gz: CDS sequences
+defline.txt.gz: Defline for genes
+featid_map.tsv.gz: Hash file of old/new gene IDs
+feature.tsv.gz: Table of original feature IDs and coordinates
+fragments.tar.gz: Several files, in original formats
+gene_function.gff3.gz: GFF3 of all mrna sequences (UTR, CDS) with AHRD functional annotations
+gene_models_exons.gff3.gz: Gene models, with exon features
+gene_models_low_confidence.gff3.gz: Gene models, low quality or transposable elements
+gene_models_lowqual_or_TE.gff.gz: Gene models, low quality or transposable elements
+gene_models_main.bed.gz: BED-format file, derived from gene_models_main.gff3
+gene_models_main.gff.gz: Gene models - main
+gene_models_main.gff3.gz: Gene models - main
+gene_models_orig_patched.gff3.gz: Derived from the original MAKER and GeMoMa-based GFF, with parent-child relationships for GeMoMa genes repaired using the AGAT GFF toolkit.
+gene_models_original.gff3.gz: Gene models - original (not prefixed)
+gene_models_with-TEs.longest.gff3.gz: Gene models with TEs - longest only (not prefixed)
+info_AED_scores.txt.gz: MAKER quality scores
+info_annot_AHRD_full.txt.gz: annotation from the AHRD pipeline
+info_annot_AHRD_slim.txt.gz: annotation from the AHRD pipeline - simplified
+info_annot_AHRD.txt.gz: annotation from the AHRD pipeline
+info_annot.txt.gz: Annotation information
+info_defline.txt.gz: Functional descriptor, from Phytozome
+info_gene_annot.txt.gz: annotation from the AHRD pipeline
+iprscan.gff3.gz: InterPro functional information for genes (gff format)
+legfed_v1_0.legfed_v1_0.M65K.gfa.tsv.gz: gene family assignments
+legfed_v1_0.M65K.gfa.tsv.gz: gene family assignments
+locus_mrna_name_map.txt.gz: Name correspondences between Wm82.a1.v1 and Wm82.a2.v1 annotations
+locus_transcript_name_map.txt.gz: Table of gene ID correspondences among Wm82 assemblies
+mrna_low_confidence.fna.gz: Low confidence transcript sequences
+mrna_lowqual_or_TE.fna.gz: transcript sequences - low quality or transposable elements
+mrna_lowqual.fna.gz: transcript sequences - low quality or transposable elements
+mrna_primary_low_confidence.fna.gz: transcript sequences - low quality or transposable elements
+mrna_primary.fna.gz: Transcript sequences - primary only
+mrna.fna.gz: mrna.fna.gz
+mrnas.fna.gz: mrna.fna.gz
+noncoding.gff3.gz: Noncoding features
+phytozome_10_2.HFNR.gfa.tsv.gz: gene family assignments
+phytozome_defline.txt.gz: Functional annotation provided by Phytozome
+protein_annot_AHRD.faa.gz: protein sequence, with annotations
+protein_low_confidence.faa.gz: protein sequence - low-quality or TE elements
+protein_lowqual_or_TE.faa.gz: protein sequence - low-quality or TE elements
+protein_lowqual.faa.gz: protein sequence - low-quality or TE elements
+protein_primary_low_confidence.faa.gz: protein sequence - low-quality or TE elements
+protein_primary.faa.gz: Protein sequences - primary only
+protein.faa.gz: Protein sequences
+repeatmasked_assembly_v1.0.gff3.gz: Repeat-masking coordinates
+repeatmasked_assembly_v2.0.gff3.gz: Repeat-masking coordinates
+repeatmasked_assembly.gff.gz: Repeat-masking coordinates
+repeatmasked_assembly.gff3.gz: Repeat-masking coordinates
+repeatmasking.gff3.gz: Repeat-masking coordinates
+repeats.gff3.gz: Repeat-masking coordinates
+synonym.txt.gz: Name correspondences between Wm82.a1.v1 and Wm82.a2.v1 annotations
+transposon_repeat.gff3.gz: Transposons and repeats

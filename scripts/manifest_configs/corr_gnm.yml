@@ -1,0 +1,139 @@
+---
+araca.K10017.gnm1.DQ4M.pchr_by_scaff.tar.gz: derived from Acardenasii.v14167.SALSA.fasta
+araca.K10017.gnm1.DQ4M.pchr.agp.txt.gz: derived from Acardenasii.v14167.SALSA.fasta
+araca.K10017.gnm1.DQ4M.scaffolds.fna.gz: derived from Acardenasii.v14167.SALSA.fasta
+aradu.K30060.gnm1.W9B1.genome_main.fna.gz: derived from ADur30060.contigs.v1.1.purged.broken.fa
+aradu.K30060.gnm1.W9B1.pathfile.agp.gz: derived from ragtag.scaffolds.v1.1c.agp, with subsequent modifications
+aradu.K30060.gnm1.W9B1.pchr_by_scaff.tar.gz: derived from ADur30060.contigs.v1.1.purged.broken.fa
+aradu.K30060.gnm1.W9B1.scaffs_placed.tar.gz: derived from ADur30060.contigs.v1.1.purged.broken.fa
+aradu.K30060.gnm1.W9B1.scaffs_unplaced.tar.gz: derived from ADur30060.contigs.v1.1.purged.broken.fa
+aradu.K30065.gnm1.M24N.genome_main.fna: K30065.ragoo.pilon.fasta
+arahy.BaileyII.gnm1.1JTF.genome_main.fna.gz: JAGJTH01_all.fna.gz
+arahy.Shitouqi.gnm1.L4VP.contigs.fna.gz: HuaSheng.quiver.polish.pcontig.fasta
+arahy.Tifrunner.gnm1.KYV3.genome_assignment.txt: Sup-Data-B2-Tifrunner.AB.base-assignment.txt
+arahy.Tifrunner.gnm1.KYV3.genome_main.fna: Arachis_hypogea.mainGenome.fasta
+arahy.Tifrunner.gnm1.KYV3.genome_repeatmask_coords.gff: no prior file
+arahy.Tifrunner.gnm1.KYV3.genome_softmasked.fna: no prior file
+arahy.Tifrunner.gnm1.KYV3.rDNA.fna: Arachis_hypogea.rDNA.fasta
+arahy.Tifrunner.gnm1.KYV3.repeat.fna: Arachis_hypogea.repeat.fasta
+arahy.Tifrunner.gnm2.J5K5.genome_main.fna.gz: arahy.Tifrunner.gnm2.genome_main_bare.fna.gz
+arahy.Tifrunner.gnm2.J5K5.genome_softmasked.fna.gz: derived from arahy.Tifrunner.gnm1.KYV3.1.fasta
+arast.V10309.gnm1.PFL2.genome_main.fna.gz: GCF_014773155.1.modID.genome.fasta.gz
+arast.V10309.gnm1.PFL2.initial_seqid_map.tsv.gz: GCF_014773155.1.initial_seqid_map.tsv
+cajca.ICPL87119.gnm2.KL9M.genome_main.fna.gz: Cca.genome.fa
+cerca.ISC453364.gnm3_hap2.2S7P.DataReleasePolicy.html: CcanadensisHAP2_706_V3.1.DataReleasePolicy.html
+cerca.ISC453364.gnm3_hap2.2S7P.genome_hardmasked.fna.gz: CcanadensisHAP2_706_V3.0.hardmasked.fa.gz
+cerca.ISC453364.gnm3_hap2.2S7P.genome_main.fna.gz: CcanadensisHAP2_706_V3.0.fa.gz
+cerca.ISC453364.gnm3_hap2.2S7P.genome_softmasked.fna.gz: CcanadensisHAP2_706_V3.0.softmasked.fa.gz
+cerca.ISC453364.gnm3_hap2.2S7P.original_readme.txt: CcanadensisHAP2_706_V3.1.readme.txt
+cerca.ISC453364.gnm3.GWXB.DataReleasePolicy.html: Ccanadensis_705_V3.0.DataReleasePolicy.html
+cerca.ISC453364.gnm3.GWXB.genome_hardmasked.fna.gz: Ccanadensis_705_V3.0.hardmasked.fa.gz
+cerca.ISC453364.gnm3.GWXB.genome_main.fna.gz: Ccanadensis_705_V3.0.fa.gz
+cerca.ISC453364.gnm3.GWXB.genome_softmasked.fna.gz: Ccanadensis_705_V3.0.softmasked.fa.gz
+cerca.ISC453364.gnm3.GWXB.original_readme.txt: Ccanadensis_705_V3.0.readme.txt
+cerch.GXIB.gnm1.5DZH.genome_main.fna.gz: GWHBHAK00000000.genome_modID.fasta.gz
+chafa.ISC494698.gnm1_hap2.G6BY.DataReleasePolicy.html: Cfasciculatavar_ISC494698HAP2_855_v1.1.DataReleasePolicy.html
+chafa.ISC494698.gnm1_hap2.G6BY.genome_hardmasked.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.0.hardmasked.fa.gz
+chafa.ISC494698.gnm1_hap2.G6BY.genome_main.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.0.fa.gz
+chafa.ISC494698.gnm1_hap2.G6BY.genome_softmasked.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.0.softmasked.fa.gz
+chafa.ISC494698.gnm1_hap2.G6BY.original_readme.txt: Cfasciculatavar_ISC494698HAP2_855_v1.1.readme.txt
+chafa.ISC494698.gnm1.8Q19.DataReleasePolicy.html: Cfasciculatavar_ISC494698HAP1_854_v1.1.DataReleasePolicy.html
+chafa.MN87.gnm1.JXFN.genome_main.fna: Chamaecrista_fasciculata_v1.fa
+cicar.CDCFrontier.gnm2.S2FF.genome_main.fna.gz: Car.genome.fa
+cicar.Daliak.gnm2.VJZB.genome_main.fna.gz: Tsu.genome.fa
+glycy.G1267.gnm1.YWW6.genome_main.fna.gz: Gcy_G1267.fsa.gz
+glyd3.G1403.gnm1.CL6K.genome_main.fna.gz: Gto_G1403.fsa.gz
+glydo.G1134.gnm1.PP7B.genome_main.fna.gz: Gtt_G1134.fsa.gz
+glyfa.G1718.gnm1.B1PY.genome_main.fna.gz: Gfa_G1718.fsa.gz
+glyma.58-161.gnm1.BW8J.genome_main.fna.gz: GWHACEE00000000.genome_modID.fasta.gz
+glyma.Amsoy.gnm1.TYYG.genome_main.fna.gz: GWHACEO00000000.genome_modID.fasta.gz
+glyma.DongNongNo_50.gnm1.XRTN.genome_main.fna.gz: GWHACEV00000000.genome_modID.fasta.gz
+glyma.FengDiHuang.gnm1.YYLM.genome_main.fna.gz: GWHACEH00000000.genome_modID.fasta.gz
+glyma.FiskebyIII.gnm1.F177.genome_hardmasked.fna.gz: GmaxFiskeby_678_v1.0.hardmasked.fa.gz
+glyma.FiskebyIII.gnm1.F177.genome_main.fna.gz: GmaxFiskeby_678_v1.0.fa.gz
+glyma.FiskebyIII.gnm1.F177.genome_softmasked.fna.gz: GmaxFiskeby_678_v1.0.softmasked.fa.gz
+glyma.HanDouNo_5.gnm1.11MF.genome_main.fna.gz: GWHACES00000000.genome_modID.fasta.gz
+glyma.Hefeng7_IGA1002.gnm1.L69T.genome_main.fna.gz: WIWX01.1.fsa_nt.gz, WIWX01.2.fsa_nt.gz
+glyma.HeiHeNo_43.gnm1.FV4H.genome_main.fna.gz: GWHACEW00000000.genome_modID.fasta.gz
+glyma.Huaxia3_IGA1007.gnm1.RGGN.genome_main.fna.gz: WIXC01.1.fsa_nt.gz, WIXC01.2.fsa_nt.gz
+glyma.Hwangkeum.gnm1.4S83.genome_main.fna.gz: GCA_020497155.1_ASM2049715v1_genomic.fna.gz
+glyma.JD17.gnm1.TW7L.genome_main.fna.gz: jd17_genome_figshare.fna.gz
+glyma.JiDouNo_17.gnm1.MRYM.genome_main.fna.gz: GWHACEU00000000.genome_modID.fasta.gz
+glyma.JinDouNo_23.gnm1.GBYD.genome_main.fna.gz: GWHACEQ00000000.genome_modID.fasta.gz
+glyma.Jinyuan_IGA1006.gnm1.LXM0.genome_main.fna.gz: WIXB01.1.fsa_nt.gz, WIXB01.2.fsa_nt.gz
+glyma.JuXuanNo_23.gnm1.WC57.genome_main.fna.gz: GWHACEM00000000.genome_modID.fasta.gz
+glyma.KeShanNo_1.gnm1.3TDD.genome_main.fna.gz: GWHACEX00000000.genome_modID.fasta.gz
+glyma.Lee.gnm1.BXNC.order_orient.txt.gz: oo_Lee_QC12.txt
+glyma.Lee.gnm1.BXNC.scaffolds_split.tar.gz: 02_Lee_scaffs_ge20k_patched_split; derives from NRGene file Lee_soybean_scaffolds.fasta.cut_BSPQI_BSSSI_0kb_0labels_NGS_contigs_HYBRID_Export.fasta
+glyma.Lee.gnm2.K7BV.genome_main.fna.gz: Gma.genome.fa
+glyma.Lee.gnm3.VG1C.genome_main.fna.gz: Lee.a3.genome.softmasked.fasta.gz
+glyma.PI_398296.gnm1.D07C.genome_main.fna.gz: GWHACEF00000000.genome_modID.fasta.gz
+glyma.PI_548362.gnm1.V9S7.genome_main.fna.gz: GWHACET00000000.genome_modID.fasta.gz
+glyma.QiHuangNo_34.gnm1.MB9G.genome_main.fna.gz: GWHACER00000000.genome_modID.fasta.gz
+glyma.ShiShengChangYe.gnm1.MC01.genome_main.fna.gz: GWHACEJ00000000.genome_modID.fasta.gz
+glyma.TieFengNo_18.gnm1.BW65.genome_main.fna.gz: GWHACEL00000000.genome_modID.fasta.gz
+glyma.TieJiaSiLiHuang.gnm1.W9PV.genome_main.fna.gz: GWHACEI00000000.genome_modID.fasta.gz
+glyma.TongShanTianEDan.gnm1.B4R6.genome_main.fna.gz: GWHACED00000000.genome_modID.fasta.gz
+glyma.WanDouNo_28.gnm1.ZRP2.genome_main.fna.gz: GWHACEN00000000.genome_modID.fasta.gz
+glyma.Wenfeng7_IGA1001.gnm1.L0QH.genome_main.fna.gz: WIWY01.1.fsa_nt.gz, WIWY01.2.fsa_nt.gz
+glyma.Wm82_IGA1008.gnm1.5CQQ.genome_main.fna.gz: WIWW01.1.fsa_nt.gz, WIWW01.2.fsa_nt.gz
+glyma.Wm82_NJAU.gnm1.N4GV.genome_main.fna.gz: GWHCAYC00000000.modID.genome.fasta.gz
+glyma.Wm82.gnm1.FCtY.genome_hardmasked.fna.gz: Gmax_189_hardmasked.fa.gz
+glyma.Wm82.gnm1.FCtY.genome_softmasked.fna.gz: Gmax_189_softmasked.fa.gz
+glyma.Wm82.gnm2.DTC4.genome_hardmasked.fna.gz: Gmax_275_v2.0.hardmasked.fa.gz
+glyma.Wm82.gnm2.DTC4.genome_softmasked.fna.gz: Gmax_275_v2.0.softmasked.fa.gz
+glyma.Wm82.gnm4.4PTR.BspQI_01_EXP_REFINEFINAL1.cmap.gz: Wm82_BspQI_01_EXP_REFINEFINAL1.cmap
+glyma.Wm82.gnm4.4PTR.BspQI_Molecules.bnx.gz: Wm82_BspQI_Molecules.bnx
+glyma.Wm82.gnm4.4PTR.BssSI_01_EXP_REFINEFINAL1.cmap.gz: Wm82_BssSI_01_EXP_REFINEFINAL1.cmap
+glyma.Wm82.gnm4.4PTR.BssSI_Molecules.bnx.gz: Wm82_BssSI_Molecules.bnx
+glyma.Wm82.gnm4.4PTR.genome_hardmasked.fna.gz: Gmax_508_v4.0.hardmasked.fa.gz
+glyma.Wm82.gnm4.4PTR.genome_softmasked.fna.gz: Gmax_508_v4.0.softmasked.fa.gz
+glyma.Wm82.gnm5.NRKG.genome_main.fna.gz: Wm82.a5.genome.softmasked.fasta.gz
+glyma.Wm82.gnm6.S97D.DataReleasePolicy.html: Gmax_880_Wm82.a6.v1.DataReleasePolicy.html
+glyma.Wm82.gnm6.S97D.genome_hardmasked.fna.gz: Gmax_880_v6.0.hardmasked.fa.gz
+glyma.Wm82.gnm6.S97D.genome_main.fna.gz: Gmax_880_v6.0.fa.gz
+glyma.Wm82.gnm6.S97D.genome_softmasked.fna.gz: Gmax_880_v6.0.softmasked.fa.gz
+glyma.Wm82.gnm6.S97D.original_readme.txt: Gmax_880_Wm82.a6.v1.readme.txt
+glyma.XuDouNo_1.gnm1.0GWH.genome_main.fna.gz: GWHACEK00000000.genome_modID.fasta.gz
+glyma.YuDouNo_22.gnm1.T2VD.genome_main.fna.gz: GWHACEP00000000.genome_modID.fasta.gz
+glyma.Zh13_IGA1005.gnm1.FRXQ.genome_main.fna.gz: WIXA01.1.fsa_nt.gz, WIXA01.2.fsa_nt.gz
+glyma.Zh13.gnm2.LV9P.genome_main.fna.gz: GWHAAEV00000000.1.genome.fasta.gz
+glyma.Zh35_IGA1004.gnm1.DBYJ.genome_main.fna.gz: WIWZ01.1.fsa_nt.gz, WIWZ01.2.fsa_nt.gz
+glyma.ZhangChunManCangJin.gnm1.FC4Q.genome_main.fna.gz: GWHACEG00000000.genome_modID.fasta.gz
+glyma.Zhutwinning2.gnm1.GR6N.genome_main.fna.gz: GWHACEB00000000.genome_modID.fasta.gz
+glyma.ZiHuaNo_4.gnm1.HN60.genome_main.fna.gz: GWHACEC00000000.genome_modID.fasta.gz
+glyso.F_IGA1003.gnm1.V9RB.genome_main.fna.gz: WIXD01.1.fsa_nt.gz, WIXD01.2.fsa_nt.gz
+glyso.PI_549046.gnm1.TSLF.genome_main.fna.gz: GWHACDZ00000000.genome_modID.fasta.gz
+glyso.PI_562565.gnm1.Z2VG.genome_main.fna.gz: GWHACDY00000000.genome_modID.fasta.gz
+glyso.PI_578357.gnm1.1XT1.genome_main.fna.gz: GWHACEA00000000.genome_modID.fasta.gz
+glyso.PI483463.gnm1.YJWS.order_orient.txt.gz: oo_Gsoja_QC13.txt
+glyso.PI483463.gnm1.YJWS.scaffolds_split.tar.gz: 02_Lee_scaffs_ge20k_patched_split; derives from Wild_soybean_genome.fasta and Wild_soybean_scaffolds.fasta
+glyst.G1974.gnm1.7MZB.genome_main.fna.gz: Gst_G1974.fsa.gz
+glysy.G1300.gnm1.C11H.genome_main.fna.gz: Gsy_G1300.fsa.gz
+labpu.Highworth.gnm1.8K16.genome_main.fna.gz: lablab_purpureus.assembly.softmasked_chr_and_contigs_renamed.fasta.gz
+lupan.Tanjil.gnm1.Qq0N.genome_main.fna.gz: Lupinus_angustifolius_pschrom_v1.0.fa
+original_Phytozome_DataReleasePolicy.txt: PvulgarisLaborOvalle_670_v1.1.DataReleasePolicy.html
+original_Phytozome_readme.txt: Original Phytozome readme
+phaac.Frijol_Bayo.gnm1.QH8L.genome_main.fna.gz: phaac.Frijol_Bayo.gnm1.QH8L.genome_main.fna.gz
+phaco.PHA8298.gnm1.PYJ1.DataReleasePolicy.html: Pcoccineus_703_v1.1.DataReleasePolicy.html
+phaco.PHA8298.gnm1.PYJ1.genome_hardmasked.fna.gz: Pcoccineus_703_v1.0.hardmasked.fa.gz
+phaco.PHA8298.gnm1.PYJ1.genome_main.fna.gz: Pcoccineus_703_v1.0.fa.gz
+phaco.PHA8298.gnm1.PYJ1.genome_softmasked.fna.gz: Pcoccineus_703_v1.0.softmasked.fa.gz
+phaco.PHA8298.gnm1.PYJ1.original_readme.txt: Pcoccineus_703_v1.1.readme.txt
+phavu.5-593.gnm1.1P7P.genome_main.fna.gz: Pvulgaris5_593_696_v1.0.fa.gz
+phavu.G19833.gnm1.zBnF.genome_main.fna.gz: Pvulgaris_218.fa.gz
+phavu.G19833.gnm1.zBnF.genome_softmasked.fna.gz: Pvulgaris_218.softmasked.fa.gz
+phavu.LaborOvalle.gnm1.VZZS.genome_main.fna.gz: PvulgarisLaborOvalle_670_v1.0.fa.gz
+phavu.OACRex.gnm2.NXJW.genome_main.fna.gz: OAC-Rex_V2.0.fa.gz
+phavu.UI111.gnm1.3VTM.genome_softmasked.fna.gz: PvulgarisUI111_534_v1.0.softmasked.fa.gz
+Phytozome_DataReleasePolicy.txt: Pvulgaris5_593_696_v1.1.DataReleasePolicy.html
+tripr.HEN17-A07.gnm1.Y8WV.genome_main.fna.gz: GCF_020283565.1.modID.genome.fasta.gz
+tripr.HEN17-A07.gnm1.Y8WV.initial_seqid_map.tsv.gz: GCF_020283565.1.initial_seqid_map.tsv
+vicfa.Hedin2.gnm1.06GS.genome_main.fna.gz: Vfaba.Hedin2.v1.genome.fasta.gz
+vicfa.Tiffany.gnm1.M2F3.genome_main.fna.gz: Vfaba.Tiffany.v1.genome.fasta.gz
+vicvi.HV-30.gnm1.2TXG.genome_main.fna.gz: GCF_029867415.1.modID.genome.fasta.gz
+vicvi.HV-30.gnm1.2TXG.initial_seqid_map.tsv.gz: GCF_029867415.1.initial_seqid_map.tsv
+vigra.VC1973A.gnm6.3nL8.scaff_name_hash.tsv.gz: Derived from GenBank JJMO01_contigs.tsv
+vigra.VC1973A.gnm7.SB53.genome_main.fna.gz: Vradi.pacbio.gapfilled.final.fa.gz
+vigun.IT97K-499-35.gnm1.QnBw.genome_hardmasked.fna.gz: Vunguiculata_469_v1.0.hardmasked.fa.gz
+vigun.IT97K-499-35.gnm1.QnBw.genome_softmasked.fna.gz: Vunguiculata_469_v1.0.softmasked.fa.gz

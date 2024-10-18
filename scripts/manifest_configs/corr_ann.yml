@@ -1,0 +1,764 @@
+---
+aradu.V14167.gnm1.ann1.cxSM.gene_models_lowqual_or_TE.gff.gz: Aradu.V14167.a1.M1.genemodels.gff.lowqual_or_TE
+aradu.V14167.gnm1.ann1.cxSM.gene_models_main.gff.gz: Aradu.V14167.a1.M1.genemodels.annot.gff
+aradu.V14167.gnm1.ann1.cxSM.info_AED_scores.txt.gz: Aradu.V14167.a1.M1.AED_scores
+aradu.V14167.gnm1.ann1.cxSM.info_annot_AHRD_full.txt.gz: Aradu.V14167.a1.M1.AHRD.csv
+aradu.V14167.gnm1.ann1.cxSM.info_annot_AHRD_slim.txt.gz: Aradu.V14167.a1.M1.AHRD.slim
+aradu.V14167.gnm1.ann1.cxSM.mrna_lowqual_or_TE.fna.gz: Aradu.V14167.a1.M1.transcript.fa.lowqual_or_TE
+aradu.V14167.gnm1.ann1.cxSM.mrna.fna.gz: Aradu.V14167.a1.M1.transcript.fa
+aradu.V14167.gnm1.ann1.cxSM.protein_annot_AHRD.faa.gz: Aradu.V14167.a1.M1.peptide.AHRD.fa
+aradu.V14167.gnm1.ann1.cxSM.protein_lowqual_or_TE.faa.gz: Aradu.V14167.a1.M1.peptide.fa.lowqual_or_TE
+aradu.V14167.gnm1.ann1.cxSM.protein.faa.gz: Aradu.V14167.a1.M1.peptide.fa
+arahy.BaileyII.gnm1.ann1.PQM7.cds_primary.fna.gz: arahy.BaileyII.cds_primary.fna.gz
+arahy.BaileyII.gnm1.ann1.PQM7.cds.bed.gz: arahy.BaileyII.mRNA_ID.gff3.gz
+arahy.BaileyII.gnm1.ann1.PQM7.cds.fna.gz: arahy.BaileyII.cds.fna.gz
+arahy.BaileyII.gnm1.ann1.PQM7.gene_models_main.gff3.gz: arahy.BaileyII.mRNA_ID.gff3.gz
+arahy.BaileyII.gnm1.ann1.PQM7.mrna_primary.fna.gz: arahy.BaileyII.mrna_primary.fna.gz
+arahy.BaileyII.gnm1.ann1.PQM7.mrna.fna.gz: arahy.BaileyII.mrna.fna.gz
+arahy.BaileyII.gnm1.ann1.PQM7.protein_primary.faa.gz: arahy.BaileyII.protein_primary.faa.gz
+arahy.BaileyII.gnm1.ann1.PQM7.protein.faa.gz: arahy.BaileyII.protein.faa.gz
+arahy.Tifrunner.gnm2.ann1.4K0L.cds_primary.fna.gz: arahy.Tifrunner.gnm1.ann1.CCJH.cds_primaryTranscript.fna
+arahy.Tifrunner.gnm2.ann1.4K0L.gene_models_main.gff3.gz: arahy.Tifrunner.gnm1.ann1.CCJH.gene_models_main.gff3 mapped into gnm2
+arahy.Tifrunner.gnm2.ann1.4K0L.info_descriptors.txt: arahy.Tifrunner.gnm1.ann1.CCJH.info_descriptors.txt
+arahy.Tifrunner.gnm2.ann1.4K0L.mrna_primary.fna.gz: arahy.Tifrunner.gnm1.ann1.CCJH.transcript_primaryTranscript.fna
+arahy.Tifrunner.gnm2.ann1.4K0L.mrna.fna.gz: arahy.Tifrunner.gnm1.ann1.CCJH.transcript.fna
+arahy.Tifrunner.gnm2.ann1.4K0L.protein_primary.faa.gz: arahy.Tifrunner.gnm1.ann1.CCJH.protein_primaryTranscript.faa
+arahy.Tifrunner.gnm2.ann1.4K0L.protein.faa.gz: arahy.Tifrunner.gnm1.ann1.CCJH.protein.faa
+arahy.Tifrunner.gnm2.ann2.PVFB.cds_lowqual.fna.gz: arahy.Tifrunner.gnm2.ann2.cds_lowqual.fna.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.cds.bed.gz: arahy.Tifrunner.gnm2.ann2.gene_models_bare.gff3.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.cds.fna.gz: arahy.Tifrunner.gnm2.ann2.cds.fna.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.gene_models_main.gff3.gz: arahy.Tifrunner.gnm2.ann2.gene_models_bare.gff3.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.mrna_lowqual.fna.gz: arahy.Tifrunner.gnm2.ann2.mrna_lowqual.fna.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.mrna.fna.gz: arahy.Tifrunner.gnm2.ann2.mrna.fna.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.protein_lowqual.faa.gz: arahy.Tifrunner.gnm2.ann2.protein_lowqual.faa.gz
+arahy.Tifrunner.gnm2.ann2.PVFB.protein.faa.gz: arahy.Tifrunner.gnm2.ann2.protein.faa.gz
+araip.K30076.gnm1.ann1.J37m.gene_models_lowqual_or_TE.gff.gz: Araip.K30076.a1.M1.gene_models.gff.lowqual_or_TE
+araip.K30076.gnm1.ann1.J37m.gene_models_main.gff.gz: Araip.K30076.a1.M1.gene_models.annot.gff
+araip.K30076.gnm1.ann1.J37m.info_AED_scores.txt.gz: Araip.K30076.a1.M1.AED_scores
+araip.K30076.gnm1.ann1.J37m.info_annot_AHRD_slim.txt.gz: Araip.K30076.a1.M1.AHRD.slim
+araip.K30076.gnm1.ann1.J37m.info_annot_AHRD.txt.gz: Araip.K30076.a1.M1.AHRD.csv
+araip.K30076.gnm1.ann1.J37m.mrna_lowqual_or_TE.fna.gz: Araip.K30076.a1.M1.transcript.fa.lowqual_or_TE
+araip.K30076.gnm1.ann1.J37m.mrna.fna.gz: Araip.K30076.a1.M1.transcript.fa
+araip.K30076.gnm1.ann1.J37m.protein_lowqual_or_TE.faa.gz: Araip.K30076.a1.M1.peptide.fa.lowqual_or_TE
+araip.K30076.gnm1.ann1.J37m.protein.faa.gz: Araip.K30076.a1.M1.peptide.fa
+arast.V10309.gnm1.ann1.CZRZ.cds_primary.fna.gz: GCF_014773155.1.modID.CDS_primary.fna.gz
+arast.V10309.gnm1.ann1.CZRZ.cds.fna.gz: GCF_014773155.1.modID.CDS.fna.gz
+arast.V10309.gnm1.ann1.CZRZ.gene_models_main.bed.gz: GCF_014773155.1.modID.genes_exons.gff3.gz
+arast.V10309.gnm1.ann1.CZRZ.gene_models_main.gff3.gz: GCF_014773155.1.modID.genes_exons.gff3.gz
+arast.V10309.gnm1.ann1.CZRZ.mrna_primary.fna.gz: GCF_014773155.1.modID.transcripts_primary.fna.gz
+arast.V10309.gnm1.ann1.CZRZ.mrna.fna.gz: GCF_014773155.1.modID.transcripts.fna.gz
+arast.V10309.gnm1.ann1.CZRZ.noncoding.gff3.gz: GCF_014773155.1.modID.noncoding.gff3.gz
+arast.V10309.gnm1.ann1.CZRZ.protein_primary.faa.gz: GCF_014773155.1.modID.protein_primary.faa.gz
+arast.V10309.gnm1.ann1.CZRZ.protein.faa.gz: GCF_014773155.1.modID.protein.faa.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.filterTE.gff.gz: Pigeonpea.gff.filterTE.gff.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.gene_main.fna.gz: Pigeonpea_gene.cds.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.info_annot_KEGG.txt.gz: Pigeonpea_pep.kegg.blast.tab.best.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.info_annot_rRNA.gff.gz: Pigeonpea_rRNA.gff.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.info_annot_snRNA.gff.gz: Pigeonpea_snRNA.gff.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.info_annot_Swissprot.txt.gz: Pigeonpea_pep.swissprot.blast.tab.best.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.info_annot_Trembl.txt.gz: Pigeonpea_pep.trembl.blast.tab.best.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.info_annot_tRNA.gff.gz: Pigeonpea_tRNA.gff.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.miRNA.gff.gz: Pigeonpea_miRNA.gff.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.protein_filterTE.faa.gz: Pigeonpea.pep.filterTE.pep.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.protein_main.faa.gz: Pigeonpea_gene.pep.gz
+cajca.ICPL87119.gnm1.ann1.Y27M.repeat_models.gff.gz: Pigeonpea_repeat.gff.gz
+cajca.ICPL87119.gnm2.ann1.L3ZH.cds_primary.fna.gz: Cca.longestmRNA.cds.fa
+cajca.ICPL87119.gnm2.ann1.L3ZH.cds.fna.gz: Cca.cds.fa
+cajca.ICPL87119.gnm2.ann1.L3ZH.gene_models_main.gff3.gz: Cca.genes.gff
+cajca.ICPL87119.gnm2.ann1.L3ZH.protein_primary.faa.gz: Cca.longestmRNA.pep.fa
+cajca.ICPL87119.gnm2.ann1.L3ZH.protein.faa.gz: Cca.pep.fa
+cerca.ISC453364.gnm3_hap2.ann1.G88H.annotation_info.txt.gz: CcanadensisHAP2_706_V3.1.annotation_info.txt.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.cds_primary.fna.gz: CcanadensisHAP2_706_V3.1.cds_primaryTranscriptOnly.fa.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.cds.fna.gz: CcanadensisHAP2_706_V3.1.cds.fa.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.DataReleasePolicy.html: CcanadensisHAP2_706_V3.1.DataReleasePolicy.html
+cerca.ISC453364.gnm3_hap2.ann1.G88H.defline.txt.gz: CcanadensisHAP2_706_V3.1.defline.txt.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.gene_models_main.bed.gz: CcanadensisHAP2_706_V3.1.gene_strip.gff3.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.gene_models_main.gff3.gz: CcanadensisHAP2_706_V3.1.gene_strip.gff3.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.mrna_primary.fna.gz: CcanadensisHAP2_706_V3.1.transcript_primaryTranscriptOnly.fa.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.mrna.fna.gz: CcanadensisHAP2_706_V3.1.transcript.fa.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.original_readme.txt: CcanadensisHAP2_706_V3.1.readme.txt
+cerca.ISC453364.gnm3_hap2.ann1.G88H.protein_primary.faa.gz: CcanadensisHAP2_706_V3.1.protein_primaryTranscriptOnly.fa.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.protein.faa.gz: CcanadensisHAP2_706_V3.1.protein.fa.gz
+cerca.ISC453364.gnm3_hap2.ann1.G88H.repeatmasked_assembly.gff3.gz: CcanadensisHAP2_706_V3.1.repeatmasked_assembly_V3.0.gff3.gz
+cerca.ISC453364.gnm3.ann1.3N1M.annotation_info.txt.gz: Ccanadensis_705_V3.1.annotation_info.txt.gz
+cerca.ISC453364.gnm3.ann1.3N1M.cds_primary.fna.gz: Ccanadensis_705_V3.1.cds_primaryTranscriptOnly.fa.gz
+cerca.ISC453364.gnm3.ann1.3N1M.cds.bed.gz: Ccanadensis_705_V3.1.gene_strip.gff3.gz
+cerca.ISC453364.gnm3.ann1.3N1M.cds.fna.gz: Ccanadensis_705_V3.1.cds.fa.gz
+cerca.ISC453364.gnm3.ann1.3N1M.DataReleasePolicy.html: Ccanadensis_705_V3.0.DataReleasePolicy.html
+cerca.ISC453364.gnm3.ann1.3N1M.defline.txt.gz: Ccanadensis_705_V3.1.defline.txt.gz
+cerca.ISC453364.gnm3.ann1.3N1M.gene_models_main.gff3.gz: Ccanadensis_705_V3.1.gene_strip.gff3.gz
+cerca.ISC453364.gnm3.ann1.3N1M.mrna_primary.fna.gz: Ccanadensis_705_V3.1.transcript_primaryTranscriptOnly.fa.gz
+cerca.ISC453364.gnm3.ann1.3N1M.mrna.fna.gz: Ccanadensis_705_V3.1.transcript.fa.gz
+cerca.ISC453364.gnm3.ann1.3N1M.original_readme.txt: Ccanadensis_705_V3.0.readme.txt
+cerca.ISC453364.gnm3.ann1.3N1M.protein_primary.faa.gz: Ccanadensis_705_V3.1.protein_primaryTranscriptOnly.fa.gz
+cerca.ISC453364.gnm3.ann1.3N1M.protein.faa.gz: Ccanadensis_705_V3.1.protein.fa.gz
+cerca.ISC453364.gnm3.ann1.3N1M.repeatmasked_assembly.gff3.gz: Ccanadensis_705_V3.1.repeatmasked_assembly_V3.0.gff3.gz
+cerch.GXIB.gnm1.ann1.L8L4.cds.bed.gz: GWHBHAK00000000.modID.gff3.gz
+cerch.GXIB.gnm1.ann1.L8L4.cds.fna.gz: GWHBHAK00000000.CDS.fna.gz
+cerch.GXIB.gnm1.ann1.L8L4.gene_models_main.gff3.gz: GWHBHAK00000000.modID.gff3.gz
+cerch.GXIB.gnm1.ann1.L8L4.mrna.fna.gz: GWHBHAK00000000.mRNA.fna.gz
+cerch.GXIB.gnm1.ann1.L8L4.protein.faa.gz: GWHBHAK00000000.protein.faa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.annotation_info.txt.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.annotation_info.txt.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.cds_primary.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.cds_primaryTranscriptOnly.fa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.cds.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.cds.fa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.DataReleasePolicy.html: Cfasciculatavar_ISC494698HAP2_855_v1.1.DataReleasePolicy.html
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.defline.txt.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.defline.txt.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.gene_models_exons.gff3.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.gene_exons_strip.gff3.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.gene_models_main.bed.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.gene_strip.gff3.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.gene_models_main.gff3.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.gene_strip.gff3.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.mrna_primary.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.transcript_primaryTranscriptOnly.fa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.mrna.fna.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.transcript.fa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.original_readme.txt: Cfasciculatavar_ISC494698HAP2_855_v1.1.readme.txt
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.protein_primary.faa.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.protein_primaryTranscriptOnly.fa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.protein.faa.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.protein.fa.gz
+chafa.ISC494698.gnm1_hap2.ann1.WXZF.repeatmasked_assembly.gff.gz: Cfasciculatavar_ISC494698HAP2_855_v1.1.repeatmasked_assembly_v1.0.gff3.gz
+chafa.ISC494698.gnm1.ann1.G7XW.annotation_info.txt.gz: Cfasciculatavar_ISC494698HAP1_854_v1.1.annotation_info.txt.gz
+chafa.ISC494698.gnm1.ann1.G7XW.DataReleasePolicy.html: Cfasciculatavar_ISC494698HAP1_854_v1.1.DataReleasePolicy.html
+chafa.ISC494698.gnm1.ann1.G7XW.defline.txt.gz: Cfasciculatavar_ISC494698HAP1_854_v1.1.defline.txt.gz
+chafa.ISC494698.gnm1.ann1.G7XW.original_readme.txt: Cfasciculatavar_ISC494698HAP1_854_v1.1.readme.txt
+chafa.ISC494698.gnm1.ann1.G7XW.repeatmasked_assembly.gff.gz: Cfasciculatavar_ISC494698HAP1_854_v1.1.repeatmasked_assembly_v1.0.gff3.gz
+chafa.MN87.gnm1.ann1.LWFM.fragments.tar.gz: Gene model fragments (several files)
+chafa.MN87.gnm1.ann1.LWFM.gene_models_main.gff3.gz: Chamaecrista_fasciculata_v1.gff
+chafa.MN87.gnm1.ann1.LWFM.info_annot.txt.gz: Chamaecrista_fasciculata_v1.function
+chafa.MN87.gnm1.ann1.LWFM.protein.faa.gz: Chamaecrista_fasciculata_v1.pep
+chafa.MN87.gnm1.ann1.LWFM.repeats.gff3.gz: Chamaecrista_fasciculata_v1.repeat.gff
+cicar.CDCFrontier.gnm1.ann1.nRhs.gene.gff.gz: Cicer_arietinum_GA_v1.0.gene.gff
+cicar.CDCFrontier.gnm1.ann1.nRhs.gene.pep.faa.gz: Cicer_arietinum_GA_v1.0.gene.pep.fa
+cicar.CDCFrontier.gnm2.ann1.9M1L.cds_primary.fna.gz: Car.longestmRNA.cds.fa
+cicar.CDCFrontier.gnm2.ann1.9M1L.cds.bed.gz: derived from cicar.CDCFrontier.gnm2.ann1.9M1L.gene_models_main.gff3
+cicar.CDCFrontier.gnm2.ann1.9M1L.cds.fna.gz: Car.cds.fa
+cicar.CDCFrontier.gnm2.ann1.9M1L.gene_models_main.gff3.gz: Car.genes.gff
+cicar.CDCFrontier.gnm2.ann1.9M1L.protein_primary.faa.gz: Car.longestmRNA.pep.fa
+cicar.CDCFrontier.gnm2.ann1.9M1L.protein.faa.gz: Car.pep.fa
+cicar.ICC4958.gnm2.ann1.LCVX.cds_primary.fna.gz: cicar.ICC4958.a2.v1.cds_primaryTranscript.fa.gz
+cicar.ICC4958.gnm2.ann1.LCVX.gene_function.gff3.gz: cicar.ICC4958.v2.0.gff3.for_gbrowse.modified
+cicar.ICC4958.gnm2.ann1.LCVX.gene_models_main.gff3.gz: cicar.ICC4958.a2.v1.gff3.gz
+cicar.ICC4958.gnm2.ann1.LCVX.protein_primary.faa.gz: cicar.ICC4958.a2.v1.pep_primaryTranscript.fa.gz
+cicar.ICC4958.gnm2.ann1.LCVX.protein.faa.gz: cicar.ICC4958.a2.v1.pep.fa.gz
+faial.WAFC.gnm1.ann1.RTP9.gene_models_main.gff3.gz: Faidherbia_albida.gff
+faial.WAFC.gnm1.ann1.RTP9.protein.faa.gz: Faidherbia_albida.pep
+faial.WAFC.gnm1.ann1.RTP9.repeats.gff3.gz: Faidherbia_albida.denovo.RepeatMasker.gff
+glycy.G1267.gnm1.ann1.HRFD.cds.fna.gz: Gcy.cds
+glycy.G1267.gnm1.ann1.HRFD.gene_models_main.gff3.gz: Gcy.cds and Gcy_G1267_chr.fsa via gmap
+glycy.G1267.gnm1.ann1.HRFD.gene_models_orig_patched.gff3.gz: Gcy.G1267.gene.EMBL.gff
+glycy.G1267.gnm1.ann1.HRFD.protein.faa.gz: Gcy.cds and Gcy_G1267_chr.fsa via gffread
+glyd3.G1403.gnm1.ann1.XNZQ.cds.fna.gz: Gto.cds
+glyd3.G1403.gnm1.ann1.XNZQ.gene_models_main.gff3.gz: Gto.cds and Gto_G1403_chr.fsa via gmap
+glyd3.G1403.gnm1.ann1.XNZQ.gene_models_orig_patched.gff3.gz: Gto.G1403.gene.EMBL.gff
+glyd3.G1403.gnm1.ann1.XNZQ.protein.faa.gz: Gto.cds and Gto_G1403_chr.fsa via gffread
+glydo.G1134.gnm1.ann1.4BJM.cds.fna.gz: Gtt.cds
+glydo.G1134.gnm1.ann1.4BJM.gene_models_main.gff3.gz: Gtt.cds and Gtt_G1134_chr.fsa via gmap
+glydo.G1134.gnm1.ann1.4BJM.gene_models_orig_patched.gff3.gz: Gtt.G1134.gene.EMBL.gff
+glydo.G1134.gnm1.ann1.4BJM.protein.faa.gz: Gtt.cds and Gtt_G1134_chr.fsa via gffread
+glyfa.G1718.gnm1.ann1.2KSV.cds.fna.gz: Gfa.cds
+glyfa.G1718.gnm1.ann1.2KSV.gene_models_main.gff3.gz: Gfa.cds and Gfa_G1718_chr.fsa via gmap
+glyfa.G1718.gnm1.ann1.2KSV.gene_models_orig_patched.gff3.gz: Gfa.G1718.gene.EMBL.gff
+glyfa.G1718.gnm1.ann1.2KSV.protein.faa.gz: Gfa.cds and Gfa_G1718_chr.fsa via gffread
+glyma.58-161.gnm1.ann1.HJ1K.cds_primary.fna.gz: GWHACEE00000000.CDS_primary.fna.gz
+glyma.58-161.gnm1.ann1.HJ1K.cds.bed.gz: GWHACEE00000000.modID.gff3.gz
+glyma.58-161.gnm1.ann1.HJ1K.cds.fna.gz: GWHACEE00000000.CDS.fna.gz
+glyma.58-161.gnm1.ann1.HJ1K.feature.tsv.gz: GWHACEE00000000.feature.gz
+glyma.58-161.gnm1.ann1.HJ1K.gene_models_main.gff3.gz: GWHACEE00000000.modID.gff3.gz
+glyma.58-161.gnm1.ann1.HJ1K.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.58-161.gnm1.ann1.HJ1K.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.58-161.gnm1.ann1.HJ1K.protein_primary.faa.gz: GWHACEE00000000.protein_primary.faa.gz
+glyma.58-161.gnm1.ann1.HJ1K.protein.faa.gz: GWHACEE00000000.protein.faa.gz
+glyma.Amsoy.gnm1.ann1.6S5P.cds_primary.fna.gz: GWHACEO00000000.CDS_primary.fna.gz
+glyma.Amsoy.gnm1.ann1.6S5P.cds.bed.gz: GWHACEO00000000.modID.gff3.gz
+glyma.Amsoy.gnm1.ann1.6S5P.cds.fna.gz: GWHACEO00000000.CDS.fna.gz
+glyma.Amsoy.gnm1.ann1.6S5P.feature.tsv.gz: GWHACEO00000000.feature.gz
+glyma.Amsoy.gnm1.ann1.6S5P.gene_models_main.gff3.gz: GWHACEO00000000.modID.gff3.gz
+glyma.Amsoy.gnm1.ann1.6S5P.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.Amsoy.gnm1.ann1.6S5P.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.Amsoy.gnm1.ann1.6S5P.protein_primary.faa.gz: GWHACEO00000000.protein_primary.faa.gz
+glyma.Amsoy.gnm1.ann1.6S5P.protein.faa.gz: GWHACEO00000000.protein.faa.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.cds_primary.fna.gz: GWHACEV00000000.CDS_primary.fna.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.cds.bed.gz: GWHACEV00000000.modID.gff3.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.cds.fna.gz: GWHACEV00000000.CDS.fna.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.feature.tsv.gz: GWHACEV00000000.feature.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.gene_models_main.gff3.gz: GWHACEV00000000.modID.gff3.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.DongNongNo_50.gnm1.ann1.QSDB.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.DongNongNo_50.gnm1.ann1.QSDB.protein_primary.faa.gz: GWHACEV00000000.protein_primary.faa.gz
+glyma.DongNongNo_50.gnm1.ann1.QSDB.protein.faa.gz: GWHACEV00000000.protein.faa.gz
+glyma.F_IGA1003.gnm1.ann1.G61B.gene_models_main.gff3.gz: IGA1003.gene.gff
+glyma.F_IGA1003.gnm1.ann1.G61B.gene_models_main.gff3.gz.tbi: IGA1003.gene.gff
+glyma.F_IGA1003.gnm1.ann1.G61B.protein.faa.gz: IGA1003.pep.fasta
+glyma.FengDiHuang.gnm1.ann1.P6HL.cds_primary.fna.gz: GWHACEH00000000.CDS_primary.fna.gz
+glyma.FengDiHuang.gnm1.ann1.P6HL.cds.bed.gz: GWHACEH00000000.modID.gff3.gz
+glyma.FengDiHuang.gnm1.ann1.P6HL.cds.fna.gz: GWHACEH00000000.CDS.fna.gz
+glyma.FengDiHuang.gnm1.ann1.P6HL.feature.tsv.gz: GWHACEH00000000.feature.gz
+glyma.FengDiHuang.gnm1.ann1.P6HL.gene_models_main.gff3.gz: GWHACEH00000000.modID.gff3.gz
+glyma.FengDiHuang.gnm1.ann1.P6HL.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.FengDiHuang.gnm1.ann1.P6HL.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.FengDiHuang.gnm1.ann1.P6HL.protein_primary.faa.gz: GWHACEH00000000.protein_primary.faa.gz
+glyma.FengDiHuang.gnm1.ann1.P6HL.protein.faa.gz: GWHACEH00000000.protein.faa.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.cds_primary.fna.gz: GmaxFiskeby_678_v1.1.cds_primaryTranscriptOnly.fa.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.defline.txt: GmaxFiskeby_678_v1.1.defline.txt
+glyma.FiskebyIII.gnm1.ann1.SS25.gene_models_exons.gff3.gz: GmaxFiskeby_678_v1.1.gene_exons.gff3.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.gene_models_main.gff3.gz: GmaxFiskeby_678_v1.1.gene.gff3.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.info_annot.txt: GmaxFiskeby_678_v1.1.annotation_info.txt
+glyma.FiskebyIII.gnm1.ann1.SS25.mrna_primary.fna.gz: GmaxFiskeby_678_v1.1.transcript_primaryTranscriptOnly.fa.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.mrna.fna.gz: GmaxFiskeby_678_v1.1.transcript.fa.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.protein_primary.faa.gz: GmaxFiskeby_678_v1.1.protein_primaryTranscriptOnly.fa.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.protein.faa.gz: GmaxFiskeby_678_v1.1.protein.fa.gz
+glyma.FiskebyIII.gnm1.ann1.SS25.reference_locus.txt: GmaxFiskeby_678_v1.1.reference_locus.txt
+glyma.FiskebyIII.gnm1.ann1.SS25.repeatmasked_assembly_v1.0.gff3.gz: GmaxFiskeby_678_v1.1.repeatmasked_assembly_v1.0.gff3.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.cds_primary.fna.gz: GWHACES00000000.CDS_primary.fna.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.cds.bed.gz: GWHACES00000000.modID.gff3.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.cds.fna.gz: GWHACES00000000.CDS.fna.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.feature.tsv.gz: GWHACES00000000.feature.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.gene_models_main.gff3.gz: GWHACES00000000.modID.gff3.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.protein_primary.faa.gz: GWHACES00000000.protein_primary.faa.gz
+glyma.HanDouNo_5.gnm1.ann1.ZS7M.protein.faa.gz: GWHACES00000000.protein.faa.gz
+glyma.Hefeng25_IGA1002.gnm1.ann1.320V.gene_models_main.gff3.gz: IGA1002.gene.gff
+glyma.Hefeng25_IGA1002.gnm1.ann1.320V.gene_models_main.gff3.gz.tbi: IGA1002.gene.gff
+glyma.Hefeng25_IGA1002.gnm1.ann1.320V.protein.faa.gz: IGA1002.pep.fasta
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.cds_primary.fna.gz: GWHACEW00000000.CDS_primary.fna.gz
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.cds.bed.gz: GWHACEW00000000.modID.gff3.gz
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.cds.fna.gz: GWHACEW00000000.CDS.fna.gz
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.feature.tsv.gz: GWHACEW00000000.feature.gz
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.gene_models_main.gff3.gz: GWHACEW00000000.modID.gff3.gz
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.protein_primary.faa.gz: GWHACEW00000000.protein_primary.faa.gz
+glyma.HeiHeNo_43.gnm1.ann1.PDXG.protein.faa.gz: GWHACEW00000000.protein.faa.gz
+glyma.Huaxia3_IGA1007.gnm1.ann1.LKC7.gene_models_main.gff3.gz: IGA1007.gene.gff
+glyma.Huaxia3_IGA1007.gnm1.ann1.LKC7.gene_models_main.gff3.gz.tbi: IGA1007.gene.gff
+glyma.Huaxia3_IGA1007.gnm1.ann1.LKC7.protein.faa.gz: IGA1007.pep.fasta
+glyma.Hwangkeum.gnm1.ann1.1G4F.cds.bed.gz: glyma.Hwangkeum.gnm1.ann1.1G4F.gene_models_main.gff3.gz
+glyma.Hwangkeum.gnm1.ann1.1G4F.cds.fna.gz: GCA_020497155.1_ASM2049715v1_cds_from_genomic.fna.gz
+glyma.Hwangkeum.gnm1.ann1.1G4F.gene_models_main.gff3.gz: GCA_020497155.1_ASM2049715v1_genomic.gff.gz
+glyma.JD17.gnm1.ann1.CLFP.cds_primary.fna.gz: jd17_CDS_primary.fna.gz
+glyma.JD17.gnm1.ann1.CLFP.cds.bed.gz: jd17_final.rename.gff3.gz
+glyma.JD17.gnm1.ann1.CLFP.cds.fna.gz: jd17_CDS.fna.gz
+glyma.JD17.gnm1.ann1.CLFP.gene_models_main.gff3.gz: jd17_final.rename.gff3.gz
+glyma.JD17.gnm1.ann1.CLFP.mrna_primary.fna.gz: jd17_transcripts_primary.fna.gz
+glyma.JD17.gnm1.ann1.CLFP.mrna.fna.gz: jd17_transcripts.fna.gz
+glyma.JD17.gnm1.ann1.CLFP.protein_primary.faa.gz: jd17_protein_primary.faa.gz
+glyma.JD17.gnm1.ann1.CLFP.protein.faa.gz: jd17_protein.faa.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.cds_primary.fna.gz: GWHACEU00000000.CDS_primary.fna.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.cds.bed.gz: GWHACEU00000000.modID.gff3.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.cds.fna.gz: GWHACEU00000000.CDS.fna.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.feature.tsv.gz: GWHACEU00000000.feature.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.gene_models_main.gff3.gz: GWHACEU00000000.modID.gff3.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.JiDouNo_17.gnm1.ann1.X5PX.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.JiDouNo_17.gnm1.ann1.X5PX.protein_primary.faa.gz: GWHACEU00000000.protein_primary.faa.gz
+glyma.JiDouNo_17.gnm1.ann1.X5PX.protein.faa.gz: GWHACEU00000000.protein.faa.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.cds_primary.fna.gz: GWHACEQ00000000.CDS_primary.fna.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.cds.bed.gz: GWHACEQ00000000.modID.gff3.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.cds.fna.gz: GWHACEQ00000000.CDS.fna.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.feature.tsv.gz: GWHACEQ00000000.feature.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.gene_models_main.gff3.gz: GWHACEQ00000000.modID.gff3.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.JinDouNo_23.gnm1.ann1.SGJW.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.JinDouNo_23.gnm1.ann1.SGJW.protein_primary.faa.gz: GWHACEQ00000000.protein_primary.faa.gz
+glyma.JinDouNo_23.gnm1.ann1.SGJW.protein.faa.gz: GWHACEQ00000000.protein.faa.gz
+glyma.Jinyuan_IGA1006.gnm1.ann1.2NNX.gene_models_main.gff3.gz: IGA1006.gene.gff
+glyma.Jinyuan_IGA1006.gnm1.ann1.2NNX.gene_models_main.gff3.gz.tbi: IGA1006.gene.gff
+glyma.Jinyuan_IGA1006.gnm1.ann1.2NNX.protein.faa.gz: IGA1006.pep.fasta
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.cds_primary.fna.gz: GWHACEM00000000.CDS_primary.fna.gz
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.cds.bed.gz: GWHACEM00000000.modID.gff3.gz
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.cds.fna.gz: GWHACEM00000000.CDS.fna.gz
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.feature.tsv.gz: GWHACEM00000000.feature.gz
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.gene_models_main.gff3.gz: GWHACEM00000000.modID.gff3.gz
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.protein_primary.faa.gz: GWHACEM00000000.protein_primary.faa.gz
+glyma.JuXuanNo_23.gnm1.ann1.H8PW.protein.faa.gz: GWHACEM00000000.protein.faa.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.cds_primary.fna.gz: GWHACEX00000000.CDS_primary.fna.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.cds.bed.gz: GWHACEX00000000.modID.gff3.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.cds.fna.gz: GWHACEX00000000.CDS.fna.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.feature.tsv.gz: GWHACEX00000000.feature.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.gene_models_main.gff3.gz: GWHACEX00000000.modID.gff3.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.KeShanNo_1.gnm1.ann1.2YX4.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.KeShanNo_1.gnm1.ann1.2YX4.protein_primary.faa.gz: GWHACEX00000000.protein_primary.faa.gz
+glyma.KeShanNo_1.gnm1.ann1.2YX4.protein.faa.gz: GWHACEX00000000.protein.faa.gz
+glyma.Lee.gnm1.ann1.6NZV.gene_models_exons.gff3.gz: GmaxLee_510_v1.1.gene_exons.gff3
+glyma.Lee.gnm1.ann1.6NZV.gene_models_main.gff3.gz: GmaxLee_510_v1.1.gene.gff3
+glyma.Lee.gnm1.ann1.6NZV.info_annot.txt: GmaxLee_510_v1.1.annotation_info.txt
+glyma.Lee.gnm1.ann1.6NZV.mrna_primary.fna.gz: GmaxLee_510_v1.1.transcript_primaryTranscriptOnly.fa
+glyma.Lee.gnm1.ann1.6NZV.mrna.fna.gz: GmaxLee_510_v1.1.transcript.fa
+glyma.Lee.gnm1.ann1.6NZV.protein_primary.faa.gz: GmaxLee_510_v1.1.protein_primaryTranscriptOnly.fa
+glyma.Lee.gnm1.ann1.6NZV.protein.faa.gz: GmaxLee_510_v1.1.protein.fa
+glyma.Lee.gnm1.ann1.6NZV.repeatmasking.gff3.gz: GmaxLee_510_v1.1.repeatmasked_assembly_v1.0.gff3
+glyma.Lee.gnm2.ann1.1FNT.cds_primary.fna.gz: Gma.longestmRNA.cds.fa
+glyma.Lee.gnm2.ann1.1FNT.cds.fna.gz: Gma.cds.fa
+glyma.Lee.gnm2.ann1.1FNT.gene_models_main.gff3.gz: Gma.genes.gff
+glyma.Lee.gnm2.ann1.1FNT.protein_primary.faa.gz: Gma.longestmRNA.pep.fa
+glyma.Lee.gnm2.ann1.1FNT.protein.faa.gz: Gma.pep.fa
+glyma.Lee.gnm3.ann1.ZYY3.cds.bed.gz: Lee.a3.genes.patched.gff3.gz
+glyma.Lee.gnm3.ann1.ZYY3.cds.fna.gz: Lee.a3.cds.patched.fa.gz
+glyma.Lee.gnm3.ann1.ZYY3.gene_models_main.gff3.gz: Lee.a3.genes.patched.gff3.gz
+glyma.Lee.gnm3.ann1.ZYY3.mrna.fna.gz: Lee.a3.transcripts.patched.fa.gz
+glyma.Lee.gnm3.ann1.ZYY3.protein.faa.gz: Lee.a3.proteins.patched.fa.gz
+glyma.PI_398296.gnm1.ann1.B0XR.cds_primary.fna.gz: GWHACEF00000000.CDS_primary.fna.gz
+glyma.PI_398296.gnm1.ann1.B0XR.cds.bed.gz: GWHACEF00000000.modID.gff3.gz
+glyma.PI_398296.gnm1.ann1.B0XR.cds.fna.gz: GWHACEF00000000.CDS.fna.gz
+glyma.PI_398296.gnm1.ann1.B0XR.feature.tsv.gz: GWHACEF00000000.feature.gz
+glyma.PI_398296.gnm1.ann1.B0XR.gene_models_main.gff3.gz: GWHACEF00000000.modID.gff3.gz
+glyma.PI_398296.gnm1.ann1.B0XR.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.PI_398296.gnm1.ann1.B0XR.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.PI_398296.gnm1.ann1.B0XR.protein_primary.faa.gz: GWHACEF00000000.protein_primary.faa.gz
+glyma.PI_398296.gnm1.ann1.B0XR.protein.faa.gz: GWHACEF00000000.protein.faa.gz
+glyma.PI_548362.gnm1.ann1.LL84.cds_primary.fna.gz: GWHACET00000000.CDS_primary.fna.gz
+glyma.PI_548362.gnm1.ann1.LL84.cds.bed.gz: GWHACET00000000.modID.gff3.gz
+glyma.PI_548362.gnm1.ann1.LL84.cds.fna.gz: GWHACET00000000.CDS.fna.gz
+glyma.PI_548362.gnm1.ann1.LL84.feature.tsv.gz: GWHACET00000000.feature.gz
+glyma.PI_548362.gnm1.ann1.LL84.gene_models_main.gff3.gz: GWHACET00000000.modID.gff3.gz
+glyma.PI_548362.gnm1.ann1.LL84.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.PI_548362.gnm1.ann1.LL84.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.PI_548362.gnm1.ann1.LL84.protein_primary.faa.gz: GWHACET00000000.protein_primary.faa.gz
+glyma.PI_548362.gnm1.ann1.LL84.protein.faa.gz: GWHACET00000000.protein.faa.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.cds_primary.fna.gz: GWHACER00000000.CDS_primary.fna.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.cds.bed.gz: GWHACER00000000.modID.gff3.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.cds.fna.gz: GWHACER00000000.CDS.fna.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.feature.tsv.gz: GWHACER00000000.feature.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.gene_models_main.gff3.gz: GWHACER00000000.modID.gff3.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.protein_primary.faa.gz: GWHACER00000000.protein_primary.faa.gz
+glyma.QiHuangNo_34.gnm1.ann1.WHRV.protein.faa.gz: GWHACER00000000.protein.faa.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.cds_primary.fna.gz: GWHACEJ00000000.CDS_primary.fna.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.cds.bed.gz: GWHACEJ00000000.modID.gff3.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.cds.fna.gz: GWHACEJ00000000.CDS.fna.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.feature.tsv.gz: GWHACEJ00000000.feature.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.gene_models_main.gff3.gz: GWHACEJ00000000.modID.gff3.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.protein_primary.faa.gz: GWHACEJ00000000.protein_primary.faa.gz
+glyma.ShiShengChangYe.gnm1.ann1.VLGS.protein.faa.gz: GWHACEJ00000000.protein.faa.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.cds_primary.fna.gz: GWHACEL00000000.CDS_primary.fna.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.cds.bed.gz: GWHACEL00000000.modID.gff3.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.cds.fna.gz: GWHACEL00000000.CDS.fna.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.feature.tsv.gz: GWHACEL00000000.feature.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.gene_models_main.gff3.gz: GWHACEL00000000.modID.gff3.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.TieFengNo_18.gnm1.ann1.7GR4.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.TieFengNo_18.gnm1.ann1.7GR4.protein_primary.faa.gz: GWHACEL00000000.protein_primary.faa.gz
+glyma.TieFengNo_18.gnm1.ann1.7GR4.protein.faa.gz: GWHACEL00000000.protein.faa.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.cds_primary.fna.gz: GWHACEI00000000.CDS_primary.fna.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.cds.bed.gz: GWHACEI00000000.modID.gff3.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.cds.fna.gz: GWHACEI00000000.CDS.fna.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.feature.tsv.gz: GWHACEI00000000.feature.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.gene_models_main.gff3.gz: GWHACEI00000000.modID.gff3.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.protein_primary.faa.gz: GWHACEI00000000.protein_primary.faa.gz
+glyma.TieJiaSiLiHuang.gnm1.ann1.W70Z.protein.faa.gz: GWHACEI00000000.protein.faa.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.cds_primary.fna.gz: GWHACED00000000.CDS_primary.fna.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.cds.bed.gz: GWHACED00000000.modID.gff3.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.cds.fna.gz: GWHACED00000000.CDS.fna.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.feature.tsv.gz: GWHACED00000000.feature.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.gene_models_main.gff3.gz: GWHACED00000000.modID.gff3.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.TongShanTianEDan.gnm1.ann1.56XW.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.TongShanTianEDan.gnm1.ann1.56XW.protein_primary.faa.gz: GWHACED00000000.protein_primary.faa.gz
+glyma.TongShanTianEDan.gnm1.ann1.56XW.protein.faa.gz: GWHACED00000000.protein.faa.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.cds_primary.fna.gz: GWHACEN00000000.CDS_primary.fna.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.cds.bed.gz: GWHACEN00000000.modID.gff3.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.cds.fna.gz: GWHACEN00000000.CDS.fna.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.feature.tsv.gz: GWHACEN00000000.feature.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.gene_models_main.gff3.gz: GWHACEN00000000.modID.gff3.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.WanDouNo_28.gnm1.ann1.NLYP.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.WanDouNo_28.gnm1.ann1.NLYP.protein_primary.faa.gz: GWHACEN00000000.protein_primary.faa.gz
+glyma.WanDouNo_28.gnm1.ann1.NLYP.protein.faa.gz: GWHACEN00000000.protein.faa.gz
+glyma.Wenfeng7_IGA1001.gnm1.ann1.ZK5W.gene_models_main.gff3.gz: IGA1001.gene.gff
+glyma.Wenfeng7_IGA1001.gnm1.ann1.ZK5W.gene_models_main.gff3.gz.tbi: IGA1001.gene.gff
+glyma.Wenfeng7_IGA1001.gnm1.ann1.ZK5W.protein.faa.gz: IGA1001.pep.fasta
+glyma.Wm82_IGA1008.gnm1.ann1.FGN6.gene_models_main.gff3.gz: IGA1008.gene.gff
+glyma.Wm82_IGA1008.gnm1.ann1.FGN6.gene_models_main.gff3.gz.tbi: IGA1008.gene.gff
+glyma.Wm82_IGA1008.gnm1.ann1.FGN6.protein.faa.gz: IGA1008.pep.fasta
+glyma.Wm82_NJAU.gnm1.ann1.KM71.cds_primary.fna.gz: GWHCAYC00000000.modID.CDS_primary.fna.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.cds.fna.gz: GWHCAYC00000000.modID.CDS.fna.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.gene_models_exons.gff3.gz: GWHCAYC00000000.modID.genes_exons.gff3.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.gene_models_main.bed.gz: GWHCAYC00000000.modID.genes.gff3.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.gene_models_main.gff3.gz: GWHCAYC00000000.modID.genes.gff3.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.mrna_primary.fna.gz: GWHCAYC00000000.modID.transcripts_primary.fna.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.mrna.fna.gz: GWHCAYC00000000.modID.transcripts.fna.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.protein_primary.faa.gz: GWHCAYC00000000.modID.protein_primary.faa.gz
+glyma.Wm82_NJAU.gnm1.ann1.KM71.protein.faa.gz: GWHCAYC00000000.modID.protein.faa.gz
+glyma.Wm82.gnm1.ann1.DvBy.annotation_info.txt.gz: Gmax_189_annotation_info.txt.gz
+glyma.Wm82.gnm1.ann1.DvBy.cds_primary.fna.gz: Gmax_189_cds_primaryTranscriptOnly.fa.gz
+glyma.Wm82.gnm1.ann1.DvBy.gene_models_main.gff3.gz: Gmax_189_gene.gff3.gz
+glyma.Wm82.gnm1.ann1.DvBy.mrna_primary.fna.gz: Gmax_189_transcript_primaryTranscriptOnly.fa.gz
+glyma.Wm82.gnm1.ann1.DvBy.mrnas.fna.gz: Gmax_189_transcript.fa.gz
+glyma.Wm82.gnm1.ann1.DvBy.protein_primary.faa.gz: Gmax_189_protein_primaryTranscriptOnly.fa.gz
+glyma.Wm82.gnm1.ann1.DvBy.protein.faa.gz: Gmax_189_protein.fa.gz
+glyma.Wm82.gnm2.ann1.RVB6.cds_primary.fna.gz: Gmax_275_Wm82.a2.v1.cds_primaryTranscriptOnly.fa
+glyma.Wm82.gnm2.ann1.RVB6.cds.fna.gz: Gmax_275_Wm82.a2.v1.cds.fa
+glyma.Wm82.gnm2.ann1.RVB6.locus_mrna_name_map.txt.gz: Gmax_275_Wm82.a2.v1.locus_transcript_name_map.txt
+glyma.Wm82.gnm2.ann1.RVB6.mrna_primary.fna.gz: Gmax_275_Wm82.a2.v1.transcript_primaryTranscriptOnly.fa
+glyma.Wm82.gnm2.ann1.RVB6.mrna.fna.gz: Gmax_275_Wm82.a2.v1.transcript.fa
+glyma.Wm82.gnm2.ann1.RVB6.protein_primary.faa.gz: Gmax_275_Wm82.a2.v1.protein_primaryTranscriptOnly.fa
+glyma.Wm82.gnm2.ann1.RVB6.protein.faa.gz: Gmax_275_Wm82.a2.v1.protein.fa
+glyma.Wm82.gnm2.ann1.RVB6.repeatmasked_assembly_v2.0.gff3.gz: Gmax_275_Wm82.a2.v1.repeatmasked_assembly_v2.0.gff3
+glyma.Wm82.gnm2.ann1.RVB6.synonym.txt.gz: Gmax_275_Wm82.a2.v1.synonym.txt
+glyma.Wm82.gnm4.ann1.T8TQ.cds_primary.fna.gz: Gmax_508_Wm82.a4.v1.cds_primaryTranscriptOnly.fa
+glyma.Wm82.gnm4.ann1.T8TQ.gene_models_exons.gff3.gz: Gmax_508_Wm82.a4.v1.gene_exons.gff3
+glyma.Wm82.gnm4.ann1.T8TQ.gene_models_low_confidence_exons.gff3.gz: Gmax_508_Wm82.a4.v1.lowConfidence.gene_exons.gff3
+glyma.Wm82.gnm4.ann1.T8TQ.gene_models_main.gff3.gz: Gmax_508_Wm82.a4.v1.gene.gff3
+glyma.Wm82.gnm4.ann1.T8TQ.info_annot.txt: Gmax_508_Wm82.a4.v1.annotation_info.txt
+glyma.Wm82.gnm4.ann1.T8TQ.info_gene_annot.txt: no prior file; derived from AHRD descriptors from GFF3
+glyma.Wm82.gnm4.ann1.T8TQ.info_locus_mrna_name_map.txt: Gmax_508_Wm82.a4.v1.locus_transcript_name_map.txt
+glyma.Wm82.gnm4.ann1.T8TQ.info_synonyms.txt: Gmax_508_Wm82.a4.v1.synonym.txt
+glyma.Wm82.gnm4.ann1.T8TQ.mrna_primary.fna.gz: Gmax_508_Wm82.a4.v1.transcript_primaryTranscriptOnly.fa
+glyma.Wm82.gnm4.ann1.T8TQ.mrna.fna.gz: Gmax_508_Wm82.a4.v1.transcript.fa
+glyma.Wm82.gnm4.ann1.T8TQ.protein_low_confidence.faa.gz: Gmax_508_Wm82.a4.v1.lowConfidence.protein.fa
+glyma.Wm82.gnm4.ann1.T8TQ.protein_primary.faa.gz: Gmax_508_Wm82.a4.v1.protein_primaryTranscriptOnly.fa
+glyma.Wm82.gnm4.ann1.T8TQ.protein.faa.gz: Gmax_508_Wm82.a4.v1.protein.fa
+glyma.Wm82.gnm4.ann1.T8TQ.repeatmasking.gff3.gz: Gmax_508_Wm82.a4.v1.repeatmasked_assembly_v4.0.gff3
+glyma.Wm82.gnm5.ann1.J7HW.cds.bed.gz: Wm82.a5.genes.patched.gff3.gz
+glyma.Wm82.gnm5.ann1.J7HW.cds.fna.gz: Wm82.a5.cds.patched.fa.gz
+glyma.Wm82.gnm5.ann1.J7HW.gene_models_main.gff3.gz: Wm82.a5.genes.patched.gff3.gz
+glyma.Wm82.gnm5.ann1.J7HW.mrna.fna.gz: Wm82.a5.transcripts.patched.fa.gz
+glyma.Wm82.gnm5.ann1.J7HW.protein.faa.gz: Wm82.a5.proteins.patched.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.annotation_info.txt.gz: Gmax_880_Wm82.a6.v1.annotation_info.txt.gz
+glyma.Wm82.gnm6.ann1.PKSW.cds_primary.fna.gz: Gmax_880_Wm82.a6.v1.cds_primaryTranscriptOnly.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.cds.fna.gz: Gmax_880_Wm82.a6.v1.cds.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.DataReleasePolicy.html: Gmax_880_Wm82.a6.v1.DataReleasePolicy.html
+glyma.Wm82.gnm6.ann1.PKSW.defline.txt.gz: Gmax_880_Wm82.a6.v1.defline.txt.gz
+glyma.Wm82.gnm6.ann1.PKSW.gene_models_exons.gff3.gz: Gmax_880_Wm82.a6.v1.gene_exons_strip.gff3.gz
+glyma.Wm82.gnm6.ann1.PKSW.gene_models_main.bed.gz: Gmax_880_Wm82.a6.v1.gene_strip.gff3.gz
+glyma.Wm82.gnm6.ann1.PKSW.gene_models_main.gff3.gz: Gmax_880_Wm82.a6.v1.gene_strip.gff3.gz
+glyma.Wm82.gnm6.ann1.PKSW.locus_transcript_name_map.txt.gz: Gmax_880_Wm82.a6.v1.locus_transcript_name_map.txt.gz
+glyma.Wm82.gnm6.ann1.PKSW.mrna_primary.fna.gz: Gmax_880_Wm82.a6.v1.transcript_primaryTranscriptOnly.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.mrna.fna.gz: Gmax_880_Wm82.a6.v1.transcript.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.original_readme.txt: Gmax_880_Wm82.a6.v1.readme.txt
+glyma.Wm82.gnm6.ann1.PKSW.protein_primary.faa.gz: Gmax_880_Wm82.a6.v1.protein_primaryTranscriptOnly.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.protein.faa.gz: Gmax_880_Wm82.a6.v1.protein.fa.gz
+glyma.Wm82.gnm6.ann1.PKSW.repeatmasked_assembly.gff3.gz: Gmax_880_Wm82.a6.v1.repeatmasked_assembly_v2.0.gff3.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.cds_primary.fna.gz: GWHACEK00000000.CDS_primary.fna.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.cds.bed.gz: GWHACEK00000000.modID.gff3.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.cds.fna.gz: GWHACEK00000000.CDS.fna.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.feature.tsv.gz: GWHACEK00000000.feature.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.gene_models_main.gff3.gz: GWHACEK00000000.modID.gff3.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.XuDouNo_1.gnm1.ann1.G2T7.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.XuDouNo_1.gnm1.ann1.G2T7.protein_primary.faa.gz: GWHACEK00000000.protein_primary.faa.gz
+glyma.XuDouNo_1.gnm1.ann1.G2T7.protein.faa.gz: GWHACEK00000000.protein.faa.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.cds_primary.fna.gz: GWHACEP00000000.CDS_primary.fna.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.cds.bed.gz: GWHACEP00000000.modID.gff3.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.cds.fna.gz: GWHACEP00000000.CDS.fna.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.feature.tsv.gz: GWHACEP00000000.feature.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.gene_models_main.gff3.gz: GWHACEP00000000.modID.gff3.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.protein_primary.faa.gz: GWHACEP00000000.protein_primary.faa.gz
+glyma.YuDouNo_22.gnm1.ann1.HCQ1.protein.faa.gz: GWHACEP00000000.protein.faa.gz
+glyma.Zh13_IGA1005.gnm1.ann1.87Z5.gene_models_main.gff3.gz: IGA1005.gene.gff
+glyma.Zh13_IGA1005.gnm1.ann1.87Z5.gene_models_main.gff3.gz.tbi: IGA1005.gene.gff
+glyma.Zh13_IGA1005.gnm1.ann1.87Z5.protein.faa.gz: IGA1005.pep.fasta
+glyma.Zh13.gnm1.ann1.8VV3.cds_primary.fna.gz: GWHAAEV00000000.RNA.fasta
+glyma.Zh13.gnm1.ann1.8VV3.gene_models_main.gff3.gz: GWHAAEV00000000.gff
+glyma.Zh13.gnm1.ann1.8VV3.gene_models_main.gff3.gz.tbi: GWHAAEV00000000.gff
+glyma.Zh13.gnm1.ann1.8VV3.protein_primary.faa.gz: GWHAAEV00000000.Protein.faa
+glyma.Zh13.gnm1.ann1.8VV3.protein.faa.gz: GWHAAEV00000000.Protein.faa
+glyma.Zh13.gnm2.ann1.FJ3G.cds_primary.fna.gz: GWHAAEV00000000.1.RNA.fasta.gz
+glyma.Zh13.gnm2.ann1.FJ3G.gene_models_main.gff3.gz: GWHAAEV00000000.1.gff.gz
+glyma.Zh13.gnm2.ann1.FJ3G.gene_models_main.gff3.gz.tbi: GWHAAEV00000000.1.gff.gz
+glyma.Zh13.gnm2.ann1.FJ3G.protein_primary.faa.gz: GWHAAEV00000000.Protein.1.faa.gz
+glyma.Zh13.gnm2.ann1.FJ3G.protein.faa.gz: GWHAAEV00000000.1.Protein.faa.gz
+glyma.Zh13.gnm2.ann1.FJ3G.transposon_repeat.gff3.gz: 11427_2019_9822_MOESM6_ESM.txt
+glyma.Zh13.gnm2.ann1.FJ3G.transposon_repeat.gff3.gz.tbi: 11427_2019_9822_MOESM6_ESM.txt
+glyma.Zh35_IGA1004.gnm1.ann1.RGN6.gene_models_main.gff3.gz: IGA1004.gene.gff
+glyma.Zh35_IGA1004.gnm1.ann1.RGN6.gene_models_main.gff3.gz.tbi: IGA1004.gene.gff
+glyma.Zh35_IGA1004.gnm1.ann1.RGN6.protein.faa.gz: IGA1004.pep.fasta
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.cds_primary.fna.gz: GWHACEG00000000.CDS_primary.fna.gz
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.cds.bed.gz: GWHACEG00000000.modID.gff3.gz
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.cds.fna.gz: GWHACEG00000000.CDS.fna.gz
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.feature.tsv.gz: GWHACEG00000000.feature.gz
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.gene_models_main.gff3.gz: GWHACEG00000000.modID.gff3.gz
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.protein_primary.faa.gz: GWHACEG00000000.protein_primary.faa.gz
+glyma.ZhangChunManCangJin.gnm1.ann1.7HPB.protein.faa.gz: GWHACEG00000000.protein.faa.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.cds_primary.fna.gz: GWHACEB00000000.CDS_primary.fna.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.cds.bed.gz: GWHACEB00000000.modID.gff3.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.cds.fna.gz: GWHACEB00000000.CDS.fna.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.feature.tsv.gz: GWHACEB00000000.feature.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.gene_models_main.gff3.gz: GWHACEB00000000.modID.gff3.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.protein_primary.faa.gz: GWHACEB00000000.protein_primary.faa.gz
+glyma.Zhutwinning2.gnm1.ann1.ZTTQ.protein.faa.gz: GWHACEB00000000.protein.faa.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.cds_primary.fna.gz: GWHACEC00000000.CDS_primary.fna.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.cds.bed.gz: GWHACEC00000000.modID.gff3.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.cds.fna.gz: GWHACEC00000000.CDS.fna.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.feature.tsv.gz: GWHACEC00000000.feature.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.gene_models_main.gff3.gz: GWHACEC00000000.modID.gff3.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.protein_primary.faa.gz: GWHACEC00000000.protein_primary.faa.gz
+glyma.ZiHuaNo_4.gnm1.ann1.FCFQ.protein.faa.gz: GWHACEC00000000.protein.faa.gz
+glyso.PI_549046.gnm1.ann1.65KD.cds_primary.fna.gz: GWHACDZ00000000.CDS_primary.fna.gz
+glyso.PI_549046.gnm1.ann1.65KD.cds.bed.gz: GWHACDZ00000000.modID.gff3.gz
+glyso.PI_549046.gnm1.ann1.65KD.cds.fna.gz: GWHACDZ00000000.CDS.fna.gz
+glyso.PI_549046.gnm1.ann1.65KD.feature.tsv.gz: GWHACDZ00000000.feature.gz
+glyso.PI_549046.gnm1.ann1.65KD.gene_models_main.gff3.gz: GWHACDZ00000000.modID.gff3.gz
+glyso.PI_549046.gnm1.ann1.65KD.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyso.PI_549046.gnm1.ann1.65KD.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyso.PI_549046.gnm1.ann1.65KD.protein_primary.faa.gz: GWHACDZ00000000.protein_primary.faa.gz
+glyso.PI_549046.gnm1.ann1.65KD.protein.faa.gz: GWHACDZ00000000.protein.faa.gz
+glyso.PI_562565.gnm1.ann1.1JD2.cds_primary.fna.gz: GWHACDY00000000.CDS_primary.fna.gz
+glyso.PI_562565.gnm1.ann1.1JD2.cds.bed.gz: GWHACDY00000000.modID.gff3.gz
+glyso.PI_562565.gnm1.ann1.1JD2.cds.fna.gz: GWHACDY00000000.CDS.fna.gz
+glyso.PI_562565.gnm1.ann1.1JD2.feature.tsv.gz: GWHACDY00000000.feature.gz
+glyso.PI_562565.gnm1.ann1.1JD2.gene_models_main.gff3.gz: GWHACDY00000000.modID.gff3.gz
+glyso.PI_562565.gnm1.ann1.1JD2.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyso.PI_562565.gnm1.ann1.1JD2.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyso.PI_562565.gnm1.ann1.1JD2.protein_primary.faa.gz: GWHACDY00000000.protein_primary.faa.gz
+glyso.PI_562565.gnm1.ann1.1JD2.protein.faa.gz: GWHACDY00000000.protein.faa.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.cds_primary.fna.gz: GWHACEA00000000.CDS_primary.fna.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.cds.bed.gz: GWHACEA00000000.modID.gff3.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.cds.fna.gz: GWHACEA00000000.CDS.fna.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.feature.tsv.gz: GWHACEA00000000.feature.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.gene_models_main.gff3.gz: GWHACEA00000000.modID.gff3.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.iprscan.gff3.gz: Calculated from protein_primary.faa file
+glyso.PI_578357.gnm1.ann1.0ZKP.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from protein_primary.faa file and HMMs for the legfed_v1_0.M65K gene families
+glyso.PI_578357.gnm1.ann1.0ZKP.protein_primary.faa.gz: GWHACEA00000000.protein_primary.faa.gz
+glyso.PI_578357.gnm1.ann1.0ZKP.protein.faa.gz: GWHACEA00000000.protein.faa.gz
+glyso.PI483463.gnm1.ann1.3Q3Q.gene_models_exons.gff3.gz: Gsoja_509_v1.1.gene_exons.gff3
+glyso.PI483463.gnm1.ann1.3Q3Q.gene_models_main.gff3.gz: Gsoja_509_v1.1.gene.gff3
+glyso.PI483463.gnm1.ann1.3Q3Q.info_annot.txt: Gsoja_509_v1.1.annotation_info.txt
+glyso.PI483463.gnm1.ann1.3Q3Q.mrna_primary.fna.gz: Gsoja_509_v1.1.transcript_primaryTranscriptOnly.fa
+glyso.PI483463.gnm1.ann1.3Q3Q.mrna.fna.gz: Gsoja_509_v1.1.transcript.fa
+glyso.PI483463.gnm1.ann1.3Q3Q.protein_primary.faa.gz: Gsoja_509_v1.1.protein_primaryTranscriptOnly.fa
+glyso.PI483463.gnm1.ann1.3Q3Q.protein.faa.gz: Gsoja_509_v1.1.protein.fa
+glyso.PI483463.gnm1.ann1.3Q3Q.repeatmasking.gff3.gz: Gsoja_509_v1.1.repeatmasked_assembly_v1.0.gff3
+glyso.PI483463.gnm1.ann1.T47J.gene_models_exons.gff3.gz: Gsoja_509_v1.1.gene_exons.gff3
+glyso.PI483463.gnm1.ann1.T47J.gene_models_main.gff3.gz: Gsoja_509_v1.1.gene.gff3
+glyso.PI483463.gnm1.ann1.T47J.info_annot.txt: Gsoja_509_v1.1.annotation_info.txt
+glyso.PI483463.gnm1.ann1.T47J.mrna_primary.fna.gz: Gsoja_509_v1.1.transcript_primaryTranscriptOnly.fa
+glyso.PI483463.gnm1.ann1.T47J.mrna.fna.gz: Gsoja_509_v1.1.transcript.fa
+glyso.PI483463.gnm1.ann1.T47J.protein_primary.faa.gz: Gsoja_509_v1.1.protein_primaryTranscriptOnly.fa
+glyso.PI483463.gnm1.ann1.T47J.protein.faa.gz: Gsoja_509_v1.1.protein.fa
+glyso.PI483463.gnm1.ann1.T47J.repeatmasking.gff3.gz: Gsoja_509_v1.1.repeatmasked_assembly_v1.0.gff3
+glyst.G1974.gnm1.ann1.F257.cds.fna.gz: Gst.cds
+glyst.G1974.gnm1.ann1.F257.gene_models_main.gff3.gz: Gst.cds and Gst_G1974_chr.fsa via gmap
+glyst.G1974.gnm1.ann1.F257.gene_models_orig_patched.gff3.gz: Gst.G1974.gene.EMBL.gff
+glyst.G1974.gnm1.ann1.F257.protein.faa.gz: Gst.cds and Gst_G1974_chr.fsa via gffread
+glysy.G1300.gnm1.ann1.RRK6.cds.fna.gz: Gsy.cds
+glysy.G1300.gnm1.ann1.RRK6.gene_models_main.gff3.gz: Gsy.cds and Gsy_G1300_chr.fsa via gmap
+glysy.G1300.gnm1.ann1.RRK6.gene_models_orig_patched.gff3.gz: Gsy.G1300.gene.EMBL.gff
+glysy.G1300.gnm1.ann1.RRK6.protein.faa.gz: Gsy.cds and Gsy_G1300_chr.fsa via gffread
+labpu.Highworth.gnm1.ann1.HJ3B.cds_primary.fna.gz: lablab_purpureus.non-TE.longest.cds.fasta.gz
+labpu.Highworth.gnm1.ann1.HJ3B.cds.bed.gz: lablab_purpureus.non-TE.longest.gff3.gz
+labpu.Highworth.gnm1.ann1.HJ3B.cds.fna.gz: lablab_purpureus.non-TE.longest.cds.fasta.gz
+labpu.Highworth.gnm1.ann1.HJ3B.gene_models_main.gff3.gz: lablab_purpureus.non-TE.longest.gff3.gz
+labpu.Highworth.gnm1.ann1.HJ3B.gene_models_with-TEs.longest.gff3.gz: lablab_purpureus.with-TEs.longest.gff3.gz
+labpu.Highworth.gnm1.ann1.HJ3B.mrna_primary.fna.gz: lablab_purpureus.non-TE.longest.mrna.fasta.gz
+labpu.Highworth.gnm1.ann1.HJ3B.mrna.fna.gz: lablab_purpureus.non-TE.longest.mrna.fasta.gz
+labpu.Highworth.gnm1.ann1.HJ3B.protein_primary.faa.gz: lablab_purpureus.non-TE.longest.aa.fasta.gz
+labpu.Highworth.gnm1.ann1.HJ3B.protein.faa.gz: lablab_purpureus.non-TE.longest.aa.fasta.gz
+lotja.MG20.gnm3.ann1.WF9B.cds.fna.gz: Lj3.0_cds.ffn
+lotja.MG20.gnm3.ann1.WF9B.gene_models_main.gff3.gz: Lj3.0_gene_models.gff3.gz
+lotja.MG20.gnm3.ann1.WF9B.protein.faa.gz: Lj3.0_pep.faa
+lupal.Amiga.gnm1.ann1.3GKS.gene_models_main.gff3.gz: Lalbus-20171117r1-v1.annot.gff3, Lalb_mitochondrion.gff3, Lalb_chloroplast.gff
+lupal.Amiga.gnm1.ann1.3GKS.mrna.fna.gz: mrna.fasta
+lupal.Amiga.gnm1.ann1.3GKS.protein.faa.gz: prot.fasta
+lupan.Tanjil.gnm1.ann1.nnV9.protein.faa.gz: Lupinus_angustifolius_pep_v1.0.fa
+medtr.A17_HM341.gnm4.ann2.G3ZY.cds_primary.fna.gz: Derived from gff
+medtr.A17_HM341.gnm4.ann2.G3ZY.cds.fna.gz: Derived from gff
+medtr.A17_HM341.gnm4.ann2.G3ZY.mrna.fna.gz: Derived from gff
+medtr.A17_HM341.gnm4.ann2.G3ZY.protein_primary.faa.gz: Derived from gff
+medtr.A17_HM341.gnm4.ann2.G3ZY.protein.faa.gz: Derived from gff
+medtr.A17.gnm5.ann1_6.L2RX.cds.bed.gz: medtr.A17.gnm5.ann1_6.L2RX.gene_models_main.gff3.gz
+medtr.A17.gnm5.ann1_6.L2RX.cds.fna.gz: MtrunA17r5.0-ANR-EGN-r1.6.features.fasta.zip/MtrunA17r5.0-ANR-EGN-r1.6.cds.fasta
+medtr.A17.gnm5.ann1_6.L2RX.mrna.fna.gz: MtrunA17r5.0-ANR-EGN-r1.6.features.fasta.zip/MtrunA17r5.0-ANR-EGN-r1.6.mrna.fasta
+medtr.A17.gnm5.ann1_6.L2RX.protein.faa.gz: MtrunA17r5.0-ANR-EGN-r1.6.features.fasta.zip/MtrunA17r5.0-ANR-EGN-r1.6.prot.fasta
+medtr.HM004.gnm1.ann1.2XTB.cds.fna.gz: Derived from gff
+medtr.HM004.gnm1.ann1.2XTB.mrna.fna.gz: Derived from gff
+medtr.HM004.gnm1.ann1.2XTB.protein.faa.gz: Derived from gff
+medtr.HM010.gnm1.ann1.WV9J.cds.fna.gz: Derived from gff
+medtr.HM010.gnm1.ann1.WV9J.mrna.fna.gz: Derived from gff
+medtr.HM010.gnm1.ann1.WV9J.protein.faa.gz: Derived from gff
+medtr.HM022.gnm1.ann1.6C8N.cds.fna.gz: Derived from gff
+medtr.HM022.gnm1.ann1.6C8N.mrna.fna.gz: Derived from gff
+medtr.HM022.gnm1.ann1.6C8N.protein.faa.gz: Derived from gff
+medtr.HM023.gnm1.ann1.WZN8.cds.fna.gz: Derived from gff
+medtr.HM023.gnm1.ann1.WZN8.mrna.fna.gz: Derived from gff
+medtr.HM023.gnm1.ann1.WZN8.protein.faa.gz: Derived from gff
+medtr.HM034.gnm1.ann1.YR6S.cds.fna.gz: Derived from gff
+medtr.HM034.gnm1.ann1.YR6S.mrna.fna.gz: Derived from gff
+medtr.HM034.gnm1.ann1.YR6S.protein.faa.gz: Derived from gff
+medtr.HM050.gnm1.ann1.GWRX.cds.fna.gz: Derived from gff
+medtr.HM050.gnm1.ann1.GWRX.mrna.fna.gz: Derived from gff
+medtr.HM050.gnm1.ann1.GWRX.protein.faa.gz: Derived from gff
+medtr.HM056.gnm1.ann1.CHP6.cds.fna.gz: Derived from gff
+medtr.HM056.gnm1.ann1.CHP6.mrna.fna.gz: Derived from gff
+medtr.HM056.gnm1.ann1.CHP6.protein.faa.gz: Derived from gff
+medtr.HM058.gnm1.ann1.LXPZ.cds.fna.gz: Derived from gff
+medtr.HM058.gnm1.ann1.LXPZ.mrna.fna.gz: Derived from gff
+medtr.HM058.gnm1.ann1.LXPZ.protein.faa.gz: Derived from gff
+medtr.HM060.gnm1.ann1.H41P.cds.fna.gz: Derived from gff
+medtr.HM060.gnm1.ann1.H41P.mrna.fna.gz: Derived from gff
+medtr.HM060.gnm1.ann1.H41P.protein.faa.gz: Derived from gff
+medtr.HM095.gnm1.ann1.55W4.cds.fna.gz: Derived from gff
+medtr.HM095.gnm1.ann1.55W4.mrna.fna.gz: Derived from gff
+medtr.HM095.gnm1.ann1.55W4.protein.faa.gz: Derived from gff
+medtr.HM125.gnm1.ann1.KY5W.cds.fna.gz: Derived from gff
+medtr.HM125.gnm1.ann1.KY5W.mrna.fna.gz: Derived from gff
+medtr.HM125.gnm1.ann1.KY5W.protein.faa.gz: Derived from gff
+medtr.HM129.gnm1.ann1.7FTD.cds.fna.gz: Derived from gff
+medtr.HM129.gnm1.ann1.7FTD.mrna.fna.gz: Derived from gff
+medtr.HM129.gnm1.ann1.7FTD.protein.faa.gz: Derived from gff
+medtr.HM185.gnm1.ann1.GB3D.cds.fna.gz: Derived from gff
+medtr.HM185.gnm1.ann1.GB3D.mrna.fna.gz: Derived from gff
+medtr.HM185.gnm1.ann1.GB3D.protein.faa.gz: Derived from gff
+medtr.HM324.gnm1.ann1.SQH2.cds.fna.gz: Derived from gff
+medtr.HM324.gnm1.ann1.SQH2.mrna.fna.gz: Derived from gff
+medtr.HM324.gnm1.ann1.SQH2.protein.faa.gz: Derived from gff
+medtr.R108_HM340.gnm1.ann1.85YW.cds_primary.fna.gz: Derived from gff
+medtr.R108_HM340.gnm1.ann1.85YW.cds.fna.gz: Derived from gff
+medtr.R108_HM340.gnm1.ann1.85YW.mrna.fna.gz: Derived from gff
+medtr.R108_HM340.gnm1.ann1.85YW.protein_primary.fna.gz: Derived from gff
+medtr.R108_HM340.gnm1.ann1.85YW.protein.faa.gz: Derived from gff
+medtr.R108.gnmHiC_1.ann1.Y8NH.cds.bed.gz: medtr.R108.gnmHiC_1.ann1.Y8NH.gene_models_main.gff3.gz
+Mt4.0v2_genes_20140818_1100.gff3.gz: medtr.A17_HM341.gnm4.ann2.G3ZY.gene_models_main.gff3.gz
+original_Phytozome_DataReleasePolicy.txt: Pvulgaris5_593_696_v1.1.DataReleasePolicy.html
+original_Phytozome_readme.txt: Pvulgaris5_593_696_v1.1.readme.txt
+phaac.Frijol_Bayo.gnm1.ann1.ML22.cds_primary.fna.gz: Pacutifolius_580_v1.0.cds_primaryTranscriptOnly.fa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.cds.fna.gz: Pacutifolius_580_v1.0.cds.fa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.gene_models_main.gff3.gz: Pacutifolius_580_v1.0.gene.gff3.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.iprscan.gff3.gz: Calculated from phaac.Frijol_Bayo.gnm1.ann1.ML22.protein.faa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.legfed_v1_0.M65K.gfa.tsv.gz: Calculated from phaac.Frijol_Bayo.gnm1.ann1.ML22.protein.faa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.mrna_primary.fna.gz: Pacutifolius_580_v1.0.transcript_primaryTranscriptOnly.fa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.mrna.fna.gz: Pacutifolius_580_v1.0.transcript.fa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.protein_primary.faa.gz: Pacutifolius_580_v1.0.protein_primaryTranscriptOnly.fa.gz
+phaac.Frijol_Bayo.gnm1.ann1.ML22.protein.faa.gz: Pacutifolius_580_v1.0.protein.fa.gz
+phaac.W6_15578.gnm2.ann1.LVZ1.cds_primary.fna.gz: Pacutifolius_580_v1.0.cds_primaryTranscriptOnly.fa.gz
+phaac.W6_15578.gnm2.ann1.LVZ1.gene_models_main.gff3.gz: Pacutifolius_580_v1.0.gene.gff3.gz
+phaac.W6_15578.gnm2.ann1.LVZ1.mrna_primary.fna.gz: Pacutifolius_580_v1.0.transcript_primaryTranscriptOnly.fa.gz
+phaac.W6_15578.gnm2.ann1.LVZ1.phytozome_defline.txt.gz: PacutifoliusWLD_581_v2.0.defline.txt
+phaac.W6_15578.gnm2.ann1.LVZ1.protein_primary.faa.gz: Pacutifolius_580_v1.0.protein_primaryTranscriptOnly.fa.gz
+phaco.PHA8298.gnm1.ann1.0Q14.annotation_info.txt.gz: Pcoccineus_703_v1.1.annotation_info.txt.gz
+phaco.PHA8298.gnm1.ann1.0Q14.cds_primary.fna.gz: Pcoccineus_703_v1.1.cds_primaryTranscriptOnly.fa.gz
+phaco.PHA8298.gnm1.ann1.0Q14.cds.fna.gz: Pcoccineus_703_v1.1.cds.fa.gz
+phaco.PHA8298.gnm1.ann1.0Q14.DataReleasePolicy.html: Pcoccineus_703_v1.1.DataReleasePolicy.html
+phaco.PHA8298.gnm1.ann1.0Q14.defline.txt.gz: Pcoccineus_703_v1.1.defline.txt.gz
+phaco.PHA8298.gnm1.ann1.0Q14.gene_models_exons.gff3.gz: Pcoccineus_703_v1.1.gene_exons_strip.gff3.gz
+phaco.PHA8298.gnm1.ann1.0Q14.gene_models_main.bed.gz: Pcoccineus_703_v1.1.gene_strip.gff3.gz
+phaco.PHA8298.gnm1.ann1.0Q14.gene_models_main.gff3.gz: Pcoccineus_703_v1.1.gene_strip.gff3.gz
+phaco.PHA8298.gnm1.ann1.0Q14.mrna_primary.fna.gz: Pcoccineus_703_v1.1.transcript_primaryTranscriptOnly.fa.gz
+phaco.PHA8298.gnm1.ann1.0Q14.mrna.fna.gz: Pcoccineus_703_v1.1.transcript.fa.gz
+phaco.PHA8298.gnm1.ann1.0Q14.original_readme.txt: Pcoccineus_703_v1.1.readme.txt
+phaco.PHA8298.gnm1.ann1.0Q14.protein_primary.faa.gz: Pcoccineus_703_v1.1.protein_primaryTranscriptOnly.fa.gz
+phaco.PHA8298.gnm1.ann1.0Q14.protein.faa.gz: Pcoccineus_703_v1.1.protein.fa.gz
+phalu.G27455.gnm1.ann1.JD7C.cds_primary_low_confidence.fna.gz: Plunatus_563_V1.cds_primaryTranscriptOnly.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.cds_primary.fna.gz: Plunatus_563_V1.cds_primaryTranscriptOnly.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.gene_models_low_confidence.gff3.gz: Plunatus_563_V1.gene.gff3.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.gene_models_main.gff3.gz: Plunatus_563_V1.gene.gff3.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.mrna_low_confidence.fna.gz: Plunatus_563_V1.transcript.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.mrna_primary_low_confidence.fna.gz: Plunatus_563_V1.transcript_primaryTranscriptOnly.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.mrna_primary.fna.gz: Plunatus_563_V1.transcript_primaryTranscriptOnly.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.mrna.fna.gz: Plunatus_563_V1.transcript.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.protein_low_confidence.faa.gz: Plunatus_563_V1.protein.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.protein_primary_low_confidence.faa.gz: Plunatus_563_V1.protein_primaryTranscriptOnly.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.protein_primary.faa.gz: Plunatus_563_V1.protein_primaryTranscriptOnly.fa.gz (subset)
+phalu.G27455.gnm1.ann1.JD7C.protein.faa.gz: Plunatus_563_V1.protein.fa.gz (subset)
+phavu.5-593.gnm1.ann1.3FBJ.cds_primary.fna.gz: Pvulgaris5_593_696_v1.1.cds_primaryTranscriptOnly.fa.gz
+phavu.5-593.gnm1.ann1.3FBJ.cds.fna.gz: Pvulgaris5_593_696_v1.1.cds.fa.gz
+phavu.5-593.gnm1.ann1.3FBJ.gene_models_main.gff3.gz: Pvulgaris5_593_696_v1.1.gene.gff3.gz
+phavu.5-593.gnm1.ann1.3FBJ.mrna_primary.fna.gz: Pvulgaris5_593_696_v1.1.transcript_primaryTranscriptOnly.fa.gz
+phavu.5-593.gnm1.ann1.3FBJ.mrna.fna.gz: Pvulgaris5_593_696_v1.1.transcript.fa.gz
+phavu.5-593.gnm1.ann1.3FBJ.protein_primary.faa.gz: Pvulgaris5_593_696_v1.1.protein_primaryTranscriptOnly.fa.gz
+phavu.5-593.gnm1.ann1.3FBJ.protein.faa.gz: Pvulgaris5_593_696_v1.1.protein.fa.gz
+phavu.G19833.gnm1.ann1.pScz.cds_primary.fna.gz: Pvulgaris_218_v1.0.cds_primaryTranscript.fa.gz
+phavu.G19833.gnm1.ann1.pScz.gene_models_main.gff3.gz: Pvulgaris_218_v1.0.gene.gff3.gz
+phavu.G19833.gnm1.ann1.pScz.info_annot.txt.gz: Pvulgaris_218_v1.0.annotation_info.txt
+phavu.G19833.gnm1.ann1.pScz.mrna_primary.fna.gz: Pvulgaris_218_v1.0.transcript_primaryTranscript.fa.gz
+phavu.G19833.gnm1.ann1.pScz.mrna.fna.gz: Pvulgaris_218_v1.0.transcript.fa.gz
+phavu.G19833.gnm1.ann1.pScz.protein_primary.faa.gz: Pvulgaris_218_v1.0.protein_primaryTranscript.fa.gz
+phavu.G19833.gnm1.ann1.pScz.protein.faa.gz: Pvulgaris_218_v1.0.protein.fa.gz
+phavu.G19833.gnm1.ann1.pScz.repeatmasking.gff3.gz: Pvulgaris_218_v1.0.repeatmasked_assembly_v1.0.gff3.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.cds_primary.fna.gz: PvulgarisLaborOvalle_670_v1.1.cds_primaryTranscriptOnly.fa.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.cds.fna.gz: PvulgarisLaborOvalle_670_v1.1.cds.fa.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.gene_models_main.gff3.gz: PvulgarisLaborOvalle_670_v1.1.gene.gff3.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.mrna_primary.fna.gz: PvulgarisLaborOvalle_670_v1.1.transcript_primaryTranscriptOnly.fa.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.mrna.fna.gz: PvulgarisLaborOvalle_670_v1.1.transcript.fa.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.protein_primary.faa.gz: PvulgarisLaborOvalle_670_v1.1.protein_primaryTranscriptOnly.fa.gz
+phavu.LaborOvalle.gnm1.ann1.L1DY.protein.faa.gz: PvulgarisLaborOvalle_670_v1.1.protein.fa.gz
+phavu.UI111.gnm1.ann1.8L4N.gene_models_main.gff3.gz: PvulgarisUI111_534_v1.1.gene.gff3.gz
+phavu.UI111.gnm1.ann1.8L4N.info_annot.txt.gz: PvulgarisUI111_534_v1.1.annotation_info.txt
+phavu.UI111.gnm1.ann1.8L4N.info_defline.txt.gz: PvulgarisUI111_534_v1.1.defline.txt
+phavu.UI111.gnm1.ann1.8L4N.mrna_primary.fna.gz: PvulgarisUI111_534_v1.1.transcript_primaryTranscriptOnly.fa.gz
+phavu.UI111.gnm1.ann1.8L4N.mrna.fna.gz: PvulgarisUI111_534_v1.1.transcript.fa.gz
+phavu.UI111.gnm1.ann1.8L4N.protein_primary.faa.gz: PvulgarisUI111_534_v1.1.protein_primaryTranscriptOnly.fa.gz
+phavu.UI111.gnm1.ann1.8L4N.protein.faa.gz: PvulgarisUI111_534_v1.1.protein.fa.gz
+phavu.UI111.gnm1.ann1.8L4N.repeatmasked_assembly_v1.0.gff3.gz: PvulgarisUI111_534_v1.1.repeatmasked_assembly_v1.0.gff3.gz
+pissa.Cameor.gnm1.ann1.7SZR.cds_primary.fna.gz: subset of main cds file corresponding with protein_primaryTranscript
+pissa.Cameor.gnm1.ann1.7SZR.gene_models_main.gff3.gz: Pisum_sativum_v1a_genes.gff3
+pissa.Cameor.gnm1.ann1.7SZR.mrna.fna.gz: derived from gff3
+pissa.Cameor.gnm1.ann1.7SZR.protein_primary.faa.gz: derived from gff3
+pissa.Cameor.gnm1.ann1.7SZR.protein.faa.gz: derived from gff3
+PvulgarisLaborOvalle_670_v1.1.DataReleasePolicy.html: PvulgarisLaborOvalle_670_v1.1.DataReleasePolicy.html
+PvulgarisLaborOvalle_670_v1.1.readme.txt: PvulgarisLaborOvalle_670_v1.1.readme.txt
+tripr.HEN17-A07.gnm1.ann1.LHG2.cds_primary.fna.gz: GCF_020283565.1.modID.CDS_primary.fna.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.cds.fna.gz: GCF_020283565.1.modID.CDS.fna.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.gene_models_main.bed.gz: GCF_020283565.1.modID.genes_exons.gff3.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.gene_models_main.gff3.gz: GCF_020283565.1.modID.genes_exons.gff3.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.mrna_primary.fna.gz: GCF_020283565.1.modID.transcripts_primary.fna.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.mrna.fna.gz: GCF_020283565.1.modID.transcripts.fna.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.noncoding.gff3.gz: GCF_020283565.1.modID.noncoding.gff3.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.protein_primary.faa.gz: GCF_020283565.1.modID.protein_primary.faa.gz
+tripr.HEN17-A07.gnm1.ann1.LHG2.protein.faa.gz: GCF_020283565.1.modID.protein.faa.gz
+trisu.Daliak.gnm2.ann1.MFKF.cds_primary.fna.gz: Tsu.longestmRNA.cds.fa
+trisu.Daliak.gnm2.ann1.MFKF.cds.bed.gz: trisu.Daliak.gnm2.ann1.MFKF.gene_models_main.gff3.gz
+trisu.Daliak.gnm2.ann1.MFKF.cds.fna.gz: Tsu.cds.fa
+trisu.Daliak.gnm2.ann1.MFKF.gene_models_main.gff3.gz: Tsu.genes.gff
+trisu.Daliak.gnm2.ann1.MFKF.protein_primary.faa.gz: Tsu.longestmRNA.pep.fa
+trisu.Daliak.gnm2.ann1.MFKF.protein.faa.gz: Tsu.pep.fa
+vicfa.Hedin2.gnm1.ann1.PTNK.cds_primary.fna.gz: Vfaba.Hedin2.v1.gffread.cds_primary.fna.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.cds.bed.gz: Vfaba.Hedin2.v1.agat.gff3.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.cds.fna.gz: Vfaba.Hedin2.v1.gffread.cds.fna.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.gene_models_main.gff3.gz: Vfaba.Hedin2.v1.agat.gff3.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.mrna_primary.fna.gz: Vfaba.Hedin2.v1.gffread.mrna_primary.fna.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.mrna.fna.gz: Vfaba.Hedin2.v1.gffread.mrna.fna.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.protein_primary.faa.gz: Vfaba.Hedin2.v1.gffread.protein_primary.faa.gz
+vicfa.Hedin2.gnm1.ann1.PTNK.protein.faa.gz: Vfaba.Hedin2.v1.gffread.protein.faa.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.cds_primary.fna.gz: Vfaba.Tiffany.v1.gffread.cds_primary.fna.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.cds.bed.gz: Vfaba.Tiffany.v1.agat.gff3.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.cds.fna.gz: Vfaba.Tiffany.v1.gffread.cds.fna.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.gene_models_main.gff3.gz: Vfaba.Tiffany.v1.agat.gff3.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.mrna_primary.fna.gz: Vfaba.Tiffany.v1.gffread.mrna_primary.fna.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.mrna.fna.gz: Vfaba.Tiffany.v1.gffread.mrna.fna.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.protein_primary.faa.gz: Vfaba.Tiffany.v1.gffread.protein_primary.faa.gz
+vicfa.Tiffany.gnm1.ann1.Y54X.protein.faa.gz: Vfaba.Tiffany.v1.gffread.protein.faa.gz
+vicvi.HV-30.gnm1.ann1.6WFF.cds_primary.fna.gz: GCF_029867415.1.modID.CDS_primary.fna.gz
+vicvi.HV-30.gnm1.ann1.6WFF.cds.fna.gz: GCF_029867415.1.modID.CDS.fna.gz
+vicvi.HV-30.gnm1.ann1.6WFF.gene_models_main.bed.gz: GCF_029867415.1.modID.genes_exons.gff3.gz
+vicvi.HV-30.gnm1.ann1.6WFF.gene_models_main.gff3.gz: GCF_029867415.1.modID.genes_exons.gff3.gz
+vicvi.HV-30.gnm1.ann1.6WFF.mrna_primary.fna.gz: GCF_029867415.1.modID.transcripts_primary.fna.gz
+vicvi.HV-30.gnm1.ann1.6WFF.mrna.fna.gz: GCF_029867415.1.modID.transcripts.fna.gz
+vicvi.HV-30.gnm1.ann1.6WFF.noncoding.gff3.gz: GCF_029867415.1.modID.noncoding.gff3.gz
+vicvi.HV-30.gnm1.ann1.6WFF.protein_primary.faa.gz: GCF_029867415.1.modID.protein_primary.faa.gz
+vicvi.HV-30.gnm1.ann1.6WFF.protein.faa.gz: GCF_029867415.1.modID.protein.faa.gz
+vigan.Gyeongwon.gnm3.ann1.3Nz5.cds_primary.fna.gz: adzuki.ver3.gene.gff.cor.gff
+vigan.Gyeongwon.gnm3.ann1.3Nz5.protein.faa.gz: adzuki.ver3.pep.fa.tr.cor.fa
+vigan.Shumari.gnm1.ann1.8BRS.cds_primary.fna.gz: Vangularis_v1.a1.cds.fasta
+vigan.Shumari.gnm1.ann1.8BRS.mrna.fna.gz: Vangularis_v1.a1.transcript.fasta
+vigan.Shumari.gnm1.ann1.8BRS.protein_primary.faa.gz: Vangularis_v1.a1.protein.fasta
+vigra.VC1973A.gnm6.ann1.M1Qs.gene_models_main.gff3.gz: Vradi.ver6.cor.gff
+vigra.VC1973A.gnm6.ann1.M1Qs.gene_models_mrna.gff3.gz: Vradi.ver6.cor.mRNA.gff
+vigra.VC1973A.gnm6.ann1.M1Qs.protein.faa.gz: Vradi.ver6.cor.pep.fa
+vigra.VC1973A.gnm6.ann1.M1Qs.scaffolds_in_pchr.gff3.gz: Vradi.ver6.cor.contig.gff
+vigra.VC1973A.gnm7.ann1.RWBG.cds.bed.gz: Vradi.pacbio.gapfilled.final.all.standard.gff.gz
+vigra.VC1973A.gnm7.ann1.RWBG.cds.fna.gz: Vradi.pacbio.gapfilled.final.all.maker.CDS.fna.gz
+vigra.VC1973A.gnm7.ann1.RWBG.gene_models_main.gff3.gz: Vradi.pacbio.gapfilled.final.all.standard.gff.gz
+vigra.VC1973A.gnm7.ann1.RWBG.gene_models_original.gff3.gz: Vradi.pacbio.gapfilled.final.all.gff.gz
+vigra.VC1973A.gnm7.ann1.RWBG.mrna.fna.gz: Vradi.pacbio.gapfilled.final.all.maker.transcripts.fasta.gz
+vigra.VC1973A.gnm7.ann1.RWBG.protein.faa.gz: Vradi.pacbio.gapfilled.final.all.maker.protein.faa.gz
+vigun.IT97K-499-35.gnm1.ann1.zb5D.cds_primary.fna.gz: Vunguiculata_469_v1.1.cds_primaryTranscriptOnly.fa
+vigun.IT97K-499-35.gnm1.ann1.zb5D.defline.txt: Vunguiculata_469_v1.1.defline.txt
+vigun.IT97K-499-35.gnm1.ann1.zb5D.gene_models_main.gff3.gz: Vunguiculata_469_v1.1.gene_exons.gff3
+vigun.IT97K-499-35.gnm1.ann1.zb5D.mrna_primary.fna.gz: Vunguiculata_469_v1.1.transcript_primaryTranscriptOnly.fa
+vigun.IT97K-499-35.gnm1.ann1.zb5D.mrna.fna.gz: Vunguiculata_469_v1.1.transcript.fa
+vigun.IT97K-499-35.gnm1.ann1.zb5D.protein_primary.faa.gz: Vunguiculata_469_v1.1.protein_primaryTranscriptOnly.fa
+vigun.IT97K-499-35.gnm1.ann1.zb5D.protein.faa.gz: Vunguiculata_469_v1.1.protein.fa
+vigun.IT97K-499-35.gnm1.ann1.zb5D.repeatmasking.gff3.gz: Vunguiculata_469_v1.1.repeatmasked_assembly_v1.0.gff3

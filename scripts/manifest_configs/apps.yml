@@ -1,0 +1,7 @@
+---
+cds.fna.gz: "blast, mines"
+gene_models_exons.gff3.gz: "mines"
+gene_models_main.gff3.gz: "mines"
+mrna.fna.gz: "mines"
+protein.faa.gz: "blast, mines"
+genome_main.fna.gz: "blast, mines"

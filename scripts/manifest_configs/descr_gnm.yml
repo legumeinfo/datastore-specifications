@@ -1,0 +1,36 @@
+---
+BspQI_01_EXP_REFINEFINAL1.cmap.gz: Bionano data
+BspQI_Molecules.bnx.gz: Bionano data
+BssSI_01_EXP_REFINEFINAL1.cmap.gz: Bionano data
+BssSI_Molecules.bnx.gz: Bionano data
+genome_hardmasked.fna.gz: Hardmasked genome assembly
+genome_main.fna.gz: Primary genome assembly
+genome_softmasked.fna.gz: Softmasked genome assembly
+initial_seqid_map.tsv.gz: Mapping between original and modified sequence IDs
+order_orient.txt.gz: Order-and-orient file for pseudomolecule construction (alternate to AGP format)
+pathfile.agp.gz: Golden path file, for GenBank submission
+pchr_by_scaff_RM.tar.gz: Repeat-masked Pseudomolecules in separate files, composed of separate scaffolds, plus remaining unanchored scaffolds
+pchr_by_scaff.tar.gz: Pseudomolecules in separate files, composed of separate scaffolds, plus remaining unanchored scaffolds
+pchr_entire.tar.gz: Pseudomolecule sequences, single sequence per chromosome
+scaffolds_split.tar.gz: Scaffold sequences, unordered, after splitting and patching as noted
+scaffolds_unassigned.fna.gz: Scaffolds not included in pseudomolecules
+scaffolds.fna.gz: Scaffolds, unoriented, used in the main genome assembly
+scaffs_placed.tar.gz: Scaffolds - placed
+scaffs_unplaced.tar.gz: Scaffolds - unplaced
+seqid_map.tsv.gz: Map (hash) file of old/new chromosome and scaffold IDs
+gcv_genome.gff3.gz: gff of assembly molecule sizes
+pchr.agp.txt.gz: Golden path file, for GenBank submission
+agp_unplaced.txt.gz: Golden path file, for GenBank submission
+contigs.fna.gz: Fasta file of contig sequences
+altHap.fna.gz: Assembly of alternative haplotype
+genome_assignment.txt.gz: SNPs in tetraploid chromosomes and in ancestral genome
+genome_repeatmask_coords.gff.gz: Coordinates of genomic repeats
+rDNA.fna.gz: Ribosomal DNA sequence
+repeat.fna.gz: Genomic sequence consisting primarily of repeats
+info_HiC_assembly.txt.gz: Edit coordinates based on HiC analysis
+info_nucmer_coords.tar.gz: Coords file from nucmer analysis
+info_nucmer_plots.tar.gz: Nucmer plots between assemblies
+agp.txt.gz: Golden path file, for GenBank submission
+genome.fna.gz: Genome assembly; not primary
+id_map.txt.gz: Mapping of feature names
+scaff_name_hash.tsv.gz: Mapping of feature names
