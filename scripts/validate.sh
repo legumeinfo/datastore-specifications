@@ -10,7 +10,8 @@
 
 set -o nounset -o errexit
 
-readonly datastore_specifications=/usr/local/www/data/datastore-specifications
+readonly pathtoscript=`dirname ${BASH_SOURCE}`
+readonly datastore_specifications=`dirname $pathtoscript`
 
 if [ $# -ne 2 ] || [ ! -f ${datastore_specifications}/"${1}.schema.json" ]
 then
