@@ -44,7 +44,7 @@ cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
 ```
 5) coexpression.tsv
 
-The following script will produce "pairwise_covariance_correlation.tsv", a table containing covariance and Pearson correlation coefficient statistics for each gene comparisons pair with a PCC at or above a hardcoded threshold of 0.7. It also outputs a separate matrix for both of these two stats with values for all comparisons. These may be deleted if not desired. Requires the doParallel package (within the doparallel conda environment).
+The following script will produce "coexpression.tsv", a table containing covariance and Pearson correlation coefficient statistics for each gene comparisons pair with a PCC at or above a hardcoded threshold of 0.7. It also outputs a separate matrix for both of these two stats with values for all comparisons. These may be deleted if not desired. Requires the doParallel package (within the doparallel conda environment).
 ```
 Rscript --vanilla  co_metrics.R rnaseq_out/star_salmon/salmon.merged.gene_counts.tsv
 ```
