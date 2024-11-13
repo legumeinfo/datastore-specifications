@@ -44,25 +44,10 @@ cut -f 1,3- rnaseq_out/star_salmon/salmon.merged.gene_counts_length_scaled.tsv
 ```
 5) coexpression.tsv
 
-The following script will produce "gene-to-gene_covariance_correlation.tsv" which contains coexpression and Pearson correlation coefficient statistics for all all pairwise gene comparisons. It also outputs a pair-wise matrix for each of these two stats which may be deleted if not desired. Requires the doParallel package (within the doparallel conda environment).
+The following script will produce "pairwise_covariance_correlation.tsv", a table containing covariance and Pearson correlation coefficient statistics for each gene comparisons pair with a PCC at or above a hardcoded threshold of 0.7. It also outputs a separate matrix for both of these two stats with values for all comparisons. These may be deleted if not desired. Requires the doParallel package (within the doparallel conda environment).
 ```
-Rscript --vanilla  correlation_metrics.R rnaseq_out/star_salmon/salmon.merged.gene_counts.tsv
+Rscript --vanilla  co_metrics.R rnaseq_out/star_salmon/salmon.merged.gene_counts.tsv
 ```
-The data should be limited to a 0.7 PCC threshold for the sake of size. This can be accomplished with the following commands:
-```
-tail -n+2 gene-to-gene_covariance_correlation.tsv | awk '$4 >= .7+0 {print $0}' | sort -gr -k4 > coexpression_sorted.tsv
-```
-To make a numerical comparison of the data in the 4th column (excluding the header), then sort the rows in descending order by the values in that column (the PCCs). Save the header with:
-```
-head -1 gene-to-gene_covariance_correlation.tsv > coexpression_header.tsv
-```
-Then:
-
-```
-sed '$ d' coexpression_sorted.tsv | awk '$4 != "NA" {print $0}' > coexpression_sorted_filtered.tsv && cat ~/coexpression_header.tsv coexpression_sorted_filtered.tsv > <dataset_prefix>.coexpression.tsv 
-```
-to remove non-applicable values and tack the header back on.
-
 gzip all .tsvs before loading to datastore.
 
 6) replicate_group.bw
