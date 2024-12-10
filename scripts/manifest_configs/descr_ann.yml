@@ -36,8 +36,8 @@ mrna_lowqual_or_TE.fna.gz: transcript sequences - low quality or transposable el
 mrna_lowqual.fna.gz: transcript sequences - low quality or transposable elements
 mrna_primary_low_confidence.fna.gz: transcript sequences - low quality or transposable elements
 mrna_primary.fna.gz: Transcript sequences - primary only
-mrna.fna.gz: mrna.fna.gz
-mrnas.fna.gz: mrna.fna.gz
+mrna.fna.gz: Transcript sequences
+mrnas.fna.gz: Transcript sequences
 noncoding.gff3.gz: Noncoding features
 phytozome_10_2.HFNR.gfa.tsv.gz: gene family assignments
 phytozome_defline.txt.gz: Functional annotation provided by Phytozome
