@@ -1,54 +1,57 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Arabidopsis/thaliana
-    from_annot_dir: Athaliana_447_Araport11/annotation
-    from_genome_dir: Athaliana_447_Araport11/assembly
+  work_dir: /usr/local/www/data/private/Arabidopsis/thaliana
+  from_annot_dir: Athaliana_447_Araport11/annotation
+  from_genome_dir: Athaliana_447_Araport11/assembly
 prefixes:
-    from_annot_prefix: "Athaliana_447_Araport11."
-    from_genome_prefix: "Athaliana_447_TAIR10."
+  from_annot_prefix: "Athaliana_447_Araport11."
+  from_genome_prefix: "Athaliana_447_TAIR10."
 collection_info:
-    genus: Arabidopsis
-    species: thaliana
-    scientific_name_abbrev: arath
-    coll_genotype: Col0
-    gnm_ver: gnm9
-    ann_ver: ann11
-    genome_key: YF2W
-    annot_key: KH24
+  genus: Arabidopsis
+  species: thaliana
+  scientific_name_abbrev: arath
+  coll_genotype: Col0
+  gnm_ver: gnm9
+  ann_ver: ann11
+  genome_key: YF2W
+  annot_key: KH24
 readme_info:
-    provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov, but originated in the TAIR and Araport projects. Files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
-    source: "https://phytozome-next.jgi.doe.gov/info/Athaliana_Araport11"
-    synopsis_genome: Arabidopsis thaliana TAIR9 genome assembly
-    synopsis_annot: Araport11 annotation on the TAIR9 genome assembly
-    taxid: "3702"
-    genotype: Col0
-    description_genome: "This is the TAIR9 genome assembly of the Col-0 ecotype, produced by the Arabidopsis Genome Initiative."
-    chromosome_prefix: chr
-    supercontig_prefix: scaffold
-    description_annot: "This is the Araport11 annotation, released in 2016, on the TAIR9 genome assembly of the Col-0 ecotype."
-    bioproject: 
-    sraproject: 
-    dataset_doi_genome: 
-    dataset_doi_annot: 
-    genbank_accession: 
-    original_file_creation_date: 2016-11-08
-    local_file_creation_date: 2022-11-27
-    dataset_release_date: 2022-11-27
-    contributors: The Arabidopsis Genome Initiative, TAIR, and Araport projects
-    publication_doi: "10.1111/tpj.13415"
-    citation: "Cheng CY, Krishnakumar V, Chan AP, Thibaud-Nissen F, Schobel S, Town CD. Araport11: a complete reannotation of the Arabidopsis thaliana reference genome. Plant J. 2017 Feb;89(4):789-804. doi: 10.1111/tpj.13415. Epub 2017 Feb 10. PMID: 27862469."
-    publication_title: "Araport11: a complete reannotation of the Arabidopsis thaliana reference genome."
-    data_curators: Steven Cannon
-    public_access_level: public
-    license: open
-    keywords: "Arabidopsis, Col-0, Col0, Columbia-0, Araport, TAIR"
+  provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov, but originated in the TAIR and Araport projects. Files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://phytozome-next.jgi.doe.gov/info/Athaliana_Araport11"
+  synopsis_genome: Arabidopsis thaliana TAIR9 genome assembly
+  synopsis_annot: Araport11 annotation on the TAIR9 genome assembly
+  taxid: "3702"
+  genotype: Col0
+  description_genome: "This is the TAIR9 genome assembly of the Col-0 ecotype, produced by the Arabidopsis Genome Initiative."
+  chromosome_prefix: chr
+  supercontig_prefix: scaffold
+  description_annot: "This is the Araport11 annotation, released in 2016, on the TAIR9 genome assembly of the Col-0 ecotype."
+  bioproject:
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2016-11-08
+  local_file_creation_date: 2022-11-27
+  dataset_release_date: 2022-11-27
+  contributors: The Arabidopsis Genome Initiative, TAIR, and Araport projects
+  publication_doi: "10.1111/tpj.13415"
+  citation: "Cheng CY, Krishnakumar V, Chan AP, Thibaud-Nissen F, Schobel S, Town CD. Araport11: a complete reannotation of the Arabidopsis thaliana reference genome. Plant J. 2017 Feb;89(4):789-804. doi: 10.1111/tpj.13415. Epub 2017 Feb 10. PMID: 27862469."
+  publication_title: "Araport11: a complete reannotation of the Arabidopsis thaliana reference genome."
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: open
+  keywords: "Arabidopsis, Col-0, Col0, Columbia-0, Araport, TAIR"
 from_to_genome:
-  - 
+  -
     from: fa.gz
     to: genome_main.fna
     description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
 original_readme_and_usage:
-  - 
+  -
     from_full_filename: Athaliana_447_Araport11.readme.txt
     to: original_readme.txt
     description: "Original Araport11 data README file"
@@ -64,38 +67,49 @@ from_to_annot_as_is:
     description: "Gene identifier synonyms, gene symbols, and functional descriptors"
 from_to_genome_as_is:
 from_to_cds_mrna:
-  - 
+  -
     from: cds.fa.gz
     to: cds.fna
     description: "cds sequences"
-  - 
+    applications:
+      - blast
+      - mines
+  -
     from: cds_primaryTranscriptOnly.fa.gz
     to: cds_primary.fna
     description: "cds sequences - primary only"
-  - 
+  -
     from: transcript.fa.gz
     to: mrna.fna
     description: "Transcript sequences"
-  - 
+    applications:
+      - mines
+  -
     from: transcript_primaryTranscriptOnly.fa.gz
     to: mrna_primary.fna
     description: "Transcript sequences - primary only"
 from_to_protein:
-  - 
+  -
     from: protein_primaryTranscriptOnly.fa.gz
     to: protein_primary.faa
     description: "Protein sequences - primary only"
-  - 
+  -
     from: protein.fa.gz
     to: protein.faa
     description: "Protein sequences"
+    applications:
+      - mines
 from_to_gff:
-  - 
+  -
     from: gene_exons.no_suffix.gff3.gz
     to: gene_models_exons.gff3
     description: "Gene models, with exon features"
-  - 
+    applications:
+      - mines
+  -
     from: gene.no_suffix.gff3.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
-
+    applications:
+      - mines
+      - jbrowse-index

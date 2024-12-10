@@ -1,124 +1,126 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Cercis/canadensis
-    from_annot_dir: ISC453364.gnm3.ann1/V3.1/annotation
-    from_genome_dir: ISC453364.gnm3.ann1/V3.1/assembly
+  work_dir: /usr/local/www/data/private/Cercis/canadensis
+  from_annot_dir: ISC453364.gnm3.ann1/V3.1/annotation
+  from_genome_dir: ISC453364.gnm3.ann1/V3.1/assembly
 prefixes:
-    from_annot_prefix: "Ccanadensis_705_V3.1."
-    from_genome_prefix: "Ccanadensis_705_V3.0."
-# Some preprocessing:
-# The GFF features all include ".V3.1", e.g. Cecan.1G000100.V3.1  or  Cecan.1G000100.1.V3.1.CDS.1
-# but the fasta files do not, e.g. Cecan.1G000100.1 
-# Fix this inconsistency by removing .V3.1 from the GFFs: 's/\.V3\.1//g'
-
+  from_annot_prefix: "Ccanadensis_705_V3.1."
+  from_genome_prefix: "Ccanadensis_705_V3.0."
 collection_info:
-    genus: Cercis
-    species: canadensis
-    scientific_name_abbrev: cerca
-    coll_genotype: ISC453364
-    gnm_ver: gnm3
-    ann_ver: ann1
-    genome_key: GWXB
-    annot_key: 3N1M
+  genus: Cercis
+  species: canadensis
+  scientific_name_abbrev: cerca
+  coll_genotype: ISC453364
+  gnm_ver: gnm3
+  ann_ver: ann1
+  genome_key: GWXB
+  annot_key: 3N1M
 readme_info:
-    provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov. The Phytozome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
-    source: "https://phytozome-next.jgi.doe.gov/info/GmaxWm82ISU_01_v2_1"
-    synopsis_genome: Cercis canadensis accession ISC453364, genome assembly v3
-    synopsis_annot: Annotation 1 for Cercis canadensis accession ISC453364, genome assembly v3
-    genotype: ISC453364
-    taxid: "49801"
-    description_genome: "This release is from a tree on the Iowa State University campus, registered as accession ISC453364. The resulting genome assembly was resolved into two haplotype assemblies. This particular assembly has been designated as haplotype 1. For full description of assembly methods and characteristics, see the Phytozome description at the URL above."
-    chromosome_prefix: chr
-    supercontig_prefix: scaffold
-    description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
-    bioproject: 
-    sraproject: 
-    dataset_doi_genome: 
-    dataset_doi_annot: 
-    genbank_accession: 
-    original_file_creation_date: 2023-03-08
-    local_file_creation_date: 2024-07-15
-    dataset_release_date: 2023-08-01
-    contributors: Steven Cannon, Jim Leebens-Mack, Jacob Stai, Jeremy Schmutz
-    publication_doi: 
-    citation: "Lee H, Stai JS, ... Leebens-Mack, Cannon SB. Analysis of new reference genome assemblies for Cercis canadensis and Chamaecrista fasciculata clarify evolutionary histories of legume nodulation and genome structure (in preparation)"
-    publication_title: 
-    data_curators: Steven Cannon
-    public_access_level: public, restricted
-    license: Open, with usage agreement
-    keywords: "redbud, Cercis canadensis"
+  provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov. The Phytozome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://phytozome-next.jgi.doe.gov/info/GmaxWm82ISU_01_v2_1"
+  synopsis_genome: Cercis canadensis accession ISC453364, genome assembly v3
+  synopsis_annot: Annotation 1 for Cercis canadensis accession ISC453364, genome assembly v3
+  genotype: ISC453364
+  taxid: "49801"
+  description_genome: "This release is from a tree on the Iowa State University campus, registered as accession ISC453364. The resulting genome assembly was resolved into two haplotype assemblies. This particular assembly has been designated as haplotype 1. For full description of assembly methods and characteristics, see the Phytozome description at the URL above."
+  chromosome_prefix: chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
+  bioproject:
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2023-03-08
+  local_file_creation_date: 2024-07-15
+  dataset_release_date: 2023-08-01
+  contributors: Steven Cannon, Jim Leebens-Mack, Jacob Stai, Jeremy Schmutz
+  publication_doi:
+  citation: "Lee H, Stai JS, ... Leebens-Mack, Cannon SB. Analysis of new reference genome assemblies for Cercis canadensis and Chamaecrista fasciculata clarify evolutionary histories of legume nodulation and genome structure (in preparation)"
+  publication_title:
+  data_curators: Steven Cannon
+  public_access_level: public, restricted
+  license: Open, with usage agreement
+  keywords: "redbud, Cercis canadensis"
 from_to_genome:
-  - 
+  -
     from: fa.gz
     to: genome_main.fna
     description: "Primary genome assembly"
-  - 
+    applications:
+      - blast
+      - mines
+  -
     from: hardmasked.fa.gz
     to: genome_hardmasked.fna
     description: "Genome assembly - softmasked"
-  - 
+  -
     from: softmasked.fa.gz
     to: genome_softmasked.fna
     description: "Genome assembly - hardmasked"
 original_readme_and_usage:
-  - 
+  -
     from_full_filename: Ccanadensis_705_V3.1.DataReleasePolicy.html
     to: DataReleasePolicy.html
     description: "Original JGI data release policy"
-  - 
+  -
     from_full_filename: Ccanadensis_705_V3.1.readme.txt
     to: original_readme.txt
     description: "Original JGI data README file"
 from_to_annot_as_is:
-  - 
+  -
     from: repeatmasked_assembly_V3.0.gff3.gz
     to: repeatmasked_assembly.gff3
     description: "GFF with repeat-masking coordinates"
-  - 
+  -
     from: annotation_info.txt.gz
     to: annotation_info.txt
     description: "Table of gene annotations from JGI"
-  - 
+  -
     from: defline.txt.gz
     to: defline.txt
     description: "Defline for genes from JGI"
 from_to_genome_as_is:
 from_to_cds_mrna:
-  - 
+  -
     from: cds.fa.gz
     to: cds.fna
     description: "cds sequences"
-  - 
+    applications:
+      - blast
+      - mines
+  -
     from: cds_primaryTranscriptOnly.fa.gz
     to: cds_primary.fna
     description: "cds sequences - primary only"
-  - 
+  -
     from: transcript.fa.gz
     to: mrna.fna
     description: "Transcript sequences"
-  - 
+    applications:
+      - mines
+  -
     from: transcript_primaryTranscriptOnly.fa.gz
     to: mrna_primary.fna
     description: "Transcript sequences - primary only"
 from_to_protein:
-  - 
+  -
     from: protein_primaryTranscriptOnly.fa.gz
     to: protein_primary.faa
     strip: '\.p'
     description: "Protein sequences - primary only"
-  - 
+  -
     from: protein.fa.gz
     to: protein.faa
     strip: '\.p'
     description: "Protein sequences"
+    applications:
+      - mines
 from_to_gff:
-## Skip gene_exons because a featid_map isn't generated by default for exon features.
-#  - 
-#    from: gene_exons_strip.gff3.gz
-#    to: gene_models_exons.gff3
-#    description: "Gene models, with exon features"
-  - 
+  -
     from: gene_strip.gff3.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
-
+    applications:
+      - mines
+      - jbrowse-index

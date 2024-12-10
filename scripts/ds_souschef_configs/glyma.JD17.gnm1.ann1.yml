@@ -1,84 +1,96 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Glycine/max/JD17
-    from_annot_dir: annot_orig
-    from_genome_dir: annot_orig
+  work_dir: /usr/local/www/data/private/Glycine/max/JD17
+  from_annot_dir: annot_orig
+  from_genome_dir: annot_orig
 prefixes:
-    from_annot_prefix: "jd17_"
-    from_genome_prefix: "jd17_"
+  from_annot_prefix: "jd17_"
+  from_genome_prefix: "jd17_"
 collection_info:
-    genus: Glycine
-    species: max
-    scientific_name_abbrev: glyma
-    coll_genotype: JD17
-    gnm_ver: gnm1
-    ann_ver: ann1
-    genome_key: TW7L
-    annot_key: CLFP
+  genus: Glycine
+  species: max
+  scientific_name_abbrev: glyma
+  coll_genotype: JD17
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: TW7L
+  annot_key: CLFP
 readme_info:
-    provenance: "The files in this directory originated from https://doi.org/10.25387/g3.17065499, with the assembly corresponding to the one at GenBank under accession GCA_021733175.1. Those two repositories are considered the primary and authoritative for this data; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
-    source: "https://doi.org/10.25387/g3.17065499"
-    synopsis_genome: Glycine max accession Jidou 17 (JD17), genome assembly 1
-    synopsis_annot: Annotation 1 for Glycine max accession Jidou 17 (JD17), genome assembly 1
-    genotype: JD17
-    taxid: "3847"
-    description_genome: "Sequenced using PacBio RSII; assembled with CANU v. 1.4; FALCON v. 1.8.7 23 Mar 2017; HGAP v. SMRT Link v 5.0.1.9585; GPM v. Aug-2017"
-    chromosome_prefix: Chr
-    supercontig_prefix: PGA_scaffold
-    description_annot: "Gene annotation resources. See full description at Yi, Liu et al., 2020"
-    bioproject: PRJNA412346
-    sraproject: 
-    dataset_doi_genome: 
-    dataset_doi_annot: 
-    genbank_accession: GCA_021733175.1
-    original_file_creation_date: 2022-02-03
-    local_file_creation_date: 2023-08-29
-    dataset_release_date: 2023-10-01
-    contributors: Yi X, Liu J, Chen S, Wu H, Liu M, Xu Q, Lei L, Lee S, Zhang B, Kudrna D, Fan W, Wing RA, Wang X, Zhang M, Zhang J, Yang C, Chen N.
-    publication_doi: 10.1093/g3journal/jkac017
-    citation: "Yi X, Liu J, Chen S, Wu H, Liu M, Xu Q, Lei L, Lee S, Zhang B, Kudrna D, Fan W, Wing RA, Wang X, Zhang M, Zhang J, Yang C, Chen N. Genome assembly of the JD17 soybean provides a new reference genome for comparative genomics. G3 (Bethesda). 2022 Apr 4;12(4):jkac017. doi: 10.1093/g3journal/jkac017. PMID: 35188189; PMCID: PMC8982393."
-    publication_title: "Genome assembly of the JD17 soybean provides a new reference genome for comparative genomics"
-    data_curators: Steven Cannon
-    public_access_level: public
-    license: Open, with usage agreement
-    keywords: "soybean, JD17, Jidou 17"
+  provenance: "The files in this directory originated from https://doi.org/10.25387/g3.17065499, with the assembly corresponding to the one at GenBank under accession GCA_021733175.1. Those two repositories are considered the primary and authoritative for this data; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://doi.org/10.25387/g3.17065499"
+  synopsis_genome: Glycine max accession Jidou 17 (JD17), genome assembly 1
+  synopsis_annot: Annotation 1 for Glycine max accession Jidou 17 (JD17), genome assembly 1
+  genotype: JD17
+  taxid: "3847"
+  description_genome: "Sequenced using PacBio RSII; assembled with CANU v. 1.4; FALCON v. 1.8.7 23 Mar 2017; HGAP v. SMRT Link v 5.0.1.9585; GPM v. Aug-2017"
+  chromosome_prefix: Chr
+  supercontig_prefix: PGA_scaffold
+  description_annot: "Gene annotation resources. See full description at Yi, Liu et al., 2020"
+  bioproject: PRJNA412346
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession: GCA_021733175.1
+  original_file_creation_date: 2022-02-03
+  local_file_creation_date: 2023-08-29
+  dataset_release_date: 2023-10-01
+  contributors: Yi X, Liu J, Chen S, Wu H, Liu M, Xu Q, Lei L, Lee S, Zhang B, Kudrna D, Fan W, Wing RA, Wang X, Zhang M, Zhang J, Yang C, Chen N.
+  publication_doi: 10.1093/g3journal/jkac017
+  citation: "Yi X, Liu J, Chen S, Wu H, Liu M, Xu Q, Lei L, Lee S, Zhang B, Kudrna D, Fan W, Wing RA, Wang X, Zhang M, Zhang J, Yang C, Chen N. Genome assembly of the JD17 soybean provides a new reference genome for comparative genomics. G3 (Bethesda). 2022 Apr 4;12(4):jkac017. doi: 10.1093/g3journal/jkac017. PMID: 35188189; PMCID: PMC8982393."
+  publication_title: "Genome assembly of the JD17 soybean provides a new reference genome for comparative genomics"
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: Open, with usage agreement
+  keywords: "soybean, JD17, Jidou 17"
 from_to_genome:
-  - 
+  -
     from: genome_figshare.fna.gz
     to: genome_main.fna
     description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
 original_readme_and_usage:
 from_to_annot_as_is:
 from_to_genome_as_is:
 from_to_cds_mrna:
-  - 
+  -
     from: CDS.fna.gz
     to: cds.fna
     description: "cds sequences"
-  - 
+    applications:
+      - blast
+      - mines
+  -
     from: CDS_primary.fna.gz
     to: cds_primary.fna
     description: "cds sequences - primary only"
-  - 
+  -
     from: transcripts.fna.gz
     to: mrna.fna
     description: "Transcript sequences"
-  - 
+    applications:
+      - mines
+  -
     from: transcripts_primary.fna.gz
     to: mrna_primary.fna
     description: "Transcript sequences - primary only"
 from_to_protein:
-  - 
+  -
     from: protein.faa.gz
     to: protein.faa
     description: "Protein sequences"
-  - 
+    applications:
+      - mines
+  -
     from: protein_primary.faa.gz
     to: protein_primary.faa
     description: "Protein sequences - primary only"
 from_to_gff:
-  - 
+  -
     from: final.rename.gff3.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
-
+    applications:
+      - mines
+      - jbrowse-index

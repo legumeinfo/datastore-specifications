@@ -1,52 +1,55 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Phaseolus/vulgaris/OACRex.gnm2/
-    from_annot_dir: original
-    from_genome_dir: original
+  work_dir: /usr/local/www/data/private/Phaseolus/vulgaris/OACRex.gnm2/
+  from_annot_dir: original
+  from_genome_dir: original
 prefixes:
-    from_annot_prefix: "OAC-Rex_V2.0."
-    from_genome_prefix: "OAC-Rex_V2.0."
+  from_annot_prefix: "OAC-Rex_V2.0."
+  from_genome_prefix: "OAC-Rex_V2.0."
 collection_info:
-    genus: Phaseolus
-    species: vulgaris
-    scientific_name_abbrev: phavu
-    coll_genotype: OACRex
-    gnm_ver: gnm2
-    ann_ver: ann1
-    genome_key: NXJW
-    annot_key: V62R
+  genus: Phaseolus
+  species: vulgaris
+  scientific_name_abbrev: phavu
+  coll_genotype: OACRex
+  gnm_ver: gnm2
+  ann_ver: ann1
+  genome_key: NXJW
+  annot_key: V62R
 readme_info:
-    provenance: "The files in this directory were received for direct deposit at the legumeinfo.org Data Store by Drs. and Gregory Perry and Peter Pauls. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
-    source: ~
-    synopsis_genome: Phaseolus vulgaris accession OACRex, genome assembly 2
-    synopsis_annot: Annotation 1 for Phaseolus vulgaris accession OACRex, genome assembly 2
-    genotype: OACRex
-    taxid: 3885
-    description_genome: "Genome assembly for OAC Rex is a white-seeded, high-yielding cultivar, with resistance to common bacterial blight."
-    chromosome_prefix: Chr
-    supercontig_prefix: scaffold
-    description_annot: "Gene annotation resources."
-    bioproject: 
-    sraproject: 
-    dataset_doi_genome: 
-    dataset_doi_annot: 
-    genbank_accession: 
-    original_file_creation_date: 2023-06-01
-    local_file_creation_date: 2023-10-24
-    dataset_release_date: 2023-11-01
-    contributors: Gregory Perry, Peter Pauls
-    publication_doi: 
-    citation: 
-    publication_title: 
-    data_curators: Steven Cannon
-    public_access_level: public
-    license: Open, with usage agreement
-    keywords: "common bean, OAC Rex"
+  provenance: "The files in this directory were received for direct deposit at the legumeinfo.org Data Store by Drs. and Gregory Perry and Peter Pauls. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: ~
+  synopsis_genome: Phaseolus vulgaris accession OACRex, genome assembly 2
+  synopsis_annot: Annotation 1 for Phaseolus vulgaris accession OACRex, genome assembly 2
+  genotype: OACRex
+  taxid: 3885
+  description_genome: "Genome assembly for OAC Rex is a white-seeded, high-yielding cultivar, with resistance to common bacterial blight."
+  chromosome_prefix: Chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotation resources."
+  bioproject:
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2023-06-01
+  local_file_creation_date: 2023-10-24
+  dataset_release_date: 2023-11-01
+  contributors: Gregory Perry, Peter Pauls
+  publication_doi:
+  citation:
+  publication_title:
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: Open, with usage agreement
+  keywords: "common bean, OAC Rex"
 from_to_genome:
-  - 
+  -
     from: fa.gz
     to: genome_main.fna
     description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
 original_readme_and_usage:
 from_to_annot_as_is:
 from_to_genome_as_is:
@@ -57,3 +60,6 @@ from_to_gff:
     from: gff3.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse-index

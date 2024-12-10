@@ -1,84 +1,96 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Arachis/hypogaea/BaileyII.gnm1
-    from_annot_dir: annot
-    from_genome_dir: JAGJTH01
+  work_dir: /usr/local/www/data/private/Arachis/hypogaea/BaileyII.gnm1
+  from_annot_dir: annot
+  from_genome_dir: JAGJTH01
 prefixes:
-    from_annot_prefix: arahy.BaileyII.
-    from_genome_prefix: JAGJTH01_
+  from_annot_prefix: arahy.BaileyII.
+  from_genome_prefix: JAGJTH01_
 collection_info:
-    genus: Arachis
-    species: hypogaea
-    scientific_name_abbrev: arahy
-    coll_genotype: BaileyII
-    gnm_ver: gnm1
-    ann_ver: ann1
-    genome_key: 1JTF
-    annot_key: PQM7
+  genus: Arachis
+  species: hypogaea
+  scientific_name_abbrev: arahy
+  coll_genotype: BaileyII
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: 1JTF
+  annot_key: PQM7
 readme_info:
-    provenance: "The files in this directory originated from NCBI (https://www.ncbi.nlm.nih.gov/). The NCBI repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below.  The files here are held as part of the LegumeInfo and PeanutBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and PeanutBase project(s). If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please 1) please cite the data appropriately - generally referring to the original publications for this data; and if you make use of any significant modifications in the files (noted below under Transformations where applicable), then please also cite the respective database project(s) related to this directory."
-    source: "https://www.ncbi.nlm.nih.gov/Traces/wgs/JAGJTH01"
-    synopsis_genome: Arachis hypogaea accession Bailey II, genome assembly 1
-    synopsis_annot: Annotation 1 for Arachis hypogaea accession Bailey II, genome assembly 1
-    genotype: BaileyII
-    taxid: "3818"
-    description_genome: "Bailey II PacBio CLR reads greater than 8,150 bp were assembled by CANU (Koren et al., 2017) v. 1.9. Resulting contigs underwent one round of polishing with Arrow (Pacific BioSciences SMRT Tools Reference Guide, 2019), followed by additional polishing with Pilon (Walker et al., 2014) v. 1.23. Circular contigs, as labeled in the output of CANU (Koren et al., 2017) v.  1.9, were removed from the assembly. Bionano optical data was used to scaffold the assembly and then RagTag (Alonge et al., 2019) was used to generate pseudomolecules. See full description at Newman et al. (2022), below."
-    chromosome_prefix: chr
-    supercontig_prefix: scaffold
-    description_annot: "Gene annotation resources. See full description at Newman et al. (2022), below."
-    bioproject: 
-    sraproject: 
-    dataset_doi_genome: 
-    dataset_doi_annot: 
-    genbank_accession: 
-    original_file_creation_date: 2023-03-13
-    local_file_creation_date: 2023-03-13
-    dataset_release_date: 2023-03-13
-    contributors: Newman, Andres, Youngblood, Campbell, Simpson, Cannon, Scheffler, Oakley, Hulse-Kemp and Dunne
-    publication_doi: 10.3389/fpls.2022.1073542
-    citation: "Newman CS, Andres RJ, Youngblood RC, Campbell JD, Simpson SA, Cannon SB, Scheffler BE, Oakley AT, Hulse-Kemp AM and Dunne JC (2023) Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers. Front. Plant Sci. 13:1073542. doi: 10.3389/fpls.2022.1073542"
-    publication_title: "Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers."
-    data_curators: Steven Cannon
-    public_access_level: public
-    license: Open, with usage agreement
-    keywords: "Peanut, Virginia, Bailey, introgression"
+  provenance: "The files in this directory originated from NCBI (https://www.ncbi.nlm.nih.gov/). The NCBI repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below.  The files here are held as part of the LegumeInfo and PeanutBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and PeanutBase project(s). If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please 1) please cite the data appropriately - generally referring to the original publications for this data; and if you make use of any significant modifications in the files (noted below under Transformations where applicable), then please also cite the respective database project(s) related to this directory."
+  source: "https://www.ncbi.nlm.nih.gov/Traces/wgs/JAGJTH01"
+  synopsis_genome: Arachis hypogaea accession Bailey II, genome assembly 1
+  synopsis_annot: Annotation 1 for Arachis hypogaea accession Bailey II, genome assembly 1
+  genotype: BaileyII
+  taxid: "3818"
+  description_genome: "Bailey II PacBio CLR reads greater than 8,150 bp were assembled by CANU (Koren et al., 2017) v. 1.9. Resulting contigs underwent one round of polishing with Arrow (Pacific BioSciences SMRT Tools Reference Guide, 2019), followed by additional polishing with Pilon (Walker et al., 2014) v. 1.23. Circular contigs, as labeled in the output of CANU (Koren et al., 2017) v.  1.9, were removed from the assembly. Bionano optical data was used to scaffold the assembly and then RagTag (Alonge et al., 2019) was used to generate pseudomolecules. See full description at Newman et al. (2022), below."
+  chromosome_prefix: chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotation resources. See full description at Newman et al. (2022), below."
+  bioproject:
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2023-03-13
+  local_file_creation_date: 2023-03-13
+  dataset_release_date: 2023-03-13
+  contributors: Newman, Andres, Youngblood, Campbell, Simpson, Cannon, Scheffler, Oakley, Hulse-Kemp and Dunne
+  publication_doi: 10.3389/fpls.2022.1073542
+  citation: "Newman CS, Andres RJ, Youngblood RC, Campbell JD, Simpson SA, Cannon SB, Scheffler BE, Oakley AT, Hulse-Kemp AM and Dunne JC (2023) Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers. Front. Plant Sci. 13:1073542. doi: 10.3389/fpls.2022.1073542"
+  publication_title: "Initiation of genomics-assisted breeding in Virginia-type peanuts through the generation of a de novo reference genome and informative markers."
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: Open, with usage agreement
+  keywords: "Peanut, Virginia, Bailey, introgression"
 from_to_genome:
-  - 
+  -
     from: all.fna.gz
     to: genome_main.fna
     description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
 original_readme_and_usage:
 from_to_annot_as_is:
 from_to_genome_as_is:
 from_to_cds_mrna:
-  - 
+  -
     from: cds.fna.gz
     to: cds.fna
     description: "cds sequences"
-  - 
+    applications:
+      - blast
+      - mines
+  -
     from: cds_primary.fna.gz
     to: cds_primary.fna
     description: "cds sequences - primary only"
-  - 
+  -
     from: mrna.fna.gz
     to: mrna.fna
     description: "Transcript sequences"
-  - 
+    applications:
+      - mines
+  -
     from: mrna_primary.fna.gz
     to: mrna_primary.fna
     description: "Transcript sequences - primary only"
 from_to_protein:
-  - 
+  -
     from: protein.faa.gz
     to: protein.faa
     description: "Protein sequences"
-  - 
+    applications:
+      - mines
+  -
     from: protein_primary.faa.gz
     to: protein_primary.faa
     description: "Protein sequences - primary only"
 from_to_gff:
-  - 
+  -
     from: mRNA_ID.gff3.gz
     to: gene_models_main.gff3
     description: "Gene models - main"
-
+    applications:
+      - mines
+      - jbrowse-index
