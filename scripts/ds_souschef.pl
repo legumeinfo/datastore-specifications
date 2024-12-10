@@ -136,9 +136,9 @@ my $WD = "$dir_hsh{work_dir}";
 my $GENSP = $coll_hsh{scientific_name_abbrev};
 
 my ($GNMCOL, $ANN_GT_VER, $ANNCOL, $scientific_name, $TO_GNM_PREFIX, $TO_ANN_PREFIX, $ANNDIR, $GNMDIR);
-my ($GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES);
-my ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES);
-my ($PANCOL, $TO_PAN_PREFIX, $PANDIR,$PAN_MAN_CORR, $PAN_MAN_DESCR, $PAN_README, $PAN_CHANGES);
+my ($GNM_MAN, $GNM_README, $GNM_CHANGES);
+my ($ANN_MAN, $ANN_README, $ANN_CHANGES);
+my ($PANCOL, $TO_PAN_PREFIX, $PANDIR, $PAN_MAN, $PAN_README, $PAN_CHANGES);
 
 if ($COLLECTION_TYPE =~ /genomic/){
   $GNMCOL = "$coll_hsh{coll_genotype}.$coll_hsh{gnm_ver}.$coll_hsh{genome_key}";
@@ -151,13 +151,11 @@ if ($COLLECTION_TYPE =~ /genomic/){
   $ANNDIR = "$WD/annotations/$ANNCOL";
   $GNMDIR = "$WD/genomes/$GNMCOL";
   
-  $ANN_MAN_CORR = "$ANNDIR/MANIFEST.$ANNCOL.correspondence.yml";
-  $ANN_MAN_DESCR = "$ANNDIR/MANIFEST.$ANNCOL.descriptions.yml";
+  $ANN_MAN = "$ANNDIR/MANIFEST.$ANNCOL.yml";
   $ANN_README = "$ANNDIR/README.$ANNCOL.yml";
   $ANN_CHANGES = "$ANNDIR/CHANGES.$ANNCOL.txt";
   
-  $GNM_MAN_CORR = "$GNMDIR/MANIFEST.$GNMCOL.correspondence.yml";
-  $GNM_MAN_DESCR = "$GNMDIR/MANIFEST.$GNMCOL.descriptions.yml";
+  $GNM_MAN = "$GNMDIR/MANIFEST.$GNMCOL.yml";
   $GNM_README = "$GNMDIR/README.$GNMCOL.yml";
   $GNM_CHANGES = "$GNMDIR/CHANGES.$GNMCOL.txt";
 }
@@ -169,8 +167,7 @@ elsif ($COLLECTION_TYPE =~ /pangene/){
   
   $PANDIR = "$WD/pangenes/$PANCOL";
   
-  $PAN_MAN_CORR = "$PANDIR/MANIFEST.$PANCOL.correspondence.yml";
-  $PAN_MAN_DESCR = "$PANDIR/MANIFEST.$PANCOL.descriptions.yml";
+  $PAN_MAN = "$PANDIR/MANIFEST.$PANCOL.yml";
   $PAN_README = "$PANDIR/README.$PANCOL.yml";
   $PAN_CHANGES = "$PANDIR/CHANGES.$PANCOL.txt";
 }
@@ -178,7 +175,7 @@ else {warn "COLLECTION_TYPE not recognized: [$COLLECTION_TYPE]\n"; }
 
 my $to_name_base;
 my ($FEATID_MAP, $SEQID_MAP);
-my ($printed_man_corr_head, $printed_man_descr_head);
+my ($printed_man_head, $printed_man_descr_head);
 
 ##################################################
 # Call subroutines
@@ -242,8 +239,8 @@ sub setup {
     unless (-d "$WD/genomes") {mkdir "$WD/genomes" or die "Can't make directory $WD/genomes: $!\n"}
     unless (-d $GNMDIR) {mkdir $GNMDIR or die "Can't make directory $GNMDIR: $!\n"}
     # Remove existing metadata files UNLESS -extend is set.
-    for my $file ($ANN_MAN_CORR, $ANN_MAN_DESCR, $ANN_README, $ANN_CHANGES, 
-                  $GNM_MAN_CORR, $GNM_MAN_DESCR, $GNM_README, $GNM_CHANGES){
+    for my $file ($ANN_MAN, $ANN_README, $ANN_CHANGES, 
+                  $GNM_MAN, $GNM_README, $GNM_CHANGES){
       if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
     }
   }
@@ -252,7 +249,7 @@ sub setup {
     unless (-d "$WD/pangenes") {mkdir "$WD/pangenes" or die "Can't make directory $WD/pangenes: $!\n"}
     unless (-d $PANDIR) {mkdir $PANDIR or die "Can't make directory $PANDIR: $!\n"}
     # Remove existing metadata files UNLESS -extend is set.
-    for my $file ($PAN_MAN_CORR, $PAN_MAN_DESCR, $PAN_README, $PAN_CHANGES){
+    for my $file ($PAN_MAN, $PAN_README, $PAN_CHANGES){
       if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
     }
   }
@@ -327,8 +324,8 @@ sub make_seqid_map {
   my $TO_FILE = $SEQID_MAP;
   my $FROM_FILE = "No prior file";
   my $description = "Map (hash) file of old/new chromosome and scaffold IDs";
-  ($printed_man_corr_head, $printed_man_descr_head) = (0, 0);
-  &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $description);
+  ($printed_man_head, $printed_man_descr_head) = (0, 0);
+  &write_manifest($TO_FILE, $FROM_FILE, $GNM_MAN, $description, "NULL");
 }
 
 ##################################################
@@ -403,10 +400,9 @@ sub make_featid_map {
   my $TO_FILE = $FEATID_MAP;
   my $FROM_FILE = "No prior file";
   my $description = "Hash file of old/new gene IDs";
-  ($printed_man_corr_head, $printed_man_descr_head) = (0, 0);
-  &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $description);
+  ($printed_man_head, $printed_man_descr_head) = (0, 0);
+  &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $description, "NULL");
 }
-
 
 ##################################################
 sub readme {
@@ -500,8 +496,10 @@ sub ann_as_is {
   for my $fr_to_hsh (@{$confobj->{from_to_annot_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+
+    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, "NULL" );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     if ($FROM_FILE =~ /gz$/){ 
       open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
@@ -518,8 +516,9 @@ sub ann_as_is {
     for my $fr_to_hsh (@{$confobj->{original_readme_and_usage}}){ 
       my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$fr_to_hsh->{from_full_filename}";
       my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+      &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, "NULL" );
+
       say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-      &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
       copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!"; # Should be uncompressed text files
     }
   }
@@ -531,8 +530,10 @@ sub gnm_as_is {
   for my $fr_to_hsh (@{$confobj->{from_to_genome_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
+    &write_manifest($TO_FILE, $FROM_FILE, $GNM_MAN, $fr_to_hsh->{description}, "NULL" );
+
     if ($FROM_FILE =~ /gz$/){
       open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
@@ -549,8 +550,9 @@ sub gnm_as_is {
     for my $fr_to_hsh (@{$confobj->{original_readme_and_usage}}){ 
       my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$fr_to_hsh->{from_full_filename}";
       my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+      &write_manifest($TO_FILE, $FROM_FILE, $GNM_MAN, $fr_to_hsh->{description}, "NULL" );
+
       say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-      &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
       copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!"; # Should be uncompressed text files
     }
   }
@@ -562,8 +564,12 @@ sub cds {
   for my $fr_to_hsh (@{$confobj->{from_to_cds_mrna}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS;
     my $STRIP_RX = $fr_to_hsh->{strip};
     if (defined $STRIP_RX){
@@ -585,8 +591,12 @@ sub protein {
   for my $fr_to_hsh (@{$confobj->{from_to_protein}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS;
     my $STRIP_RX = $fr_to_hsh->{strip};
     if (defined $STRIP_RX){
@@ -608,8 +618,12 @@ sub gff {
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}"; 
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS;
     my $GFF_STRIP_RX = "$GENSP.$ANN_GT_VER."; # Prefix to strip from the full-yuck name, e.g. glyma.Wm82.gnm2.ann1. 
     say "  STRIP REGEX for Name attribute in GFF: \"$GFF_STRIP_RX";
@@ -622,8 +636,8 @@ sub gff {
       $bed_file =~ s/gene_models_main.gff3/gene_models_main.bed/;
       my $gff_to_bed_command = "cat $TO_FILE | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $bed_file";
       `$gff_to_bed_command`; # or die "system call of gff_to_bed7_mRNA.awk failed: $?";
-      &write_manifests($bed_file, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, 
-        "BED-format file, derived from gene_models_main.gff3");
+      my $description = "BED-format file, derived from gene_models_main.gff3";
+      &write_manifest($bed_file, $FROM_FILE, $ANN_MAN, $description, "NULL" );
     }
   }
 }
@@ -634,8 +648,12 @@ sub gff_as_is {
   for my $fr_to_hsh (@{$confobj->{from_to_gff_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $ANN_MAN_CORR, $ANN_MAN_DESCR, $fr_to_hsh->{description});
     if ($FROM_FILE =~ /gz$/){ 
       open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
@@ -655,8 +673,12 @@ sub assembly {
   for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_genome_dir}/$prefix_hsh{from_genome_prefix}$fr_to_hsh->{from}";
     my $TO_FILE = "$GNMDIR/$GENSP.$GNMCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $GNM_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $GNM_MAN_CORR, $GNM_MAN_DESCR, $fr_to_hsh->{description});
     my $ARGS = "-hash $SEQID_MAP -fasta $FROM_FILE -nodef -out $TO_FILE";
     say "  Execute hash_into_fasta_id.pl $ARGS";
     system("hash_into_fasta_id.pl $ARGS");
@@ -669,9 +691,12 @@ sub pangene_tsv {
   for my $fr_to_hsh (@{$confobj->{from_to_pan_tsv}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
     my $TO_FILE = "$PANDIR/$PANCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $PAN_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
-    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
     my $PAN_RX = qr/$TO_PAN_PREFIX/;
     open (my $FROM_FH, "<", $FROM_FILE) or die "Can't open in $FROM_FILE: $!\n";
     open (my $TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
@@ -689,9 +714,12 @@ sub pangene_fasta {
   for my $fr_to_hsh (@{$confobj->{from_to_pan_fasta}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
     my $TO_FILE = "$PANDIR/$PANCOL.$fr_to_hsh->{to}";
-    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
 
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $PAN_MAN, $fr_to_hsh->{description}, $APPS );
+
+    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     my ($strip_regex, $STRIP_RX);
     if ($fr_to_hsh->{strip}){
       $strip_regex = $fr_to_hsh->{strip};
@@ -722,8 +750,12 @@ sub pangene_as_is {
   for my $fr_to_hsh (@{$confobj->{from_to_pan_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_pan_dir}/$fr_to_hsh->{from}";
     my $TO_FILE = "$PANDIR/$PANCOL.$fr_to_hsh->{to}";
+
+    my $APPS = $fr_to_hsh->{applications};
+    unless (defined $APPS){ $APPS = "NULL" }
+    &write_manifest($TO_FILE, $FROM_FILE, $PAN_MAN, $fr_to_hsh->{description}, $APPS );
+
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    &write_manifests($TO_FILE, $FROM_FILE, $PAN_MAN_CORR, $PAN_MAN_DESCR, $fr_to_hsh->{description});
     copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
   }
 }
@@ -803,52 +835,45 @@ sub print_to_readme {
   }
 }
 
-sub write_manifests {
-  my ($TO_FILE, $FROM_FILE, $CORR, $DESCR, $description) = @_;
+sub write_manifest {
+  my ($TO_FILE, $FROM_FILE, $MAN_FILE, $description, $applications) = @_;
   my $to_name_base = basename($TO_FILE);
   my $from_name_base = basename($FROM_FILE);
 
-  open (my $CORR_OFH, ">>", $CORR) or die "Can't open out $CORR: $!";
-  open (my $CORR_IFH, "<", $CORR) or die "Can't open in $CORR: $!";
-  open (my $DESCR_OFH, ">>", $DESCR) or die "Can't open out $DESCR: $!";
-  open (my $DESCR_IFH, "<", $DESCR) or die "Can't open in $DESCR: $!";
+  open (my $MAN_OFH, ">>", $MAN_FILE) or die "Can't open out $MAN_FILE: $!";
+  open (my $MAN_IFH, "<", $MAN_FILE) or die "Can't open in $MAN_FILE: $!";
 
   # Don't print redundant lines (which might happen in multiple runs, if "-extend" is set
   my (%seen_to_file);
-  while (<$CORR_IFH>){
+  while (<$MAN_IFH>){ 
     chomp;
     my $filename = $_;
     $filename =~ s/^(\S+).gz: .+/$1/;
     $filename =~ s/^(\S+): .+/$1/;
-    #say "  seen CORR:  $filename";
+    #say "  seen MAN_FILE: $filename";
     $seen_to_file{$filename}++ if ($filename =~ $to_name_base);
-    if ($. == 1 && $_ =~ /^---/){ $printed_man_corr_head++ }
-  }
-  while (<$DESCR_IFH>){ 
-    chomp;
-    my $filename = $_;
-    $filename =~ s/^(\S+).gz: .+/$1/;
-    $filename =~ s/^(\S+): .+/$1/;
-    #say "  seen DESCR: $filename";
-    $seen_to_file{$filename}++ if ($filename =~ $to_name_base);
-    if ($. == 1 && $_ =~ /^---/){ $printed_man_descr_head++ }
+    if ($. == 1 && $_ =~ /^---/){ $printed_man_head++ }
   }
 
-  unless ($printed_man_corr_head){
-    say $CORR_OFH "---\n# filename in this repository: previous names";
-    $printed_man_corr_head++;
-  }
-  unless ($printed_man_descr_head){
-    say $DESCR_OFH "---\n# filename in this repository: description";
-    $printed_man_descr_head++;
+  unless ($printed_man_head){
+    say $MAN_OFH "---";
+    $printed_man_head++;
   }
   
   unless ($seen_to_file{$to_name_base}){
     my $separator;
     if ( $to_name_base =~ /readme.txt|html/ ){ $separator = ":" }
     else { $separator = ".gz:" }
-    print $CORR_OFH "$to_name_base$separator $from_name_base\n";
-    print $DESCR_OFH "$to_name_base$separator $description\n";
+    say $MAN_OFH "- name: $to_name_base$separator";
+    say $MAN_OFH "  description: $description";
+    say $MAN_OFH "  prior_names:";
+    say $MAN_OFH "   - $from_name_base";
+    if ($applications !~ /NULL/){
+      say $MAN_OFH "  applications:";
+      for my $app (@{$applications}){
+        say $MAN_OFH "   - $app";
+      }
+    }
   }
 }
 
@@ -878,3 +903,4 @@ Versions
 2024-01-09 Change name of bed file from cds.bed to gene_models_main.bed
 2024-04-19 Add back scientific_name_abbrev for README, and add gff_as_is function to handle noncoding gffs 
 2024-04-22 Bug fix: call gff_as_is subroutine!
+2024-12-09 Write single combined MANIFEST file rather than separate correspondence and description files
