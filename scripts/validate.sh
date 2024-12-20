@@ -10,7 +10,7 @@
 
 set -o nounset -o errexit
 
-readonly pathtoscript=`dirname ${BASH_SOURCE}`
+readonly pathtoscript=$(dirname $(realpath $0))
 readonly datastore_specifications=`dirname $pathtoscript`
 
 if [ $# -ne 2 ] || [ ! -f ${datastore_specifications}/"${1}.schema.json" ]
