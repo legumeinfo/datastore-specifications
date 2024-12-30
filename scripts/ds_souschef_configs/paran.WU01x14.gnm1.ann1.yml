@@ -1,0 +1,102 @@
+---
+directories:
+  work_dir: /usr/local/www/data/private/Parasponia/andersonii/WU01x14.gnm1.ann1
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "GCA_002914805.1."
+  from_genome_prefix: "GCA_002914805.1."
+collection_info:
+  genus: Parasponia
+  species: andersonii
+  scientific_name_abbrev: paran
+  coll_genotype: WU01x14
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: 5RCS
+  annot_key: 4KM0
+readme_info:
+  provenance: "The files in this directory originated from GenBank, for RefSeq genome sequence GCA_002914805.1 submitted by Wageningen University (Geurts Lab) in 2018. The GenBank source is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and Peanutbase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo project. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_002914805.1"
+  synopsis_genome: Genome assembly 1 for Parasponia andersonii, genotype WU01x14
+  synopsis_annot: Wageningen University annotation for Genome assembly 1 for Parasponia andersonii, genotype WU01x14
+  taxid: "57577"
+  genotype: WU01x14
+  description_genome: "Genome assembly 1 for Trifolium pratense, genotype WU01x14, with sequenced generated using Illumina HiSeq; Illumina MiSeq, AllPaths v. R48961 assembly. See publication for information about additional assembly and scaffolding details."
+  chromosome_prefix: Chr
+  supercontig_prefix: scaffold
+  description_annot: "This annotation was produced by the Geurts Lab on the RefSeq assembly GCA_002914805.1 in 2017"
+  bioproject: "PRJNA272473"
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession: "GCA_002914805.1"
+  original_file_creation_date: "2018-02-02"
+  local_file_creation_date: "2024-12-30"
+  dataset_release_date: "2025-12-02"
+  contributors: "van Velzen R, Holmer R, Bu F, Rutten L, van Zeijl A, Liu W, Santuari L, Cao Q, Sharma T, Shen D, Roswanjaya Y, Wardhani TAK, Kalhor MS, Jansen J, van den Hoogen J, Güngör B, Hartog M, Hontelez J, Verver J, Yang WC, Schijlen E, Repin R, Schilthuizen M, Schranz ME, Heidstra R, Miyata K, Fedorova E, Kohlen W, Bisseling T, Smit S, Geurts R."
+  publication_doi: "10.1073/pnas.1721395115"
+  citation: "van Velzen R, Holmer R, Bu F, Rutten L, van Zeijl A, Liu W, Santuari L, Cao Q, Sharma T, Shen D, Roswanjaya Y, Wardhani TAK, Kalhor MS, Jansen J, van den Hoogen J, Güngör B, Hartog M, Hontelez J, Verver J, Yang WC, Schijlen E, Repin R, Schilthuizen M, Schranz ME, Heidstra R, Miyata K, Fedorova E, Kohlen W, Bisseling T, Smit S, Geurts R. Comparative genomics of the nonlegume Parasponia reveals insights into evolution of nitrogen-fixing rhizobium symbioses. Proc Natl Acad Sci U S A. 2018 May 15;115(20):E4700-E4709. doi: 10.1073/pnas.1721395115. Epub 2018 May 1. PMID: 29717040; PMCID: PMC5960304."
+  publication_title: "Comparative genomics of the nonlegume Parasponia reveals insights into evolution of nitrogen-fixing rhizobium symbioses."
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: open
+  keywords: "Parasponia andersonii"
+from_to_genome:
+  -
+    from: modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+original_readme_and_usage:
+from_to_genome_as_is:
+  -
+    from: initial_seqid_map.tsv
+    to: initial_seqid_map.tsv
+    description: "Mapping between original and modified sequence IDs"
+from_to_cds_mrna:
+  -
+    from: modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: modID.CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - longest variant for each gene"
+  -
+    from: modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+  -
+    from: modID.transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  -
+    from: modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: modID.protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: modID.genes_exons.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse-index
+from_to_gff_as_is:
+  -
+    from: modID.noncoding.gff3.gz
+    to: noncoding.gff3
+    description: "Noncoding features"
