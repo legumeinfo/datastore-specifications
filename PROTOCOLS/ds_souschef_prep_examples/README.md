@@ -5,6 +5,38 @@ Although the notes apply to particular data sets, they are meant to be useable w
 for similar datasets from these major data sources. Some effort has been made to keep the
 notes generic, using variables wherever possible - and to test the notes carefully. Please report errors or questions.
 
+## Instructions for installing packages into a conda environment, "ds-curate", on Ceres
+
+A conda environment has been prepared, with most of the software that we typically use for curation in the datastore.
+Activate it like so:
+
+``` bash
+salloc
+ml miniconda
+source activate /project/legume_project/datastore/conda-envs/ds-curate
+```
+
+<details>
+
+The following recipe creates a conda environment, `ds-curate`, in a common location,
+`/project/legume_project/datastore/conda-envs/`. The environment should be available to all members of the legume_project group.
+
+  ```
+  salloc    # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
+
+  ml miniconda
+  conda create --prefix /project/legume_project/datastore/conda-envs/ds-curate
+  source activate /project/legume_project/datastore/conda-envs/ds-curate
+  conda install -c conda-forge -c bioconda \
+    bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
+    conda-forge::ncbi-datasets-cli bioconda::gffread \
+    conda-forge::yamllint conda-forge::nodejs
+  
+  npm install -g ajv-cli ajv-formats
+  ```
+
+</details>
+
 ## CNCB Genome Warehouse (GWH)
 
 A challenge with data from GWH is that the assembly molecules (chromomes, scaffolds) are renamed to GWH accessions.
@@ -73,32 +105,4 @@ Arachis, Cicer, Glycine, Medicago, Phaseolus, and Vigna.
 
 <a href="Pangenes/notes_Phaseolus.pan3.sh">Pangenes/notes_Phaseolus.pan3.sh</a>
 
-## Instructions for installing packages into a conda environment, "ds-curate", on Ceres
-
-First time: create conda environment and install 
-
-``` bash
-  salloc -N 1 -n 36 -t 2:00:00 -p short
-    # you may want to make an alias for this invocation in your ~/.bashrc, e.g. 
-    #    alias interact="salloc -N 1 -n 36 -t 2:00:00 -p short"
-
-  ml miniconda
-  conda create -n ds-curate
-  source activate ds-curate
-  conda install -n ds-curate -c conda-forge -c bioconda \
-    bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
-    conda-forge::ncbi-datasets-cli bioconda::gffread
-
-  # then a manual installation of the Ajv JSON schema validator -- which goes into ~/.conda/envs/ds-curate/lib/node_modules
-  npm install -g ajv-cli ajv-formats
-```
-
-Subsequently, at the start of a session:
-
-``` bash
-  salloc -N 1 -n 36 -t 2:00:00 -p short
-
-  ml miniconda
-  source activate ds-curate
-```
 
