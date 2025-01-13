@@ -39,9 +39,14 @@ can only be traced to parent features via the `Parent=` attribute, rather than v
 We have handled these by renaming features relative to the gene ID (e.g. mRNA LOC131625884.1 for gene LOC131625884) and by
 separating the annotation into two files -- one with coding elements and one with noncoding elements.
 
+The notes_glyma.NARO_collection.sh is for a set of 11 assemblies and annotations, so has some additional shell loops
+that are specific to this job. Also - as of January 2025, this is the first of these notest that
+are applied in the Ceres HPC (USDA SciNet).
+
 <a href="NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh">NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh</a><br>
 <a href="NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh">NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh</a><br>
 <a href="NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh">NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh</a>
+<a href="NCBI_GenBank/notes_glyma.NARO_collection.sh>NCBI_GenBank/notes_glyma.NARO_collection.sh</a>
 
 ## Phytozome
 
