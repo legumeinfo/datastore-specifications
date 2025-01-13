@@ -5,7 +5,7 @@ Although the notes apply to particular data sets, they are meant to be useable w
 for similar datasets from these major data sources. Some effort has been made to keep the
 notes generic, using variables wherever possible - and to test the notes carefully. Please report errors or questions.
 
-## CNCB Genome Warehosue (GWH)
+## CNCB Genome Warehouse (GWH)
 
 A challenge with data from GWH is that the assembly molecules (chromomes, scaffolds) are renamed to GWH accessions.
 
@@ -45,8 +45,8 @@ are applied in the Ceres HPC (USDA SciNet).
 
 <a href="NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh">NCBI_GenBank/notes_arast.V10309.gnm1.ann1.sh</a><br>
 <a href="NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh">NCBI_GenBank/notes_tripr.HEN17-A07.gnm1.ann1.sh</a><br>
-<a href="NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh">NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh</a>
-<a href="NCBI_GenBank/notes_glyma.NARO_collection.sh>NCBI_GenBank/notes_glyma.NARO_collection.sh</a>
+<a href="NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh">NCBI_GenBank/notes_vicvi.HV-30.gnm1.ann1.sh</a><br>
+<a href="NCBI_GenBank/notes_glyma.NARO_collection.sh">NCBI_GenBank/notes_glyma.NARO_collection.sh</a>
 
 ## Phytozome
 
