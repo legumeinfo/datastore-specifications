@@ -293,7 +293,7 @@ sub make_seqid_map {
   $SEQID_MAP = "$WD/genomes/$GNMCOL/$GENSP.$GNMCOL.seqid_map.tsv";
   open (my $SEQID_MAP_FH, ">", $SEQID_MAP) or die "Can't open out $SEQID_MAP: $!\n";
   say "Generating map of old/new chromosome & scaffold IDs.";
-  open(my $GNM_MAIN_FH, "gzcat $GENOME_FILE_START|") or die "Can't do gzcat $GENOME_FILE_START|: $!";
+  open(my $GNM_MAIN_FH, "zcat $GENOME_FILE_START|") or die "Can't do zcat $GENOME_FILE_START|: $!";
   my %patched_new_id;
   while (my $line = <$GNM_MAIN_FH>){
     if ($line =~ /^>(\S+)/){
@@ -370,11 +370,11 @@ sub make_featid_map {
   my $GFF_IN_FH;
   say "Generating hash of old/new gene IDs.";
   if (-f $GFF_FILE_START && -f $GFF_EXONS_FILE_START){ # There are gene_models_main & gene_models_exons files
-    open($GFF_IN_FH, "gzcat $GFF_FILE_START $GFF_EXONS_FILE_START |") or die \
-      "Can't do gzcat $GFF_FILE_START $GFF_EXONS_FILE_START |: $!";
+    open($GFF_IN_FH, "zcat $GFF_FILE_START $GFF_EXONS_FILE_START |") or die \
+      "Can't do zcat $GFF_FILE_START $GFF_EXONS_FILE_START |: $!";
   }
   else { # There is only a gene_models_main file; not also a gene_models_exons file
-    open($GFF_IN_FH, "gzcat $GFF_FILE_START |") or die "Can't do gzcat $GFF_FILE_START |: $!";
+    open($GFF_IN_FH, "zcat $GFF_FILE_START |") or die "Can't do zcat $GFF_FILE_START |: $!";
   }
   $FEATID_MAP = "$WD/annotations/$ANNCOL/$GENSP.$ANNCOL.featid_map.tsv";
   open (my $FEATID_MAP_FH, ">", $FEATID_MAP) or die "Can't open out $FEATID_MAP: $!\n";
@@ -501,7 +501,7 @@ sub ann_as_is {
 
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     if ($FROM_FILE =~ /gz$/){ 
-      open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+      open(my $AS_IS_FROM_FH, "zcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
@@ -535,7 +535,7 @@ sub gnm_as_is {
     &write_manifest($TO_FILE, $FROM_FILE, $GNM_MAN, $fr_to_hsh->{description}, "NULL" );
 
     if ($FROM_FILE =~ /gz$/){
-      open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+      open(my $AS_IS_FROM_FH, "zcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
@@ -655,7 +655,7 @@ sub gff_as_is {
 
     say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
     if ($FROM_FILE =~ /gz$/){ 
-      open(my $AS_IS_FROM_FH, "gzcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+      open(my $AS_IS_FROM_FH, "zcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
       open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
       while (<$AS_IS_FROM_FH>) {
         print $AS_IS_TO_FH $_;
@@ -904,3 +904,4 @@ Versions
 2024-04-19 Add back scientific_name_abbrev for README, and add gff_as_is function to handle noncoding gffs 
 2024-04-22 Bug fix: call gff_as_is subroutine!
 2024-12-09 Write single combined MANIFEST file rather than separate correspondence and description files
+2025-01-13 Switch to zcat from gzcat.

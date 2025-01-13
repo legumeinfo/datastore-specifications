@@ -102,7 +102,7 @@ else {
 # Read in the GFF;
 my $GFF_FH;
 if ( $gff_file =~ /gz$/ ) {
-  open ($GFF_FH, "gzcat $gff_file|") or die "Can't do gzcat $gff_file|: $!";
+  open ($GFF_FH, "zcat $gff_file|") or die "Can't do zcat $gff_file|: $!";
 }
 else {
   open ( $GFF_FH, "<", $gff_file ) or die "Can't open in $gff_file: $!\n";
@@ -276,4 +276,4 @@ Steven Cannon
 2023-07-05 Print old attribute name if no hash replacement is found.
 2023-07-08 Print warning if no hash replacement is found. Fix collate sort by using floats to order them.
 2024-02-05 Update sorting method, now handling arbitrary types (col 3), adding nonstandard ones to the end of the type_collate hash.
-
+2025-01-13 Switch to zcat from gzcat.
