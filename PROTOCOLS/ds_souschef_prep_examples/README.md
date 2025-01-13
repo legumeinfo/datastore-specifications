@@ -68,4 +68,33 @@ Arachis, Cicer, Glycine, Medicago, Phaseolus, and Vigna.
 
 <a href="Pangenes/notes_Phaseolus.pan3.sh">Pangenes/notes_Phaseolus.pan3.sh</a>
 
+## Instructions for installing packages into a conda environment, "ds-curate", on Ceres
+
+First time: create conda environment and install 
+
+``` bash
+  salloc -N 1 -n 36 -t 2:00:00 -p short
+    # you may want to make an alias for this invocation in your ~/.bashrc, e.g. 
+    #    alias interact="salloc -N 1 -n 36 -t 2:00:00 -p short"
+
+  ml miniconda
+  conda create -n ds-curate
+  source activate ds-curate
+  conda install -n ds-curate -c conda-forge -c bioconda \
+    bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
+    conda-forge::ncbi-datasets-cli bioconda::gffread
+
+  npm install -g ajv-cli ajv-formats
+```
+
+Subsequently, at the start of a session:
+
+``` bash
+  salloc -N 1 -n 36 -t 2:00:00 -p short
+
+  ml miniconda
+  source activate ds-curate
+
+  npm install -g ajv-cli ajv-formats
+```
 
