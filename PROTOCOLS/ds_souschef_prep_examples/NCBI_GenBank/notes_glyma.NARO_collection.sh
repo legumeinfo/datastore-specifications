@@ -32,13 +32,10 @@ REFERENCE
   salloc -N 1 -n 36 -t 2:00:00 -p short
 
   ml miniconda
-  conda create -n ncbi_datasets
-  source activate ncbi_datasets
-  conda install -c conda-forge ncbi_datasets
 
-  conda create -n gffread 
-  source activate gffread
-  conda install -c conda-forge gffread
+  source activate ds-curate
+    # See notes for installing several packages into the "ds-curate" conda environment at
+    # https://github.com/legumeinfo/datastore-specifications/blob/main/PROTOCOLS/ds_souschef_prep_examples/README.md
 
 # Variables for this job
   PRIVATE=/project/legume_project/datastore/private  # Set this to the Data Store private root directory, i.e. ...data/private
@@ -47,15 +44,14 @@ REFERENCE
   GENSP=glyma
   GNM=gnm3
   ANN=ann1  
-  CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
+  CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs/NARO_collection
   TO=derived
 
 # Per-assembly variables, set in shell loops below
-#  GENOME= # set in shell loops below
-#  ACCN=
-#  STRAIN=
-#  GKEY=
-#  AKEY=
+#  ACCN=GCA_046254585.1
+#  STRAIN=Harosoy
+#  GKEY=TKJB
+#  AKEY=R35Y
 #  FROM=$ACCN
 
 cat << IDs_and_versions
@@ -67,9 +63,9 @@ GCA_046254605.1	SAMN45842305	Jack          v3.01
 GCA_046254675.1	SAMN45842303	Ooyachi2      v3.03
 GCA_046254615.1	SAMN45842304	Tanba         v3.02
 GCA_046254695.1	SAMN45842302	Miyagishirome v3.01
-GCA_046254705.1	SAMN45842300	HIMESHIRAZU   v3.02
+GCA_046254705.1	SAMN45842300	Himeshirazu   v3.02
 GCA_046254725.1	SAMN45842299	Fukuyutaka    v3.12
-GCA_046254735.1	SAMN45842298	ENREI         v3.31     v3.32; annot change only
+GCA_046254735.1	SAMN45842298	Enrei         v3.31     v3.32; annot change only
 GCA_046254715.1	SAMN45842301	Kosuzu        v3.01
 IDs_and_versions
 
@@ -101,38 +97,39 @@ perl -pi -e 's/ +/\t/' lis.to_process
 
   GENUS=Glycine
   SP=max
-  GNM=3
-  ANN=1
+  GNM=gnm3
+  ANN=ann1
 
-  cut -f1 /project/legume_project/datastore/private/Glycine/max/NARO/lis.to_process |
+  cat /project/legume_project/datastore/private/Glycine/max/NARO/lis.to_process | awk '{print $1}' |
     while read -r STRAIN; do
       echo $STRAIN
       ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
       ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
     done
 
-    0GY9  Glycine max genomes Harosoy.3
-    NDCP  Glycine max annotations Harosoy.3.1
-    YLHX  Glycine max genomes UA4805.3
-    5C51  Glycine max annotations UA4805.3.1
-    VZNB  Glycine max genomes Peking.3
-    XY4J  Glycine max annotations Peking.3.1
-    7QR4  Glycine max genomes Jack.3
-    KSC9  Glycine max annotations Jack.3.1
-    1LP2  Glycine max genomes Ooyachi2.3
-    WRM8  Glycine max annotations Ooyachi2.3.1
-    VYSZ  Glycine max genomes Tanba.3
-    VFY9  Glycine max annotations Tanba.3.1
-    JFJ6  Glycine max genomes Miyagishirome.3
-    LKW8  Glycine max annotations Miyagishirome.3.1
-    1GT6  Glycine max genomes Himeshirazu.3
-    LRZT  Glycine max annotations Himeshirazu.3.1
-    7A99  Glycine max genomes Fukuyutaka.3
-    TSX1  Glycine max annotations Fukuyutaka.3.1
-    YLKY  Glycine max genomes Enrei.3
-    RD8W  Glycine max annotations Enrei.3.1
-    7D62  Glycine max genomes Kosuzu.3
-    8Z7R  Glycine max annotations Kosuzu.3.1
+      TKJB  Glycine max genomes Harosoy.gnm3
+      R35Y  Glycine max annotations Harosoy.gnm3.ann1
+      THQ0  Glycine max genomes UA4805.gnm3
+      DTQV  Glycine max annotations UA4805.gnm3.ann1
+      KKCD  Glycine max genomes Peking.gnm3
+      D1WG  Glycine max annotations Peking.gnm3.ann1
+      05MK  Glycine max genomes Jack.gnm3
+      S50K  Glycine max annotations Jack.gnm3.ann1
+      3469  Glycine max genomes Ooyachi2.gnm3
+      6929  Glycine max annotations Ooyachi2.gnm3.ann1
+      4HTT  Glycine max genomes Tanba.gnm3
+      17JT  Glycine max annotations Tanba.gnm3.ann1
+      5Z0W  Glycine max genomes Miyagishirome.gnm3
+      P8QZ  Glycine max annotations Miyagishirome.gnm3.ann1
+      61YZ  Glycine max genomes Himeshirazu.gnm3
+      0KJD  Glycine max annotations Himeshirazu.gnm3.ann1
+      424H  Glycine max genomes Fukuyutaka.gnm3
+      RWJM  Glycine max annotations Fukuyutaka.gnm3.ann1
+      MF2C  Glycine max genomes Enrei.gnm3
+      YRG3  Glycine max annotations Enrei.gnm3.ann1
+      9GPW  Glycine max genomes Kosuzu.gnm3
+      4MVB  Glycine max annotations Kosuzu.gnm3.ann1
+
 
 
 # Make subdirectories and get data from GenBank
@@ -191,7 +188,7 @@ perl -pi -e 's/ +/\t/' lis.to_process
       cat Gmax_*.gff3 | awk '$1!~/scaff/' | perl -pe 's/^\w+_(chr\d\d)/$1/' |
         perl -pe 's/transcript/mRNA/' | sort_gff.pl > $TO/$ACCN.modID.genes_exons.gff3
 
-      cat Gmax_*.gff3 | awk '$1~/^#/ || $1~/scaff/' | sort_gff.pl > $TO/$ACCN.modID.scaffolds.gff3
+      cat Gmax_*.gff3 | awk '$1~/^#/ || $1~/scaff/' | sort_gff.pl > $TO/$ACCN.scaffolds.gff3
 
     # Extract CDS, mRNA, and protein sequence; then derive bed file and longest seq representatives
       cd $TO  
@@ -211,8 +208,6 @@ perl -pi -e 's/ +/\t/' lis.to_process
     cd $base_dir
   done
 
-##########
-I AM HERE
 
 # Compress the files
   cd $base_dir
@@ -221,17 +216,15 @@ I AM HERE
     ACCN=$(echo $line | awk '{print $2}');
     echo $STRAIN, $ACCN;
 
-    if [ ! -d $base_dir ]; 
-      
-
     cd $base_dir/$STRAIN.gnm3.ann1/$TO
 
     for file in *gff3 *f?a *bed *.fasta; do 
-      bgzip $file &
+      gzip $file &
     done 
     wait
 
     rm *fai
+    cd $base_dir
   done
 
 # cd back to the main work directory
