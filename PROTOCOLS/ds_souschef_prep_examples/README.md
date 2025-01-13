@@ -89,6 +89,7 @@ First time: create conda environment and install
     bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
     conda-forge::ncbi-datasets-cli bioconda::gffread
 
+  # then a manual installation of the Ajv JSON schema validator -- which goes into ~/.conda/envs/ds-curate/lib/node_modules
   npm install -g ajv-cli ajv-formats
 ```
 
@@ -99,7 +100,5 @@ Subsequently, at the start of a session:
 
   ml miniconda
   source activate ds-curate
-
-  npm install -g ajv-cli ajv-formats
 ```
 
