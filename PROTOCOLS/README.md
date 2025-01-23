@@ -24,7 +24,7 @@ We would love to work with you.
 
 ## General procedure for doing curation work on the datastore <a name="datastore-curation"/>
 
-#### Datastore instances and organization
+### Datastore instances and organization
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
   - atlas-login.hpc.msstate.edu
@@ -49,7 +49,7 @@ There are also three affiliated directories at the same root level:
 * datastore-registry  -- For registering "key4" values; tracks https://github.com/legumeinfo/datastore-registry
 * datastore-specifications  -- Specifications and documentation, including this README
 
-#### Establish an interactive session on a computation node
+### Establish an interactive session on a computation node
 
 The [ceres and atlas resources](https://scinet.usda.gov/guides/resources/CeresAtlasDifferences) are a managed HPC environments, 
 in which computational work is done either in
@@ -67,7 +67,20 @@ Or for longer-running jobs, use a job submission script.
   https://scinet.usda.gov/guides/use/slurm
 ```
 
-#### Start a conda environment with software needed for curation
+### Set paths and start a conda environment with software needed for curation
+
+Software for curation includes both project-specific scripts (validators, formatters, etc.) and third-party tools (gffread, samtools, etc.).
+
+The project-specifc scripts are managed within the present repository, in the 
+[scripts directory](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts).
+
+These scripts (and the repository) also has an instance alongside the datastore, at
+`/usr/local/www/data/datastore-specifications/scripts/`. 
+
+For convenience, it is recommended to add this directory to your .bashrc file:
+``` bash
+  PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH
+```
 
 Several software packages are needed for many curation tasks, e.g., bioperl, samtools, gffread, yamllint.
 These have been loaded into a conda environment. So, at the start of an interactive session, this environment
@@ -116,7 +129,7 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
 
 ## General procedure for adding a new data set to the datastore <a name="adding-to-the-datastore"/>
 
-#### Upload the data to the datastore curation instance
+### Upload the data to the datastore curation instance
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
   - atlas-login.hpc.msstate.edu
@@ -127,7 +140,7 @@ subdirectory (organized by genus and species and generally mirroring the organiz
 
 Data can be transferred to "private" using typical methods, e.g. scp or Globus.
 
-#### Name the directories and files
+### Name the directories and files
 Apply directory names, following the patterns described in specifications in this repository.
 
 <u>Note: For genomes and annotation, please see [Automating the process for genome and annotation collections with ds_souschef](#using-souschef)
@@ -150,7 +163,7 @@ For collections that are typically associated with a publication, the unique "ke
   maps: MAGIC-2017.map.Huynh_Ehlers_2018
   markers: IT97K-499-35.gnm1.mrk.Cowpea1MSelectedSNPs
 ```
-#### Fill out the README and MANIFEST files
+### Fill out the README and MANIFEST files
 Fill out the README file. The empty template is at
 https://github.com/legumeinfo/datastore-specifications/blob/main/README.collection.yml
 but it is often easiest to copy a README from another data collection for the
@@ -180,11 +193,11 @@ cat MANIFEST.Wm82.gnm2.DTC4.descriptions.yml
 glyma.Wm82.gnm2.DTC4.hardmasked.fna.gz: Genome assembly: masked with 'N's
 glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
 ```
-#### Calculate the CHECKSUMs <a name="checksums"></a>
+### Calculate the CHECKSUMs <a name="checksums"></a>
 ```
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
-#### Move the collection from private to v2
+### Move the collection from private to v2
 Move the directory from private to v2, e.g.
 ```
   DIR=MY_NEW_DIRECTORY
@@ -210,7 +223,7 @@ The ds_souschef.pl tool can be applied to datasets from other sources, but the p
 configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
 and patterns, reflected in this Arabidopsis example.
 
-#### Download assembly and annotation into working directory:
+### Download assembly and annotation into working directory:
 ```bash
   cd /usr/local/www/data/private/Arabidopsis/thaliana
 ```
@@ -220,7 +233,7 @@ The directory layout for Phytozome assembly and annotation files (for this examp
   Athaliana_447_Araport11/assembly
   Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt
 ```
-#### Examine the IDs in the annotations
+### Examine the IDs in the annotations
 In the case of the JGI/Araport11 annotations, the GFF has ID suffixes like
   AT1G01020.Araport11.447
 ... but the fasta sequences (cds, protein, transcript) do not. So, do some pre-processing
@@ -234,7 +247,7 @@ to get a GFF that will be compatible with the fata annotations:
     perl -pe 's/\.Araport11\.447//g' |
     bgzip -c > Athaliana_447_Araport11/annotation/Athaliana_447_Araport11.gene_exons.no_suffix.gff3.gz
 ```
-#### Register keys
+### Register keys
 First check status of the local instance of the registry.
 Clone it if you don't have it already):
 ```bash
@@ -246,45 +259,45 @@ Clone it if you don't have it already):
   git commit -m "Add keys for Xxx xxx assembly and annotations"
   git push
 ```
-#### Prepare a config file
+### Prepare a config file
 Set up a config file at /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
 Base it on a config file for another Phytozome collection.
 ```bash
   vim conf_arath.Col0.gnm9.yml
 ```
-#### Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
+### Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
 ```bash
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/annotation/
   cp Athaliana_447_Araport11/Athaliana_447_Araport11.readme.txt Athaliana_447_Araport11/assembly/
 ```
-#### Run ds_souschef.pl
+### Run ds_souschef.pl
 The **ds_souschef.pl** program can be run from anywhere, but it is convenient to run it from the configs directory.
 Output goes to the working directory specified in the config file.
 ```bash
   cd /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs/
   ../ds_souschef.pl -config conf_arath.Col0.gnm9.yml
 ```
-#### Check the results
+### Check the results
 Check the new collections in the working directory, in annotations/ and genomes/
 Check that all files have non-zero size, that features have the correct prefixing, etc.
 Check for UNDEFINED in the annotation files; this indicates a problem in the hashing.
 
-#### Compress and index
+### Compress and index
 ```bash
   cd /usr/local/www/data/private/GENUS/SPECIES
   compress_and_index.sh genomes/COLLECTION
   compress_and_index.sh annotations/COLLECTION
 ```
-#### Validate the README files
+### Validate the README files
 ```bash
   validate.sh readme genomes/COLLECTION/README*yml
   validate.sh readme annotations/COLLECTION/README*yml
 ```
-#### Calculate the CHECKSUMs 
+### Calculate the CHECKSUMs 
 ```
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
-#### Move the collections into place in data/v2/
+### Move the collections into place in data/v2/
 ```bash
   cd /usr/local/www/data/v2/Genus/species
   mv annotations/COLLECTION  /usr/local/www/data/v2/Genus/species/annotations/
