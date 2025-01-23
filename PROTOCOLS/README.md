@@ -1,8 +1,14 @@
 # General protocols: procedures for adding new data, etc.
 Instructions for adding data to the datastore and then updating associated LIS/SoyBase/PeanutBase resources.
 
+NOTE: The instructions below are for curators working on files used by
+legumeinfo.org, soybase.org, and peanutbase.org.
+If you are a researcher or user of and you have a data set that you would like
+to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
+We would love to work with you.
+
 ## Table of Contents
-[General procedure for adding a new data set to the datastore](#datastore-curation) <br>
+[Datastore instances and organization](#datastore-curation) <br>
 [General procedure for adding a new data set to the datastore](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
@@ -17,12 +23,6 @@ Instructions for adding data to the datastore and then updating associated LIS/S
 [Update browser configs](#update-browsers) <br>
 
 ## General procedure for doing curation work on the datastore <a name="datastore-curation"/>
-
-NOTE: The instructions below are for curators working on files used by
-legumeinfo.org, soybase.org, and peanutbase.org.
-If you are a researcher or user of and you have a data set that you would like
-to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
-We would love to work with you.
 
 #### Datastore instances and organization
 As of January 2025, the datastore is being maintained at three locations:
