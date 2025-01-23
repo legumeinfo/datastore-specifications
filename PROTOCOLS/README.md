@@ -2,6 +2,7 @@
 Instructions for adding data to the datastore and then updating associated LIS/SoyBase/PeanutBase resources.
 
 ## Table of Contents
+[General procedure for adding a new data set to the datastore](#datastore-curation) <br>
 [General procedure for adding a new data set to the datastore](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
@@ -15,7 +16,7 @@ Instructions for adding data to the datastore and then updating associated LIS/S
 [Update the jekyll collections listing](#update-jekyll) <br>
 [Update browser configs](#update-browsers) <br>
 
-## General procedure for adding a new data set to the datastore <a name="adding-to-the-datastore"/>
+## General procedure for doing curation work on the datastore <a name="datastore-curation"/>
 
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
@@ -23,7 +24,7 @@ If you are a researcher or user of and you have a data set that you would like
 to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
 We would love to work with you.
 
-#### Upload the data to the datastore curation instance
+#### Datastore instances and organization
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
   - atlas-login.hpc.msstate.edu
@@ -111,6 +112,20 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
   ```
 
 </details>
+
+
+## General procedure for adding a new data set to the datastore <a name="adding-to-the-datastore"/>
+
+#### Upload the data to the datastore curation instance
+As of January 2025, the datastore is being maintained at three locations:
+  - ceres.scinet.usda.gov
+  - atlas-login.hpc.msstate.edu
+  - soybase-stage.usda.iastate.edu
+
+In general, during preparation, data should initially go into "private" (`/project/legume_project/datastore/private`), in a suitable
+subdirectory (organized by genus and species and generally mirroring the organization of "public").
+
+Data can be transferred to "private" using typical methods, e.g. scp or Globus.
 
 #### Name the directories and files
 Apply directory names, following the patterns described in specifications in this repository.
