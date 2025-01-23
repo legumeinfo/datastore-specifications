@@ -1,8 +1,8 @@
 # General protocols: procedures for adding new data, etc.
-Instructions for adding data to the Data Store and then updating associated LIS/SoyBase/PeanutBase resources.
+Instructions for adding data to the datastore and then updating associated LIS/SoyBase/PeanutBase resources.
 
 ## Table of Contents
-[General procedure for adding a new data set to the data store](#adding-to-the-datastore) <br>
+[General procedure for adding a new data set to the datastore](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
 [Initiate or update "about_this_collection.yml"](#description-genus-species) <br>
@@ -15,7 +15,7 @@ Instructions for adding data to the Data Store and then updating associated LIS/
 [Update the jekyll collections listing](#update-jekyll) <br>
 [Update browser configs](#update-browsers) <br>
 
-## General procedure for adding a new data set to the data store <a name="adding-to-the-datastore"/>
+## General procedure for adding a new data set to the datastore <a name="adding-to-the-datastore"/>
 
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
@@ -23,15 +23,92 @@ If you are a researcher or user of and you have a data set that you would like
 to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
 We would love to work with you.
 
-#### Upload the data to the local Data Store file system
-The data store is accessible via command line from several servers.
-As of summer, 2021, any of these servers can be used:
-  - lis-stage.usda.iastate.edu
+#### Upload the data to the datastore curation instance
+As of January 2025, the datastore is being maintained at three locations:
+  - ceres.scinet.usda.gov
+  - atlas-login.hpc.msstate.edu
   - soybase-stage.usda.iastate.edu
-  - legumefederation.usda.iastate.edu
-  - peanutbase-stage.usda.iastate.edu
 
-Upload (scp) data to the private directory (and appropriate subdirectory), e.g. /usr/local/www/data/private/Glycine/max
+A nightly cron job syncs these instances in the direction of ceres to soybase-stage and atlas to soybase-stage.
+The public content of the datastore is made available via https from the instance at soybase-stage.
+
+The datastore currently contains these root-level directories:
+* `annex`  -- For curated public data that lacks specification or formalized metadata (use judiciously)
+* `conda-envs`  -- The conda software environment sufficient for most curation
+* `datastore-registry`  -- For registering "key4" values; tracks https://github.com/legumeinfo/datastore-registry
+* `datastore-specifications`  -- Specifications and documentation, including this README
+* `private`  -- Staging area; not publicly accessible
+* `v2`  -- The public datastore, accessed at https://data.legumeinfo.org or https://data.soybase.org
+
+<b>The best practice is to do any curation on ceres.</b> The instance at soybase-stage is being used for display
+of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org. The instance at 
+atlas-login.hpc.msstate.edu is for backup and for data access when ceres is unavailable due to periodic maintenance.
+
+The longer-term plan is for the datastore to be hosted for public access in a USDA Azure instance, with a .gov URL.
+
+#### Establish an interactive session on a computation node
+
+The [ceres and atlas resources](https://scinet.usda.gov/guides/resources/CeresAtlasDifferences) are a managed HPC environments, 
+in which computational work is done either in
+an interactive session or via a [SLURM job](https://scinet.usda.gov/guides/use/slurm). 
+It is very important not to try to do work beyond simple navigation
+or file transfers on the login nodes. Rather, for an interactive session, start a SLURM job:
+
+```
+  salloc  # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
+```
+
+Or for longer-running jobs, use a job submission script.
+  
+```
+  https://scinet.usda.gov/guides/use/slurm
+```
+
+#### Start a conda environment with software needed for curation
+
+Several software packages are needed for many curation tasks, e.g., bioperl, samtools, gffread, yamllint.
+These have been loaded into a conda environment. So, at the start of an interactive session, this environment
+can be loaded like so:
+
+```
+  salloc
+  ml miniconda
+  source activate /project/legume_project/datastore/conda-envs/ds-curate
+```
+
+A variation on this is to add a link to that environment to your local set of .conda environments. 
+This has the advantage of reducing the length of the command prompt:
+
+```
+  cd ~
+  ln -s /project/legume_project/datastore/conda-envs/ds-curate ~/.conda/envs/ds-curate
+  echo $PWD/.conda/envs/ds-curate >> ~/.conda/environments.txt
+  # then check ~/.conda/environments.txt to make sure you don't have two instances of ds-curate
+
+Then, as above, but
+  source activate ds-curate
+
+```
+<details>
+
+The following recipe creates a conda environment, `ds-curate`, in a common location,
+`/project/legume_project/datastore/conda-envs/`. The environment should be available to all members of the legume_project group.
+
+  ```
+  salloc    # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
+
+  ml miniconda
+  conda create --prefix /project/legume_project/datastore/conda-envs/ds-curate
+  source activate /project/legume_project/datastore/conda-envs/ds-curate
+  conda install -c conda-forge -c bioconda \
+    bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
+    conda-forge::ncbi-datasets-cli bioconda::gffread \
+    conda-forge::yamllint conda-forge::nodejs
+
+  npm install -g ajv-cli ajv-formats
+  ```
+
+</details>
 
 #### Name the directories and files
 Apply directory names, following the patterns described in specifications in this repository.
@@ -104,19 +181,19 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
 
 ## Procedure for adding genome and annotation collections with ds_souschef <a name="using-souschef"></a>
 The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
-to transform provided genome assembly and annotation files into collections that follow Data Store conventions.
+to transform provided genome assembly and annotation files into collections that follow datastore conventions.
 Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is
 to store configuration files in that directory, for each new assembly+annotation collection set. There is one
 configuration file, in yaml format, for each assembly+annotation pair to be processed by ds_souschef.pl.
 
-The instructions below use the example of *Arabidopsis thaliana* (included in the Data Store for its general
+The instructions below use the example of *Arabidopsis thaliana* (included in the datastore for its general
 utility as a plant biology model species). The data set in this example came from Phytozome prior to conversion to the
-LIS Data Store formats, and originated ultimately from the Arabidopsis Genome Initiative, TAIR, and Araport projects.
+LIS datastore formats, and originated ultimately from the Arabidopsis Genome Initiative, TAIR, and Araport projects.
 The ds_souschef.pl tool can be applied to datasets from other sources, but the particular information in the
 configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
 and patterns, reflected in this Arabidopsis example.
 
-#### Download assembly and annotation into working directory at lis-stage:
+#### Download assembly and annotation into working directory:
 ```bash
   cd /usr/local/www/data/private/Arabidopsis/thaliana
 ```
