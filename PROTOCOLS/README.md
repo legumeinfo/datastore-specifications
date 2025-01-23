@@ -32,19 +32,21 @@ As of January 2025, the datastore is being maintained at three locations:
 A nightly cron job syncs these instances in the direction of ceres to soybase-stage and atlas to soybase-stage.
 The public content of the datastore is made available via https from the instance at soybase-stage.
 
-The datastore currently contains these root-level directories:
-* `annex`  -- For curated public data that lacks specification or formalized metadata (use judiciously)
-* `conda-envs`  -- The conda software environment sufficient for most curation
-* `datastore-registry`  -- For registering "key4" values; tracks https://github.com/legumeinfo/datastore-registry
-* `datastore-specifications`  -- Specifications and documentation, including this README
-* `private`  -- Staging area; not publicly accessible
-* `v2`  -- The public datastore, accessed at https://data.legumeinfo.org or https://data.soybase.org
-
 <b>The best practice is to do any curation on ceres.</b> The instance at soybase-stage is being used for display
 of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org. The instance at 
 atlas-login.hpc.msstate.edu is for backup and for data access when ceres is unavailable due to periodic maintenance.
 
 The longer-term plan is for the datastore to be hosted for public access in a USDA Azure instance, with a .gov URL.
+
+"The datastore" is comprised of three directories:
+* <b>v2</b>  -- The public datastore, accessed at https://data.legumeinfo.org or https://data.soybase.org
+* <b>annex</b>  -- For curated public data that lacks specification or formalized metadata (use judiciously)
+* private  -- Staging area; not publicly accessible
+
+There are also three affiliated directories at the same root level:
+* conda-envs  -- The conda software environment sufficient for most curation
+* datastore-registry  -- For registering "key4" values; tracks https://github.com/legumeinfo/datastore-registry
+* datastore-specifications  -- Specifications and documentation, including this README
 
 #### Establish an interactive session on a computation node
 
