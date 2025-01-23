@@ -61,12 +61,8 @@ or file transfers on the login nodes. Rather, for an interactive session, start 
   salloc  # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
 ```
 
-Or for longer-running jobs, use a job submission script.
+Or for longer-running jobs, use a [job submission script](https://scinet.usda.gov/guides/use/slurm).
   
-```
-  https://scinet.usda.gov/guides/use/slurm
-```
-
 ### Set paths and start a conda environment with software needed for curation
 
 Software for curation includes both project-specific scripts (validators, formatters, etc.) and third-party tools (gffread, samtools, etc.).
