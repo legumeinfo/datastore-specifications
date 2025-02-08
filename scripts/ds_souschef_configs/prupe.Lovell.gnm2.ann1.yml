@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Prunus/persica
+  work_dir: /project/legume_project/datastore/private/Prunus/persica
   from_annot_dir: Ppersica/annotation
   from_genome_dir: Ppersica/assembly
 prefixes:

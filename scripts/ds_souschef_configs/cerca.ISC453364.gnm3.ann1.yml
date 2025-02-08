@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Cercis/canadensis
+  work_dir: /project/legume_project/datastore/private/Cercis/canadensis
   from_annot_dir: ISC453364.gnm3.ann1/V3.1/annotation
   from_genome_dir: ISC453364.gnm3.ann1/V3.1/assembly
 prefixes:

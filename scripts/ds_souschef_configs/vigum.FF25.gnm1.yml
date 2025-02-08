@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Vigna/umbellata
+  work_dir: /project/legume_project/datastore/private/Vigna/umbellata
   from_annot_dir: Vumbellata/v1.0/annotation
   from_genome_dir: Vumbellata/v1.0/assembly
 prefixes:

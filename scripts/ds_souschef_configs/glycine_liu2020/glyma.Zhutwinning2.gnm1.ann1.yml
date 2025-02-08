@@ -1,6 +1,6 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Glycine/liu_et_al_2020_pangenome/max
+    work_dir: /project/legume_project/datastore/private/Glycine/liu_et_al_2020_pangenome/max
     from_annot_dir: SoyL01_asm_GWHACEB00000000
     from_genome_dir: SoyL01_asm_GWHACEB00000000
 prefixes:

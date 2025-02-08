@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Phanera/championii/longxuteng.gnm1.ann1
+  work_dir: /project/legume_project/datastore/private/Phanera/championii/longxuteng.gnm1.ann1
   from_annot_dir: derived
   from_genome_dir: derived
 prefixes:

@@ -11,10 +11,10 @@ DONT_RUN_ME
 echo; exit 1;
 
 # Variables for this job
-  PRIVATE=/usr/local/www/data/private  
-  PUBLIC=/usr/local/www/data/v2 
-  ANNEX=/usr/local/www/data/annex
-  CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs/pangene_sets
+  PRIVATE=/project/legume_project/datastore/private  
+  PUBLIC=/project/legume_project/datastore/v2 
+  ANNEX=/project/legume_project/datastore/annex
+  CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs/pangene_sets
 
   GENUS=Phaseolus
   PANNUM=pan3
@@ -22,15 +22,15 @@ echo; exit 1;
   KEY4=LXKV   # NOTE: Get the key with register_key.pl below !
 
 # Register key. 
-  cd /usr/local/www/data/datastore-registry
+  cd /project/legume_project/datastore/datastore-registry
   ./register_key.pl -v "$GENUS GENUS pangenes $GENUS.$PANNUM"
   # Remember to add, commit, and push the updated ds_registry.tsv 
   
-# Copy out_ directory from ceres to /usr/local/www/data/private/$GENUS/GENUS
+# Copy out_ directory from ceres to /project/legume_project/datastore/private/$GENUS/GENUS
   cd $PRIVATE/$GENUS/GENUS
 
 # Prepare config - step 1. To get the annotation lists for annotations_main and annotations_extra, run the following
-# (the script is in /usr/local/www/data/datastore-specifications/scripts):
+# (the script is in /project/legume_project/datastore/datastore-specifications/scripts):
   pan_stats_to_annot_lists.awk $PRIVATE/$GENUS/GENUS/out_pandagma/stats.txt
 
 # Prepare the config - step 2. This is best done by copying from a previous config file and modifying fields as needed.

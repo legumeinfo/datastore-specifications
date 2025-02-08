@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Vigna/mungo
+  work_dir: /project/legume_project/datastore/private/Vigna/mungo
   from_annot_dir: Vmungo/v1.0/annotation
   from_genome_dir: Vmungo/v1.0/assembly
 prefixes:

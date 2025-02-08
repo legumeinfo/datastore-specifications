@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Arabidopsis/thaliana
+  work_dir: /project/legume_project/datastore/private/Arabidopsis/thaliana
   from_annot_dir: Athaliana_447_Araport11/annotation
   from_genome_dir: Athaliana_447_Araport11/assembly
 prefixes:

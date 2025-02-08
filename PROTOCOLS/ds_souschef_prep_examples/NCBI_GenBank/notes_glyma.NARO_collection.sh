@@ -255,11 +255,11 @@ perl -pi -e 's/ +/\t/' lis.to_process
   mdsum-folder.bash genomes/$STRAIN.$GNM.$GKEY
 
 # Move to annex, for next steps by Andrew (AHRD and BUSCO)
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
-  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mv genomes/$STRAIN.$GNM.$GKEY /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mv genomes/$STRAIN.$GNM.$GKEY /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
 # Push the ds_souschef config to GitHub
 

@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Arachis/hypogaea/Tifrunner.gnm1.ann2
+  work_dir: /project/legume_project/datastore/private/Arachis/hypogaea/Tifrunner.gnm1.ann2
   from_annot_dir: GCF_003086295.2
   from_genome_dir: GCF_003086295.2
 prefixes:

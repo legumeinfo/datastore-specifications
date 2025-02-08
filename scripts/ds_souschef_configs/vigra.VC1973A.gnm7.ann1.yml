@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Vigna/radiata/VC1973A.gnm7
+  work_dir: /project/legume_project/datastore/private/Vigna/radiata/VC1973A.gnm7
   from_annot_dir: orig_annot
   from_genome_dir: orig_assembly
 prefixes:

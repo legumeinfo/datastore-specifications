@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Arachis/hypogaea/BaileyII.gnm1
+  work_dir: /project/legume_project/datastore/private/Arachis/hypogaea/BaileyII.gnm1
   from_annot_dir: annot
   from_genome_dir: JAGJTH01
 prefixes:

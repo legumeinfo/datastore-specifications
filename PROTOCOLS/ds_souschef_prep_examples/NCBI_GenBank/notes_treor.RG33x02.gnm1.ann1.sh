@@ -18,12 +18,12 @@ echo; exit 1;
 van Velzen R, Holmer R, Bu F, Rutten L, van Zeijl A, Liu W, Santuari L, Cao Q, Sharma T, Shen D, Roswanjaya Y, Wardhani TAK, Kalhor MS, Jansen J, van den Hoogen J, Güngör B, Hartog M, Hontelez J, Verver J, Yang WC, Schijlen E, Repin R, Schilthuizen M, Schranz ME, Heidstra R, Miyata K, Fedorova E, Kohlen W, Bisseling T, Smit S, Geurts R. Comparative genomics of the nonlegume Parasponia reveals insights into evolution of nitrogen-fixing rhizobium symbioses. Proc Natl Acad Sci U S A. 2018 May 15;115(20):E4700-E4709. doi: 10.1073/pnas.1721395115. Epub 2018 May 1. PMID: 29717040; PMCID: PMC5960304.
 REFERENCE
 
-# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
+# NOTE: utility scripts are at /project/legume_project/datastore/datastore-specifications/scripts/
 # If not added already to the PATH, do:
-    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
+    PATH=/project/legume_project/datastore/datastore-specifications/scripts:$PATH 
 
 # Variables for this job
-  PRIVATE=/usr/local/www/data/private  # Set this to the Data Store private root directory, i.e. ...data/private
+  PRIVATE=/project/legume_project/datastore/private  # Set this to the Data Store private root directory, i.e. ...data/private
   ACCN=GCA_002914845.1
   STRAIN=RG33x02
   GENUS=Trema
@@ -32,7 +32,7 @@ REFERENCE
   GNM=gnm1
   ANN=ann1  
   GENOME=GCA_002914845.1_TorRG33x02_asm01_genomic.fna
-  CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
+  CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
   TO=derived
 
@@ -40,9 +40,9 @@ REFERENCE
   GKEY=VNHN
   AKEY=BP51
 
-# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
+# Register new keys at peanutbase-stage:/project/legume_project/datastore/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
-  cd /usr/local/www/data/datastore-registry
+  cd /project/legume_project/datastore/datastore-registry
   ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
   ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
 # NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
@@ -84,7 +84,7 @@ REFERENCE
 # Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs.
 # Also remove MT and Pltd records (which lack strand information so cause errors with gffread)
 # NOTE: This step takes LONG time (perhaps 6-8 hours), so run it with nohup and in the background.
-  cd /usr/local/www/data/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
+  cd /project/legume_project/datastore/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
 
   hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
@@ -154,11 +154,11 @@ REFERENCE
   mdsum-folder.bash genomes/$STRAIN.$GNM.$GKEY
 
 # Move to annex, for next steps by Andrew (AHRD and BUSCO)
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
-  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mv genomes/$STRAIN.$GNM.$GKEY /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mv genomes/$STRAIN.$GNM.$GKEY /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
 # Push the ds_souschef config to GitHub
 

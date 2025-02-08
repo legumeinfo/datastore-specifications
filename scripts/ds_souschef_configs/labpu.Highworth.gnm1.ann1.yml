@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Lablab/purpureus
+  work_dir: /project/legume_project/datastore/private/Lablab/purpureus
   from_annot_dir: lablab_ILRI
   from_genome_dir: lablab_ILRI
 prefixes:

@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Glycine/max/Garg_Khan_Wm82_Lee
+  work_dir: /project/legume_project/datastore/private/Glycine/max/Garg_Khan_Wm82_Lee
   from_annot_dir: annot_orig
   from_genome_dir: gnm_orig
 prefixes:

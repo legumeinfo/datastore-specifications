@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Vicia/faba
+  work_dir: /project/legume_project/datastore/private/Vicia/faba
   from_annot_dir: prep1
   from_genome_dir: prep1
 prefixes:

@@ -21,12 +21,12 @@ A reference assembly for the legume cover crop hairy vetch (Vicia villosa). Giga
 doi: 10.46471/gigabyte.98. PMID: 38023065; PMCID: PMC10659084.
 REFERENCE
 
-# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
+# NOTE: utility scripts are at /project/legume_project/datastore/datastore-specifications/scripts/
 # If not added already to the PATH, do:
-    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
+    PATH=/project/legume_project/datastore/datastore-specifications/scripts:$PATH 
 
 # Variables for this job
-  PRIVATE=/usr/local/www/data/private   # Set this to the Data Store private root directory, i.e. ...data/private
+  PRIVATE=/project/legume_project/datastore/private   # Set this to the Data Store private root directory, i.e. ...data/private
   ACCN=GCF_029867415.1
   STRAIN=HV-30
   GENUS=Vicia
@@ -35,7 +35,7 @@ REFERENCE
   GNM=gnm1
   ANN=ann1  
   GENOME=GCF_029867415.1_Vvil1.0_genomic.fna
-  CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
+  CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
   TO=derived
 
@@ -43,9 +43,9 @@ REFERENCE
   GKEY=2TXG
   AKEY=6WFF
 
-# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
+# Register new keys at peanutbase-stage:/project/legume_project/datastore/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
-  cd /usr/local/www/data/datastore-registry
+  cd /project/legume_project/datastore/datastore-registry
   ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
   ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
 # NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
@@ -64,7 +64,7 @@ REFERENCE
   rm -rf ncbi_dataset/ download
 
 # Prepare the data here:
-  cd /usr/local/www/data/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
+  cd /project/legume_project/datastore/private/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
 # Make a directory for derived files if needed
   mkdir -p $TO $FROM
@@ -154,11 +154,11 @@ REFERENCE
   mdsum-folder.bash genomes/$STRAIN.$GNM.$GKEY
 
 # Move to annex, for next steps by Andrew (AHRD and BUSCO)
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
-  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mv genomes/$STRAIN.$GNM.$GKEY /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mv genomes/$STRAIN.$GNM.$GKEY /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
 # Push the ds_souschef config to GitHub
 

@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Dalbergia/odorifera
+  work_dir: /project/legume_project/datastore/private/Dalbergia/odorifera
   from_annot_dir: 10.5524/100760
   from_genome_dir: 10.5524/100760
 prefixes:

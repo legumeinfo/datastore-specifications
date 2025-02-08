@@ -15,12 +15,12 @@ echo; exit 1;
 Guerra-García A, Rojas-Barrera IC, Ross-Ibarra J, Papa R, Piñero D. The genomic signature of wild-to-crop introgression during the domestication of scarlet runner bean (Phaseolus coccineus L.). Evol Lett. 2022 Jun 15;6(4):295-307. doi: 10.1002/evl3.285. PMID: 35937471; PMCID: PMC9346085.
 REFERENCE
 
-# NOTE: utility scripts are at /usr/local/www/data/datastore-specifications/scripts/
+# NOTE: utility scripts are at /project/legume_project/datastore/datastore-specifications/scripts/
 # If not added already to the PATH, do:
-    PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH 
+    PATH=/project/legume_project/datastore/datastore-specifications/scripts:$PATH 
 
 # Variables for this job
-  PRIVATE=/usr/local/www/data/private   # Set this to the Data Store private root directory, i.e. ...data/private/
+  PRIVATE=/project/legume_project/datastore/private   # Set this to the Data Store private root directory, i.e. ...data/private/
   PZGSP=Pcoccineus  # For Phytozome, use the (G)(species) name, e.g. Gmax
   export PZVER="v1.1"  # For Phytozome, use the directory name that indicates the version, e.g. v1.1 or V3.1
   STRAIN=PHA8298
@@ -31,15 +31,15 @@ REFERENCE
   ANN=ann1  
   GENOME=Pcoccineus_703_v1.0
   ANNOTATION=Pcoccineus_703_v1.1
-  CONFIGDIR=/usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
+  CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
 
 # NOTE: Get the keys with register_key.pl below !
   GKEY=PYJ1
   AKEY=0Q14
 
-# Register new keys at peanutbase-stage:/usr/local/www/data/datastore-registry
+# Register new keys at peanutbase-stage:/project/legume_project/datastore/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
-  cd /usr/local/www/data/datastore-registry
+  cd /project/legume_project/datastore/datastore-registry
   ./register_key.pl -v "$GENUS $SP genomes $STRAIN.$GNM"
   ./register_key.pl -v "$GENUS $SP annotations $STRAIN.$GNM.$ANN"
 # NOTE: Remember to add, commit, and push the updated ds_registry.tsv  
@@ -107,11 +107,11 @@ REFERENCE
   mdsum-folder.bash genomes/$STRAIN.$GNM.$GKEY
 
 # Move to annex, for next steps by Andrew (AHRD and BUSCO)
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mkdir -p /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mkdir -p /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
-  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /usr/local/www/data/annex/$GENUS/$SP/annotations/
-  mv genomes/$STRAIN.$GNM.$GKEY /usr/local/www/data/annex/$GENUS/$SP/genomes/
+  mv annotations/$STRAIN.$GNM.$ANN.$AKEY /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
+  mv genomes/$STRAIN.$GNM.$GKEY /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
 
 # Push the ds_souschef config to GitHub
   cd $CONFIGDIR

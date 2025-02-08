@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Arachis/stenosperma/V10309.gnm1.ann1
+  work_dir: /project/legume_project/datastore/private/Arachis/stenosperma/V10309.gnm1.ann1
   from_annot_dir: derived
   from_genome_dir: derived
 prefixes:

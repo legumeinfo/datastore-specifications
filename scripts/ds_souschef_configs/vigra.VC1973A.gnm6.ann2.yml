@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Vigna/radiata/VC1973A.gnm6
+  work_dir: /project/legume_project/datastore/private/Vigna/radiata/VC1973A.gnm6
   from_annot_dir: vigra.JJMO01/GCF_000741045.1
   from_genome_dir: vigra.JJMO01/GCF_000741045.1
 prefixes:

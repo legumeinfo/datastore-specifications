@@ -1,6 +1,6 @@
 ---
 directories:
-  work_dir: /usr/local/www/data/private/Glycine/max/Wm82.gnm6.ann1
+  work_dir: /project/legume_project/datastore/private/Glycine/max/Wm82.gnm6.ann1
   from_annot_dir: Wm82.a6.v1/annotation
   from_genome_dir: Wm82.a6.v1/assembly
 prefixes:
