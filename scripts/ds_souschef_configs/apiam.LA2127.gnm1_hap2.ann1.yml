@@ -5,21 +5,21 @@ directories:
   from_genome_dir: derived
 prefixes:
   from_annot_prefix: 
-  from_genome_prefix: "Apios.americana.hap1."
+  from_genome_prefix: "Apios.americana.hap2."
 collection_info:
   genus: Apios
   species: americana
   scientific_name_abbrev: apiam
   coll_genotype: LA2127
-  gnm_ver: gnm1
+  gnm_ver: gnm1_hap2
   ann_ver: ann1
-  genome_key: KVMK
-  annot_key: QKWH
+  genome_key: 3WWC
+  annot_key: NT2R
 readme_info:
   provenance: "The files in this directory originated from http://legumeinfo.org. The Legumeinfo repository is considered the primary repository and authoritative. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
   source: "https://legumeinfo.org"
-  synopsis_genome: Apios americana accession LA2127, genome assembly v1, haplotype 1"
-  synopsis_annot: Annotation 1 for Apios americana accession LA2127, genome assembly v1, haplotype 1"
+  synopsis_genome: Apios americana accession LA2127, genome assembly v1, haplotype 2"
+  synopsis_annot: Annotation 1 for Apios americana accession LA2127, genome assembly v1, haplotype 2"
   genotype: LA2127
   taxid: "185702"
   description_genome: "This release is from an accession from Ames, Iowa, LA2127, which is clonally derived from an accession of this name from Dr William Blackmon, from a breeding project that he led in the late 1980s at the University of Louisiana. Sequencing was performed by HudsonAlpha Institute, with the assembly deriving from 191.678 Gb of CCS PacBio Revio sequence."
