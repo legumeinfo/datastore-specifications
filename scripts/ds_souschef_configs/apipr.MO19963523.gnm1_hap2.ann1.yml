@@ -1,47 +1,47 @@
 ---
 directories:
-  work_dir: /project/legume_project/datastore/private/Apios/americana/LA2127.gnm1_hap2.ann1
+  work_dir: /project/legume_project/datastore/private/Apios/priceana/MO19963523.gnm1_hap2.ann1
   from_annot_dir: derived
   from_genome_dir: derived
 prefixes:
   from_annot_prefix: 
-  from_genome_prefix: "Apios.americana.hap2."
+  from_genome_prefix: "Apios.priceana.hap2."
 collection_info:
   genus: Apios
-  species: americana
-  scientific_name_abbrev: apiam
-  coll_genotype: LA2127
+  species: priceana
+  scientific_name_abbrev: apipr
+  coll_genotype: MO19963523
   gnm_ver: gnm1_hap2
   ann_ver: ann1
-  genome_key: 3WWC
-  annot_key: NT2R
+  genome_key: 814V
+  annot_key: P2VZ
 readme_info:
   provenance: "The files in this directory originated from http://legumeinfo.org. The Legumeinfo repository is considered the primary repository and authoritative. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
   source: "https://legumeinfo.org"
-  synopsis_genome: Apios americana accession LA2127, genome assembly v1, haplotype 2"
-  synopsis_annot: Annotation 1 for Apios americana accession LA2127, genome assembly v1, haplotype 2"
-  genotype: LA2127
-  taxid: "185702"
-  description_genome: "This release is from an accession from Ames, Iowa, LA2127, which is clonally derived from an accession of this name from Dr William Blackmon, from a breeding project that he led in the late 1980s at the University of Louisiana. Sequencing was performed by HudsonAlpha Institute, with the assembly deriving from 191.678 Gb of CCS PacBio Revio sequence."
+  synopsis_genome: Apios priceanaq accession MO19963523, genome assembly v1, haplotype 2"
+  synopsis_annot: Annotation 1 for Apios priceana accession MO19963523, genome assembly v1, haplotype 2"
+  genotype: MO19963523
+  taxid: "254393"
+  description_genome: "This release is from an accession from the Missouri Botanic Garden, from seed collected in 2026 derived from a plant collected by Dr. George Rogers on October 13th, 1987 (1987-3021) in Lee County Mississippi."
   chromosome_prefix: Chr
-  supercontig_prefix: scaffold
+  supercontig_prefix: HiC_scaffold
   description_annot: "Gene annotation resources. [XX placeholder]"
   bioproject:
   sraproject:
   dataset_doi_genome:
   dataset_doi_annot:
   genbank_accession:
-  original_file_creation_date: 2022-10-01
-  local_file_creation_date: 2025-02-08
-  dataset_release_date: 2024-08-01
-  contributors: Steven Cannon, Josh Clevenger, Rachel Walstead, Jane Grimwood
+  original_file_creation_date: 2025-01-30
+  local_file_creation_date: 2025-02-10
+  dataset_release_date: 2025-03-01
+  contributors: Steven Cannon, Josh Clevenger, Hallie Wright, Rachel Walstead, Jane Grimwood
   publication_doi:
   citation:
   publication_title:
   data_curators: Steven Cannon
   public_access_level: public, restricted
   license: Open, with usage agreement
-  keywords: "Apios, hopniss, American groundnut"
+  keywords: "Apios priceana, travelers delight" 
 from_to_genome:
   -
     from: fna.gz

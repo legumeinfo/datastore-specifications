@@ -1,4 +1,6 @@
-# Objective: Prepare assembly and annotation collection for Glycine max accession Wm82
+# Objective: Prepare assembly collection for Apios americana accession LA2127
+# Note: characteristics of this job include "genomes" only, no annotation; and the assembly resolved into two haplotypes.
+# The assembly is from HudsonAlpha.
 # Started on 2025-02-07
 
 # See the document here for detailed (general) instructions:
@@ -47,11 +49,10 @@ REFERENCE
   mkdir -p $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
   cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
 
-# Download the assembly and annotation files.
+# Download the assembly and annotation files into "original".
 
  mkdir original derived
 
- zcat original/Apios.americana.hap1.fa.gz | perl -pe 's/apios.americana.hap1.chr/Chr/' > derived/Apios.americana.hap1.fna
  zcat original/Apios.americana.hap2.fa.gz | perl -pe 's/apios.americana.hap2.chr/Chr/' > derived/Apios.americana.hap2.fna
 
 

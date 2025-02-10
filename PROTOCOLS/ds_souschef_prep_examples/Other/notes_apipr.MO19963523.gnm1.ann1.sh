@@ -1,4 +1,4 @@
-# Objective: Prepare assembly collection for Apios americana accession LA2127
+# Objective: Prepare assembly collection for Apios priceana accession MO19963523
 # Note: characteristics of this job include "genomes" only, no annotation; and the assembly resolved into two haplotypes.
 # The assembly is from HudsonAlpha.
 # Started on 2025-02-07
@@ -14,7 +14,6 @@ DONT_RUN_ME
 echo; exit 1;
 
 << REFERENCE
-Belamkar, V., Farmer, A.D., Weeks, N.T. Kalberer S.R., Blackmon, W.J., Cannon, S.B. Genomics-assisted characterization of a breeding collection of Apios americana, an edible tuberous legume. Sci Rep 6, 34908 (2016). https://doi.org/10.1038/srep34908
 REFERENCE
 
 # NOTE: utility scripts are at 
@@ -23,20 +22,20 @@ REFERENCE
 
 # Variables for this job
   PRIVATE=/project/legume_project/datastore/private   # Set this to the Data Store private root directory, i.e. ...data/private/
-  STRAIN=LA2127
+  STRAIN=MO19963523
   GENUS=Apios
-  SP=americana
-  GENSP=apiam
+  SP=priceana
+  GENSP=apipr
   GNM=gnm1
   ANN=ann1  
-  GENOME=Apios.americana # The filename prefix common among all genome files in the source
-  ANNOTATION=Apios.americana # The filename prefix ommon among all annotation files in the source
+  GENOME=Apios.priceana # The filename prefix common among all genome files in the source
+  ANNOTATION=Apios.priceana # The filename prefix ommon among all annotation files in the source
   CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
 
 
 # NOTE: Get the keys with register_key.pl below !
-  GKEY=KVMK
-  AKEY=QKWH
+  GKEY=814V
+  AKEY=P2VZ
 
 # Register new keys at /project/legume_project/datastore/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
@@ -53,7 +52,10 @@ REFERENCE
 
  mkdir original derived
 
- zcat original/Apios.americana.hap1.fa.gz | perl -pe 's/apios.americana.hap1.chr/Chr/' > derived/Apios.americana.hap1.fna
+ zcat original/Apios_priceana_hifiasm.hap1.FINAL.fasta.gz | 
+   awk '$1 ~ /_[0-9]$/ {print ">Chr0" substr($1,length($1),1)}
+        $1 ~ /_10$|_11$/ {print ">Chr" substr($1,length($1)-1,2)}
+        $1 !~ /_[0-9]$|_10$|_11$/ {print}' > derived/Apios.priceana.hap1.fna
 
 
 # Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
