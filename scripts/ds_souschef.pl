@@ -195,7 +195,9 @@ else { # Not a pangene job, so presume genomic
     $SEQID_MAP = $seqid_map;
   }
   
-  if ( $all || $make_featid_map ){ &make_featid_map }
+  if ( $all || $make_featid_map ){ 
+    &make_featid_map 
+  }
   if ($featid_map && !($make_featid_map)){ 
     say "Hash of old/new gene IDs has been provided:\n  $featid_map";
     $FEATID_MAP = $featid_map;
@@ -253,7 +255,6 @@ sub setup {
       if (-e $file && not $extend){ unlink $file or die "Can't unlink metadata file $file: $!" }
     }
   }
-
 }
 
 ##################################################
@@ -265,6 +266,7 @@ sub make_seqid_map {
   say "\n== Making a map (hash) of old/new chromosome and scaffold IDs, to go to the genomes directory ==";
   # Get path to main genome assembly input file, and regex for chromosomes and scaffolds
   my $GENOME_FILE_START;
+
   for my $fr_to_hsh (@{$confobj->{from_to_genome}}){ 
     if ($fr_to_hsh->{to} =~ /genome_main/){
       $GENOME_FILE_START = 
@@ -339,6 +341,12 @@ sub make_featid_map {
   my $GFF_FILE_START = "";
   my $GFF_EXONS_FILE_START = "";
   my ($strip_regex, $STRIP_RX);
+
+  unless (exists ${$confobj}{from_to_gff}){ 
+    say "There is no from_to_gff block in the config, so no featid_map will be calculated.";
+    say "Only a genome collection will be prepared.";
+    return;
+  }
   for my $fr_to_hsh (@{$confobj->{from_to_gff}}){ # Get the "strip" regex, if any, from the conf file
     if ($fr_to_hsh->{to} =~ /gene_models_main.gff3/){
       $GFF_FILE_START = 
@@ -905,3 +913,4 @@ Versions
 2024-04-22 Bug fix: call gff_as_is subroutine!
 2024-12-09 Write single combined MANIFEST file rather than separate correspondence and description files
 2025-01-13 Switch to zcat from gzcat.
+2024-02-09 Check if from_to_gff exists in config; if not, don't make annotation collection
