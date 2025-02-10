@@ -437,9 +437,11 @@ sub readme {
   for my $key (@readme_keys){
     if ($key =~ /provenance|source|description|synopsis|title|citation|date/ ){ # wrap in quotes
       #say "CHECK: $key: \"$readme_hsh{$key}\"\n";
-      say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
+      if ( $readme_hsh{$key} ){
+        say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
+      }
     }
-    elsif ( length($readme_hsh{$key}) == 0 ){
+    elsif ( $readme_hsh{$key} ){
       #say $GNM_README_FH "$key: \n";
       # Print nothing (no key, no value).
     }
@@ -454,7 +456,9 @@ sub readme {
       say $GNM_README_FH "";
     }
     else { # presume no quotes needed
-      say $GNM_README_FH "$key: $readme_hsh{$key}\n";
+      if ( $readme_hsh{$key} ){
+        say $GNM_README_FH "$key: $readme_hsh{$key}\n";
+      }
     }
   }
 
