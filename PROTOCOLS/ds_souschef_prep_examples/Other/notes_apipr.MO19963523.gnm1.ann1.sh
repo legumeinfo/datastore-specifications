@@ -57,9 +57,49 @@ REFERENCE
         $1 ~ /_10$|_11$/ {print ">Chr" substr($1,length($1)-1,2)}
         $1 !~ /_[0-9]$|_10$|_11$/ {print}' > derived/Apios.priceana.hap1.fna
 
-
 # Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
 # Also check the form of the chromosome and scaffold names. 
+
+<< ASSESS
+Based on initial comparisons with Apios americana,
+Reverse-complement these from priceana:
+  Chr01  Chr02  Chr05  Chr08  Chr11
+
+These pairs are non-matching:
+  Chr04-Chr04  Chr06-Chr06
+Rename, under the assumption that each is the other's missing matche
+  Chr04 ==> Chr06new   Chr06 ==> Chr04new
+ASSESS
+
+# Split pseudomolecules into separate files
+  cd derived
+
+  mkdir 00_scaffs 00_chr
+  
+  split_fasta_to_files_by_name.pl -in Apios.priceana.hap1.fna -out 00_scaffs
+  
+  cp 00_scaffs/* 00_chr/
+
+  revcomp.pl -in 00_scaffs/Chr01 > 00_chr/Chr01 & 
+  revcomp.pl -in 00_scaffs/Chr02 > 00_chr/Chr02 & 
+  revcomp.pl -in 00_scaffs/Chr05 > 00_chr/Chr05 & 
+  revcomp.pl -in 00_scaffs/Chr08 > 00_chr/Chr08 & 
+  revcomp.pl -in 00_scaffs/Chr11 > 00_chr/Chr11 &
+  
+    # Take care with the line width. The default is 100, which does match the other chromosomes.
+  
+# Swap Chr04 and Chr06
+  cp 00_scaffs/Chr04 00_chr/Chr06
+  cp 00_scaffs/Chr06 00_chr/Chr04
+
+# Generate a new genome file (destructive)
+  cat 00_chr/* > Apios.priceana.hap1.fna
+    rm -rf 00*
+  
+  cd ..
+  gzip derived/Apios.priceana.hap1.fna 
+
+# Then run ds_souschef.pl again
 
 # There are currently no annotations for Apios, so skip any annotation steps ...  
 
