@@ -102,14 +102,32 @@ ASSESS
 
 # Then run ds_souschef.pl again
 
-# There are currently no annotations for Apios, so skip any annotation steps ...  
+# Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
+# Also check the form of the chromosome and scaffold names.
+
+# For consistency in config file, add suffixes to braker sequence files
+  mv derived/braker.aa derived/braker.aa.faa
+  mv derived/braker.codingseq derived/braker.codingseq.fna
+
+# Remove datastore prefixes from annotation files, to match the "bare" original assembly
+  perl -pi -e 's/^api\w\w\.\w+\.\w+\.//' derived/braker.g*
+
+# Extract transcript sequence
+  gffread -g derived/Apios.priceana.hap1.fna -w derived/braker.transcripts.fna derived/braker.gff3
+
+# Derive primary/longest CDS, transcript, and protein sequences
+  cat derived/braker.transcripts.fna | longest_variant_from_fasta.sh > derived/braker.transcripts_primary.fna &
+  cat derived/braker.codingseq.fna | longest_variant_from_fasta.sh > derived/braker.CDS_primary.fna &
+  cat derived/braker.aa.faa | longest_variant_from_fasta.sh > derived/braker.protein_primary.faa &
+  wait
 
 
-## Compress annotation_info and defline  text files in annotations
-#  gzip $PZVER/annotation/*annotation_info.txt
-#  gzip $PZVER/annotation/*defline.txt
-#
-#  gzip $PZVER/annotation/$ANNOTATION.locus_transcript_name_map.txt
+# Compress the files
+  for file in derived/*.f?a derived/*.gff3; do
+    bgzip -l9 $file &
+  done
+
+
 
 # Prepare the config for ds_souschef. Typically, copy from a similar config file and revise.
   vim $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
