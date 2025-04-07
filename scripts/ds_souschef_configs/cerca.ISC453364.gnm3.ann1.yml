@@ -53,11 +53,11 @@ from_to_genome:
   -
     from: hardmasked.fa.gz
     to: genome_hardmasked.fna
-    description: "Genome assembly - softmasked"
+    description: "Genome assembly - hardmasked"
   -
     from: softmasked.fa.gz
     to: genome_softmasked.fna
-    description: "Genome assembly - hardmasked"
+    description: "Genome assembly - softmasked"
 original_readme_and_usage:
   -
     from_full_filename: Ccanadensis_705_V3.1.DataReleasePolicy.html
