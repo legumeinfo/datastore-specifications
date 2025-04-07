@@ -87,16 +87,18 @@ ASSESS
 
     # Take care with the line width. The default is 100, which does match the other chromosomes.
 
-# Swap Chr04 and Chr06
-  cp 00_scaffs/Chr04 00_chr/Chr06
-  cp 00_scaffs/Chr06 00_chr/Chr04
+# Swap Chr04 and Chr06 and reverse-complement
+  revcomp.pl -in 00_scaffs/Chr04 | perl -pe 's/Chr04/Chr06/' > 00_chr/Chr06
+  revcomp.pl -in 00_scaffs/Chr06 | perl -pe 's/Chr06/Chr04/' > 00_chr/Chr04
+
+
 
 # Generate a new genome file (destructive)
   cat 00_chr/* > Apios.priceana.hap2.fna
   rm -rf 00*
 
   cd ..
-  gzip derived/
+  gzip derived/derived/Apios.priceana.hap2.fna &
 
 # Then rerun ds_souschef.pl
 

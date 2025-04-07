@@ -393,7 +393,7 @@ sub make_featid_map {
     my @parts = split(/\t/, $line);
     next if (scalar(@parts)<9);
     my $feat_id = $parts[8];
-    $feat_id =~ s/ID=([^;]+)$/$1/; # ID is the only attribute in the 9th column
+    $feat_id =~ s/ID=([^;]+);?$/$1/; # ID is the only attribute in the 9th column
     $feat_id =~ s/ID=([^;]+);.+/$1/; # ID is one of several attributes in the 9th column
     my $new_feat_id = $feat_id;
     if (defined $strip_regex){
@@ -440,10 +440,6 @@ sub readme {
       if ( $readme_hsh{$key} ){
         say $GNM_README_FH "$key: \"$readme_hsh{$key}\"\n";
       }
-    }
-    elsif ( $readme_hsh{$key} ){
-      #say $GNM_README_FH "$key: \n";
-      # Print nothing (no key, no value).
     }
     elsif ( $key =~ /genotype/ ){
       say $GNM_README_FH "$key:";
@@ -918,3 +914,5 @@ Versions
 2024-12-09 Write single combined MANIFEST file rather than separate correspondence and description files
 2025-01-13 Switch to zcat from gzcat.
 2024-02-09 Check if from_to_gff exists in config; if not, don't make annotation collection
+2025-04-07 When making gff featid map, handle case where ID is the only attribute in the 9th column, with or without semicolon
+
