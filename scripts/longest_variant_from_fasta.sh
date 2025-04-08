@@ -29,6 +29,7 @@ fasta_to_table() {
 }
 
 # Split gene splice_variant. Handle variants such as "m1", "mRNA1", and "1"
+# also e.g. GeneID-T1 (variant "T1", with dash-separator)
 # Gene forms such as mikado.chr01G1.1, mRNA38015, IDmodified-mrna-3934
 # For a gene of length 999 ...
 #   ... output for "GENEID.10"  will be  "GENEID zPLACEHOLDERz 10  999"
@@ -36,7 +37,8 @@ fasta_to_table() {
 # For gene mRNA8903, the output is: "mRNA8903	zPLACEHOLDERz	zQz"
 split_gene_splicevar() {
   perl -ne 'if(/^(\S+)\.(\d+)\t(\S+)/){print "$1\tzPLACEHOLDERz\t$2\t$3\n"};
-            if(/^([^.]+)\t(\S+)/){print "$1\tzPLACEHOLDERz\tzQz\t$2\n"};
+            if(/^(\S+)-(T\d+)\t(\S+)/){print "$1\tzPLACEHOLDERz\t$2\t$3\n"};
+            if($_ !~ /-/ && /^([^.]+)\t(\S+)/){print "$1\tzPLACEHOLDERz\tzQz\t$2\n"};
             if(/^(\S+)\.([^\d+])(\d+)\t(\S+)/){print "$1\t$2\t$3\t$4\n"}' |
   awk -v OFS="\t" '{print $1, $2, $3, length($4), $4}'
 }
@@ -77,4 +79,4 @@ table_to_fasta
 #             break ties among variants of the same length.
 # 2022-12-15 Report usage message if script is called without stdin
 # 2023-03-15 Rename from pick_longest_variant.sh to longest_variant_from_fasta.pl
-
+# 2025-04-08 Handle splice variants with the form "-T1"
