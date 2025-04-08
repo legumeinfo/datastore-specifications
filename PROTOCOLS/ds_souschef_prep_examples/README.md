@@ -91,11 +91,18 @@ and in the `ds_souschef.pl` config file, add e.g. `strip: '\.p'` for the protein
 
 <a href="Phytozome/notes_phaco.PHA8298.gnm1.ann1.sh">Phytozome/notes_phaco.PHA8298.gnm1.ann1.sh</a>
 
-## Dryad
+## Other
 
-Assemblies and annotations at Dryad should be assumed to be unique per Dryad collection. They are whatever was submitted; Dryad imposes no constraints on format or quality.
+These examples come from several sources: Dryad, Zenodo, direct-from-sequencing-center, in-house annotation.
+Assemblies and annotations in these cases should be assumed to be unique per collection. 
+Generalist repositories such as Dryad and Zenodo impose no constraints on format.
 
-<a href="Dryad/notes_acacr.Acra3RX.gmn1.ann1.sh">Dryad/notes_acacr.Acra3RX.gmn1.ann1.sh</a>
+<a href="Other/notes_acacr.Acra3RX.gmn1.ann1.sh">Other/notes_acacr.Acra3RX.gmn1.ann1.sh</a>
+<a href="Other/notes_apiam.LA2127.gnm1.ann1.sh">Other/notes_apiam.LA2127.gnm1.ann1.sh</a>
+<a href="Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh">Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh</a>
+<a href="Other/notes_apipr.MO19963523.gnm1.ann1.sh">Other/notes_apipr.MO19963523.gnm1.ann1.sh</a>
+<a href="Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh">Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh</a>
+
 
 ## Pangenes
 
