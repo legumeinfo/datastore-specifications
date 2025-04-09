@@ -1,0 +1,96 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Pisum/sativum/ZW6.gnm1.ann1
+  from_annot_dir: original
+  from_genome_dir: original
+prefixes:
+  from_annot_prefix: "pea.assembly.ZW6.RC2.annotated."
+  from_genome_prefix: "pea.assembly.ZW6.RC2.genome."
+collection_info:
+  genus: Pisum
+  species: sativum
+  scientific_name_abbrev: pissa
+  coll_genotype: ZW6
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: D8R1
+  annot_key: TKZX
+readme_info:
+  provenance: "The files in this directory originated from https://doi.org/10.5281/zenodo.6622409. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://doi.org/10.5281/zenodo.6622409"
+  synopsis_genome: "Pisum sativum accession ZW6 (Zhongwan6), genome assembly v1"
+  synopsis_annot: "Annotation 1 for Pisum sativum accession ZW6 (Zhongwan6), genome assembly v1"
+  genotype: ZW6
+  taxid: "3888"
+  description_genome: "This genome assembly was produced by the Institute of Microbiology, Chinese Academy of Sciences. It corresponds with GenBank assembly GCA_024323335.2. The sequence was generated with PacBio Sequel and assembled with Canu v. 1.8; Pilon v. 1.23; PurgeHaplotigs v. 1.1.1; ARCS v. 1.0.4; LINKS v. 1.8.6; BioNano Solve v. 3.4; Juicer v. 1.5.6; ALLMAPS v. 1.0"
+  chromosome_prefix: chr
+  supercontig_prefix: chrUn
+  description_annot: "Gene annotations for ZW6 (Zhongwan6), produced by the Institute of Microbiology, Chinese Academy of Sciences."
+  bioproject: PRJNA730094
+  sraproject:
+  dataset_doi_genome: "10.5281/zenodo.6622408"
+  dataset_doi_annot: "10.5281/zenodo.6622408"
+  genbank_accession: "GCA_024323335.2"
+  original_file_creation_date: 2022-07-19
+  local_file_creation_date: 2025-04-09
+  dataset_release_date: 2025-06-01
+  contributors: "Cong Feng, Baizhi Chen, Julie Hofer, Yan Shi, Mei Jiang, Bo Song, Hong Cheng, Lu Lu, Luyao Wang, Alex Howard, Abdel Bendahmane, Anissa Fouchal, Carol Moreau, Chie Sawada, Christine LeSignor, Eleni Vikeli, Georgios Tsanakas, Hang Zhao, Jitender Cheema, J. Elaine Barclay, Liz Sayers, Luzie Wingen, Marielle Vigouroux, Martin Vickers, Mike Ambrose, Marion Dalmais, Paola Higuera-Poveda, Rebecca Spanner, Richard Horler, Roland Wouters, Smitha Chundakkad, Xiaoxiao Zhao, Xiuli Li, Yuchen Sun, Zejian Huang, Xing Wang Deng, Burkhard Steuernagel, Claire Domoney, Noel Ellis, Noam Chayut, Shifeng Cheng"
+  publication_doi: "10.1101/2024.05.31.596837"
+  citation: "Cong Feng, Baizhi Chen, Julie Hofer, Yan Shi, Mei Jiang, Bo Song, Hong Cheng, Lu Lu, Luyao Wang, Alex Howard, Abdel Bendahmane, Anissa Fouchal, Carol Moreau, Chie Sawada, Christine LeSignor, Eleni Vikeli, Georgios Tsanakas, Hang Zhao, Jitender Cheema, J. Elaine Barclay, Liz Sayers, Luzie Wingen, Marielle Vigouroux, Martin Vickers, Mike Ambrose, Marion Dalmais, Paola Higuera-Poveda, Rebecca Spanner, Richard Horler, Roland Wouters, Smitha Chundakkad, Xiaoxiao Zhao, Xiuli Li, Yuchen Sun, Zejian Huang, Xing Wang Deng, Burkhard Steuernagel, Claire Domoney, Noel Ellis, Noam Chayut, Shifeng Cheng. bioRxiv 2024.05.31.596837; doi: https://doi.org/10.1101/2024.05.31.596837"
+  publication_title: "Genomic and Genetic Insights into Mendel’s Pea Genes"
+  data_curators: Steven Cannon
+  public_access_level: public, restricted
+  license: Open, with usage agreement
+  keywords: "Apios, hopniss, American groundnut"
+from_to_genome:
+  -
+    from: fna.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_annot_as_is:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: cds.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: cds_longest.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  -
+    from: transcripts.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+    applications:
+      - mines
+  -
+    from: transcripts_longest.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  -
+    from: proteins.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: proteins_longest.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
+from_to_gff:
+  -
+    from: gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index
