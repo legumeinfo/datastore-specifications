@@ -4,7 +4,7 @@ directories:
   from_annot_dir: derived
   from_genome_dir: derived
 prefixes:
-  from_annot_prefix: "braker."
+  from_annot_prefix: "braker_renamed."
   from_genome_prefix: "Apios.priceana.hap2."
 collection_info:
   genus: Apios
@@ -59,7 +59,7 @@ from_to_genome_as_is:
     description: "Softmasked genome assembly"
 from_to_cds_mrna:
   -
-    from: codingseq.fna.gz
+    from: CDS.fna.gz
     to: cds.fna
     description: "cds sequences"
     applications:
@@ -81,7 +81,7 @@ from_to_cds_mrna:
     description: "Transcript sequences - primary only"
 from_to_protein:
   -
-    from: aa.faa.gz
+    from: protein.faa.gz
     to: protein.faa
     description: "Protein sequences"
     applications:

@@ -105,21 +105,24 @@ ASSESS
 # Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
 # Also check the form of the chromosome and scaffold names.
 
-# For consistency in config file, add suffixes to braker sequence files
-  mv derived/braker.aa derived/braker.aa.faa
-  mv derived/braker.codingseq derived/braker.codingseq.fna
 
-# Remove datastore prefixes from annotation files, to match the "bare" original assembly
-  perl -pi -e 's/^api\w\w\.\w+\.\w+\.//' derived/braker.g*
+# The braker annotations have IDs like "g1" ... "g34567"
+# Give them structured names, ordinal on the chromosome
+  cat original/braker.gff3 | rename_genes.sh "ApiprH1" > original/gene_name_hash.tsv
 
-# Extract transcript sequence
-  gffread -g derived/Apios.priceana.hap1.fna -w derived/braker.transcripts.fna derived/braker.gff3
+  hash_into_gff_id.pl -gff original/braker.gff3 -featid_map original/gene_name_hash.tsv > derived/braker_renamed.gff3
+
+# Extract CDS, transcript, and protein sequence (using the new gene IDs)
+  gffread -g derived/Apios.priceana.hap1.fna \
+          -w derived/braker_renamed.transcripts.fna \
+          -x derived/braker_renamed.CDS.fna \
+          -y derived/braker_renamed.protein.faa \
+             derived/braker_renamed.gff3
 
 # Derive primary/longest CDS, transcript, and protein sequences
-  cat derived/braker.transcripts.fna | longest_variant_from_fasta.sh > derived/braker.transcripts_primary.fna &
-  cat derived/braker.codingseq.fna | longest_variant_from_fasta.sh > derived/braker.CDS_primary.fna &
-  cat derived/braker.aa.faa | longest_variant_from_fasta.sh > derived/braker.protein_primary.faa &
-  wait
+  cat derived/braker_renamed.transcripts.fna | longest_variant_from_fasta.sh > derived/braker_renamed.transcripts_primary.fna
+  cat derived/braker_renamed.CDS.fna | longest_variant_from_fasta.sh > derived/braker_renamed.CDS_primary.fna
+  cat derived/braker_renamed.protein.faa | longest_variant_from_fasta.sh > derived/braker_renamed.protein_primary.faa
 
 
 # Compress the files
