@@ -91,6 +91,41 @@ ASSESS
   revcomp.pl -in 00_scaffs/Chr04 | perl -pe 's/Chr04/Chr06/' > 00_chr/Chr06
   revcomp.pl -in 00_scaffs/Chr06 | perl -pe 's/Chr06/Chr04/' > 00_chr/Chr04
 
+# 2025-04-18 After nucmer comparisons of priceana H1-H2, it appears that the original chromosomes in H2 didn't
+# correspond in orientation. So, I need to reverse-complement these in H2:
+#   1,2,4,5,6,8,10,11
+
+# Simplify filenames and IDs
+  rename.pl 's/apipr.MO19963523.gnm1_hap2.//' H2_split_main/* H2_split_masked/*
+  perl -pi -e 's/apipr.MO19963523.gnm1_hap2.//' H2_split_main/* H2_split_masked/*
+  cp H2_split_main/* H2_split_main_oriented/
+  cp H2_split_masked/* H2_split_masked_oriented/
+
+# reverse-complement
+  mkdir H2_split_main_oriented H2_split_masked_oriented
+  revcomp.pl -in H2_split_main/Chr01 > H2_split_main_oriented/Chr01 &
+  revcomp.pl -in H2_split_main/Chr02 > H2_split_main_oriented/Chr02 &
+  revcomp.pl -in H2_split_main/Chr04 > H2_split_main_oriented/Chr04 &
+  revcomp.pl -in H2_split_main/Chr05 > H2_split_main_oriented/Chr05 &
+  revcomp.pl -in H2_split_main/Chr06 > H2_split_main_oriented/Chr06 &
+  revcomp.pl -in H2_split_main/Chr08 > H2_split_main_oriented/Chr08 &
+  revcomp.pl -in H2_split_main/Chr10 > H2_split_main_oriented/Chr10 &
+  revcomp.pl -in H2_split_main/Chr11 > H2_split_main_oriented/Chr11 &
+  wait
+
+  revcomp.pl -in H2_split_masked/Chr01 > H2_split_masked_oriented/Chr01 &
+  revcomp.pl -in H2_split_masked/Chr02 > H2_split_masked_oriented/Chr02 &
+  revcomp.pl -in H2_split_masked/Chr04 > H2_split_masked_oriented/Chr04 &
+  revcomp.pl -in H2_split_masked/Chr05 > H2_split_masked_oriented/Chr05 &
+  revcomp.pl -in H2_split_masked/Chr06 > H2_split_masked_oriented/Chr06 &
+  revcomp.pl -in H2_split_masked/Chr08 > H2_split_masked_oriented/Chr08 &
+  revcomp.pl -in H2_split_masked/Chr10 > H2_split_masked_oriented/Chr10 &
+  revcomp.pl -in H2_split_masked/Chr11 > H2_split_masked_oriented/Chr11 &
+  wait
+
+# Recreate multifasta genome assembly files
+  cat H2_split_main_oriented/* > Apios.priceana.hap2.fna &
+  cat H2_split_masked_oriented/* > Apios.priceana.hap2.genome_softmasked.fna &
 
 
 # Generate a new genome file (destructive)
@@ -98,7 +133,7 @@ ASSESS
   rm -rf 00*
 
   cd ..
-  gzip derived/derived/Apios.priceana.hap2.fna &
+  gzip derived/Apios.priceana.hap2.fna &
 
 # Then rerun ds_souschef.pl
 
