@@ -140,6 +140,9 @@ ASSESS
 # Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
 # Also check the form of the chromosome and scaffold names.
 
+# Copy BRAKER output files from /project/legume_project/steven.cannon/25/apipr/braker/
+# to the present ds_souschef working directory
+
 # The braker annotations have IDs like "g1" ... "g34567"
 # Give them structured names, ordinal on the chromosome
   cat original/braker.gff3 | rename_genes.sh "ApiprH2" > original/gene_name_hash.tsv
