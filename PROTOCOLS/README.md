@@ -71,11 +71,11 @@ The project-specifc scripts are managed within the present repository, in the
 [scripts directory](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts).
 
 These scripts (and the repository) also has an instance alongside the datastore, at
-`/usr/local/www/data/datastore-specifications/scripts/`. 
+`/project/legume_project/datastore/datastore-specifications/scripts`. 
 
 For convenience, it is recommended to add this directory to your .bashrc file:
 ``` bash
-  PATH=/usr/local/www/data/datastore-specifications/scripts:$PATH
+  PATH=/project/legume_project/datastore/datastore-specifications/scripts:$PATH
 ```
 
 Several software packages are needed for many curation tasks, e.g., bioperl, samtools, gffread, yamllint.
@@ -87,6 +87,13 @@ can be loaded like so:
   ml miniconda
   source activate /project/legume_project/datastore/conda-envs/ds-curate
 ```
+<details>
+To deactivate the conda environment:
+
+  ```
+    conda deactivate
+  ```
+</details>
 
 A variation on this is to add a link to that environment to your local set of .conda environments. 
 This has the advantage of reducing the length of the command prompt:
