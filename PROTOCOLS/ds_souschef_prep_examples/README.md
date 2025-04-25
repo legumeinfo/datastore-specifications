@@ -30,7 +30,7 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
   conda install -c conda-forge -c bioconda \
     bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
     conda-forge::ncbi-datasets-cli bioconda::gffread \
-    conda-forge::yamllint conda-forge::nodejs
+    conda-forge::yamllint conda-forge::nodejs bioconda::hmmer
   
   npm install -g ajv-cli ajv-formats
   ```
