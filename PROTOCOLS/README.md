@@ -201,11 +201,11 @@ glyma.Wm82.gnm2.DTC4.softmasked.fna.gz: Genome assembly: masked with lowercase
 ```
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
-### Move the collection from private to v2
-Move the directory from private to v2, e.g.
+### Move the collection from private to annex for review
+Move the directory from private to the annex, e.g.
 ```
   DIR=MY_NEW_DIRECTORY
-  mv /usr/local/www/data/private/Glycine/max/$DIR /usr/local/www/data/v2/Glycine/max/$DIR
+  mv /project/legume_project/datastore/private/Glycine/max/$DIR /project/legume_project/datastore/annex/Glycine/max/$DIR
 ```
 Also, note the change in the status file in the private/Genus/species/ dir, e.g.
 ```bash
@@ -227,9 +227,11 @@ The ds_souschef.pl tool can be applied to datasets from other sources, but the p
 configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
 and patterns, reflected in this Arabidopsis example.
 
+NOTE: Also see additional instructions and notes for preparation of many collections at [ds_souschef_prep_examples](/ds_souschef_prep_examples).
+
 ### Download assembly and annotation into working directory:
 ```bash
-  cd /usr/local/www/data/private/Arabidopsis/thaliana
+  cd /project/legume_project/datastore/private/Arabidopsis/thaliana
 ```
 The directory layout for Phytozome assembly and annotation files (for this example) is:
 ```bash
@@ -264,7 +266,7 @@ Clone it if you don't have it already):
   git push
 ```
 ### Prepare a config file
-Set up a config file at /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs
+Set up a config file at /project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
 Base it on a config file for another Phytozome collection.
 ```bash
   vim conf_arath.Col0.gnm9.yml
@@ -278,7 +280,7 @@ Base it on a config file for another Phytozome collection.
 The **ds_souschef.pl** program can be run from anywhere, but it is convenient to run it from the configs directory.
 Output goes to the working directory specified in the config file.
 ```bash
-  cd /usr/local/www/data/datastore-specifications/scripts/ds_souschef_configs/
+  cd /project/legume_project/datastore//datastore-specifications/scripts/ds_souschef_configs/
   ../ds_souschef.pl -config conf_arath.Col0.gnm9.yml
 ```
 ### Check the results
@@ -288,7 +290,7 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
 
 ### Compress and index
 ```bash
-  cd /usr/local/www/data/private/GENUS/SPECIES
+  cd /project/legume_project/datastore/private/GENUS/SPECIES
   compress_and_index.sh genomes/COLLECTION
   compress_and_index.sh annotations/COLLECTION
 ```
@@ -301,11 +303,11 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
 ```
   ${DATASTORESPEC_SCRIPTS}/mdsum-folder.bash /path/to/datastore/collection
 ```
-### Move the collections into place in data/v2/
+### Move the collections into place in the annex for review
 ```bash
-  cd /usr/local/www/data/v2/Genus/species
-  mv annotations/COLLECTION  /usr/local/www/data/v2/Genus/species/annotations/
-  mv genomes/COLLECTION  /usr/local/www/data/v2/Genus/species/genomes/
+  cd /project/legume_project/datastore/annex/Genus/species
+  mv annotations/COLLECTION  /project/legume_project/datastore/annex/Genus/species/annotations/
+  mv genomes/COLLECTION  /project/legume_project/datastore/annex/Genus/species/genomes/
 ```
 
 ## Questions and handling hard cases with ds_souschef <a name="souschef-faq"/>
