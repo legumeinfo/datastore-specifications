@@ -227,7 +227,7 @@ The ds_souschef.pl tool can be applied to datasets from other sources, but the p
 configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
 and patterns, reflected in this Arabidopsis example.
 
-NOTE: Also see additional instructions and notes for preparation of many collections at [ds_souschef_prep_examples](/tree/main/PROTOCOLS/ds_souschef_prep_examples).
+NOTE: Also see additional instructions and notes for preparation of many collections at [ds_souschef_prep_examples](PROTOCOLS/ds_souschef_prep_examples).
 
 ### Download assembly and annotation into working directory:
 ```bash
