@@ -363,7 +363,36 @@ and for species [here](https://github.com/legumeinfo/datastore-specifications/tr
 (TBD)
 
 ## Calculate gene family assignments (GFA) <a name="calc-gfa"/>
-(TBD)
+Calculate gene family assignments with the workflow here:
+https://github.com/legumeinfo/gene-fam-assign
+
+In your project area on Ceres or Atlas, clone and cd into the repository, then make a file that consists
+of a listing of paths to the `protein_primary.gfa.gz` files that you want to use to assign gene IDs to 
+gene families. The list file can have a single filepath or many. For example:
+```
+  $ cat data/lis.protein_files
+  /project/legume_project/datastore/annex/Arabidopsis/thaliana/annotations/Col0.gnm9.ann11.KH24/arath.Col0.gnm9.ann11.KH24.protein_primary.faa.gz
+  /project/legume_project/datastore/annex/Arachis/hypogaea/annotations/Tifrunner.gnm1.ann2.TN8K/arahy.Tifrunner.gnm1.ann2.TN8K.protein_primary.faa.gz
+  /project/legume_project/datastore/annex/Bauhinia/variegata/annotations/BV-YZ2020.gnm2.ann1.RJ1G/bauva.BV-YZ2020.gnm2.ann1.RJ1G.protein_primary.faa.gz
+```
+
+The first time that you run this workflow, you will need to generate an environment with the required dependencies.
+This can be done with:
+```
+  salloc
+  ml miniconda
+  conda env create 
+```
+
+Then modify the `batch_gfa.sh` script as needed.
+
+The program invocation itself (within the batch script) is very simple:
+```
+  gfa.sh -l data/lis.protein_files -c config/gfa.conf
+```
+
+This will take roughly 12 hours to complete. When it is done, move the output files, in `work_dir/02_gfa/`,
+to the annotation directory for the respective annotation collection.
 
 ## Add to pan-gene set <a name="pan-genes"/>
 (TBD)
