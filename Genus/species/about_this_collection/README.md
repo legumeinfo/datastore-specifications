@@ -22,10 +22,10 @@ resources:
     URL: <"URL of tool">
     description: <"Description of the tool">
 strains:
-  - identifier:
-    accession:
-    name:
-    accession_group:
+  - identifier: <genotype ID used in the collection. Example Wm82>
+    accession: <ID used in germplasm repository (PI number) or GenBank accession ID. If neither are present, refer to the source publication for accession ID.>
+    name: <Full name of the genotype/strain/cultivar. Example Williams 82>
+    accession_group: <Listed a reference genome or from a large study. This text is used in the resources and collections pages.>
     origin: <Country or location of origin>
-    description: <"
+    description: <"A breif sentence informative to users. This text is used at the resources and collections pages. Example: versions or identifiers."> 
 ```
