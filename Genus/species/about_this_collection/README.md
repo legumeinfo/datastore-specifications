@@ -29,4 +29,4 @@ strains:
     origin: <Country or location of origin>
     description: <"A breif sentence informative to users. This text is used at the resources and collections pages. Example: versions or identifiers."> 
 ```
-##### Please review the [example](https://github.com/legumeinfo/datastore-specifications/blob/main/Genus/species/about_this_collection/description_Genus_species.yml) file
+##### Please review the [example](description_Genus_species.yml) file
