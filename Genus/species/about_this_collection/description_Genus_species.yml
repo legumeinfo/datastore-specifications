@@ -1,66 +1,51 @@
 ---
-taxid: 3818
-genus: Arachis
-species: hypogaea
-abbrev: arahy
-commonName: peanut
-description: "Peanut (Arachis hypogaea) was domesticated at the foot of the South American Andes within modern-day Argentina, Bolivia, or Paraguay. Cultivated peanuts are allotetraploids, with sub-genomes probably contributed by the hybridization of the diploid species Arachis duranensis and Arachis ipaensis."
-
+taxid: 3847
+genus: Glycine
+species: max
+abbrev: glyma
+commonName: soybean
+description: "Soybean (Glycine max), the predominant oil-seed legume worldwide, was likely domesticated in East Asia, ~6000-9000 years ago (Sedivy et al., 2017; https://doi.org/10.1111/nph.14418). It has many culinary and industrial uses. Some of the culinary uses include for direct consumption of the green seed (i.e. edamame) and leaves (cooked, much like spinach); for tofu, soymilk, textured vegetable protein, soy sauce, tempeh, natto, and vegetable oil. Industrial uses include oils, soap, cosmetics, and biodiesel. Soybean is also used as a high-protein forage, and can be prepared for fish- and animal-feed."
 resources:
-  -
-    name: PeanutMine
-    URL: "https://mines.legumeinfo.org/peanutmine/begin.do"
-    description: "InterMine interface for accessing genetic and genomic data for several species in Arachis."
-  -
-    name: ZZBrowse
-    URL: "https://zzbrowse.legumeinfo.org/?tab=WhGen&datasets=Peanut%20GWAS&chr=Arahy.01&selected=100000&window=250000&datasets2=Soybean%20GWAS&chr2=Gm01&selected2=100000&window2=250000"
-    description: "Association viewers (QTL, GWAS)"
-  -
-    name: Gigwa
-    URL: "https://peanutbase.org/germplasm/gigwa"
-    description: "Genetic variation viewer "
-  -
-    name: GCViT
-    URL: "https://peanutbase.org/germplasm/gcvit"
-    description: "Genetic variation viewer "
-  -
-    name: Genome Context Viewer
-    URL: "https://legumeinfo.org/gcv2/gene;lis=arahy.P7Z3M8?q=arahy.CMRI1Q&sources=lis&algorithm=repeat&match=10&mismatch=-1&gap=-1&score=30&threshold=25&bmatched=20&bintermediate=10&bmask=10&linkage=average&cthreshold=20&neighbors=10&matched=4&intermediate=5&bregexp=&border=chromosome&regexp=&order=distance"
+  - name: GlycineMine
+    URL: "https://mines.legumeinfo.org/glycinemine/begin.do"
+    description: "InterMine interface for accessing genetic and genomic data for several species in Glycine."
+  - name: GCViT
+    URL: "https://soybase.org/gcvit"
+    description: "Genotype comparison visualization tool "
+  - name: Genome Context Viewer
+    URL: "https://gcv.legumeinfo.org/gene;lis=glyma.Glyma.15G255600?q=Glyma.15G255600&sources=lis&algorithm=repeat&match=10&mismatch=-1&gap=-1&score=\30&threshold=25&bmatched=20&bintermediate=10&bmask=10&linkage=average&cthreshold=20&neighbors=10&matched=4&intermediate=5&bregexp=&border=chromosome&regexp=&order=distance"
     description: "Browser for dynamically discovering and viewing genomic synteny across selected species."
-  -
-    name: Germplasm GIS
-    URL: "https://legumeinfo.org/germplasm/map#?zoom=5&maxRecs=1000&taxonQuery=Arachis&traitOverlay=&traitScale=global&country=&geocodedOnly&traitExcludeUnchar=false&limitToMapExtent=false&lat=-15.71&lng=-62.62&mapHeight=430&baseMap=ESRI%20-%20NatGeo%20(default,%20reference%20map)&ne_lat=-6.446317749457646&ne_lng=-38.3203125&sw_lat=-24.56710835257599&sw_lng=-86.923828125&accessionIdsInclusive=false"
-    description: "Geographic information system viewer, showing collection locations for Arachis data held by the U.S. National Plant Germplasm System."
-
+  - name: Grin Data Explorer
+    URL: "https://legacy.soybase.org/grindata/"
+    description: "Tool to facilitate searches of GRIN Descriptor Data"
 strains:
-  -
-    identifier: Tifrunner
-    accession: "CV-93, PI 644011"
-    name: Tifrunner
-    origin: Southeastern United States
-    description: "Cultivar Tifrunner is a runner-type peanut bred in the United States and widely planted as a variety and widely used in breeding programs. The genome of this cultivar is described in Bertioli et al., 2019 (doi:10.1038/s41588-019-0405-z)."
-    resources:
-      -
-        name: Peanutbase Genome Browser (GBrowse)
-        URL: "https://peanutbase.org/gbrowse_peanut1.0"
-        description: "GBrowse for Tifrunner assemblies 1.0 and 2.0"
-      -
-        name: Peanutbase Genome Browser (JBrowse)
-        URL: "https://peanutbase.org/node/319881/?data=arahy.Tifrunner.gnm1"
-        description: "JBrowse for Tifrunner assembly 1.0"
-      -
-        name: LIS SequenceServer
-        URL: "https://legumeinfo.org/sequenceserver/"
-        description: "SequenceServer BLAST against the Tifrunner v2 assembly"
-  -
-    identifier: Fuhuasheng
-    accession: GH00910
-    name: Fuhuasheng
-    origin: North China
-    description: "The mid-twentieth century landrace Fuhuasheng, from North China, is a widely used parent from which ∼70% of Chinese peanut cultivars released during the past half century have been derived."
-  -
-    identifier: Shitouqi
-    accession: zh.h0235
-    name: Shitouqi
-    origin: China
-    description: "A. hypogaea var. Shitouqi (zh.h0235), the most widely cultivated peanut ecotype in the world, is a Chinese cultivar and breeding parent belonging to subspecies fastigiata, botanical type vulgaris and agronomic type Spanish with heterozygosity only 1/6,537 nucleotides on average."
+  - identifier: Wm82
+    accession: PI 518671
+    name: Williams 82
+    accession_group: Reference - Williams 82
+    origin: Northern United States
+    description: "Williams 82 was derived from backcrossing a phytophthora root rot resistance locus from the donor parent Kingwa into the recurrent parent Williams. A sub-line, Wm82-ISU-01, was derived by Robert Stupar (University of Minnesota) by inbreeding original W82 seed. That sub-line, registered as PI 704477, was used for assembly Wm82.gnm6 / Wm82.a6."
+  - identifier: Lee
+    accession: PI 548656
+    accession_group: Reference - Lee
+    name: Lee
+    origin: Southern United States
+    description: "Cultivar Lee, which derives from a cross of Chinese lines CNS and S-100, has been widely used as a parent in many breeding projects in the Southern U.S. and in Brazil (Wysmierski and Vello, 2013; http://doi.org/10.1590/S1415-47572013005000041). The variety is notable for resistance to Phytophthora rot, Peanut Mottle Virus, and bacterial pustule (Wysmierski and Vello, 2013)."
+  - identifier: YuDouNo_22
+    accession: SoyC06
+    accession_group: Liu, Du et al., 2020
+    name: Yu Dou No.22
+    origin: China, He Nan
+    description: "Cultivar Yu Dou No.22 (SoyC06 from China, He Nan, from Liu et al. 2020"
+  - identifier: ZhangChunManCangJin
+    accession: SoyL06
+    accession_group: Liu, Du et al., 2020
+    name: Chang Chun Man Cang Jin
+    origin: China, Ji Lin
+    description: "Landrace Chang Chun Man Cang Jin (SoyL06 from China, Ji Lin, from Liu et al. 2020"
+  - identifier: Wm82_NJAU
+    accession: Wm82_NJAU
+    accession_group: Yano, Li et al., 2025
+    name: Williams 82 Nanjing Agricultural University
+    origin: Nanjing Agricultural University
+    description: "Williams 82 sequenced for T2T assembly of Wang, Zhang et al. 2023"
