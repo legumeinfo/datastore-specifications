@@ -64,7 +64,7 @@ REFERENCE
   source activate ds-curate
 
 # Extract transcript sequence
-  gffread -g pea.assembly.ZW6.RC2.fna \
+  gffread -g pea.assembly.ZW6.RC2.genome.fna \
     -w pea.assembly.ZW6.RC2.annotated.transcripts.fna \
         pea.assembly.ZW6.RC2.annotated.gff3
 
