@@ -45,7 +45,7 @@ strains:
     description: "Landrace Chang Chun Man Cang Jin (SoyL06 from China, Ji Lin, from Liu et al. 2020"
   - identifier: Wm82_NJAU
     accession: Wm82_NJAU
-    accession_group:
+    accession_group: Yano, Li et al., 2025
     name: Williams 82 Nanjing Agricultural University
     origin: Nanjing Agricultural University
     description: "Williams 82 sequenced for T2T assembly of Wang, Zhang et al. 2023"
