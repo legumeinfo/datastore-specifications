@@ -121,6 +121,7 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
   source activate /project/legume_project/datastore/conda-envs/ds-curate
   conda install -c conda-forge -c bioconda \
     bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
+    bioconda::perl-yaml-pp bioconda::perl-json-parse \
     conda-forge::ncbi-datasets-cli bioconda::gffread \
     conda-forge::yamllint conda-forge::nodejs \
     bioconda::bedtools bioconda::blast
