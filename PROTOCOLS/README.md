@@ -12,6 +12,7 @@ to contribute, please **CONTACT US.** We would love to work with you.
 
 ## Table of Contents
 [Datastore instances and organization](#datastore-curation) <br>
+  - [Computation Resources](#computation-resources) <br> 
 [General procedure for adding a new data set to the datastore](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
@@ -31,20 +32,19 @@ to contribute, please **CONTACT US.** We would love to work with you.
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
   - atlas-login.hpc.msstate.edu
-  - soybase-stage.usda.iastate.edu
+  - c2s2.usda.iastate.edu
 
-A nightly cron job syncs these instances in the direction of ceres to soybase-stage and atlas to soybase-stage.
-The public content of the datastore is made available via https from the instance at soybase-stage.
+The public content of the datastore is made available via https from the instance at c2s2.
 
-<b>The best practice is to do any curation on ceres.</b> The instance at soybase-stage is being used for display
+<b>The best practice is to do any curation on ceres.</b> The instance at c2s2 is being used for display
 of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org. The instance at 
 atlas-login.hpc.msstate.edu is for backup and for data access when ceres is unavailable due to periodic maintenance.
 
-The longer-term plan is for the datastore to be hosted for public access in a USDA Azure instance, with a .gov URL.
+The longer-term hope is for the datastore to be hosted for public access in a USDA Azure instance, with a .gov URL.
 
 "The datastore" is comprised of three directories:
 * <b>v2</b>  -- The public datastore, accessed at https://data.legumeinfo.org or https://data.soybase.org
-* <b>annex</b>  -- For curated public data that lacks specification or formalized metadata (use judiciously)
+* <b>annex</b>  -- For curated public data that lacks specification or formalized metadata (*use judiciously*)
 * private  -- Staging area; not publicly accessible
 
 There are also three affiliated directories at the same root level:
@@ -52,7 +52,7 @@ There are also three affiliated directories at the same root level:
 * datastore-registry  -- For registering "key4" values; tracks https://github.com/legumeinfo/datastore-registry
 * datastore-specifications  -- Specifications and documentation, including this README
 
-### Establish an interactive session on a computation node
+### Establish an interactive session on a computation node <a name="computation-resources"/>
 
 The [ceres and atlas resources](https://scinet.usda.gov/guides/resources/CeresAtlasDifferences) are a managed HPC environments, 
 in which computational work is done either in
@@ -141,7 +141,7 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
   - atlas-login.hpc.msstate.edu
-  - soybase-stage.usda.iastate.edu
+  - c2s2.usda.iastate.edu
 
 In general, during preparation, data should initially go into "private" (`/project/legume_project/datastore/private`), in a suitable
 subdirectory (organized by genus and species and generally mirroring the organization of "public").
