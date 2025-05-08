@@ -4,8 +4,11 @@ Instructions for adding data to the datastore and then updating associated LIS/S
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
 If you are a researcher or user of and you have a data set that you would like
-to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
-We would love to work with you.
+to contribute, please **CONTACT US.** We would love to work with you.
+
+  - <a href="https://legumeinfo.org/contact">Contact Legume Information System</a>
+  - <a href="https://www.peanutbase.org/contact/">Contact PeanutBase</a>
+  - <a href="https://www.soybase.org/about/">Contact SoyBase</a>
 
 ## Table of Contents
 [Datastore instances and organization](#datastore-curation) <br>
