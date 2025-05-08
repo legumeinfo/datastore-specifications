@@ -12,7 +12,7 @@ to contribute, please **CONTACT US.** We would love to work with you.
 
 ## Table of Contents
 [Datastore instances and organization](#datastore-curation) <br>
-  - [Computation Resources](#computation-resources) <br> 
+[Computation Resources](#computation-resources) <br> 
 [General procedure for adding a new data set to the datastore](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
