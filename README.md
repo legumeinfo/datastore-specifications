@@ -3,7 +3,7 @@ Specifications for directory naming, file naming, file contents in the LIS datas
 
 Any of the file-containing directories can contain a README file and a CHANGES file.
 
-Review [General Protocals](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS) on how to add add new data.  
+Review [PROTOCOLS](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS) on how to add add new data.  
 
 ## README YAML files
 Every file-containing directory, AKA "collection", in the LIS datastore should contain a README file in YAML format. 
