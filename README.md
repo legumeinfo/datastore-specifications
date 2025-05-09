@@ -25,7 +25,8 @@ using the JSON schema definition [readme.schema.json](/readme.schema.json).
 *This schema must be kept up to date along with the sample template [README.collection.yml](/README.collection.yml) when any changes are made to the README spec.*
 
 ### Content requirements
-The metadata files are in yml format. See a basic description: https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html.
+The metadata files are in yml format. See a basic [yml file format description](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html).
+
 We use just a few of the yml features - basically, ...
   - Start the file with three dashes.
   - Use the "key : value pattern", for records with a single element - or the list form, in which all members of a list are lines beginning at the same indentation level starting with a "- " (a dash and a space).
