@@ -31,16 +31,12 @@ to contribute, please **CONTACT US.** We would love to work with you.
 ### Datastore instances and organization
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
-  - atlas-login.hpc.msstate.edu
   - c2s2.usda.iastate.edu
 
 The public content of the datastore is made available via https from the instance at c2s2.
 
 <b>The best practice is to do any curation on ceres.</b> The instance at c2s2 is being used for display
-of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org. The instance at 
-atlas-login.hpc.msstate.edu is for backup and for data access when ceres is unavailable due to periodic maintenance.
-
-The longer-term hope is for the datastore to be hosted for public access in a USDA Azure instance, with a .gov URL.
+of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org.
 
 "The datastore" is comprised of three directories:
 * <b>v2</b>  -- The public datastore, accessed at https://data.legumeinfo.org or https://data.soybase.org
@@ -174,7 +170,7 @@ but it is often easiest to copy a README from another data collection for the sa
 Note that the metadata files are in yml format. See a basic description:
 https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
 We use just a few of the yml features - basically, ...
-  - Start the file with three dashes.
+  - Start the yaml document with three dashes. (A file may contain multiple yml documents, each marked with the leading `---`).
   - Use the "key : value pattern", for records with a single element - or the list form, in which all members of a list are lines beginning at the same indentation level starting with a "- " (a dash and a space).
 
 Fill out the correspondence MANIFEST file, giving correspondence with prior filenames:
