@@ -3,6 +3,8 @@ Specifications for directory naming, file naming, file contents in the LIS datas
 
 Any of the file-containing directories can contain a README file and a CHANGES file.
 
+Review [PROTOCOLS](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS) on how to add add new data.  
+
 ## README YAML files
 Every file-containing directory, AKA "collection", in the LIS datastore should contain a README file in YAML format. 
 
@@ -23,6 +25,12 @@ using the JSON schema definition [readme.schema.json](/readme.schema.json).
 *This schema must be kept up to date along with the sample template [README.collection.yml](/README.collection.yml) when any changes are made to the README spec.*
 
 ### Content requirements
+The metadata files are in yml format. See a basic [yml file format description](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html).
+
+We use just a few of the yml features - basically, ...
+  - Start the yaml document with three dashes. (A file may contain multiple yml documents, each marked with the leading `---`).
+  - Use the "key : value pattern", for records with a single element - or the list form, in which all members of a list are lines beginning at the same indentation level starting with a "- " (a dash and a space).
+
 READMEs must be YAML-compliant, which means they pass the test on http://www.yamllint.com/ or using the `yamllint` command-line utility. Here are some, but not all, requirements for a valid LIS README:
 - `identifier` at the top repeats the name of the collection, i.e. the name of the containing directory.
 - `synopsis` should be short, 100 characters or less.

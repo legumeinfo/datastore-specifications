@@ -4,11 +4,15 @@ Instructions for adding data to the datastore and then updating associated LIS/S
 NOTE: The instructions below are for curators working on files used by
 legumeinfo.org, soybase.org, and peanutbase.org.
 If you are a researcher or user of and you have a data set that you would like
-to contribute, please <a href="https://legumeinfo.org/contact">CONTACT US!</a>
-We would love to work with you.
+to contribute, please **CONTACT US.** We would love to work with you.
+
+  - <a href="https://legumeinfo.org/contact">Contact Legume Information System</a>
+  - <a href="https://www.peanutbase.org/contact/">Contact PeanutBase</a>
+  - <a href="https://www.soybase.org/about/">Contact SoyBase</a>
 
 ## Table of Contents
 [Datastore instances and organization](#datastore-curation) <br>
+[Computation Resources](#computation-resources) <br> 
 [General procedure for adding a new data set to the datastore](#adding-to-the-datastore) <br>
 [Procedure for adding genome and annotation collections with ds_souschef](#using-souschef) <br>
 [Questions and handling hard cases with ds_souschef](#souschef-faq) <br>
@@ -27,35 +31,26 @@ We would love to work with you.
 ### Datastore instances and organization
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
-  - atlas-login.hpc.msstate.edu
-  - soybase-stage.usda.iastate.edu
+  - c2s2.usda.iastate.edu
 
-A nightly cron job syncs these instances in the direction of ceres to soybase-stage and atlas to soybase-stage.
-The public content of the datastore is made available via https from the instance at soybase-stage.
+The public content of the datastore is made available via https from the instance at c2s2.
 
-<b>The best practice is to do any curation on ceres.</b> The instance at soybase-stage is being used for display
-of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org. The instance at 
-atlas-login.hpc.msstate.edu is for backup and for data access when ceres is unavailable due to periodic maintenance.
-
-The longer-term plan is for the datastore to be hosted for public access in a USDA Azure instance, with a .gov URL.
+<b>The best practice is to do any curation on ceres.</b> The instance at c2s2 is being used for display
+of the data at the relevant urls: https://data.legumeinfo.org and https://data.soybase.org.
 
 "The datastore" is comprised of three directories:
 * <b>v2</b>  -- The public datastore, accessed at https://data.legumeinfo.org or https://data.soybase.org
-* <b>annex</b>  -- For curated public data that lacks specification or formalized metadata (use judiciously)
-* private  -- Staging area; not publicly accessible
+* <b>annex</b>  -- For curated public data that lacks specification or formalized metadata (*use judiciously*)
+* <b>private</b>  -- Staging area; not publicly accessible
 
 There are also three affiliated directories at the same root level:
 * conda-envs  -- The conda software environment sufficient for most curation
 * datastore-registry  -- For registering "key4" values; tracks https://github.com/legumeinfo/datastore-registry
 * datastore-specifications  -- Specifications and documentation, including this README
 
-### Establish an interactive session on a computation node
+### Establish an interactive session on a computation node <a name="computation-resources"/>
 
-The [ceres and atlas resources](https://scinet.usda.gov/guides/resources/CeresAtlasDifferences) are a managed HPC environments, 
-in which computational work is done either in
-an interactive session or via a [SLURM job](https://scinet.usda.gov/guides/use/slurm). 
-It is very important not to try to do work beyond simple navigation
-or file transfers on the login nodes. Rather, for an interactive session, start a SLURM job:
+The [ceres and atlas resources](https://scinet.usda.gov/guides/resources/CeresAtlasDifferences) are a managed HPC environments,  in which computational work is done either in an interactive session or via a [SLURM job](https://scinet.usda.gov/guides/use/slurm).  It is very important not to try to do work beyond simple navigation or file transfers on the login nodes. Rather, for an interactive session, start a SLURM job:
 
 ```
   salloc  # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
@@ -73,7 +68,7 @@ The project-specifc scripts are managed within the present repository, in the
 These scripts (and the repository) also has an instance alongside the datastore, at
 `/project/legume_project/datastore/datastore-specifications/scripts`. 
 
-For convenience, it is recommended to add this directory to your .bashrc file:
+For convenience, it is recommended to add this directory to your .bashrc file on ceres and atlas:
 ``` bash
   PATH=/project/legume_project/datastore/datastore-specifications/scripts:$PATH
 ```
@@ -87,13 +82,12 @@ can be loaded like so:
   ml miniconda
   source activate /project/legume_project/datastore/conda-envs/ds-curate
 ```
-<details>
+
 To deactivate the conda environment:
 
   ```
     conda deactivate
   ```
-</details>
 
 A variation on this is to add a link to that environment to your local set of .conda environments. 
 This has the advantage of reducing the length of the command prompt:
@@ -138,7 +132,7 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
 As of January 2025, the datastore is being maintained at three locations:
   - ceres.scinet.usda.gov
   - atlas-login.hpc.msstate.edu
-  - soybase-stage.usda.iastate.edu
+  - c2s2.usda.iastate.edu
 
 In general, during preparation, data should initially go into "private" (`/project/legume_project/datastore/private`), in a suitable
 subdirectory (organized by genus and species and generally mirroring the organization of "public").
@@ -171,16 +165,13 @@ For collections that are typically associated with a publication, the unique "ke
 ### Fill out the README and MANIFEST files
 Fill out the README file. The empty template is at
 https://github.com/legumeinfo/datastore-specifications/blob/main/README.collection.yml
-but it is often easiest to copy a README from another data collection for the
-same species and then change the fields that need to be changed.
+but it is often easiest to copy a README from another data collection for the same species and then change the fields that need to be changed.
 
 Note that the metadata files are in yml format. See a basic description:
 https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
 We use just a few of the yml features - basically, ...
-Start the file with three dashes.
-Use the "key : value pattern", for records with a single element -
-or the list form, in which all members of a list are lines beginning at the same
-indentation level starting with a "- " (a dash and a space).
+  - Start the yaml document with three dashes. (A file may contain multiple yml documents, each marked with the leading `---`).
+  - Use the "key : value pattern", for records with a single element - or the list form, in which all members of a list are lines beginning at the same indentation level starting with a "- " (a dash and a space).
 
 Fill out the correspondence MANIFEST file, giving correspondence with prior filenames:
 ```
@@ -215,18 +206,10 @@ Also, note the change in the status file in the private/Genus/species/ dir, e.g.
 ```
 
 ## Procedure for adding genome and annotation collections with ds_souschef <a name="using-souschef"></a>
-The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file
-to transform provided genome assembly and annotation files into collections that follow datastore conventions.
-Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is
-to store configuration files in that directory, for each new assembly+annotation collection set. There is one
-configuration file, in yaml format, for each assembly+annotation pair to be processed by ds_souschef.pl.
+The **ds_souschef.pl** script, in datastore-specifications/scripts/, uses information in a configuration file to transform provided genome assembly and annotation files into collections that follow datastore conventions. Examples of configuration files are available at scripts/ds_souschef_configs/. In fact, the best practice is to store configuration files in that directory, for each new assembly+annotation collection set. There is one configuration file, in yaml format, for each assembly+annotation pair to be processed by ds_souschef.pl.
 
-The instructions below use the example of *Arabidopsis thaliana* (included in the datastore for its general
-utility as a plant biology model species). The data set in this example came from Phytozome prior to conversion to the
-LIS datastore formats, and originated ultimately from the Arabidopsis Genome Initiative, TAIR, and Araport projects.
-The ds_souschef.pl tool can be applied to datasets from other sources, but the particular information in the
-configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventions
-and patterns, reflected in this Arabidopsis example.
+The instructions below use the example of *Arabidopsis thaliana* (included in the datastore for its general utility as a plant biology model species). The data set in this example came from Phytozome prior to conversion to the datastore formats, and originated ultimately from the Arabidopsis Genome Initiative, TAIR, and Araport projects.
+The ds_souschef.pl tool can be applied to datasets from other sources, but the particular information in the configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventionsand patterns, reflected in this Arabidopsis example.
 
 NOTE: Also see additional instructions and notes for preparation of many collections 
 at [ds_souschef_prep_examples](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/ds_souschef_prep_examples)
@@ -314,8 +297,7 @@ Check for UNDEFINED in the annotation files; this indicates a problem in the has
 
 ## Questions and handling hard cases with ds_souschef <a name="souschef-faq"/>
 How to convert GenBank molecule accession names into chromosome names? 
-Do this by creating a hash file of accessions and chromosome IDs,
-and pass into ds_souschef using the -SHash flag. Here is an example, using Bauhinia variegata.
+Do this by creating a hash file of accessions and chromosome IDs, and pass into ds_souschef using the -SHash flag. Here is an example, using Bauhinia variegata.
 First create the hash file:
 ```bash
   zcat $GFF | awk -v FS="\t" '$3~/region/ && $1~/CM/ {print $9}' |
@@ -334,16 +316,12 @@ Then call ds_souschef:
   ds_souschef.pl -conf conf_bauva.BV-YZ2020.gnm2.ann1.yml -SHash $SHASH
 ```
 
-How to modify the gene/feature IDs? The hashed (new) gene ID can be reshaped somewhat with the use of 
-a "strip" pattern in the from_to_gff section of the config. For example, the following in that section of
-the config file will strip those characters from GenBank feature IDs:
+How to modify the gene/feature IDs? The hashed (new) gene ID can be reshaped somewhat with the use of  a "strip" pattern in the from_to_gff section of the config. For example, the following in that section of the config file will strip those characters from GenBank feature IDs:
 ```bash
   strip: 'gnl|WGS:JAKRYI|' 
 ```
 
-For very complex transformations, you may need to first generate the featid_map.tsv and/or seqid_map.tsv
-with an initial run of ds_souschef, then modify the values in the second field to the form that you want, 
-then re-run ds_souschef, specifying the map files with -seqid_map and/or -featid_map as appropriate.
+For very complex transformations, you may need to first generate the featid_map.tsv and/or seqid_map.tsv with an initial run of ds_souschef, then modify the values in the second field to the form that you want, then re-run ds_souschef, specifying the map files with -seqid_map and/or -featid_map as appropriate.
 
 ## Initiate or update "about_this_collection.yml" <a name="description-genus-species"/>
 Each GENUS and species directory has an about_this_collection subdirectory, each containing
@@ -403,6 +381,8 @@ to the annotation directory for the respective annotation collection.
 
 ## Add BLAST targets <a name="blast-targets"/>
 The main [legumeinfo sequenceserver instance](https://sequenceserver.legumeinfo.org) is built using a dedicated [Dockerfile](https://github.com/legumeinfo/sequenceserver/blob/lis/db/Dockerfile) maintained on the branch lis. After modifying the file with respect to new BLAST targets, you must commit your changes, add a tag (e.g. git tag v2022.12.21), and git push --tags which will trigger a [github actions workflow](https://github.com/legumeinfo/sequenceserver/actions/workflows/deploy.yml) to rebuild and deploy to the production server. 
+
+
 
 ## Incorporate into GCV <a name="populate-gcv"/>
 (TBD)
