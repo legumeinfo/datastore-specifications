@@ -53,7 +53,7 @@ gzip all .tsvs before loading to datastore.
 6) replicate_group.bw
 
 Run the script make_bigwigs.sh:
-./make_bigwigs.sh <samples.tsv.gz> <chromosome_sizes_file>
+/home/elavelle/make_bigwigs.sh <samples.tsv.gz> <chromosome_sizes_file>
 
 NOTE:
 
