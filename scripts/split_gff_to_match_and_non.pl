@@ -5,7 +5,7 @@ use warnings;
 use Getopt::Long;
 use feature "say";
 
-my ($list_IDs, $match_out, $non_out, $help);
+my ($list_IDs, $match_out, $non_out, $dry_run, $help);
 my $splice_regex = "\\.\\d+\$";
 
 GetOptions (
@@ -13,6 +13,7 @@ GetOptions (
   "match_out=s"    => \$match_out,  # required
   "non_out=s"      => \$non_out,    # required
   "splice_regex:s" => \$splice_regex,
+  "dry_run"        => \$dry_run,
   "help"           => \$help
 );
 
@@ -41,12 +42,13 @@ my $usage = <<EOS;
     -non_out:   Filename for GFF to write out for matching features (required)
 
   Options:
-    -splice_regex   (string) regular expression to use to exclude the splice variant suffix 
+    -splice_regex:   (string) regular expression to use to exclude the splice variant suffix 
        of a feature name during the match. Not needed if gene IDs are provided in the list.
          DEFAULT for transcripts like Gene1234.1, the dot and trailing digits will be stripped: "\\.\\d+\$"  
          Example 2: For transcripts like Gene1234-mRNA-1, use "-mRNA-\\d+\$" 
          Example 3: For proteins like    Gene1234.1.p,    use "\\.\\d+\\.p\$"
-    -help:      for more info
+    -dry_run    (boolean) run the program to get report, but don't generate GFF files.
+    -help:      (boolean) for this usage info.
 EOS
 
 die "\n$usage\n" if ($help or !defined($list_IDs) or !defined($match_out) or ! defined($non_out) );
@@ -71,7 +73,7 @@ while (<$LIST_FH>) {
   $id =~ s/\s+$//; # strip trailing whitespace
 
   # strip splice variant if present
-  if ($id =~ /(.+)($SPL_RX)$/){ $seen_splice_var++; }
+  if ($id =~ /(.+)($SPL_RX)$/){ $seen_splice_var++ }
   $id =~ s/(.+)($SPL_RX)$/$1/;
   unless ($seen_id{$id}) {
     $seen_id{$id}++;
@@ -91,7 +93,7 @@ while (my $line = <>){
   chomp $line;
   if ($line =~ /^#/){
     if ($line =~ /^#+$/) { next } # skip lines consisting only of '#'
-    else { push(@comments, $line); }
+    else { push(@comments, $line) }
     next;
   }
   else { # Push all non-comment lines into an array, for later use in extracting the list complement
@@ -139,14 +141,16 @@ while (my $line = <>){
 }
 
 if (scalar(@match_gff_features)>0){
-  open(my $MATCH_FH, ">", $match_out) or die "Couldn't open out $match_out: $!";
+  my $MATCH_FH;
+  if ($dry_run) { say STDERR "No files generated (dry run), but would write to $match_out" }
+  else {open($MATCH_FH, ">", $match_out) or die "Couldn't open out $match_out: $!" }
 
   foreach my $comment (@comments) {
-    say $MATCH_FH $comment;
+    unless ($dry_run) { say $MATCH_FH $comment }
   }
 
   foreach my $line (@match_gff_features){
-    say $MATCH_FH $line;
+    unless ($dry_run) { say $MATCH_FH $line }
     $ct_match++;
   }
 }
@@ -209,13 +213,15 @@ foreach my $line (@all_gff_features) {
 }
 
 if (scalar(@non_gff_features)>0){
-  open(my $NON_FH, ">", $non_out) or die "Couldn't open out $non_out: $!";
+  my $NON_FH;
+  if ($dry_run) { say STDERR "No files generated (dry run), but would write to $non_out" }
+  else { open($NON_FH, ">", $non_out) or die "Couldn't open out $non_out: $!" }
 
   foreach my $comment (@comments) {
-    say $NON_FH $comment;
+    unless ($dry_run) { say $NON_FH $comment }
   }
   foreach my $line (@non_gff_features){
-    say $NON_FH $line;
+    unless ($dry_run) { say $NON_FH $line }
     $ct_non++;
   }
 }
