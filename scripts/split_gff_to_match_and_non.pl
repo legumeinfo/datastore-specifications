@@ -55,6 +55,8 @@ die "\n$usage\n" if ($help or !defined($list_IDs) or !defined($match_out) or ! d
 
 my $SPL_RX=qr/$splice_regex/;
 
+say STDERR "\n==========\nOperating on list file $list_IDs";
+
 # read list in
 open( my $LIST_FH, '<', $list_IDs ) or die "can't open list_IDs $list_IDs: $!";
 
@@ -141,21 +143,9 @@ while (my $line = <>){
 }
 
 if (scalar(@match_gff_features)>0){
-  my $MATCH_FH;
-  if ($dry_run) { say STDERR "No files generated (dry run), but would write to $match_out" }
-  else {open($MATCH_FH, ">", $match_out) or die "Couldn't open out $match_out: $!" }
-
-  foreach my $comment (@comments) {
-    unless ($dry_run) { say $MATCH_FH $comment }
-  }
-
   foreach my $line (@match_gff_features){
-    unless ($dry_run) { say $MATCH_FH $line }
     $ct_match++;
   }
-}
-else {
-  warn "\nNo features from the match list were found, so no such GFF was written.\n";
 }
 
 # Get complement of list_IDs
@@ -242,9 +232,42 @@ say STDERR "\nFeature counts in starting and ending GFFs:";
 say STDERR "\torig\tmatches\tnon\tsum\tdiff";
 say STDERR "\t$ct_orig\t$ct_match\t$ct_non\t$sum\t$diff\n";
 
+if ($ct_match == $sum){
+  say STDERR "\tOnly features in the match list were seen, so no new GFF was generated.";
+}
+else { # write out the match GFF file
+  if (scalar(@match_gff_features)>0){
+    my $MATCH_FH;
+    if ($dry_run) { 
+      say STDERR "No files generated (dry run), but would write to $match_out";
+      say STDERR "\tMatches and non-matches were seen, so new GFFs would be generated.";
+    }
+    else {
+      say STDERR "\tMatches and non-matches were seen, so new GFFs were generated.";
+      open($MATCH_FH, ">", $match_out) or die "Couldn't open out $match_out: $!" 
+    }
+  
+    foreach my $comment (@comments) {
+      unless ($dry_run) { say $MATCH_FH $comment }
+    }
+  
+    foreach my $line (@match_gff_features){
+      unless ($dry_run) { say $MATCH_FH $line }
+    }
+  }
+  else {
+    warn "\nNo features from the match list were found, so no such GFF was written.\n";
+  }
+}
+
 if ($diff > 0){
   warn "\nWARNING: Some GFF features were not accounted for. The sum of matches " .
        "and non-matches should equal the original number of GFF features.\n";
+}
+
+if ($diff < 0){
+  warn "\nWARNING: More non-matches than matches were seen. Please check the GFFs\n" .
+       "\nand the splice regex: $splice_regex\n";
 }
 
 __END__
