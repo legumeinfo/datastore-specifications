@@ -6,7 +6,7 @@ use Getopt::Long;
 use feature "say";
 
 my ($list_IDs, $match_out, $non_out, $dry_run, $help);
-my $splice_regex = "\\.\\d+\$";
+my $splice_regex = '\.\D?\d+$';
 
 GetOptions (
   "list_IDs=s"     => \$list_IDs,   # required
@@ -26,9 +26,12 @@ my $usage = <<EOS;
   The list can be a simple one-field file of gene identifiers, or a table in which 
   the first column consists of gene identifiers (such as a .fai fasta index file). 
 
-  Note that the GENE IDs are used; if mRNA IDs are provided, the splice form
+  Note 1: Records are processed based on GENE IDs. If mRNA IDs are provided, the splice form
   will be stripped. If the splice form has an unusual form (other than .#), provide
   a regex to use for identifying the genic portion of the ID.
+
+  Note 2: If you pass in a list of gene IDs rather than transcript IDs and the gene IDs 
+  could be matched by the default regex (e.g. gene ID = ctg21.1), set -splice_regex="NONE"
 
   A typical use case: provide a .fai index file of coding features, and return two GFFs: 
   one with coding features and the other with noncoding features.
@@ -44,7 +47,7 @@ my $usage = <<EOS;
   Options:
     -splice_regex:   (string) regular expression to use to exclude the splice variant suffix 
        of a feature name during the match. Not needed if gene IDs are provided in the list.
-         DEFAULT for transcripts like Gene1234.1, the dot and trailing digits will be stripped: "\\.\\d+\$"  
+         DEFAULT for transcripts like Gene1234.1 and Gene1234.t1 the portion after the dot will be stripped: "\\.\\D\?\\d+\$"  
          Example 2: For transcripts like Gene1234-mRNA-1, use "-mRNA-\\d+\$" 
          Example 3: For proteins like    Gene1234.1.p,    use "\\.\\d+\\.p\$"
     -dry_run    (boolean) run the program to get report, but don't generate GFF files.
@@ -89,8 +92,8 @@ my @comments;
 my %seen_parent;
 my %seen_mRNA;
 my %all_genes;
-my @all_gff_features;
 my @match_gff_features;
+my @non_gff_features;
 while (my $line = <>){
   chomp $line;
   if ($line =~ /^#/){
@@ -98,8 +101,7 @@ while (my $line = <>){
     else { push(@comments, $line) }
     next;
   }
-  else { # Push all non-comment lines into an array, for later use in extracting the list complement
-    push(@all_gff_features, $line);
+  else { # Count all feature lines
     $ct_orig++;
   }
   my @F = split(/\t/, $line);
@@ -114,7 +116,8 @@ while (my $line = <>){
       $seen_parent{$ID}++;
       push(@match_gff_features, $line);
     }
-    else {
+    else {# ID isn't in list, so element must be in the complement
+      push(@non_gff_features, $line);
       next;
     }
   }
@@ -126,17 +129,19 @@ while (my $line = <>){
       $seen_parent{$parent}++;
       push(@match_gff_features, $line);
     }
-    else {
+    else {# Parent isn't upstream or ID isn't in list, so element must be in the complement
+      push(@non_gff_features, $line);
       next;
     }
   }
-  else { # presume that other components are children of upstream mRNA 
+  else {
     $ninth =~ m/Parent=([^;]+)/;
     $parent = $1;
     if ( $list{$parent} || $seen_parent{$parent} || $seen_mRNA{$parent} ){
       push(@match_gff_features, $line);
     }
-    else {
+    else { # Parent isn't upstream or ID isn't in list, so element must be in the complement
+      push(@non_gff_features, $line);
       next;
     }
   }
@@ -155,50 +160,6 @@ foreach my $key (sort keys %all_genes) {
   }
   else {
     $complement{$key}++;
-  }
-}
-
-# Traverse GFF again, printing records corresponding to the complement
-%seen_parent = ();
-%seen_mRNA = ();
-my @non_gff_features;
-foreach my $line (@all_gff_features) {
-  my @F = split(/\t/, $line);
-  my ($type, $ninth) = ($F[2], $F[8]);
-  my @attrs = split(/;/, $ninth);
-  $ninth =~ m/ID=([^;]+)/; 
-  my $ID = $1;
-  my $parent="";
-  if ($type =~ /gene/){
-    if ( $complement{$ID}){
-      $seen_parent{$ID}++;
-      push(@non_gff_features, $line);
-    }
-    else {
-      next;
-    }
-  }
-  elsif ($type =~ /mRNA/) {
-    $ninth =~ m/Parent=([^;]+)/;
-    $parent = $1;
-    if ( $complement{$parent}){
-      $seen_mRNA{$ID}++;
-      $seen_parent{$parent}++;
-      push(@non_gff_features, $line);
-    }
-    else {
-      next;
-    }
-  }
-  else { # presume that other components are children of upstream mRNA 
-    $ninth =~ m/Parent=([^;]+)/;
-    $parent = $1;
-    if ( $complement{$parent} || $seen_parent{$parent} || $seen_mRNA{$parent} ){
-      push(@non_gff_features, $line);
-    }
-    else {
-      next;
-    }
   }
 }
 
@@ -223,10 +184,10 @@ else {
 my $sum = $ct_match+$ct_non;
 my $diff = $ct_orig-$sum;
 if ($seen_splice_var){
-  say STDERR "\nIn match list, splice variants of form $SPL_RX were seen $seen_splice_var times and stripped.";
+  say STDERR "\nIn match list, splice variants of regex $SPL_RX were seen $seen_splice_var times and stripped.";
 }
 else {
-  say STDERR "\nIn match list, no splice variant was seen, so items were treated as gene IDs.";
+  say STDERR "\nIn match list, no splice variant was seen for regex $SPL_RX, so items were treated as gene IDs.";
 }
 say STDERR "\nFeature counts in starting and ending GFFs:";
 say STDERR "\torig\tmatches\tnon\tsum\tdiff";
@@ -256,17 +217,17 @@ else { # write out the match GFF file
     }
   }
   else {
-    warn "\nNo features from the match list were found, so no such GFF was written.\n";
+    warn "WARNING: No features from the match list were found, so no such GFF was written.\n";
   }
 }
 
 if ($diff > 0){
-  warn "\nWARNING: Some GFF features were not accounted for. The sum of matches " .
+  warn "WARNING: Some GFF features were not accounted for. The sum of matches " .
        "and non-matches should equal the original number of GFF features.\n";
 }
 
 if ($diff < 0){
-  warn "\nWARNING: More non-matches than matches were seen. Please check the GFFs\n" .
+  warn "WARNING: More non-matches than matches were seen. Please check the GFFs" .
        "\nand the splice regex: $splice_regex\n";
 }
 
@@ -274,5 +235,5 @@ __END__
 VERSIONS
 S. Cannon
 2025-12-09 Initial version, derived from get_gff_subset.pl
-2025-12-10 Report results, and code cleanup. Add method to strip splice variants from mRNA IDs.
-
+2025-12-10 Report results, and code cleanup. Add method to strip splice variants from mRNA IDs
+2025-12-11 Extend spliceform regex. Simplify the approach, generating the match and complement arrays in one pass.
