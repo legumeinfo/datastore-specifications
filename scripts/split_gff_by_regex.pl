@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use Getopt::Long;
+use File::Basename;
 use feature "say";
 
 my ($list_IDs, $match_out, $non_out, $dry_run, $help);
@@ -18,7 +19,7 @@ GetOptions (
 );
 
 my $usage = <<EOS;
-  Usage: cat FILE.gff3 | split_gff_to_match_and_non.pl -list FILE.txt -match MATCH.gff3 -non NON.gff3
+  Usage: cat FILE.gff3 | split_gff_by_regex.pl -list FILE.txt -match MATCH.gff3 -non NON.gff3
   
   Given a list of IDs and GFF via STDIN, produce two GFFs: one with GFF features 
   matching the list and one with the non-matching features.
@@ -37,10 +38,9 @@ my $usage = <<EOS;
   one with coding features and the other with noncoding features.
 
   Limitations: This script should only work on sorted gene annotation files.
-               List IDs should be gene and/or mRNA names.
    
   Required:
-    -list_IDs:  IDs list of IDs, or table with IDs in first column to extract (required)
+    -list_IDs:  list of IDs, or table with IDs in first column to extract (required)
     -match_out: Filename for GFF to write out for matching features (required)
     -non_out:   Filename for GFF to write out for matching features (required)
 
@@ -58,13 +58,15 @@ die "\n$usage\n" if ($help or !defined($list_IDs) or !defined($match_out) or ! d
 
 my $SPL_RX=qr/$splice_regex/;
 
-say STDERR "\n==========\nOperating on list file $list_IDs";
+my $list_filename = basename($list_IDs);
+say STDERR "\n==========\nOperating on list file $list_filename";
 
 # read list in
 open( my $LIST_FH, '<', $list_IDs ) or die "can't open list_IDs $list_IDs: $!";
 
 # Put elements of LIST into hash
 my %list;
+my $ct_list_genes;
 my %seen_id;
 my $seen_splice_var;
 while (<$LIST_FH>) {
@@ -83,11 +85,12 @@ while (<$LIST_FH>) {
   unless ($seen_id{$id}) {
     $seen_id{$id}++;
     $list{$id} = $id; 
+    $ct_list_genes++;
   }
 }
 
 # Process GFF
-my ($ct_orig, $ct_match, $ct_non) = (0, 0, 0);
+my ($ct_orig, $ct_match, $ct_non, $ct_prev_genes, $ct_new_genes) = (0, 0, 0, 0, 0);
 my @comments;
 my %seen_parent;
 my %seen_mRNA;
@@ -111,9 +114,11 @@ while (my $line = <>){
   my $ID = $1;
   my $parent="";
   if ($type =~ /gene/){
+    $ct_prev_genes++;
     $all_genes{$ID}++;
     if ( $list{$ID}){
       $seen_parent{$ID}++;
+      $ct_new_genes++;
       push(@match_gff_features, $line);
     }
     else {# ID isn't in list, so element must be in the complement
@@ -153,16 +158,6 @@ if (scalar(@match_gff_features)>0){
   }
 }
 
-# Get complement of list_IDs
-my %complement;
-foreach my $key (sort keys %all_genes) {
-  if (exists $list{$key}){
-  }
-  else {
-    $complement{$key}++;
-  }
-}
-
 if (scalar(@non_gff_features)>0){
   my $NON_FH;
   if ($dry_run) { say STDERR "No files generated (dry run), but would write to $non_out" }
@@ -180,31 +175,37 @@ else {
   warn "\nNo non-match features were found, so no such GFF was written.\n";
 }
 
-# Report counts in starting and ending GFFs
-my $sum = $ct_match+$ct_non;
-my $diff = $ct_orig-$sum;
 if ($seen_splice_var){
   say STDERR "\nIn match list, splice variants of regex $SPL_RX were seen $seen_splice_var times and stripped.";
 }
 else {
   say STDERR "\nIn match list, no splice variant was seen for regex $SPL_RX, so items were treated as gene IDs.";
 }
+#
+# Report counts in starting and ending GFFs
+my $sum = $ct_match+$ct_non;
+my $diff = $ct_orig-$sum;
+my $diff_genes = $ct_list_genes-$ct_prev_genes;
+
 say STDERR "\nFeature counts in starting and ending GFFs:";
 say STDERR "\torig\tmatches\tnon\tsum\tdiff";
-say STDERR "\t$ct_orig\t$ct_match\t$ct_non\t$sum\t$diff\n";
+say STDERR "==\t$ct_orig\t$ct_match\t$ct_non\t$sum\t$diff";
+
+say STDERR "\nCounts of genes from ...\n\tlist\tGFF\tdiff\tnewGFF";
+say STDERR "##\t$ct_list_genes\t$ct_prev_genes\t$diff_genes\t$ct_new_genes\n";
 
 if ($ct_match == $sum){
-  say STDERR "\tOnly features in the match list were seen, so no new GFF was generated.";
+  say STDERR "Only features in the match list were seen, so no new GFF was generated.";
 }
 else { # write out the match GFF file
   if (scalar(@match_gff_features)>0){
     my $MATCH_FH;
     if ($dry_run) { 
       say STDERR "No files generated (dry run), but would write to $match_out";
-      say STDERR "\tMatches and non-matches were seen, so new GFFs would be generated.";
+      say STDERR "Matches and non-matches were seen, so new GFFs would be generated.";
     }
     else {
-      say STDERR "\tMatches and non-matches were seen, so new GFFs were generated.";
+      say STDERR "Matches and non-matches were seen, so new GFFs were generated.";
       open($MATCH_FH, ">", $match_out) or die "Couldn't open out $match_out: $!" 
     }
   
