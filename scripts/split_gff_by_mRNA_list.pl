@@ -120,16 +120,23 @@ foreach my $line (@features){
   my @attrs = split(/;/, $ninth);
   $ninth =~ m/ID=([^;]+)/;
   my $ID = $1;
+  my %seen_line;
   my $parent="";
   if ($type =~ /gene/){
     $ct_prev_genes++;
     if ( $match_IDs{$ID}){
       $seen_parent{$ID}++;
       $ct_new_genes++;
-      push(@match_gff_features, $line);
+      unless ( $seen_line{$ID} ){
+        push(@match_gff_features, $line);
+        $seen_line{$ID}++;
+      }
     }
     else {# ID isn't in list, so element must be in the complement
-      push(@non_gff_features, $line);
+      unless ( $seen_line{$ID} ){
+        push(@non_gff_features, $line);
+        $seen_line{$ID}++;
+      }
       next;
     }
   }
@@ -139,22 +146,37 @@ foreach my $line (@features){
     if ( $match_IDs{$parent}){
       $seen_mRNA{$ID}++;
       $seen_parent{$parent}++;
-      push(@match_gff_features, $line);
+      unless ( $seen_line{$parent} ){
+        push(@match_gff_features, $line);
+        $seen_line{$parent}++;
+      }
     }
     else {# Parent isn't upstream or ID isn't in list, so element must be in the complement
-      push(@non_gff_features, $line);
+      unless ( $seen_line{$parent} ){
+        push(@non_gff_features, $line);
+        $seen_line{$parent}++;
+      }
       next;
     }
   }
   else {
     $ninth =~ m/Parent=([^;]+)/;
-    $parent = $1;
-    if ( $list{$parent} || $seen_parent{$parent} || $seen_mRNA{$parent} ){
-      push(@match_gff_features, $line);
-    }
-    else { # Parent isn't upstream or ID isn't in list, so element must be in the complement
-      push(@non_gff_features, $line);
-      next;
+    my $parent_or_parents = $1;
+    my @parents = split(/,/, $parent_or_parents); # There may be multiple parents, e.g. exons part of multiple mRNAs
+    foreach my $parent (@parents){
+      if ( $list{$parent} || $seen_parent{$parent} || $seen_mRNA{$parent} ){
+        unless ( $seen_line{$parent_or_parents} ){
+          push(@match_gff_features, $line);
+          $seen_line{$parent_or_parents}++;
+        }
+      }
+      else { # Parent isn't upstream or ID isn't in list, so element must be in the complement
+        unless ( $seen_line{$parent_or_parents} ){
+          push(@non_gff_features, $line);
+          $seen_line{$parent_or_parents}++;
+          next;
+        }
+      }
     }
   }
 }
@@ -195,7 +217,7 @@ say STDERR "\nCounts of genes from ...\n\torigGFF\tnewGFF\tdiff";
 say STDERR "##\t$ct_prev_genes\t$ct_new_genes\t$diff_genes\n";
 
 if ($ct_match == $sum){
-  say STDERR "Only features in the match list were seen, so no new GFF was generated.";
+  say STDERR "Only features in the match list were seen, so no new GFF was generated.\t";
 }
 else { # write out the match GFF file
   if (scalar(@match_gff_features)>0){
@@ -235,3 +257,4 @@ __END__
 VERSIONS
 S. Cannon
 2025-12-13 Initial version, derived from split_gff_by_regex.pl
+2025-12-15 Some more tweaks after further testing
