@@ -108,8 +108,10 @@ Generalist repositories such as Dryad and Zenodo impose no constraints on format
 
 The notes in this section are for preparation of pangene datasets produced by <a href="Pandagma">https://github.com/legumeinfo/pandagma</a>.
 They have been tested with output from pandagma v2.0, February 2024, on runs for eight genera: 
-Arachis, Cicer, Glycine, Medicago, Phaseolus, and Vigna.
+Arachis, Cicer, Glycine, Medicago, Phaseolus, and Vigna
+... and also from Pandagma v 2026-01-01 for Glycine.
 
 <a href="Pangenes/notes_Phaseolus.pan3.sh">Pangenes/notes_Phaseolus.pan3.sh</a>
+<a href="Pangenes/notes_Glycine.pan6.sh">Pangenes/notes_Glycine.pan6.sh</a>
 
 

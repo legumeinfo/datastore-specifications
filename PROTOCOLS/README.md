@@ -19,7 +19,7 @@ to contribute, please **CONTACT US.** We would love to work with you.
 [Initiate or update "about_this_collection.yml"](#description-genus-species) <br>
 [Calculate AHRD functional annotations](#calc-ahrd) <br>
 [Calculate gene family assignments (GFA)](#calc-gfa) <br>
-[Add to pan-gene set](#pan-genes) <br>
+[Add to pangene set](#pangenes) <br>
 [Load relevant mine](#mine-loading) <br>
 [Add BLAST targets](#blast-targets) <br>
 [Incorporate into GCV](#populate-gcv) <br>
@@ -63,7 +63,7 @@ Or for longer-running jobs, use a [job submission script](https://scinet.usda.go
 Software for curation includes both project-specific scripts (validators, formatters, etc.) and third-party tools (gffread, samtools, etc.).
 
 The project-specifc scripts are managed within the present repository, in the 
-[scripts directory](https://github.com/legumeinfo/datastore-specifications/tree/main/scripts).
+[scripts directory](/scripts).
 
 These scripts (and the repository) also has an instance alongside the datastore, at
 `/project/legume_project/datastore/datastore-specifications/scripts`. 
@@ -212,7 +212,7 @@ The instructions below use the example of *Arabidopsis thaliana* (included in th
 The ds_souschef.pl tool can be applied to datasets from other sources, but the particular information in the configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventionsand patterns, reflected in this Arabidopsis example.
 
 NOTE: Also see additional instructions and notes for preparation of many collections 
-at [ds_souschef_prep_examples](https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/ds_souschef_prep_examples)
+at [ds_souschef_prep_examples](/PROTOCOLS/ds_souschef_prep_examples)
 
 ### Download assembly and annotation into working directory:
 ```bash
@@ -335,8 +335,8 @@ a single "description" file, like so (for Vigna):
 It is important to update these files when new genome and annotation resources are added, as these files are 
 used for Intermine creation and for generating several core Jekyll pages:
 "taxa" (LIS), "resources" (SoyBase), "collections", and "tools" (both LIS and SoyBase).
-See the about\_this\_collection specifications for GENUS [here](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/GENUS/about_this_collection)
-and for species [here](https://github.com/legumeinfo/datastore-specifications/tree/main/Genus/species/about_this_collection).
+See the about\_this\_collection specifications for GENUS [here](/Genus/GENUS/about_this_collection)
+and for species [here](/Genus/species/about_this_collection).
 
 ## Calculate AHRD functional annotations <a name="calc-ahrd"/>
 (TBD)
@@ -373,8 +373,11 @@ The program invocation itself (within the batch script) is very simple:
 This will take roughly 12 hours to complete. When it is done, move the output files, in `work_dir/02_gfa/`,
 to the annotation directory for the respective annotation collection.
 
-## Add to pan-gene set <a name="pan-genes"/>
-(TBD)
+## Add to pangene set <a name="pangenes"/>
+The process of creating a pangene collection is handled by ds_souschef.pl. See instructions at
+[PROTOCOLS/README.md](PROTOCOLS/README.md) and detailed notes at
+[PROTOCOLS/ds_souschef_prep_examples/Pangenes](PROTOCOLS/ds_souschef_prep_examples/Pangenes).
+
 
 ## Load relevant mine <a name="mine-loading"/>
 (TBD)
