@@ -376,7 +376,7 @@ to the annotation directory for the respective annotation collection.
 
 ## Create a pangene collection <a name="pangenes"/>
 The process of creating a pangene collection is handled by ds\_souschef.pl. See instructions at
-[PROTOCOLS/ds_souschef_prep_examples/README.md](/PROTOCOLS/README.md) and detailed notes at
+[PROTOCOLS/ds_souschef_prep_examples/README.md](/PROTOCOLS/ds_souschef_prep_examples/README.md) and detailed notes at
 [PROTOCOLS/ds_souschef_prep_examples/Pangenes](/PROTOCOLS/ds_souschef_prep_examples/Pangenes).
 
 
