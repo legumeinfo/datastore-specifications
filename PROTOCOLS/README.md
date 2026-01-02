@@ -311,18 +311,18 @@ First create the hash file:
     #   CM039427.1  Chr02
 ```
 
-Then call ds_souschef:
+Then call ds\_souschef:
 ```bash
   SHASH="$WD/GCA_022379115.2/initial_chr_map.tsv"
   ds_souschef.pl -conf conf_bauva.BV-YZ2020.gnm2.ann1.yml -SHash $SHASH
 ```
 
-How to modify the gene/feature IDs? The hashed (new) gene ID can be reshaped somewhat with the use of  a "strip" pattern in the from_to_gff section of the config. For example, the following in that section of the config file will strip those characters from GenBank feature IDs:
+How to modify the gene/feature IDs? The hashed (new) gene ID can be reshaped somewhat with the use of  a "strip" pattern in the from\_to\_gff section of the config. For example, the following in that section of the config file will strip those characters from GenBank feature IDs:
 ```bash
   strip: 'gnl|WGS:JAKRYI|' 
 ```
 
-For very complex transformations, you may need to first generate the featid_map.tsv and/or seqid_map.tsv with an initial run of ds_souschef, then modify the values in the second field to the form that you want, then re-run ds_souschef, specifying the map files with -seqid_map and/or -featid_map as appropriate.
+For very complex transformations, you may need to first generate the featid\_map.tsv and/or seqid\_map.tsv with an initial run of ds\_souschef, then modify the values in the second field to the form that you want, then re-run ds\_souschef, specifying the map files with -seqid\_map and/or -featid\_map as appropriate.
 
 ## Initiate or update "about_this_collection.yml" <a name="description-genus-species"/>
 Each GENUS and species directory has an about_this_collection subdirectory, each containing
@@ -374,10 +374,10 @@ The program invocation itself (within the batch script) is very simple:
 This will take roughly 12 hours to complete. When it is done, move the output files, in `work_dir/02_gfa/`,
 to the annotation directory for the respective annotation collection.
 
-## Create a pangene set <a name="pangenes"/>
+## Create a pangene collection <a name="pangenes"/>
 The process of creating a pangene collection is handled by ds_souschef.pl. See instructions at
-[PROTOCOLS/README.md](PROTOCOLS/README.md) and detailed notes at
-[PROTOCOLS/ds_souschef_prep_examples/Pangenes](PROTOCOLS/ds_souschef_prep_examples/Pangenes).
+[PROTOCOLS/README.md](/PROTOCOLS/README.md) and detailed notes at
+[PROTOCOLS/ds_souschef_prep_examples/Pangenes](/PROTOCOLS/ds_souschef_prep_examples/Pangenes).
 
 
 ## Load relevant mine <a name="mine-loading"/>
