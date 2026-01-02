@@ -19,7 +19,7 @@ to contribute, please **CONTACT US.** We would love to work with you.
 [Initiate or update "about_this_collection.yml"](#description-genus-species) <br>
 [Calculate AHRD functional annotations](#calc-ahrd) <br>
 [Calculate gene family assignments (GFA)](#calc-gfa) <br>
-[Add to pangene set](#pangenes) <br>
+[Create a pangene collection](#pangenes) <br>
 [Load relevant mine](#mine-loading) <br>
 [Add BLAST targets](#blast-targets) <br>
 [Incorporate into GCV](#populate-gcv) <br>
@@ -375,8 +375,8 @@ This will take roughly 12 hours to complete. When it is done, move the output fi
 to the annotation directory for the respective annotation collection.
 
 ## Create a pangene collection <a name="pangenes"/>
-The process of creating a pangene collection is handled by ds_souschef.pl. See instructions at
-[PROTOCOLS/README.md](/PROTOCOLS/README.md) and detailed notes at
+The process of creating a pangene collection is handled by ds\_souschef.pl. See instructions at
+[PROTOCOLS/ds_souschef_prep_examples/README.md](/PROTOCOLS/README.md) and detailed notes at
 [PROTOCOLS/ds_souschef_prep_examples/Pangenes](/PROTOCOLS/ds_souschef_prep_examples/Pangenes).
 
 
