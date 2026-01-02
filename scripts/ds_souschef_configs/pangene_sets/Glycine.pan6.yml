@@ -37,7 +37,7 @@ from_to_pan_tsv:
   - 
     from: 18_syn_pan_aug_extra.clust.tsv
     to: clust.tsv
-    description: "Pan-gene sets, in cluster format: ID in first column, followed by tab-separated gene list."
+    description: "Pan-gene sets, in cluster format; ID in first column, followed by tab-separated gene list."
   - 
     from: 18_syn_pan_aug_extra.counts.tsv
     to: counts.tsv
