@@ -213,7 +213,7 @@ The instructions below use the example of *Arabidopsis thaliana* (included in th
 The ds_souschef.pl tool can be applied to datasets from other sources, but the particular information in the configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventionsand patterns, reflected in this Arabidopsis example.
 
 NOTE: Also see additional instructions and notes for preparation of many collections 
-at [ds_souschef_prep_examples](/PROTOCOLS/ds_souschef_prep_examples)
+at [ds_souschef_prep_examples](PROTOCOLS/ds_souschef_prep_examples)
 
 ### Download assembly and annotation into working directory:
 ```bash
@@ -376,8 +376,8 @@ to the annotation directory for the respective annotation collection.
 
 ## Create a pangene set <a name="pangenes"/>
 The process of creating a pangene collection is handled by ds_souschef.pl. See instructions at
-[/PROTOCOLS/README.md](PROTOCOLS/README.md) and detailed notes at
-[/PROTOCOLS/ds_souschef_prep_examples/Pangenes](PROTOCOLS/ds_souschef_prep_examples/Pangenes).
+[PROTOCOLS/README.md](PROTOCOLS/README.md) and detailed notes at
+[PROTOCOLS/ds_souschef_prep_examples/Pangenes](PROTOCOLS/ds_souschef_prep_examples/Pangenes).
 
 
 ## Load relevant mine <a name="mine-loading"/>
