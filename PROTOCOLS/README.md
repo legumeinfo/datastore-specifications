@@ -53,7 +53,8 @@ There are also three affiliated directories at the same root level:
 The [ceres and atlas resources](https://scinet.usda.gov/guides/resources/CeresAtlasDifferences) are a managed HPC environments,  in which computational work is done either in an interactive session or via a [SLURM job](https://scinet.usda.gov/guides/use/slurm).  It is very important not to try to do work beyond simple navigation or file transfers on the login nodes. Rather, for an interactive session, start a SLURM job:
 
 ```
-  salloc  # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
+  salloc -A legume_project 
+    # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short --account=legume_project
 ```
 
 Or for longer-running jobs, use a [job submission script](https://scinet.usda.gov/guides/use/slurm).
@@ -78,7 +79,7 @@ These have been loaded into a conda environment. So, at the start of an interact
 can be loaded like so:
 
 ```
-  salloc
+  salloc -A legume_project
   ml miniconda
   source activate /project/legume_project/datastore/conda-envs/ds-curate
 ```
@@ -108,7 +109,7 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
 `/project/legume_project/datastore/conda-envs/`. The environment should be available to all members of the legume_project group.
 
   ```
-  salloc    # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
+  salloc -A legume_project  
 
   ml miniconda
   conda create --prefix /project/legume_project/datastore/conda-envs/ds-curate
@@ -358,7 +359,7 @@ gene families. The list file can have a single filepath or many. For example:
 The first time that you run this workflow, you will need to generate an environment with the required dependencies.
 This can be done with:
 ```
-  salloc
+  salloc -A legume_project
   ml miniconda
   conda env create 
 ```
@@ -373,10 +374,10 @@ The program invocation itself (within the batch script) is very simple:
 This will take roughly 12 hours to complete. When it is done, move the output files, in `work_dir/02_gfa/`,
 to the annotation directory for the respective annotation collection.
 
-## Add to pangene set <a name="pangenes"/>
+## Create a pangene set <a name="pangenes"/>
 The process of creating a pangene collection is handled by ds_souschef.pl. See instructions at
-[PROTOCOLS/README.md](PROTOCOLS/README.md) and detailed notes at
-[PROTOCOLS/ds_souschef_prep_examples/Pangenes](PROTOCOLS/ds_souschef_prep_examples/Pangenes).
+[/PROTOCOLS/README.md](PROTOCOLS/README.md) and detailed notes at
+[/PROTOCOLS/ds_souschef_prep_examples/Pangenes](PROTOCOLS/ds_souschef_prep_examples/Pangenes).
 
 
 ## Load relevant mine <a name="mine-loading"/>
