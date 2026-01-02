@@ -11,7 +11,7 @@ A conda environment has been prepared, with most of the software that we typical
 Activate it like so:
 
 ``` bash
-salloc
+salloc -A legume_project
 ml miniconda
 source activate /project/legume_project/datastore/conda-envs/ds-curate
 ```
@@ -22,7 +22,8 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
 `/project/legume_project/datastore/conda-envs/`. The environment should be available to all members of the legume_project group.
 
   ```
-  salloc    # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short
+  salloc -A legume_project
+      # equivalent to   salloc --cpus-per-task=2 --time=12:00:00 --partition=short --account=legume_project
 
   ml miniconda
   conda create --prefix /project/legume_project/datastore/conda-envs/ds-curate
@@ -97,12 +98,11 @@ These examples come from several sources: Dryad, Zenodo, direct-from-sequencing-
 Assemblies and annotations in these cases should be assumed to be unique per collection. 
 Generalist repositories such as Dryad and Zenodo impose no constraints on format.
 
-<a href="Other/notes_acacr.Acra3RX.gmn1.ann1.sh">Other/notes_acacr.Acra3RX.gmn1.ann1.sh</a>
-<a href="Other/notes_apiam.LA2127.gnm1.ann1.sh">Other/notes_apiam.LA2127.gnm1.ann1.sh</a>
-<a href="Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh">Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh</a>
-<a href="Other/notes_apipr.MO19963523.gnm1.ann1.sh">Other/notes_apipr.MO19963523.gnm1.ann1.sh</a>
-<a href="Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh">Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh</a>
-
+<a href="Other/notes_acacr.Acra3RX.gmn1.ann1.sh">Other/notes_acacr.Acra3RX.gmn1.ann1.sh</a> <br>
+<a href="Other/notes_apiam.LA2127.gnm1.ann1.sh">Other/notes_apiam.LA2127.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh">Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh</a> <br>
+<a href="Other/notes_apipr.MO19963523.gnm1.ann1.sh">Other/notes_apipr.MO19963523.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh">Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh</a> <br>
 
 ## Pangenes
 
@@ -111,7 +111,7 @@ They have been tested with output from pandagma v2.0, February 2024, on runs for
 Arachis, Cicer, Glycine, Medicago, Phaseolus, and Vigna
 ... and also from Pandagma v 2026-01-01 for Glycine.
 
-<a href="Pangenes/notes_Phaseolus.pan3.sh">Pangenes/notes_Phaseolus.pan3.sh</a>
+<a href="Pangenes/notes_Phaseolus.pan3.sh">Pangenes/notes_Phaseolus.pan3.sh</a> <br>
 <a href="Pangenes/notes_Glycine.pan6.sh">Pangenes/notes_Glycine.pan6.sh</a>
 
 
