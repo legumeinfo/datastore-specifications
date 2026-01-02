@@ -6,6 +6,7 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Glycine
+    scientific_name_abbrev: Glycine
     pan_ver: pan6
     pan_key: RLVN
 readme_info:
