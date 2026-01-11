@@ -1,0 +1,98 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Vigna/radiata/Weilv-9.gnm1.ann1
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: GWHEQVC00000000.
+  from_genome_prefix: GWHEQVC00000000.
+collection_info:
+  genus: Vigna
+  species: radiata
+  scientific_name_abbrev: vigra
+  coll_genotype: Weilv-9
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: 5TZZ
+  annot_key: FPGC
+readme_info:
+  provenance: "The files in this directory originated from https://ngdc.cncb.ac.cn/gwh/Assembly/83514/show. The Genome Warehouse repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://ngdc.cncb.ac.cn/gwh/Assembly/83514/show"
+  synopsis_genome: Vigna radiata accession Weilv-9 from Kunming Institute of Botany, Chinese Academy of Sciences
+  synopsis_annot: Annotation 1 for Vigna radiata accession Weilv-9 from Kunming Institute of Botany, Chinese Academy of Sciences
+  genotype: Weilv-9
+  taxid: "157791"
+  description_genome: "Complete T2G genome assembly, assembled with hifiasm 0.19.5-r592, from ~100x PacBio data"
+  chromosome_prefix: chr
+  description_annot: "Gene annotation resources. See full description in supplemental methods at Jia, Li et al., 2025"
+  bioproject: PRJCA021300
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2023-08-19
+  local_file_creation_date: 2024-08-20
+  dataset_release_date: 2026-02-02
+  contributors: Jia KH, Li G, Wang L, Liu M, Wang ZW, Li RZ, Li LL, Xie K, Yang YY, Tian RM, Chen X, Si YJ, Zhang XY, Song FJ, Li L, Li NN.
+  publication_doi: 10.1093/hr/uhae337
+  citation: "Jia KH, Li G, Wang L, Liu M, Wang ZW, Li RZ, Li LL, Xie K, Yang YY, Tian RM, Chen X, Si YJ, Zhang XY, Song FJ, Li L, Li NN. Telomere-to-telomere, gap-free genome of mung bean (Vigna radiata) provides insights into domestication under structural variation. Hortic Res. 2024 Dec 2;12(3):uhae337. doi: 10.1093/hr/uhae337. PMID: 40061812; PMCID: PMC11886820."
+  publication_title: "Telomere-to-telomere, gap-free genome of mung bean (Vigna radiata) provides insights into domestication under structural variation"
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: open
+  keywords: "mung bean, Weilv-9"
+from_to_genome:
+  -
+    from: modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+original_readme_and_usage:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: modID.CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  -
+    from: modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+    applications:
+      - mines
+  -
+    from: modID.transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  -
+    from: modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: modID.protein_primary.faa.gz
+    to: protein_primary.faa.gz
+    description: "Protein sequences - primary only"
+from_to_gff:
+  -
+    from: modID.genes.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse-index
+  -
+    from: modID.genes_exons.gff3.gz
+    to: gene_models_exons.gff3
+    description: "Gene models, with exons"
