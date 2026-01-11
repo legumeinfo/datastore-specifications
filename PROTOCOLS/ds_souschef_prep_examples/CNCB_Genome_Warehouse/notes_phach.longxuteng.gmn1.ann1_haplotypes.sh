@@ -35,7 +35,7 @@ REFERENCE
   GENOME=GWHCBFY00000000.1.genome.fasta
   CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
   FROM=$ACCN
-  TO=/project/legume_project/datastore/private/Phanera/championii
+  TO=derived
 
 # NOTE: Get the keys with register_key.pl below !
   GKEY=WJG7
