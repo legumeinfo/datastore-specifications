@@ -6,24 +6,24 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Vigna
-    pan_ver: pan3
-    pan_key: V294
+    pan_ver: pan4
+    pan_key: TT59
 readme_info:
     provenance: "The files in this directory are a product of the staff of the SoyBase and LegumeInfo project teams. The method is described here: https://github.com/legumeinfo/pandagma"
     source: "https://data.legumeinfo.org"
-    synopsis: "Pangene set for Vigna species, based primarily on V. unguiculata but also including V. angularis and V. radiata. This pangene set includes 12 annotation sets."
+    synopsis: "Pangene set for Vigna species, based primarily on V. unguiculata but also including V. angularis and V. radiata. This pangene set includes 13 annotation sets."
     taxid: "3913"
-    annotations_main: vigun.CB5-2.gnm1.ann1, vigun.IT97K-499-35.gnm1.ann2, vigun.Sanzi.gnm1.ann1, vigun.Suvita2.gnm1.ann1, vigun.TZ30.gnm1.ann2, vigun.UCR779.gnm1.ann1, vigun.ZN016.gnm1.ann2
-    annotations_extra: vigun.IT97K-499-35.gnm1.ann1, vigan.Gyeongwon.gnm3.ann1, vigan.Shumari.gnm1.ann1, vigra.VC1973A.gnm6.ann1, vigra.VC1973A.gnm7.ann1
-    description: "Pan-gene set for Vigna species, spanning 3 species and 12 annotation sets, calculated using the pandagma pipeline, version 2.0 (February, 2024)"
+    annotations_main: vigun.CB5-2.gnm1.ann1, vigun.IT97K-499-35.gnm1.ann2, vigun.Sanzi.gnm1.ann1, vigun.Suvita2.gnm1.ann1, vigun.TZ30.gnm1.ann2, vigun.UCR779.gnm1.ann1, vigun.ZN016.gnm1.ann2, vigan.Gyeongwon.gnm3.ann1, vigan.Shumari.gnm1.ann1, vigra.VC1973A.gnm6.ann1, vigra.VC1973A.gnm7.ann1, vigra.Weilv-9.gnm1.ann1, vigun.IT97K-499-35.gnm1.ann1
+    annotations_extra:
+    description: "Pan-gene set for Vigna species, spanning 3 species and 13 annotation sets, calculated using the pandagma pipeline, Jan. 27, 2026"
     bioproject: 
     sraproject: 
     dataset_doi_genome: 
     dataset_doi_annot: 
     genbank_accession: 
-    original_file_creation_date: 2024-02-14
-    local_file_creation_date: 2024-02-14
-    dataset_release_date: 2024-02-14
+    original_file_creation_date: 2024-01-28
+    local_file_creation_date: 2024-01-28
+    dataset_release_date: 2024-01-28
     contributors: Steven Cannon
     publication_doi: 
     citation: 

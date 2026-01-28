@@ -1,6 +1,6 @@
 ---
 directories:
-    work_dir: /usr/local/www/data/private/Medicago/GENUS
+    work_dir: /project/legume_project/datastore/private/Medicago/GENUS
     from_pan_dir: out_pandagma
 prefixes:
     from_pan_prefix: 
