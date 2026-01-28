@@ -787,6 +787,8 @@ sub pangene_readme {
   $readme_hsh{description} = $readme_hsh{description};
   if ($readme_hsh{dataset_doi}){$readme_hsh{dataset_doi} = "\"$readme_hsh{dataset_doi}\""}
   else {$readme_hsh{dataset_doi} = ""}
+  if ($readme_hsh{annotations_extra}){$readme_hsh{annotations_extra} = "\"$readme_hsh{annotations_extra}\""}
+  else {$readme_hsh{annotations_extra} = ""}
   my %seen_annot_main;
   my %seen_annot_extra;
   for my $key (@readme_keys){
@@ -915,4 +917,5 @@ Versions
 2025-01-13 Switch to zcat from gzcat.
 2024-02-09 Check if from_to_gff exists in config; if not, don't make annotation collection
 2025-04-07 When making gff featid map, handle case where ID is the only attribute in the 9th column, with or without semicolon
+2026-01-28 Handle missing annotations_extra
 
