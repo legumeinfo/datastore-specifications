@@ -22,10 +22,10 @@ readme_info:
   synopsis_annot: Glycine max annotation V1.0 on accession Williams 82 genome assembly V1.0, from PhytozomeV8/Gmax_109, released Jan 2010. The annotations were updated in a later release, V1.1, on the same underlying genome.
   genotype: Wm82
   taxid: "3847"
-  description_genome: "This release contains the first gene models released by Phytozome in January, 2010. These initial files had filename prefixes Glyma1, and internal Phytozome tag 109, and were released as part of Phytozome V8. A later release, in 2012, had internal Phytozome tab 189, and were released as part of Phytozome V9. Those later annotations are NOT those in the present collection, but are held in the Datastore collection Wm82.gnm1.ann1.DvBy. The underlying genome coordinates are the same for both annotation collections."
+  description_genome: "Genome assembly for Wm82, first assembly, released in 2010, as part of Phytozome V8."
   chromosome_prefix: Gm
   supercontig_prefix: scaffold_
-  description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
+  description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above). Note that this was the first annotation released for the V1.0 assembly of Wm82, released as part of Phytozome V8. This annotation was updated and replaced with V1.1, as part of Phytozome V9 in 2012. This annotation collection can be considered deprecated, but is retained as legacy data, in support of publications that referenced the gene models in the initial release."
   bioproject:
   sraproject:
   dataset_doi_genome:
