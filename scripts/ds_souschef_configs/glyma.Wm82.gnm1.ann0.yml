@@ -1,0 +1,111 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Glycine/max/Wm82_v1_instances
+  from_annot_dir: PhytozomeV8_derived
+  from_genome_dir: PhytozomeV8_derived
+prefixes:
+  from_annot_prefix: "Glyma1.derived."
+  from_genome_prefix: "Gmax_109"
+collection_info:
+  genus: Glycine
+  species: max
+  scientific_name_abbrev: glyma
+  coll_genotype: Wm82
+  gnm_ver: gnm1
+  ann_ver: ann0
+  genome_key: FCtY
+  annot_key: 3BTZ
+readme_info:
+  provenance: "The files in this directory originated from http://phytozome.jgi.doe.gov. The Phytozome repository is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://data.jgi.doe.gov"
+  synopsis_genome: Glycine max accession Williams 82 genome assembly V1.0 (equal to V1.1), from PhytozomeV9/Gmax_189, released Sept 2012.
+  synopsis_annot: Glycine max annotation V1.0 on accession Williams 82 genome assembly V1.0, from PhytozomeV8/Gmax_109, released Jan 2010. The annotations were updated in a later release, V1.1, on the same underlying genome.
+  genotype: Wm82
+  taxid: "3847"
+  description_genome: "This release contains the first gene models released by Phytozome in January, 2010. These initial files had filename prefixes Glyma1, and internal Phytozome tag 109, and were released as part of Phytozome V8. A later release, in 2012, had internal Phytozome tab 189, and were released as part of Phytozome V9. Those later annotations are NOT those in the present collection, but are held in the Datastore collection Wm82.gnm1.ann1.DvBy. The underlying genome coordinates are the same for both annotation collections."
+  chromosome_prefix: Gm
+  supercontig_prefix: scaffold_
+  description_annot: "Gene annotation resources. See full description at Phytozome/JGI repository (address above)."
+  bioproject:
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2010-01-10
+  local_file_creation_date: 2026-02-09
+  dataset_release_date: 2026-02-16
+  contributors: "Schmutz J, Cannon SB, Schlueter J, Ma J, Mitros T, Nelson W, Hyten DL, Song Q, Thelen JJ, Cheng J, Xu D, Hellsten U, May GD, Yu Y, Sakurai T, Umezawa T, Bhattacharyya MK, Sandhu D, Valliyodan B, Lindquist E, Peto M, Grant D, Shu S, Goodstein D, Barry K, Futrell-Griggs M, Abernathy B, Du J, Tian Z, Zhu L, Gill N, Joshi T, Libault M, Sethuraman A, Zhang XC, Shinozaki K, Nguyen HT, Wing RA, Cregan P, Specht J, Grimwood J, Rokhsar D, Stacey G, Shoemaker RC, Jackson SA"
+  publication_doi: "doi.org/10.1038/nature08670"
+  citation: "Schmutz J, Cannon SB, Schlueter J, Ma J, Mitros T, Nelson W, Hyten DL, Song Q, Thelen JJ, Cheng J, Xu D, Hellsten U, May GD, Yu Y, Sakurai T, Umezawa T, Bhattacharyya MK, Sandhu D, Valliyodan B, Lindquist E, Peto M, Grant D, Shu S, Goodstein D, Barry K, Futrell-Griggs M, Abernathy B, Du J, Tian Z, Zhu L, Gill N, Joshi T, Libault M, Sethuraman A, Zhang XC, Shinozaki K, Nguyen HT, Wing RA, Cregan P, Specht J, Grimwood J, Rokhsar D, Stacey G, Shoemaker RC, Jackson SA. (2010) Genome sequence of the palaeopolyploid soybean.  Nature 463, 178-183."
+  publication_title: "Genome sequence of the palaeopolyploid soybean"
+  data_curators: Steven Cannon
+  public_access_level: public
+  license: Open, with usage agreement
+  keywords: "soybean, Wm82, Williams 82"
+from_to_genome:
+  -
+    from: .fa.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+  -
+    from: _RM.fa.gz
+    to: genome_hardmasked.fna
+    description: "Genome assembly - hardmasked"
+original_readme_and_usage:
+  -
+    from_full_filename: Gmax_109_readme.txt
+    to: Gmax_109_readme.txt
+    description: "Original JGI data release policy"
+from_to_annot_as_is:
+  -
+    from: Glyma1.txt
+    to: annotation_info.txt
+    description: "Table of gene annotations from JGI"
+from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: cds.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: cds_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  -
+    from: transcript.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+    applications:
+      - mines
+  -
+    from: transcript_primary.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+from_to_protein:
+  -
+    from: protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
+    applications:
+      - mines
+from_to_gff:
+  -
+    from: gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse-index
