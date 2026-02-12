@@ -30,7 +30,7 @@ REFERENCE
   GENSP=glyma
   GNM=gnm1
   ANN=ann0  
-  GENOME=Gmax.main_genome.scaffolds.fasta.gz
+  GENOME=Gmax_109.fa.gz
   ANNOTATION=Glyma1
   CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
 
@@ -55,22 +55,35 @@ REFERENCE
   # The collection name at Phytozome was "Glycine max JGI Glyma1". The name locally is PhytozomeV8_Gmax_109
 
 # Copy the Phytozome readme file into the annotation and assembly directories so ds_souschef can find it in those locations:
-  cp $PZVER/Gmax_109_readme.txt PhytozomeV8_derived/
+  cp ../$PZVER/Gmax_109_readme.txt .
 
 # Check the files. If the assembly sequence is not wrappeed (to permit indexing), fix this.
 # Also check the form of the chromosome and scaffold names. 
 
 # Extract mRNA sequence
-  cd PhytozomeV8_derived
-  gffread -g Gmax_109.fna -w Glyma1.derived.transcript.fna -x Glyma1.derived.cds.fna -y Glyma1.derived.protein.faa Glyma1.gff3
+  gffread -g Gmax_109.fna \
+    -w from_gffread/Glyma1.derived.transcript.fna \
+    -x from_gffread/Glyma1.derived.cds.fna \
+    -y from_gffread/Glyma1.derived.protein.faa Glyma1.gff3
+# PROBLEM: many of the derived protein sequences have internal stops:
+  zcat Glyma1.derived.protein_primary.faa.gz | fasta_to_table.awk | awk -v OFS="\t" '$2~/[A-Z]+\.[A-Z]+/ {print $1}' | wc -l
+    8120  # Not good
+# Instead, use the sequences from the original annotation:
+  cp ../PhytozomeV8_Gmax_109/Glyma1.cDNA.fa.gz .
+  cp ../PhytozomeV8_Gmax_109/Glyma1.pep.fa.gz .
+  cp ../PhytozomeV8_Gmax_109/Glyma1.unprocessedTranscript.fa.gz .
+
+# Check for internal stops:
+  zcat Glyma1.pep.fa.gz | fasta_to_table.awk | awk -v OFS="\t" '$2~/[A-Z]+\*[A-Z]+/ {print $1}' | wc -l
+    176  # OK
 
 # Derive bed file
-  cat Glyma1.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > Glyma1.derived.bed
+  cat Glyma1.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > Glyma1.bed
 
 # Derive primary CDS/proteins/transcripts
-  cat Glyma1.derived.cds.fna | longest_variant_from_fasta.sh > Glyma1.derived.cds_primary.fna
-  cat Glyma1.derived.protein.faa | longest_variant_from_fasta.sh > Glyma1.derived.protein_primary.faa
-  cat Glyma1.derived.transcript.fna | longest_variant_from_fasta.sh > Glyma1.derived.transcript_primary.fna
+  zcat Glyma1.cDNA.fa.gz | longest_variant_from_fasta.sh > Glyma1.cDNA_primary.fna
+  zcat Glyma1.pep.fa.gz  | longest_variant_from_fasta.sh > Glyma1.pep_primary.faa
+  zcat Glyma1.unprocessedTranscript.fa.gz | longest_variant_from_fasta.sh > Glyma1.transcript_primary.fna
 
 # Compress the data files
   for file in Glyma1.derived*f?a Glyma1.derived*bed Glyma1.gff3 Gmax_109.fa; do 
