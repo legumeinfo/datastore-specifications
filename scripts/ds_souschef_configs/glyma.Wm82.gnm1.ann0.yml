@@ -4,7 +4,7 @@ directories:
   from_annot_dir: PhytozomeV8_derived
   from_genome_dir: PhytozomeV8_derived
 prefixes:
-  from_annot_prefix: "Glyma1.derived."
+  from_annot_prefix: "Glyma1."
   from_genome_prefix: "Gmax_109"
 collection_info:
   genus: Glycine
@@ -67,18 +67,18 @@ from_to_annot_as_is:
 from_to_genome_as_is:
 from_to_cds_mrna:
   -
-    from: cds.fna.gz
+    from: cDNA.fa.gz
     to: cds.fna
     description: "cds sequences"
     applications:
       - blast
       - mines
   -
-    from: cds_primary.fna.gz
+    from: cDNA_primary.fa.gz
     to: cds_primary.fna
     description: "cds sequences - primary only"
   -
-    from: transcript.fna.gz
+    from: unprocessedTranscript.fa.gz
     to: mrna.fna
     description: "Transcript sequences"
     applications:
@@ -89,14 +89,14 @@ from_to_cds_mrna:
     description: "Transcript sequences - primary only"
 from_to_protein:
   -
-    from: protein.faa.gz
+    from: Glyma1.pep.fa.gz
     to: protein.faa
     description: "Protein sequences"
     applications:
       - blast
       - mines
   -
-    from: protein_primary.faa.gz
+    from: Glyma1.pep.faa.gz
     to: protein_primary.faa
     description: "Protein sequences - primary only"
     applications:
