@@ -120,7 +120,8 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
     conda-forge::ncbi-datasets-cli bioconda::gffread \
     conda-forge::yamllint conda-forge::nodejs \
     bioconda::bedtools bioconda::blast bioconda::burst \
-    bioconda::seqkit conda-forge::parallel
+    bioconda::seqkit conda-forge::parallel \
+    bioconda::vcf-validator
 
   npm install -g ajv-cli ajv-formats
   ```
