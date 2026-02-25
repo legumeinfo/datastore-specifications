@@ -18,11 +18,21 @@ my $usage = <<EOS;
     Chr1   1234  SNP1
     Chr1   6789  SNP2
 
+!!!!!
+  NOTE/WARNING/LIMITATIONS: This script is overly simple for most purposes, since it ...
+    (1) doesn't evaluate or swap reference or alt alleles relative to a new coordinate system
+    (2) doesn't update the metadata with new ##contig= fields.
+  The script is OK for the simple task of swapping seqIDs for example; but for projecting
+  into a new reference assembly/coordinate system, use instead something like
+    liftover_vcf.pl in https://github.com/soybase/map-markers-to-assembly/
+!!!!!
+
   Required:
   -hash     (string) Key-value hash file, where first column has one of two formats:
               CHROM_ID_CURRENT  chrom_id_new
               chrom_ID_new      position_new   SNP_ID_CURRENT
-  
+  -force    (boolean) Force-run the script, being aware of the NOTE/WARNING/LIMITATIONS
+
   Options:
   -swap_pos (boolean) Use the provided SNP_ID (in col 3) to swap chrom_ID and position (cols 1, 2)
   -add_id   (boolean) Construct and write a feature ID in the third column, with the form CHROM.POS
@@ -30,10 +40,11 @@ my $usage = <<EOS;
   -help     (boolean) This message.
 EOS
 
-my ($hash_file, $swap_pos, $add_id, $outfile, $help);
+my ($hash_file, $force, $swap_pos, $add_id, $outfile, $help);
 
 GetOptions (
   "hash_file=s" =>  \$hash_file,   # required
+  "force" =>        \$force,       # required
   "swap_pos" =>     \$swap_pos,
   "add_id" =>       \$add_id,
   "outfile:s" =>    \$outfile,
@@ -42,6 +53,7 @@ GetOptions (
 
 die "$usage\n" unless (defined($hash_file));
 die "$usage\n" if ($help);
+die "$usage\n" unless ($force);
 
 my $OUT;
 if ($outfile){
@@ -156,4 +168,4 @@ S. Cannon
 2022-11-17 New script
 2022-11-18 Handle identifiers in vcf comment block, e.g. ##contig=<ID=CM003504.1,length=36501346>
 2022-11-21 Add -swap_pos mode. Add function printstr.
-
+2025-02-23 Add warning message and redirect users to https://github.com/soybase/map-markers-to-assembly/blob/main/bin/liftover_vcf.pl
