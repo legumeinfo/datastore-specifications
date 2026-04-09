@@ -1,0 +1,4 @@
+See https://github.com/legumeinfo/gene-fam-assign
+and instructions at https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS#calculate-gene-family-assignments-gfa-
+
+
