@@ -26,7 +26,7 @@ run_pipeline.pl -Xmx10g -fork1 -vcf your_input.vcf.gz  -export your_output.hmp.t
 
 ## Troubleshootings and Corrections
 
-If you encounter this error message during the above run, 
+You might encounter following error message during the above run. 
 
 ```
 java.lang.IllegalStateException: Error Processing VCF block: Mismatch of alleles.
