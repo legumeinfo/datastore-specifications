@@ -24,13 +24,12 @@ run_pipeline.pl -Xmx10g -fork1 -vcf your_input.vcf.gz  -export your_output.hmp.t
 * -exportType Hapmap: Specifies that the output format should be HapMap.
 * -outputFile your_output.hmp.txt: Defines the name and path for your output HapMap file. You can add .gz to the end (e.g., your_output.hmp.txt.gz) if you want compressed output.
 
-## Troubleshootings and Corrections
+### More Steps might needed
 
 You might encounter following error message during the above run. 
 
-```
 java.lang.IllegalStateException: Error Processing VCF block: Mismatch of alleles.
-```
+
 This error is very specific and points directly to an issue TASSEL is having when trying to interpret the allele information in your VCF file. It's a common problem when converting complex VCFs to simpler formats like HapMap, which traditionally expects biallelic SNPs.
 
 ### How to Resolve the "Mismatch of alleles" Error:
@@ -43,11 +42,7 @@ The best approach is almost always to pre-filter your VCF file to ensure it only
 
 module load bcftools
 
-# Step 1: Normalize and decompose multiallelic sites (optional, but good practice)
-# This command splits multiallelic sites into multiple biallelic records.
-# It also left-aligns and normalizes indels.
-
-# Step 1: Normalize and decompose multiallelic sites (optional, but good practice)
+ Step 1: Normalize and decompose multiallelic sites.
 # This command splits multiallelic sites into multiple biallelic records.
 # It also left-aligns and normalizes indels.
 bcftools norm -m -any --check-ref w -f your_genome_assembly.fa your_input.vcf.gz -o normalized.vcf.gz -Oz
