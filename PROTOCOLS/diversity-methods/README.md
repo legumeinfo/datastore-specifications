@@ -2,7 +2,7 @@
 
 TASSEL(Trait Analysis by aSociation, Evolution and Linkage) is often a preferred tool for converting VCF files to HapMap format.
 
-## How to use TASSEL tool for VCF to HapMap format conversion
+## How to use the TASSEL tool for VCF to HapMap format conversion
 
 TASSEL can be run from command line, which is ideal for HPC environments like Scinet/Ceres with a slurm job submission. Check its availabilty by running 
 
@@ -28,7 +28,7 @@ run_pipeline.pl -Xmx10g -fork1 -vcf input.vcf.gz  -export output.hmp.txt -export
 * -exportType Hapmap: Specifies that the output format should be HapMap.
 * -outputFile output.hmp.txt: Defines the name and path for output HapMap file. Add .gz to the end of the file (e.g., output.hmp.txt.gz) to compress the output.
 
-### More Steps might needed
+### More Steps may be needed
 
 Following error message might be encountered during the above run. 
 
