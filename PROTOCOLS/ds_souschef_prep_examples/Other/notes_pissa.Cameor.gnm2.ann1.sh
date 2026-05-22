@@ -1,6 +1,6 @@
 # Objective: Prepare assembly and annotation collection for Pisum sativum
-# accession ZW6 (Zhongwan6)
-# Started on 2025-04-08 (Steven Cannon)
+# accession Cameor
+# Started on 2026-05-22 (Steven Cannon)
 
 # See the document here for detailed (general) instructions:
 #   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/README.md
@@ -13,12 +13,13 @@ DONT_RUN_ME
 echo; exit 1;
 
 << REFERENCE
-Shenghan Gao. (2022). Genome assembly and annotation of Pisum sativum cultivar ZW6 (PeaZW6) (PeaZW6 Release Candidate v2.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6622409
+Kreplak J, Novák P, Ávila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J. A new genome assembly of the pea cultivar 'Caméor' provides resources for functional genomics and genetics. Sci Data. 2026 May 12. doi: 10.1038/s41597-026-07347-4. Epub ahead of print. PMID: 42120873.
 REFERENCE
 
-# Assembly was downloaded on 2024-04-08 from Zenodo
-# https://doi.org/10.5281/zenodo.6622409
-# https://zenodo.org/records/6622409
+# Assembly was downloaded on 2024-04-08 from Recherche Data Gouv:
+# https://doi.org/10.57745/5MDE99
+#  and
+# https://www.ebi.ac.uk/ena/browser/view/GCA_977071245
 
 # NOTE: utility scripts are at /project/legume_project/datastore/datastore-specifications/scripts/
 # If not added already to the PATH, do:
@@ -26,20 +27,20 @@ REFERENCE
 
 # Variables for this job
   PRIVATE=/project/legume_project/datastore/private/   # Set this to the Data Store private root directory: ...data/private/
-  ACCN=GCF_024323335.1
-  STRAIN=ZW6
+  ACCN=GCA_977071245
+  STRAIN=Cameor
   GENUS=Pisum
   SP=sativum
   GENSP=pissa
-  GNM=gnm1
+  GNM=gnm2
   ANN=ann1  
-  GENOME=pea.assembly # The filename prefix common among all genome files in the source
-  ANNOTATION=pea.assembly # The filename prefix ommon among all annotation files in the source
+  GENOME=cameor_v2 # The filename prefix common among all genome files in the source
+  ANNOTATION=CAMEOR_V2_ANNOTATION_1 # The filename prefix ommon among all annotation files in the source
   CONFIGDIR=/project/legume_project/datastore/datastore-specifications/scripts/ds_souschef_configs
 
 # NOTE: Get the keys with register_key.pl below !
-  GKEY=D8R1
-  AKEY=TKZX
+  GKEY=H2BH
+  AKEY=KT6X
 
 # Register new keys at /project/legume_project/datastore/datastore-registry
 # NOTE: Remember to fetch and pull before generating new keys.
@@ -64,51 +65,52 @@ REFERENCE
   source activate ds-curate
 
 # Extract transcript sequence
-  gffread -g pea.assembly.ZW6.RC2.genome.fna \
-    -w pea.assembly.ZW6.RC2.annotated.transcripts.fna \
-        pea.assembly.ZW6.RC2.annotated.gff3
+  cd original
+    gunzip cameor_v2.fa.gz
+    gffread -g cameor_v2.fa \
+      -w CAMEOR_V2_ANNOTATION_1_transcripts.fasta \
+         CAMEOR_V2_ANNOTATION_1.gff3
 
 # Derive primary/longest CDS, transcript, and protein sequences
-#  cat pea.assembly.ZW6.RC2.annotated.cds.fna | longest_variant_from_fasta.sh > pea.assembly.ZW6.RC2.annotated.cds_primary.fna &
-#  cat pea.assembly.ZW6.RC2.annotated.proteins.faa | longest_variant_from_fasta.sh > pea.assembly.ZW6.RC2.annotated.proteins_primary.faa &
-#  cat pea.assembly.ZW6.RC2.annotated.transcripts.fna | longest_variant_from_fasta.sh > pea.assembly.ZW6.RC2.annotated.transcripts_primary.fna &
-# NOTE: The longest_variant_from_fasta.sh method fails to find corresponding longest protein and CDS matches for three genes: 
-#   comm -3 lis.*
-#   >Psat01G0412100.T1
-#     >Psat01G0412100.T2
-#   >Psat05G0342200.T1
-#     >Psat05G0342200.T2
-#   >Psat05G0554300.T1
-#     >Psat05G0554300.T2
-#   
-#   seqlen.awk pea.assembly.ZW6.RC2.annotated.cds.fna | grep Psat01G0412100
-#   Psat01G0412100-T1 1050
-#   Psat01G0412100-T2 1050
-#   Psat01G0412100-T3 639
-#   Psat01G0412100-T4 504
-#   
-#   seqlen.awk pea.assembly.ZW6.RC2.annotated.proteins.faa | grep Psat01G0412100
-#   Psat01G0412100-T1 349
-#   Psat01G0412100-T2 350
-#   Psat01G0412100-T3 213
-#   Psat01G0412100-T4 168
+# ... but there is only one variant per gene, so skip this step.
 
-# So, instead use longest_variant_from_gff.pl
+# The gene IDs have this structure:
+#   Psat.cameor.v2.1g00050.1
+#   Psat.cameor.v2.1g00100.1
+#   ...
+#   Psat.cameor.v2.0s0921g00050.1
+#   Psat.cameor.v2.0s0958g00050.1
+
+# Change to this prefix pattern:
+#   pissa.Cameor.gnm1.ann1.Psat.1g00050.1
+#   pissa.Cameor.gnm1.ann1.Psat.1g00100.1
+#   ...
+#   pissa.Cameor.gnm1.ann1.Psat.0s0921g00050.1
+#   pissa.Cameor.gnm1.ann1.Psat.0s0958g00050.1
 
 
-  cat pea.assembly.ZW6.RC2.annotated.gff3 | longest_variant_from_gff.pl > longest_variant.tsv
-  cut -f3 longest_variant.tsv > lis.longest
 
-  get_fasta_subset.pl -in *cds.fna -lis lis.longest -clobber -out pea.assembly.ZW6.RC2.annotated.cds_longest.fna
-  get_fasta_subset.pl -in *proteins.faa -lis lis.longest -clobber -out pea.assembly.ZW6.RC2.annotated.proteins_longest.faa
-  get_fasta_subset.pl -in *transcripts.fna -lis lis.longest -clobber -out pea.assembly.ZW6.RC2.annotated.transcripts_longest.fna
+# Since we will be adding our own prefixes, we will remove the current prefixes.
 
+  cd $PRIVATE/$GENUS/$SP/$STRAIN.$GNM.$ANN
+
+  mkdir derived
+
+  cat original/CAMEOR_V2_ANNOTATION_1_cds.fasta | 
+    perl -pe 's/Psat.cameor.v2./pissa.Cameor.gnm1.ann1.Psat./' > derived/CAMEOR_V2_ANNOTATION_1.cds.fna
+
+  cat original/CAMEOR_V2_ANNOTATION_1_transcripts.fasta | 
+    perl -pe 's/Psat.cameor.v2./pissa.Cameor.gnm1.ann1.Psat./' > derived/CAMEOR_V2_ANNOTATION_1.transcripts.fna
+
+  cat original/CAMEOR_V2_ANNOTATION_1_prot.fasta | 
+    perl -pe 's/Psat.cameor.v2./pissa.Cameor.gnm1.ann1.Psat./' > derived/CAMEOR_V2_ANNOTATION_1.proteins.faa
 
 # Compress the files
-  for file in *.f?a *.gff3; do
+  for file in original/*fasta original/*fa original/*gff3 derived/*; do
     bgzip -l9 $file &
   done
 
+  cp original/CAMEOR_V2_ANNOTATION_1.gff3.gz derived/
 
 # Prepare the config for ds_souschef. Typically, copy from a similar config file and revise.
   vim $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
