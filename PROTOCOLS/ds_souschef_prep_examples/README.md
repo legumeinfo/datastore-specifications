@@ -46,8 +46,8 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
 ## Curation process -- getting started
 Work is done on Ceres.
 
-It is helpful to have several terminal windows open for this work - one each for:
-  - One for a notes file, at `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples`
+It is helpful to have several terminal windows open for this work - one each for ...
+  - A notes file, at `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples`
   - Work at `.../private/[Genus]/[species]`
   - A config file, at `.../datastore-specifications/scripts/ds_souschef_configs`
 
