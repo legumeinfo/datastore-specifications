@@ -30,13 +30,47 @@ The following recipe creates a conda environment, `ds-curate`, in a common locat
   source activate /project/legume_project/datastore/conda-envs/ds-curate
   conda install -c conda-forge -c bioconda \
     bioconda::perl-yaml-tiny bioconda::perl-bioperl bioconda::samtools \
+    bioconda::perl-yaml-pp bioconda::perl-json-parse \
     conda-forge::ncbi-datasets-cli bioconda::gffread \
-    conda-forge::yamllint conda-forge::nodejs bioconda::hmmer
+    conda-forge::yamllint conda-forge::nodejs \
+    bioconda::bedtools bioconda::blast bioconda::burst \
+    bioconda::seqkit conda-forge::parallel \
+    bioconda::vcf-validator
+
   
   npm install -g ajv-cli ajv-formats
   ```
 
 </details>
+
+## Curation process -- getting started
+Work is done on Ceres.
+
+It is helpful to have several terminal windows open for this work - one each for:
+  - One for a notes file, at `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples`
+  - Work at `.../private/[Genus]/[species]`
+  - A config file, at `.../datastore-specifications/scripts/ds_souschef_configs`
+
+At the private work area, `.../private/[Genus]/[species]`, make a directory for the assembly and annotation, with the name [Strain].gnm#.ann#, e.g. `Cameor.gnm2.ann1`
+
+Retrieve the assembly and annotation from the remote source location -- for example, from NCBI or FigShare or Zenodo.
+
+At `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples/`, find notes for a similar data source as the one that you are working on. For example, for Pisum sativum `Cameor.gnm2.ann1`, it would probably make sense to follow the example of `Other/notes_pissa.ZW6.gnm1.ann1.sh`. So in that case, make a copy of that file and rename it:
+```
+  cd /project/legume_project/datastore/datastore-specifications/PROTOCOLS/ds_souschef_prep_examples
+  cp Other/notes_pissa.ZW6.gnm1.ann1.sh Other/notes_pissa.Cameor.gnm2.ann1.sh
+```
+
+Start an interactive session, with the `ds-curate` conda environment:
+```
+  salloc -A legume_project
+  ml miniconda
+  source activate ds-curate
+```
+
+From this point, follow the notes file at `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples/`, 
+editing it as you go, where any aspects have changed relative to the previous example that you are following. 
+See some additional details below for data typical of various data sources.
 
 ## CNCB Genome Warehouse (GWH)
 
@@ -103,6 +137,10 @@ Generalist repositories such as Dryad and Zenodo impose no constraints on format
 <a href="Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh">Other/notes_apiam.LA2127.gnm1_hap2.ann1.sh</a> <br>
 <a href="Other/notes_apipr.MO19963523.gnm1.ann1.sh">Other/notes_apipr.MO19963523.gnm1.ann1.sh</a> <br>
 <a href="Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh">Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh</a> <br>
+<a href="Other/notes_araca.K10017.gnm1.ann1.sh">Other/notes_araca.K10017.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_pissa.Cameor.gnm2.ann1.sh">Other/notes_pissa.Cameor.gnm2.ann1.sh</a> <br>
+<a href="Other/notes_pissa.ZW6.gnm1.ann1.sh">Other/notes_pissa.ZW6.gnm1.ann1.sh</a> <br>
+
 
 ## Pangenes
 

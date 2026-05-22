@@ -1,0 +1,84 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Pisum/sativum/Cameor.gnm2.ann1
+  from_annot_dir: derived
+  from_genome_dir: original
+prefixes:
+  from_annot_prefix: "CAMEOR_V2_ANNOTATION_1."
+  from_genome_prefix: "cameor_v2."
+collection_info:
+  genus: Pisum
+  species: sativum
+  scientific_name_abbrev: pissa
+  coll_genotype: Cameor
+  gnm_ver: gnm2
+  ann_ver: ann1
+  genome_key: H2BH
+  annot_key: KT6X
+readme_info:
+  provenance: "The files in this directory originated from https://doi.org/10.57745/5MDE99. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://doi.org/10.57745/5MDE99"
+  synopsis_genome: "Pisum sativum accession Cameor, genome assembly v2"
+  synopsis_annot: "Annotation 1 for Pisum sativum accession Cameor, genome assembly v2"
+  genotype: Cameor
+  taxid: "3888"
+  description_genome: "This genome assembly was produced by the INRAE. It corresponds with GenBank assembly GCA_977071245. It was produced using Nanopore and PacBio long-read sequencing, Hi-C contact maps and Bionano maps."
+  chromosome_prefix: chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotations for Cameor, produced by INRAE"
+  bioproject: 
+  sraproject:
+  dataset_doi_genome: "10.57745/5MDE99"
+  dataset_doi_annot: "10.57745/5MDE99"
+  genbank_accession: "GCA_977071245"
+  original_file_creation_date: 2026-02-26
+  local_file_creation_date: 2026-05-22
+  dataset_release_date: 2025-06-01
+  contributors: "Kreplak J, Novák P, Ávila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J."
+  publication_doi: "10.1038/s41597-026-07347-4"
+  citation: "Kreplak J, Novák P, Ávila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J. A new genome assembly of the pea cultivar 'Caméor' provides resources for functional genomics and genetics. Sci Data. 2026 May 12. doi: 10.1038/s41597-026-07347-4. Epub ahead of print. PMID: 42120873."
+  publication_title: "Genomic and Genetic Insights into Mendel’s Pea Genes"
+  data_curators: Steven Cannon, Wei Huang
+  public_access_level: public, restricted
+  license: Open, with usage agreement
+  keywords: "pea, Pisum sativum, Lathyrus oleraceus"
+from_to_genome:
+  -
+    from: fa.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_annot_as_is:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: cds.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: transcripts.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+    applications:
+      - mines
+from_to_protein:
+  -
+    from: proteins.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+from_to_gff:
+  -
+    from: gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index
