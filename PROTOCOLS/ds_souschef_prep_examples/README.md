@@ -61,7 +61,7 @@ At `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples/`, find not
   cp Other/notes_pissa.ZW6.gnm1.ann1.sh Other/notes_pissa.Cameor.gnm2.ann1.sh
 ```
 
-From this point, follow the notes file at `.../datastore-specifications/PROTOCOLS/ds_souschef_prep_examples/`, 
+From this point, follow the notes file at `ds_souschef_prep_examples/`, 
 editing it as you go, where any aspects have changed relative to the previous example that you are following. 
 See some additional details below for data typical of various data sources.
 
