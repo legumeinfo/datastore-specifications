@@ -1,0 +1,101 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Pisum/sativum/JI2822.gnm1.ann1
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "GCA_964186695.1."
+  from_genome_prefix: "GCA_964186695.1."
+collection_info:
+  genus: Pisum
+  species: sativum
+  scientific_name_abbrev: pissa
+  coll_genotype: JI2822
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: QBWW
+  annot_key: D0QS
+readme_info:
+  provenance: "The files in this directory originated from GenBank, for RefSeq genome sequence GCA_964186695.1 submitted by John Innes Centre in 2024. The GenBank source is considered the primary repository and authoritative; files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_964186695.1"
+  synopsis_genome: "Pisum sativum accession JI2822, genome assembly v1"
+  synopsis_annot: "Annotation 1 for Pisum sativum accession JI2822, genome assembly v1"
+  genotype: JI2822
+  taxid: "3888"
+  description_genome: "This genome assembly was produced by the John Innes Centre. It corresponds with GenBank assembly GCA_964186695.1. The sequence was generated with PacBio Sequel and assembled with hifiasm method" 
+  chromosome_prefix: Chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotations for JI2822, produced by John Innes Centre."
+  bioproject: PRJEB75659
+  sraproject:
+  dataset_doi_genome: "10.5281/zenodo.12755082"
+  dataset_doi_annot: "10.5281/zenodo.12755082"
+  genbank_accession: "GCA_964186695.1"
+  original_file_creation_date: 2024-09-05
+  local_file_creation_date: 2026-05-28
+  dataset_release_date: 2026-06-01
+  contributors: "Rayner T, Saalbach G, Vickers M, Paajanen P, Martins C, Wouters RHM, Chinoy C, Mulholland F, Bal M, Isaac P, Novak P, Macas J, Ellis N, Steuernagel B, Domoney C."
+  publication_doi: "10.1093/jxb/erae518"
+  citation: "Rayner T, Saalbach G, Vickers M, Paajanen P, Martins C, Wouters RHM, Chinoy C, Mulholland F, Bal M, Isaac P, Novak P, Macas J, Ellis N, Steuernagel B, Domoney C. Rebalancing the seed proteome following deletion of vicilin-related genes in pea (Pisum sativum L.). J Exp Bot. 2025 Nov 17;76(20):5830-5860. doi: 10.1093/jxb/erae518. PMID: 39707743; PMCID: PMC12621101."
+  publication_title: "Rebalancing the seed proteome following deletion of vicilin-related genes in pea (Pisum sativum L.)."
+  data_curators: Wei Huang, Steven Cannon
+  public_access_level: public, restricted
+  license: Open, with usage agreement
+  keywords: "Amino acid profile, genetic deletion, mutagenesis, pea genome sequence, pea seed, vicilin"
+from_to_genome:
+  -
+    from: modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_annot_as_is:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: modID.CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  -
+    from: modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+    applications:
+      - mines
+  -
+    from: modID.transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  -
+    from: modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: modID.protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: modID.genes_exons.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index
+from_to_gff_as_is:
+  -
+    from: modID.noncoding.gff3.gz
+    to: noncoding.gff3
+    description: "Noncoding features"        

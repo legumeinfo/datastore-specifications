@@ -1,6 +1,6 @@
 # Objective: Prepare assembly and annotation collection for Pisum sativum
 # accession Cameor
-# Started on 2026-05-22 (Steven Cannon)
+# Started on 2026-05-22 (Steven Cannon, Wei Huang)
 
 # See the document here for detailed (general) instructions:
 #   https://github.com/legumeinfo/datastore-specifications/tree/main/PROTOCOLS/README.md
@@ -82,11 +82,11 @@ REFERENCE
 #   Psat.cameor.v2.0s0958g00050.1
 
 # Change to this prefix pattern:
-#   pissa.Cameor.gnm1.ann1.Psat.1g00050.1
-#   pissa.Cameor.gnm1.ann1.Psat.1g00100.1
+#   pissa.Cameor.gnm2.ann1.Psat.1g00050.1
+#   pissa.Cameor.gnm2.ann1.Psat.1g00100.1
 #   ...
-#   pissa.Cameor.gnm1.ann1.Psat.0s0921g00050.1
-#   pissa.Cameor.gnm1.ann1.Psat.0s0958g00050.1
+#   pissa.Cameor.gnm2.ann1.Psat.0s0921g00050.1
+#   pissa.Cameor.gnm2.ann1.Psat.0s0958g00050.1
 
 
 
@@ -96,21 +96,18 @@ REFERENCE
 
   mkdir derived
 
-  cat original/CAMEOR_V2_ANNOTATION_1_cds.fasta | 
-    perl -pe 's/Psat.cameor.v2./pissa.Cameor.gnm1.ann1.Psat./' > derived/CAMEOR_V2_ANNOTATION_1.cds.fna
-
+  cat original/CAMEOR_V2_ANNOTATION_1_cds.fasta |
+   perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.cds.fna
   cat original/CAMEOR_V2_ANNOTATION_1_transcripts.fasta | 
-    perl -pe 's/Psat.cameor.v2./pissa.Cameor.gnm1.ann1.Psat./' > derived/CAMEOR_V2_ANNOTATION_1.transcripts.fna
-
+    perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.transcripts.fna
   cat original/CAMEOR_V2_ANNOTATION_1_prot.fasta | 
-    perl -pe 's/Psat.cameor.v2./pissa.Cameor.gnm1.ann1.Psat./' > derived/CAMEOR_V2_ANNOTATION_1.proteins.faa
-
+    perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.proteins.faa
+  cat original/CAMEOR_V2_ANNOTATION_1.gff3 |
+    perl -pe 's/Psat.cameor.v2./Psat./g' >derived/CAMEOR_V2_ANNOTATION_1.gff3
 # Compress the files
   for file in original/*fasta original/*fa original/*gff3 derived/*; do
     bgzip -l9 $file &
   done
-
-  cp original/CAMEOR_V2_ANNOTATION_1.gff3.gz derived/
 
 # Prepare the config for ds_souschef. Typically, copy from a similar config file and revise.
   vim $CONFIGDIR/$GENSP.$STRAIN.$GNM.$ANN.yml
@@ -136,7 +133,7 @@ REFERENCE
   wait
 
   # NOTE: the chromosomes are too big for standard tabix, so do:
-  tabix --csi annotations/ZW6.gnm1.ann1.TKZX/*gene_models_main.gff3.gz
+  tabix --csi annotations/Cameor.gnm2.ann1.KT6X/pissa.Cameor.gnm2.ann1.KT6X.gene_models_main.gff3.gz
 
 
 # Calculate md5sum
