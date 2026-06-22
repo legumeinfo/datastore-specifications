@@ -103,7 +103,7 @@ REFERENCE
   cat original/CAMEOR_V2_ANNOTATION_1_prot.fasta | 
     perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.proteins.faa
   cat original/CAMEOR_V2_ANNOTATION_1.gff3 |
-    perl -pe 's/Psat.cameor.v2./Psat./g' >derived/CAMEOR_V2_ANNOTATION_1.gff3
+    perl -pe 's/Psat.cameor.v2./Psat./g' > derived/CAMEOR_V2_ANNOTATION_1.gff3
 # Compress the files
   for file in original/*fasta original/*fa original/*gff3 derived/*; do
     bgzip -l9 $file &

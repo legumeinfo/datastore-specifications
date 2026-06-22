@@ -33,10 +33,10 @@ readme_info:
   genbank_accession: "GCA_977071245"
   original_file_creation_date: 2026-02-26
   local_file_creation_date: 2026-05-22
-  dataset_release_date: 2025-06-01
-  contributors: "Kreplak J, Novák P, Ávila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J."
+  dataset_release_date: 2025-06-25
+  contributors: "Kreplak J, Novak P, Avila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J."
   publication_doi: "10.1038/s41597-026-07347-4"
-  citation: "Kreplak J, Novák P, Ávila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J. A new genome assembly of the pea cultivar 'Caméor' provides resources for functional genomics and genetics. Sci Data. 2026 May 12. doi: 10.1038/s41597-026-07347-4. Epub ahead of print. PMID: 42120873."
+  citation: "Kreplak J, Novak P, Avila Robledillo L, Aubert G, Imbert B, Kaur P, Gouil Q, Lopez-Roques C, Rodde N, Bouchez O, Tayeh N, Macas J, Burstin J. A new genome assembly of the pea cultivar 'Cameor' provides resources for functional genomics and genetics. Sci Data. 2026 May 12. doi: 10.1038/s41597-026-07347-4. Epub ahead of print. PMID: 42120873."
   publication_title: "Genomic and Genetic Insights into Mendel’s Pea Genes"
   data_curators: Steven Cannon, Wei Huang
   public_access_level: public, restricted
