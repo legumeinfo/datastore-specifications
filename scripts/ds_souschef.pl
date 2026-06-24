@@ -771,12 +771,13 @@ sub pangene_as_is {
 ##################################################
 sub pangene_readme {
   say "\n== Writing pangene README file ==\n";
-  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid 
+  my @readme_keys = qw(identifier provenance source synopsis scientific_name taxid scientific_name_abbrev 
        annotations_main annotations_extra description bioproject sraproject dataset_doi genbank_accession 
        original_file_creation_date local_file_creation_date dataset_release_date publication_doi 
        publication_title contributors citation data_curators public_access_level license keywords);
   
   $readme_hsh{scientific_name} = $scientific_name;
+  $readme_hsh{scientific_name_abbrev} = $GENSP;
   
   # Pangene README
   open(my $PAN_README_FH, '>', $PAN_README) or die "Can't open out $PAN_README: $!";
@@ -918,4 +919,4 @@ Versions
 2024-02-09 Check if from_to_gff exists in config; if not, don't make annotation collection
 2025-04-07 When making gff featid map, handle case where ID is the only attribute in the 9th column, with or without semicolon
 2026-01-28 Handle missing annotations_extra
-
+2026-06-24 Add key for scientific_name_abbrev in method pangene_readme
