@@ -62,16 +62,35 @@ from_to_cds_mrna:
       - blast
       - mines
   -
+    from: cds_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+    applications:
+      - blast
+      - mines
+  -
     from: transcripts.fna.gz
     to: mrna.fna
     description: "Transcript sequences"
     applications:
       - mines
+  -
+    from: transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"
+    applications:
+      - mines
 from_to_protein:
   -
-    from: proteins.faa.gz
+    from: protein.faa.gz
     to: protein.faa
     description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - primary only"
     applications:
       - mines
 from_to_gff:
