@@ -6,6 +6,7 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Cicer
+    scientific_name_abbrev: Cicer
     pan_ver: pan3
     pan_key: JVTK
 readme_info:

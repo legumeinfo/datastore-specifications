@@ -6,6 +6,7 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Vigna
+    scientific_name_abbrev: Vigna
     pan_ver: pan3
     pan_key: V294
 readme_info:

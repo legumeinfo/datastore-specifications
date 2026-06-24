@@ -6,6 +6,7 @@ prefixes:
     from_pan_prefix: 
 collection_info:
     genus: Medicago
+    scientific_name_abbrev: Medicago
     pan_ver: pan3
     pan_key: 9X6B
 readme_info:
