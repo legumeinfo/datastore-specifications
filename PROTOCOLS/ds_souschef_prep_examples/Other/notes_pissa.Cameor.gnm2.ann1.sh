@@ -101,9 +101,19 @@ REFERENCE
   cat original/CAMEOR_V2_ANNOTATION_1_transcripts.fasta | 
     perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.transcripts.fna
   cat original/CAMEOR_V2_ANNOTATION_1_prot.fasta | 
-    perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.proteins.faa
+    perl -pe 's/Psat.cameor.v2./Psat./' > derived/CAMEOR_V2_ANNOTATION_1.protein.faa
   cat original/CAMEOR_V2_ANNOTATION_1.gff3 |
     perl -pe 's/Psat.cameor.v2./Psat./g' > derived/CAMEOR_V2_ANNOTATION_1.gff3
+
+# Derive bed file
+  cat derived/CAMEOR_V2_ANNOTATION_1.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > derived/CAMEOR_V2_ANNOTATION_1.bed
+
+# Derive primary/longest CDS, transcript, and protein sequences
+  cat derived/CAMEOR_V2_ANNOTATION_1.transcripts.fna | longest_variant_from_fasta.sh > derived/CAMEOR_V2_ANNOTATION_1.transcripts_primary.fna &
+  cat derived/CAMEOR_V2_ANNOTATION_1.cds.fna | longest_variant_from_fasta.sh > derived/CAMEOR_V2_ANNOTATION_1.cds_primary.fna &
+  cat derived/CAMEOR_V2_ANNOTATION_1.protein.faa | longest_variant_from_fasta.sh > derived/CAMEOR_V2_ANNOTATION_1.protein_primary.faa &
+  wait
+
 # Compress the files
   for file in original/*fasta original/*fa original/*gff3 derived/*; do
     bgzip -l9 $file &
