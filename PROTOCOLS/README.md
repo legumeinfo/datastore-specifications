@@ -215,7 +215,7 @@ The instructions below use the example of *Arabidopsis thaliana* (included in th
 The ds_souschef.pl tool can be applied to datasets from other sources, but the particular information in the configuration file will depend on the files to be transformed. Files from the Pnytozome repository have their own conventionsand patterns, reflected in this Arabidopsis example.
 
 NOTE: Also see additional instructions and notes for preparation of many collections 
-at [ds_souschef_prep_examples](PROTOCOLS/ds_souschef_prep_examples)
+at [PROTOCOLS/ds_souschef_prep_examples](ds_souschef_prep_examples)
 
 ### Download assembly and annotation into working directory:
 ```bash
