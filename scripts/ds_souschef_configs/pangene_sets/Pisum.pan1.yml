@@ -14,8 +14,8 @@ readme_info:
     source: "https://data.legumeinfo.org"
     synopsis: "Pangene set for Pisum sativum / Lathyrus oleraceus. This pangene set includes four annotation sets."
     taxid: "3913"
-    annotations_main: pissa.Cameor.gnm1.ann1, pissa.Cameor.gnm2.ann1, pissa.JI2822.gnm1.ann1, pissa.ZW6.gnm1.ann1
-    annotations_extra:
+    annotations_main: pissa.Cameor.gnm2.ann1, pissa.JI2822.gnm1.ann1, pissa.ZW6.gnm1.ann1
+    annotations_extra: pissa.Cameor.gnm1.ann1 
     description: "Pan-gene set for Pisum sativum / Lathyrus oleraceus, calculated using the pandagma pipeline, June 23, 2026"
     bioproject: 
     sraproject: 
