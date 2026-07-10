@@ -1,0 +1,37 @@
+---
+identifier:
+
+provenance: " "
+
+synopsis:
+
+scientific_name: Glycine max
+
+taxid: 3847
+
+scientific_name_abbrev: glyma
+
+genotype:
+  - list
+  - list
+
+description: " "
+
+original_file_creation_date: "YEAR-MM-DD"
+
+local_file_creation_date: "YEAR-MM-DD"
+
+dataset_release_date: "YEAR-MM-DD"
+
+publication_title:
+
+contributors:
+
+data_curators: 
+
+public_access_level: public
+
+license: Open
+
+citation: "  " 
+
