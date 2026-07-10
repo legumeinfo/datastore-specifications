@@ -1,9 +1,11 @@
 ---
 identifier:
 
-provenance: " "
+provenance: "Data in this directory derives from the publication Author1, Author2 et al., YEAR. reference below. Files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the SoyBase and LegumeInfo projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the SoyBase and projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please 1) please cite the data appropriately - generally referring to the original publications for this data; and if you make use of any significant modifications in the files (noted below under Transformations where applicable), then please also cite the respective database project(s) related to this directory."
 
-synopsis:
+source: 
+
+synopsis: " "
 
 scientific_name: Glycine max
 
