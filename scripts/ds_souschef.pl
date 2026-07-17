@@ -49,7 +49,7 @@ my $usage = <<EOS;
     -make_featid_map (boolean) Generate hash file/mapping of feature IDs (genes & gene components).
     -make_seqid_map  (boolean) Generate hash file/mapping of chromosome and scaffold IDs.
     -readme    (boolean) Generate the README files. 
-    -ann_as_is (boolean) Copy over the "as-is" annotation files (un-transformed).
+    -annot_as_is (boolean) Copy over the "as-is" annotation files (un-transformed).
     -gff_as_is (boolean) Copy over the "as-is" gff files (un-transformed).
     -gnm_as_is (boolean) Copy over the "as-is" genome files (un-transformed).
     -cds       (boolean) Process the CDS and mRNA files.
@@ -64,7 +64,8 @@ my $usage = <<EOS;
 EOS
 
 my ($config, $seqid_map, $featid_map, $help); 
-my ($readme, $ann_as_is, $gff_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
+my ($readme, $annot_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
+#my ($readme, $annot_as_is, $gff_as_is, $gnm_as_is, $cds, $protein, $gff, $assembly, $all, $extend);
 my ($make_featid_map, $make_seqid_map, $SHash);
 
 GetOptions (
@@ -75,8 +76,7 @@ GetOptions (
   "make_featid_map" =>  \$make_featid_map,
   "make_seqid_map" =>   \$make_seqid_map,
   "readme" =>      \$readme,
-  "ann_as_is" =>   \$ann_as_is,
-  "gff_as_is" =>   \$gff_as_is,
+  "annot_as_is" =>   \$annot_as_is,
   "gnm_as_is" =>   \$gnm_as_is,
   "cds" =>         \$cds,
   "protein" =>     \$protein,
@@ -105,7 +105,8 @@ if ($featid_map){
 
 # All modules will be run unless flags are set for one or more of the particular modules.
 $all++ unless ($make_featid_map || $make_seqid_map || $readme || 
-               $ann_as_is || $gff_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
+               $annot_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
+               #$annot_as_is || $gff_as_is || $gnm_as_is || $cds || $protein || $gff || $assembly);
 
 my $yaml = YAML::Tiny->read( $config );
 
@@ -204,9 +205,9 @@ else { # Not a pangene job, so presume genomic
   }
   
   if ( $all || $readme ){ &readme }
-  if ( $all || $ann_as_is ){ &ann_as_is }
+  if ( $all || $annot_as_is ){ &annot_as_is }
   if ( $all || $gnm_as_is ){ &gnm_as_is }
-  if ( $all || $gff_as_is ){ &gff_as_is }
+  #if ( $all || $gff_as_is ){ &gff_as_is }
   
   if ( $gff && (!$FEATID_MAP || !$SEQID_MAP) ){
     die "\nERROR: If the -gff flag is set, then also call -make_seqid_map and -make_featid_map OR " . 
@@ -499,7 +500,7 @@ sub readme {
 }
 
 ##################################################
-sub ann_as_is {
+sub annot_as_is {
   say "\n== Copying over \"as-is\" annotation information files, if present, unchanged ==";
   for my $fr_to_hsh (@{$confobj->{from_to_annot_as_is}}){ 
     my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
@@ -650,30 +651,30 @@ sub gff {
   }
 }
 
-##################################################
-sub gff_as_is {
-  say "\n== Copying over \"as-is\" gff files, if present, unchanged ==";
-  for my $fr_to_hsh (@{$confobj->{from_to_gff_as_is}}){ 
-    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
-    my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
-
-    my $APPS = $fr_to_hsh->{applications};
-    unless (defined $APPS){ $APPS = "NULL" }
-    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, $APPS );
-
-    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
-    if ($FROM_FILE =~ /gz$/){ 
-      open(my $AS_IS_FROM_FH, "zcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
-      open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
-      while (<$AS_IS_FROM_FH>) {
-        print $AS_IS_TO_FH $_;
-      }
-    } 
-    else { # else file isn't gzipped, so just copy it
-      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
-    }
-  }
-}
+###################################################
+#sub gff_as_is {
+#  say "\n== Copying over \"as-is\" gff files, if present, unchanged ==";
+#  for my $fr_to_hsh (@{$confobj->{from_to_gff_as_is}}){ 
+#    my $FROM_FILE = "$WD/$dir_hsh{from_annot_dir}/$prefix_hsh{from_annot_prefix}$fr_to_hsh->{from}";
+#    my $TO_FILE = "$ANNDIR/$GENSP.$ANNCOL.$fr_to_hsh->{to}";
+#
+#    my $APPS = $fr_to_hsh->{applications};
+#    unless (defined $APPS){ $APPS = "NULL" }
+#    &write_manifest($TO_FILE, $FROM_FILE, $ANN_MAN, $fr_to_hsh->{description}, $APPS );
+#
+#    say "Converting from ... to ...:\n  $FROM_FILE\n  $TO_FILE";
+#    if ($FROM_FILE =~ /gz$/){ 
+#      open(my $AS_IS_FROM_FH, "zcat $FROM_FILE |") or die "Can't do gunzip $FROM_FILE|: $!";
+#      open(my $AS_IS_TO_FH, ">", $TO_FILE) or die "Can't open out $TO_FILE: $!\n";
+#      while (<$AS_IS_FROM_FH>) {
+#        print $AS_IS_TO_FH $_;
+#      }
+#    } 
+#    else { # else file isn't gzipped, so just copy it
+#      copy($FROM_FILE, $TO_FILE) or die "Can't copy files: $!";
+#    }
+#  }
+#}
 
 ##################################################
 sub assembly {
@@ -874,7 +875,7 @@ sub write_manifest {
   unless ($seen_to_file{$to_name_base}){
     my $separator;
     if ( $to_name_base =~ /readme.txt|html/ ){ $separator = ":" }
-    else { $separator = ".gz:" }
+    else { $separator = ".gz" }
     say $MAN_OFH "- name: $to_name_base$separator";
     say $MAN_OFH "  description: $description";
     say $MAN_OFH "  prior_names:";
@@ -898,7 +899,7 @@ Versions
            Also, handling of original readme and usage files is more flexible (entailing a change in the config).
 2022-11-12 Renamed from ds_souschef_id_map.pl to ds_souschef.pl, just for the simplification.
            Change use of strip_regex in make_featid_map, applying it only to the new name (col 2).
-2022-11-15 Fixed component existence-check for subroutines ann_as_is and gnm_as_is.
+2022-11-15 Fixed component existence-check for subroutines annot_as_is and gnm_as_is.
 2022-11-27 Add CHANGES files to annotations and genomes collections.
 2022-12-18 Add flag "-SHash" to allow an initial mapping of old/new chromosome & scaffold IDs, e.g. 
                    CM012345.1  Chr01
@@ -920,3 +921,4 @@ Versions
 2025-04-07 When making gff featid map, handle case where ID is the only attribute in the 9th column, with or without semicolon
 2026-01-28 Handle missing annotations_extra
 2026-06-24 Add key for scientific_name_abbrev in method pangene_readme
+2026-07-17 Merge methods gff_as_is and annot_as_is. Fix bug in MANIFEST with stray : at line ends
