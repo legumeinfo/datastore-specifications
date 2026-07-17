@@ -1,0 +1,101 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Lupinus/cosentinii/98460.gnm2.ann1
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "LupinusCosentinii.final"
+  from_genome_prefix: "LupinusCosentinii.genome."
+collection_info:
+  genus: Lupinus
+  species: cosentinii
+  scientific_name_abbrev: lupco
+  coll_genotype: 98460
+  gnm_ver: gnm2
+  ann_ver: ann1
+  genome_key: 1N71 
+  annot_key: DSCY
+readme_info:
+  provenance: "The files in this directory originated from figshare, submitted in 2026. Files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://doi.org/10.6084/m9.figshare.32032728"
+  synopsis_genome: "Lupinus cosentinii accession 98460, genome assembly v2"
+  synopsis_annot: "Annotation 1 for Lupinus cosentinii accession 98460, genome assembly v2"
+  genotype: 98460
+  taxid: "3873"
+  description_genome: "This genome assembly was one of the genome assemblies produced by reassembling of two previously published Lupinus genomes (L.cosentinii and L.digitatus)"
+  chromosome_prefix: 
+  supercontig_prefix: chr
+  description_annot: "Gene annotations for 98460."
+  bioproject: 
+  sraproject:
+  dataset_doi_genome: 10.6084/m9.figshare.32032728
+  dataset_doi_annot: 10.6084/m9.figshare.32032728
+  genbank_accession: 
+  original_file_creation_date: 2026-06-20
+  local_file_creation_date: 2026-07-10
+  dataset_release_date: 2026-07-12
+  contributors: "Liying Yang, Yanju Shuai, Weiran Li, Junping Gao, Jianduo Zhang, Haomin Lyu, Songyi Ji, Mingli Chen"
+  publication_doi: "10.64898/2026.04.21.719918"
+  citation: "Liying Yang, Yanju Shuai, Weiran Li, Junping Gao, Jianduo Zhang, Haomin Lyu, Songyi Ji, Mingli Chen, Revisiting the genome assembly of Lupinus species reveals differential diploidization after a shared whole-genome duplication. G3 Genes|Genomes|Genetics, jkag171. doi: 10.1093/g3journal/jkag171"
+  publication_title: "Revisiting the genome assembly of Lupinus species reveals differential diploidization after a shared whole-genome duplication."
+  data_curators: Wei Huang, Steven Cannon
+  public_access_level: public, restricted
+  license: Open, with usage agreement
+  keywords: "Genome assembly error, Hi-C scaffolding, Lupinus, Whole-genome duplication (WGD), Post-polyploid evolution (diploidization), Gene family expansion"
+from_to_genome:
+  -
+    from: fa.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_annot_as_is:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: cds.fa.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+#  -
+#    from: .modID.CDS_primary.fna.gz
+#    to: cds_primary.fna
+#    description: "cds sequences - primary only"
+  -
+    from: transcript.fa.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+    applications:
+      - mines
+#  -
+#    from: .modID.transcripts_primary.fna.gz
+#    to: mrna_primary.fna
+#    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  -
+    from: pep.fa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+#  -
+#    from: .modID.protein_primary.faa.gz
+#    to: protein_primary.faa
+#    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: .cds.corrected.gff.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index
+#from_to_annot_as_is:
+#  -
+#    from: .modID.noncoding.gff3.gz
+#    to: noncoding.gff3
+#    description: "Noncoding features"        

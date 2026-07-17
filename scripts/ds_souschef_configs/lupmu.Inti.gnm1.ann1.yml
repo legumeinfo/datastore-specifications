@@ -1,0 +1,88 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Lupinus/mutabilis/Inti.gnm1.ann1
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "PO2632_Lupinus_mutabilis."
+  from_genome_prefix: "PO2632_Lupinus_mutabilis.Unmasked.mod."
+collection_info:
+  genus: Lupinus
+  species: mutabilis
+  scientific_name_abbrev: lupmu
+  coll_genotype: Inti
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: 4L6N 
+  annot_key: 0FRM
+readme_info:
+  provenance: "The files in this directory originated from 4TU.ResearchData, submitted by Wageningen University & Research in 2024. Files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://data.4tu.nl/datasets/1ba67d64-ddee-4925-8faa-f084c78a3419"
+  synopsis_genome: "Lupinus mutabilis accession Inti, genome assembly v1"
+  synopsis_annot: "Annotation 1 for Lupinus mutabilis accession Inti, genome assembly v1"
+  genotype: Inti
+  taxid: "3873"
+  description_genome: "This scaffold-level genome assembly was produced by Wageningen University & Research. The sequence was generated with Oxford Naopoare, Illumina and assembled with HiRise and Hi_C sequencing data" 
+  chromosome_prefix: 
+  supercontig_prefix: Scaffold
+  description_annot: "Gene annotations for Lupinus mutabilis assembly 1, genotype Inti."
+  bioproject: PRJEB59006
+  sraproject:
+  dataset_doi_genome: 
+  dataset_doi_annot: 
+  genbank_accession: 
+  original_file_creation_date: 2024-09-15
+  local_file_creation_date: 2026-07-17
+  dataset_release_date: 2026-07-17
+  contributors: "Pancaldi F, Gulisano A, Severing EI, van Kaauwen M, Finkers R, Kodde L, Trindade LM"
+  publication_doi: "10.1111/tpj.17021"
+  citation: "Pancaldi F, Gulisano A, Severing EI, van Kaauwen M, Finkers R, Kodde L, Trindade LM. The genome of Lupinus mutabilis: Evolution and genetics of an emerging bio-based crop. Plant J. 2024 Nov;120(3):881-900. doi: 10.1111/tpj.17021. Epub 2024 Sep 12. PMID: 39264984."
+  publication_title: "The genome of Lupinus mutabilis: Evolution and genetics of an emerging bio-based crop"
+  data_curators: Wei Huang, Steven Cannon
+  public_access_level: public, restricted
+  license: Open
+  keywords: "Lupinus mutabilis, evolutionary genomics, quinolizidine alkaloids and resistance genes"
+from_to_genome:
+  -
+    from: fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+from_to_annot_as_is:
+  -
+    from: annot.noncoding.gff.gz
+    to: noncoding.gff3
+    description: "Noncoding features"
+  -
+    from: transcript.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+    applications:
+      - mines
+from_to_protein:
+  -
+    from: protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+from_to_gff:
+  -
+    from: annot.coding.gff.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index

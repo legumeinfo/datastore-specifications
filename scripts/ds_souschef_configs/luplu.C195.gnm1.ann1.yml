@@ -1,0 +1,101 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Lupinus/luteus/C195.gnm1.ann1 
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "GCA_964019355.1"
+  from_genome_prefix: "GCA_964019355.1"
+collection_info:
+  genus: Lupinus
+  species: luteus
+  scientific_name_abbrev: luplu
+  coll_genotype: C195
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: 280X 
+  annot_key: 2W7F
+readme_info:
+  provenance: "The files in this directory originated from GenBank, for RefSeq genome sequence GCA_964019355.1 submitted by Centro de Genomica Nutricional Agrocuicola in 2024. The GenBank source is considered the primary repository and authoritative; files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_964019355.1/"
+  synopsis_genome: "Lupinus lutenus accession C195, genome assembly v1"
+  synopsis_annot: "Annotation 1 for Lupinus lutenus accession C195, genome assembly v1"
+  genotype: C195
+  taxid: "3873"
+  description_genome: "This genome assembly was produced by the Centro de Genomica Nutricional Agrocuicola. It corresponds with GenBank assembly GCA_964019355.1. The sequence was generated with PacBio, Illumina and assembled with Hifiasm, Jiucer and 3D-DNA methods" 
+  chromosome_prefix: Chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotations for C195, produced by Centro de Genomica Nutricional Agrocuicola."
+  bioproject: PRJEB74252
+  sraproject:
+  dataset_doi_genome: "10.5281/zenodo.12755082"
+  dataset_doi_annot: "10.5281/zenodo.12755082"
+  genbank_accession: "GCA_964186695.1"
+  original_file_creation_date: 2024-03-29
+  local_file_creation_date: 2026-06-30
+  dataset_release_date: 2026-07-02
+  contributors: "Martinez-Hernandez JE, Salvo-Garrido H, Levicoy D, Caligari PDS, Rupayán A, Moyano T, Carrasco M, Hernandez S, Armijo-Godoy G, Westermeyer F, Larama G."
+  publication_doi: "10.1186/s12864-025-11678-8"
+  citation: "Martinez-Hernandez JE, Salvo-Garrido H, Levicoy D, Caligari PDS, Rupayán A, Moyano T, Carrasco M, Hernandez S, Armijo-Godoy G, Westermeyer F, Larama G. Genomic structure of yellow lupin (Lupinus luteus): genome organization, evolution, gene family expansion, metabolites and protein synthesis. BMC Genomics. 2025 May 14;26(1):477. doi: 10.1186/s12864-025-11678-8. PMID: 40369454; PMCID: PMC12076967."
+  publication_title: "Genomic structure of yellow lupin (Lupinus luteus): genome organization, evolution, gene family expansion, metabolites and protein synthesis."
+  data_curators: Wei Huang, Steven Cannon
+  public_access_level: public, restricted
+  license: Open, with usage agreement
+  keywords: "yellow lupin (Lupinus luteus), genome assembly, chromosomal rearrangements, and metabolites and protein synthesis "
+from_to_genome:
+  -
+    from: .modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_annot_as_is:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: .modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: .modID.CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - primary only"
+  -
+    from: .modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+    applications:
+      - mines
+  -
+    from: .modID.transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  -
+    from: .modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: .modID.protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: .modID.genes_exons.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index
+from_to_annot_as_is:
+  -
+    from: .modID.noncoding.gff3.gz
+    to: noncoding.gff3
+    description: "Noncoding features"        

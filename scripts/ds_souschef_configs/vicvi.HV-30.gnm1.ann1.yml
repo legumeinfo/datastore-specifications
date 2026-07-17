@@ -95,7 +95,7 @@ from_to_gff:
     applications:
       - mines
       - jbrowse-index
-from_to_gff_as_is:
+from_to_annot_as_is:
   -
     from: modID.noncoding.gff3.gz
     to: noncoding.gff3
