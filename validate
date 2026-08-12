@@ -3,6 +3,7 @@
 ##
 ## $ ./validate readme.schema.json README.CDCFrontier.gnm1.GkHc.yml
 #
+## yamllint installation: pip install --user yamllint
 ## ajv-cli installation: npm install -g ajv-cli ajv-formats
 ##
 echo "# ---------------------------------"
