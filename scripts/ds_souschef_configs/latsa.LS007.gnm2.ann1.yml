@@ -1,0 +1,101 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Lathyrus/sativus/LS007.gnm2.ann1 
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "GCA_963859935.3"
+  from_genome_prefix: "GCA_963859935.3"
+collection_info:
+  genus: Lathyrus
+  species: sativus
+  scientific_name_abbrev: latsa
+  coll_genotype: LS007
+  gnm_ver: gnm2
+  ann_ver: ann1
+  genome_key: DQN8 
+  annot_key: SQLB
+readme_info:
+  provenance: "The files in this directory originated from GenBank, for RefSeq genome sequence GCA_963859935.3 submitted by John Innes Centre in 2024. The GenBank source is considered the primary repository and authoritative; files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_963859935.3/"
+  synopsis_genome: "Lathyrus sativus accession LS007, genome assembly v2"
+  synopsis_annot: "Annotation 1 for Lathyrus sativus accession LS007, genome assembly v1"
+  genotype: LS007
+  taxid: "3860"
+  description_genome: "This genome assembly was produced by John Innes Centre. It corresponds with GenBank assembly GCA_963859935.3. The sequence was generated with PacBio, Illumina and assembled with Hifiasm, Jiucer and 3D-DNA methods" 
+  chromosome_prefix: Chr
+  supercontig_prefix: scaffold
+  description_annot: "Gene annotations for LS007, produced by John Innes Centre."
+  bioproject: PRJEB70892
+  sraproject:
+  dataset_doi_genome: 
+  dataset_doi_annot: 
+  genbank_accession: "GCA_963859935.3"
+  original_file_creation_date: 2024-02-09
+  local_file_creation_date: 2026-08-12
+  dataset_release_date: 2026-08-14
+  contributors: "Marielle Vigouroux, Petr Novák, Ludmila Cristina Oliveira, Carmen Santos, Jitender Cheema, Roland H. M. Wouters, Pirita Paajanen, Martin Vickers, Andrea Koblížková, Maria Carlota Vaz Patto, Jiří Macas, Burkhard Steuernagel, Cathie Martin & Peter M. F. Emmrich"
+  publication_doi: "10.1038/s41597-024-03868-y"
+  citation: "Marielle Vigouroux, Petr Novák, Ludmila Cristina Oliveira, Carmen Santos, Jitender Cheema, Roland H. M. Wouters, Pirita Paajanen, Martin Vickers, Andrea Koblížková, Maria Carlota Vaz Patto, Jiří Macas, Burkhard Steuernagel, Cathie Martin & Peter M. F. Emmrich, A chromosome-scale reference genome of grasspea (Lathyrus sativus). Sci Data. 2024 Sep 27;11(1):1035. doi: 10.1038/s41597-024-03868-y. PMID: 39333203  PMCID: PMC11437036."
+  publication_title: "A chromosome-scale reference genome of grasspea (Lathyrus sativus)."
+  data_curators: Wei Huang, Steven Cannon
+  public_access_level: public
+  license: open
+  keywords: "Grasspea, Lathyrus sativus"
+from_to_genome:
+  -
+    from: .modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+# original_readme_and_usage:
+# from_to_annot_as_is:
+# from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: .modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+#  -
+#    from: .modID.CDS_primary.fna.gz
+#    to: cds_primary.fna
+#    description: "cds sequences - primary only"
+  -
+    from: .modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+    applications:
+      - mines
+#  -
+#    from: .modID.transcripts_primary.fna.gz
+#    to: mrna_primary.fna
+#    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  -
+    from: .modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+#  -
+#    from: .modID.protein_primary.faa.gz
+#    to: protein_primary.faa
+#    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: .modID.simplified.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse index
+#from_to_annot_as_is:
+#  -
+#    from: .modID.noncoding.gff3.gz
+#    to: noncoding.gff3
+#    description: "Noncoding features"        
