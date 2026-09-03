@@ -89,7 +89,7 @@ REFERENCE
 
   # Remove type prefixes from IDs.
   # Add a splice variant digit to the first one (previously, the first variant was bare and the second was "-2"
-  # Change from a dash separator to a dot, e.g. LATHSAT_LOCUS25160-2 --> LATHSAT_LOCUS25160.2
+  # Change from a dash separator for the splice variant to a dot, e.g. LATHSAT_LOCUS25160-2 --> LATHSAT_LOCUS25160.2
 
   hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
     simplify_genbank_gff.sh | awk '$1!~/##sequence|##species/ && $3!~/intron|region/' |
@@ -166,8 +166,8 @@ REFERENCE
   compress_and_index.sh annotations/$STRAIN.$GNM.$ANN.$AKEY
   compress_and_index.sh genomes/$STRAIN.$GNM.$GKEY
 
-[E::hts_idx_check_range] Region 537673931..537674303 cannot be stored in a tbi index. Try using a csi index
-  tabix -C -p gff latsa.LS007.gnm2.ann1.SQLB.gene_models_main.gff3.gz 
+#  [E::hts_idx_check_range] Region 537673931..537674303 cannot be stored in a tbi index. Try using a csi index
+  tabix -C -p gff annotations/$STRAIN.$GNM.$ANN.$AKEY/*.gene_models_main.gff3.gz 
 
 # Calculate md5sum
   mdsum-folder.bash annotations/$STRAIN.$GNM.$ANN.$AKEY
