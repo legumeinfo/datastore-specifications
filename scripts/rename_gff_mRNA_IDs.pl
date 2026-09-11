@@ -11,18 +11,16 @@ my $usage = <<EOS;
   
   Read a GenBank refseq GFF file and separate coding from noncoding features (putting these into two files).
 
-  NOTE1: FIRST APPLY simplify_genbank_gff.sh to name subfeatures based on parent gene IDs.
+  NOTE: FIRST APPLY simplify_genbank_gff.sh to name subfeatures based on parent gene IDs.
   For example, if the gene ID=LOC130969383 and mRNA ID=XM_057895071.1, then use LOC130969383 as the gene ID.
-
-  NOTE2: This script takes LONG time (perhaps 6-8 hours), so run it with nohup and in the background.
 
   Example:
     hash_into_gff_id.pl -gff genomic.gff -seqid_map initial_seqid_map.tsv |
       simplify_genbank_gff.sh > tmp.modID.simplified.gff
 
-    nohup cat tmp.modID.simplified.gff |
-      rename_gff_mRNA_IDs.pl -x "lnc_RNA,pseudogene,region,tRNA,snoRNA,snRNA,rRNA" -out tmp.modID.simplified.renamed.gff \
-        -rest tmp.modID.simplified.renamed.noncoding.gff 2> nohup_rename.errout 1> nohup_rename.out &
+    cat tmp.modID.simplified.gff | rename_gff_mRNA_IDs.pl \
+        -out tmp.modID.simplified.renamed.gff \
+        -rest tmp.modID.simplified.renamed.noncoding.gff 2> rename.errout 1> rename.out
   
   Required:
     GFF file in stream via STDIN
@@ -33,7 +31,9 @@ my $usage = <<EOS;
   Options:
     -regex  (string) Pattern for the base ID, to capture the portion preceeding e.g. .1 .mRNA.1 
                         Default: '(\\w+)\\.\\d+\$'
-    -xclude    (string) List of features to exclude from output; comma-separated, e.g. "lnc_RNA,pseudogene,tRNA"
+    -xclude    (string) List of features to exclude from output; comma-separated.
+                 These features are already handled: 
+                   "cDNA_match,pseudogene,region,lncRNA,lnc_RNA,snRNA,snoRNA,tRNA,rRNA"
     -verbose   (boolean) Report removed features to STDOUT. Best to specify -out if -verbose is indicated.
     -help      (boolean) This message.
 EOS
@@ -42,7 +42,7 @@ my ($help, $xclude, $verbose, $outfile, $restfile);
 my $regex = '(\w+)\.\d+$';
 
 GetOptions (
-  "regex:s" => \$regex,
+  "regex:s" =>    \$regex,
   "xclude:s" =>   \$xclude,
   "outfile:s" =>  \$outfile,
   "restfile:s" => \$restfile,
@@ -60,20 +60,43 @@ if ($restfile){ open ($RESTFH, ">", $restfile) or die "Can't open out $restfile:
 unless ($outfile){ die "Please specify -out and a filename for retained GFF features\n" }
 unless ($restfile){ die "Please specify -rest and a filename for excluded GFF features\n" }
 
+# Handle transcript separately, since there may be mRNA as well as transcript features in a gene
 my @xclude_ary;
-if ($xclude){ @xclude_ary = split(/,/, $xclude) }
+if ($xclude){ @xclude_ary = grep { $_ ne "transcript" } split(/,/, $xclude) }
 
 # Read the GFF contents. Store for later use, and remember ID :: Name pairs for mRNA features
 my (%id_mRNA_of_gene, %id_of_feat_to_xclude, @whole_gff, %gene_record);
+my $skip_mode = 0;
 while (<STDIN>) {
   s/\r?\n\z//; # CRLF to LF
   chomp;
-  push(@whole_gff, $_);
   next if ($_ =~ /^#/);
 
   my @fields = split(/\t/, $_);
   my $type = $fields[2];
   my @attrs = split(/;/, $fields[8]);
+   
+  # Special processing of the transcript feature under genes, and exon children of transcripts
+  if ($type =~ /transcript/){ 
+    $skip_mode = 1;
+    #say "SKIP $_";
+    &printstr($RESTFH, join("\t", @fields[0..8]) );
+    next;
+  }
+
+  # If skip mode is on and the line contains exon, skip it
+  if ($skip_mode && $type =~ /exon/) {
+    #say "SKIP $_";
+    &printstr($RESTFH, join("\t", @fields[0..8]) );
+    next;
+  }
+  
+  # If we hit a line that doesn't match transcript or exon, turn off skip mode
+  $skip_mode = 0;
+
+  #say "OK $_";
+  push(@whole_gff, $_);
+
   if ($fields[8] =~ /Parent=/){ # should be mRNA and similar features directly below gene.
     my ($ID, $mRNA_ID_base, $Name, $Parent);
     foreach my $attr (@attrs){
@@ -142,9 +165,9 @@ foreach my $line (@whole_gff) {
     }
     
     # The following types lack mRNA records and are noncoding. Exclude them and their sub-features.
-    if ($type =~ /cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript|tRNA|rRNA/){ 
+    if ($type =~ /cDNA_match|pseudogene|region|lncRNA|lnc_RNA|snRNA|snoRNA|tRNA|rRNA/){ 
       &printstr($RESTFH, join("\t", @fields[0..8]) );
-      #say "TT: Seen noncoding type $type ID $ID";
+      # say "TT: Seen noncoding type $type ID $ID";
       $seen_noncoding{$ID}++;
       next;
     }
@@ -159,7 +182,7 @@ foreach my $line (@whole_gff) {
         $tcpt_ct = 0;
         &printstr($OUTFH, join("\t", @fields[0..8]) );
       }
-      elsif ($type =~ /mRNA|transcript|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
+      elsif ($type =~ /mRNA|lncRNA|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
         $tcpt_ct++;
         $mRNA_ID = $ID;
         $mRNA_ID_base = $ID;
@@ -198,7 +221,7 @@ sub printstr {
   my $FH = shift;
   my $str_to_print = join("", @_);
   if ($seen_out_line{$str_to_print}){
-    warn "SS: Duplicate line: [$str_to_print]\n";
+    warn "Duplicate line: [$str_to_print]\n";
     return
   } else {
     $seen_out_line{$str_to_print}++;
@@ -218,3 +241,4 @@ Versions
 2024-04-17 Print excluded features to -restfile FILENAME
 2024-04-19 Handle noncoding features more generally: cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript
 2024-05-03 Handle stray exons from noncoding features ... then revert! Problem was in simplify_genbank_gff.sh
+2026-09-11 Handle transcript feature and exon subfeatures, but retaining the parent gene
