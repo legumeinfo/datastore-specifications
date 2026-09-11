@@ -97,5 +97,5 @@ from_to_gff:
 from_to_annot_as_is:
   -
     from: .modID.noncoding.gff3.gz
-    `to: noncoding.gff3
+    to: noncoding.gff3
     description: "Noncoding features"        
