@@ -34,12 +34,14 @@ my $usage = <<EOS;
     -xclude    (string) List of features to exclude from output; comma-separated.
                  These features are already handled: 
                    "cDNA_match,pseudogene,region,lncRNA,lnc_RNA,snRNA,snoRNA,tRNA,rRNA"
+                 If you want ADDITIONAL ones, then re-enter the list and add your terms to it.
     -verbose   (boolean) Report removed features to STDOUT. Best to specify -out if -verbose is indicated.
     -help      (boolean) This message.
 EOS
 
 my ($help, $xclude, $verbose, $outfile, $restfile);
 my $regex = '(\w+)\.\d+$';
+my $xclude="cDNA_match|pseudogene|region|lncRNA|lnc_RNA|snRNA|snoRNA|tRNA|rRNA";
 
 GetOptions (
   "regex:s" =>    \$regex,
@@ -165,15 +167,10 @@ foreach my $line (@whole_gff) {
     }
     
     # The following types lack mRNA records and are noncoding. Exclude them and their sub-features.
-    if ($type =~ /cDNA_match|pseudogene|region|lncRNA|lnc_RNA|snRNA|snoRNA|tRNA|rRNA/){ 
-      &printstr($RESTFH, join("\t", @fields[0..8]) );
-      # say "TT: Seen noncoding type $type ID $ID";
-      $seen_noncoding{$ID}++;
-      next;
-    }
-    
     if ($seen_feat_to_skip{$ID}){
+      # say "TT: Seen noncoding type $type ID $ID";
       &printstr($RESTFH, join("\t", @fields[0..8]) );
+      $seen_noncoding{$ID}++;
       next;
     }
     else {
@@ -242,3 +239,4 @@ Versions
 2024-04-19 Handle noncoding features more generally: cDNA_match|pseudogene|lnc_RNA|snRNA|snoRNA|transcript
 2024-05-03 Handle stray exons from noncoding features ... then revert! Problem was in simplify_genbank_gff.sh
 2026-09-11 Handle transcript feature and exon subfeatures, but retaining the parent gene
+2026-09-18 Provide a default list of noncoding feature types
