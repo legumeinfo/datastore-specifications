@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use feature "say";
+use List::Util 'any';
 use Getopt::Long;
 
 my $usage = <<EOS;
@@ -39,7 +40,7 @@ my $usage = <<EOS;
     -help      (boolean) This message.
 EOS
 
-my ($help, $xclude, $verbose, $outfile, $restfile);
+my ($help, $verbose, $outfile, $restfile);
 my $regex = '(\w+)\.\d+$';
 my $xclude="cDNA_match|pseudogene|region|lncRNA|lnc_RNA|snRNA|snoRNA|tRNA|rRNA";
 
@@ -134,6 +135,7 @@ my ($new_ID, $new_gene_ID, %seen_mRNA_base);
 my (%seen_feat_to_skip, %seen_noncoding, %seen_out_line, %seen_rest_line);
 my $tcpt_ct = 0;
 my ($mRNA_ID_base, $new_mRNA_ID);
+my $exon_ct = 0;
 foreach my $line (@whole_gff) {
   if ($line =~ /^#.+/) { # print comment line
     &printstr($OUTFH, $line );
@@ -168,7 +170,7 @@ foreach my $line (@whole_gff) {
     
     # The following types lack mRNA records and are noncoding. Exclude them and their sub-features.
     if ($seen_feat_to_skip{$ID}){
-      # say "TT: Seen noncoding type $type ID $ID";
+      if ($verbose){ say "TT: Seen noncoding type $type ID $ID" }
       &printstr($RESTFH, join("\t", @fields[0..8]) );
       $seen_noncoding{$ID}++;
       next;
@@ -177,9 +179,17 @@ foreach my $line (@whole_gff) {
       my $mRNA_ID;
       if ($type eq "gene" | $type eq "region"){
         $tcpt_ct = 0;
+        $exon_ct = 0;
         &printstr($OUTFH, join("\t", @fields[0..8]) );
       }
+      elsif ( $type eq "pseudogene" | $type eq "cDNA_match" ){
+        if ($verbose){ say "JJ: pseudogene"; }
+        $tcpt_ct = 0;
+        $exon_ct = 0;
+        &printstr($RESTFH, join("\t", @fields[0..8]), ";Note=pseudogene" );
+      }
       elsif ($type =~ /mRNA|lncRNA|lnc_RNA|snoRNA|snRNA|tRNA|rRNA/) {
+      #elsif ( any { $_ eq $type } @xclude_ary ) {
         $tcpt_ct++;
         $mRNA_ID = $ID;
         $mRNA_ID_base = $ID;
@@ -187,6 +197,7 @@ foreach my $line (@whole_gff) {
         $seen_mRNA_base{$mRNA_ID_base}++;
         $new_mRNA_ID = "$Parent.$tcpt_ct";
         &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_mRNA_ID;Name=$new_mRNA_ID;Parent=$Parent") );
+        $exon_ct = 0;
       }
       elsif ($type =~ /exon/) {
         if ( $seen_noncoding{$Parent} ){
@@ -194,8 +205,8 @@ foreach my $line (@whole_gff) {
           next;
         }
         if ($verbose){ say "SS: [$ID] <$Parent> {$new_mRNA_ID}" }
-        $ID =~ /(exon)-(.+)\.\d+-(\d+)$/;
-        my $new_ID = "$1-$new_mRNA_ID-$3";
+        $exon_ct++;
+        my $new_ID = "exon-$new_mRNA_ID-$exon_ct";
         my $exon_Parent = "$new_mRNA_ID";
         &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_ID;Name=$new_ID;Parent=$exon_Parent") );
       }
@@ -206,8 +217,7 @@ foreach my $line (@whole_gff) {
         &printstr($OUTFH, join("\t", @fields[0..7], "ID=$new_ID;Name=$cds_Parent;Parent=$cds_Parent") );
       }
       else {
-        $ID =~ /(.+)\.\d+-(\d+)$/;
-        warn "ZZ: Unexpected type: ", join("\t", @fields[0..8]), "\n";
+        warn "ZZ: Unexpected type: $type; line ", join("\t", @fields[0..8]), "\n";
       }
     }
   }
@@ -240,3 +250,4 @@ Versions
 2024-05-03 Handle stray exons from noncoding features ... then revert! Problem was in simplify_genbank_gff.sh
 2026-09-11 Handle transcript feature and exon subfeatures, but retaining the parent gene
 2026-09-18 Provide a default list of noncoding feature types
+2026-09-21 Handle pseudogenes, and make handling of mRNA naming more versatile.
