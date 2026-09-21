@@ -89,18 +89,24 @@ REFERENCE
 
 # Simplify the GFF and replace GenBank's locus IDs with the base of the mRNA IDs.
 # Also exclude the chloroplast, which is causing problems for rename_gff_mRNA_IDs.pl
+# For symbol-based names with slashes, change slash to underscore, e.g. KT2/3 --> KT2/3 or FMN/FHY --> FMN_FHY
+# and change the URL-encoded semicolon (%3B) to dash, e.g. SULTR3%3B5 --> SULTR3-B5 or CYCH%3B1 --> CYCH-B1
   hash_into_gff_id.pl -gff $FROM/genomic.gff -seqid_map $TO/$ACCN.initial_seqid_map.tsv |
-    grep -v Chloroplast |
+    grep -v Chloroplast | 
+    perl -lane '@first=@F[0..7]; $ninth=$F[8]; $ninth=~s{/}{_}g; $ninth=~s{%3B}{-}g; print join("\t", @first, $ninth);' |
     simplify_genbank_gff.sh > $TO/tmp.modID.simplified.gff
 
-  ## testing
-  #  grep -v "^#" $TO/tmp.modID.simplified.gff | head -250 > test.gff
+  ## testing rename_gff_mRNA_IDs.pl
+  #  grep -v "^#" $TO/tmp.modID.simplified.gff | head -2000 > test.gff
   #  cat test.gff | rename_gff_mRNA_IDs.pl -v -x "cDNA_match|pseudogene|region|lncRNA|lnc_RNA|snRNA|snoRNA|transcript|tRNA|rRNA" \
   #    -out test.renamed.gff -rest test.noncoding.gff 2> test.rename.errout 1> test.rename.out 
+  #    # check LOC145953854
 
-  cat $TO/tmp.modID.simplified.gff |
-    rename_gff_mRNA_IDs.pl -out $TO/tmp.modID.simplified.renamed.gff \
-      -rest $TO/tmp.modID.simplified.renamed.noncoding.gff 2> $TO/rename.errout 1> $TO/rename.out 
+# The script rename_gff_mRNA_IDs.pl can take an hour or two to run, so run the following in a slurm script.
+# Check rename.errout for errors.
+    cat $TO/tmp.modID.simplified.gff | rename_gff_mRNA_IDs.pl \
+      -v -x "cDNA_match|pseudogene|region|lncRNA|lnc_RNA|snRNA|snoRNA|transcript|tRNA|rRNA" \
+      -out $TO/tmp.modID.simplified.renamed.gff -rest $TO/tmp.modID.simplified.renamed.noncoding.gff 2> rename.errout 1> rename.out  
 
 # Sort GFF 
   cat $TO/tmp.modID.simplified.renamed.gff | sort_gff.pl > $TO/$ACCN.modID.genes_exons.gff3
@@ -113,7 +119,9 @@ REFERENCE
   source activate ds-curate
 
 # Extract CDS, mRNA, and protein sequence. 
-  gffread -g $ACCN.modID.genome.fasta \
+# The flag "-C" indicates coding only; discard mRNAs that have no CDS features. 
+# Among other effects, this suppresses duplicate transcripts in cases where # there are noncoding exons.
+  gffread -g $ACCN.modID.genome.fasta -C \
           -w $ACCN.modID.transcripts.fna -x $ACCN.modID.CDS.fna -y $ACCN.modID.protein.faa \
              $ACCN.modID.genes_exons.gff3
 
@@ -169,6 +177,8 @@ REFERENCE
 
   mv annotations/$STRAIN.$GNM.$ANN.$AKEY /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
   mv genomes/$STRAIN.$GNM.$GKEY /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
+
+
 
 # Push the ds_souschef config to GitHub
 
