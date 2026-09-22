@@ -125,6 +125,34 @@ REFERENCE
           -w $ACCN.modID.transcripts.fna -x $ACCN.modID.CDS.fna -y $ACCN.modID.protein.faa \
              $ACCN.modID.genes_exons.gff3
 
+# Check if the counts of CDS, proteins, and GFF genes are the same:
+  cat $ACCN.modID.genes_exons.gff3 | awk '$3~/gene/' | wc -l
+    # 31424
+  grep -c '>' *.f?a
+    # GCF_000230855.2.modID.CDS.fna:48000
+    # GCF_000230855.2.modID.CDS_primary.fna:31323
+    # GCF_000230855.2.modID.protein.faa:48000
+    # GCF_000230855.2.modID.protein_primary.faa:31323
+    # GCF_000230855.2.modID.transcripts.fna:48000
+    # GCF_000230855.2.modID.transcripts_primary.fna:31323
+  # Result: there are 31424-31323=101 more gene records in the GFF than in the _primary fasta files.
+  # Therefore, split the GFF into coding and noncoding, and move the noncoding to the modID.noncoding.gff3 file:
+
+
+  grep '>' $ACCN.modID.protein.faa | sed 's/>//' > lis.coding
+
+  cat tmp.modID.simplified.renamed.gff | split_gff_by_mRNA_list.pl -list lis.coding \
+       -match tmp.modID.simplified.renamed2.gff \
+       -non   tmp.modID.simplified.renamed.noncoding2.gff 
+
+# Combine noncoding results:
+  cat tmp.modID.simplified.renamed.noncoding.gff tmp.modID.simplified.renamed.noncoding2.gff | 
+    sort_gff.pl > tmp.modID.simplified.renamed.noncoding_merged.gff
+
+# Rename temp GFF files to give the ones that will be operated on by ds_souschef.pl:
+  cp tmp.modID.simplified.renamed2.gff $ACCN.modID.genes_exons.gff3
+  cp tmp.modID.simplified.renamed.noncoding_merged.gff $ACCN.modID.noncoding.gff3           
+
 # Derive bed file
   cat $ACCN.modID.genes_exons.gff3 | gff_to_bed7_mRNA.awk | sort -k1,1 -k2n,2n > $ACCN.modID.bed
 
@@ -164,6 +192,8 @@ REFERENCE
   validate.sh readme genomes/$STRAIN.$GNM.$GKEY/README*
 
 # Compress and index
+
+# duplicate seq: LOC109811345.2 ; fix this manually.
   compress_and_index.sh annotations/$STRAIN.$GNM.$ANN.$AKEY
   compress_and_index.sh genomes/$STRAIN.$GNM.$GKEY
 
@@ -177,6 +207,7 @@ REFERENCE
 
   mv annotations/$STRAIN.$GNM.$ANN.$AKEY /project/legume_project/datastore/annex/$GENUS/$SP/annotations/
   mv genomes/$STRAIN.$GNM.$GKEY /project/legume_project/datastore/annex/$GENUS/$SP/genomes/
+
 
 
 
