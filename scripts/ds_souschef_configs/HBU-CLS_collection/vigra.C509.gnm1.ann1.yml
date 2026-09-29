@@ -1,0 +1,86 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Vigna/radiata/HBU-CLS/C509.gnm1.ann1
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "GWHFDOO00000000.1."
+  from_genome_prefix: "GWHFDOO00000000.1."
+collection_info:
+  genus: Vigna
+  species: radiata
+  scientific_name_abbrev: vigra
+  coll_genotype: C509
+  gnm_ver: gnm1
+  ann_ver: ann1
+  genome_key: 68GM 
+  annot_key: QSH0
+readme_info:
+  provenance: "The files in this directory originated from Genome Warehouse (GWH), for RefSeq genome sequence GWHFDOO00000000.1, submitted by College of Life  Science, HeBei  University China in 2026. The GWH is considered the primary repository and authoritative from China; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and SoyBase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and SoyBase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://ngdc.cncb.ac.cn/gwh/Assembly/86090/show"
+  synopsis_genome: Vigna radiata (mungbean) accession C509, assembly version 1 (2026)
+  synopsis_annot: GWH RefSeq annotation for Vigna radiata (mungbean) accession C509, assembly version 1 (2026)
+  taxid: "157791"
+  genotype: C509
+  description_genome: "Genome assembly (scaffolds and pseudomolecules) for Vigna radiata C509, genome assembly 1, annotation 1."
+  chromosome_prefix: Chr
+  supercontig_prefix: scaf
+  description_annot: "This annotation was produced by GWH on the RefSeq assembly GWHFDOO00000000.1, 2026."
+  bioproject: "PRJCA029414"
+  sraproject:
+  dataset_doi_genome:
+  dataset_doi_annot:
+  genbank_accession:
+  original_file_creation_date: 2026-04-07
+  local_file_creation_date: 2026-09-18
+  dataset_release_date: 2026-09-25
+  contributors: "Honglin Chen, Longsheng Xing, Chaonan Guan, Yang Liu, Tianxiao Chen, Rong Cao, Qiannan Song, Rutwik Barmukh, Reyazul Rouf Mir, Liangliang Hu, Bin Zhou, Gaoling Luo, Dongxu Xu, Fengxiang Yin, Xingxing Yuan, Suhua Wang, Xin Chen, Lixia Wang, Chengzhi Jiao, Huilong Du, Meiliang Zhou, Rajeev K Varshney, Xuzhen Cheng"
+  publication_doi: 10.1038/s41588-026-02644-5
+  citation: "Honglin Chen, Longsheng Xing, Chaonan Guan, Yang Liu, Tianxiao Chen, Rong Cao, Qiannan Song, Rutwik Barmukh, Reyazul Rouf Mir, Liangliang Hu, Bin Zhou, Gaoling Luo, Dongxu Xu, Fengxiang Yin, Xingxing Yuan, Suhua Wang, Xin Chen, Lixia Wang, Chengzhi Jiao, Huilong Du, Meiliang Zhou, Rajeev K Varshney, Xuzhen Cheng. Graph-based pan-genome reveals structural variations associated with agronomic traits in mung bean, Nat Genet. 2026 Jul;58(7):1696-1710.  doi: 10.1038/s41588-026-02644-5.  Epub 2026 Jul 10."
+  publication_title: "Graph-based pan-genome reveals structural variations associated with agronomic traits in mung bean"
+  data_curators: Wei Huang, Steven Cannon
+  public_access_level: public
+  license: Open
+  keywords: "Vigna radiata, mungbean, pan-genome"
+from_to_genome:
+  -
+    from: modID.genome.fasta.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+original_readme_and_usage:
+from_to_annot_as_is:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: modID.CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: modID.transcripts.fna.gz
+    to: mrna.fna
+    description: "Transcript sequences"
+    applications:
+      - mines
+  -
+    from: modID.transcripts_primary.fna.gz
+    to: mrna_primary.fna
+    description: "Transcript sequences - primary only"      
+from_to_protein:
+  -
+    from: modID.protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences - primary only"
+from_to_gff:
+  -
+    from: modID.genes_exons.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse-index
