@@ -1,5 +1,7 @@
 # qtl
 
+QTL collections are stored in directories under `/<Genus>/<species>/qtl/`. 
+
 A **/qtl/** directory contains data from a particular QTL, without reference to a genome assembly.
 For example, no genomic information is provided for genetic markers: positions on chromosomes are provided elsewhere in GFFs under /markers/.
 
