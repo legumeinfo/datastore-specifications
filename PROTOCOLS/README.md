@@ -165,6 +165,8 @@ For collections that are typically associated with a publication, the unique "ke
   maps: MAGIC-2017.map.Huynh_Ehlers_2018
   markers: IT97K-499-35.gnm1.mrk.Cowpea1MSelectedSNPs
 ```
+Check examples of the naming patterns in the collection type you are working on. The naming specifications for each collection type are under `Genus/species/[collection]` in this repository.
+
 ### Fill out the README and MANIFEST files
 Fill out the README file. The empty template is at
 https://github.com/legumeinfo/datastore-specifications/blob/main/README.collection.yml
