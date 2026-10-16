@@ -1,0 +1,97 @@
+---
+directories:
+  work_dir: /project/legume_project/datastore/private/Arachis/Bian_Zhang_2026
+  from_annot_dir: derived
+  from_genome_dir: derived
+prefixes:
+  from_annot_prefix: "Bian_Zhang_2026.V14167."
+  from_genome_prefix: "Bian_Zhang_2026.V14167."
+collection_info:
+  genus: Arachis
+  species: duranensis
+  scientific_name_abbrev: aradu
+  coll_genotype: V14167
+  gnm_ver: gnm3
+  ann_ver: ann1
+  genome_key: 80SP
+  annot_key: WFYD
+readme_info:
+  provenance: "The files in this directory originated from Bian, Zhang et al., 2026, https://doi.org/10.6084/m9.figshare.28883636, and corresponds with GenBank accession GCA_040735855.1. The GenBank source is considered the primary repository and authoritative; files in this present directory are derived, and may have changes, as noted below. The files here are held as part of the LegumeInfo and Peanutbase projects, and are made available here for the purpose of reproducibility of analyses at these sites (e.g. gene family alignments and phylogenies, genome browsers, etc.) and for further use by researchers, as that research extends other analyses at the LegumeInfo and Peanutbase projects. If you are conducting research on large-scale data sets for this species, please consider retrieving the data from the primary repositories. If you use the data in the present directory, please respect any usage restrictions in the present and original repositories, and cite the data appropriately."
+  source: "https://doi.org/10.6084/m9.figshare.28883636"
+  synopsis_genome: Genome assembly 3 for Arachis duranensis, genotype V14167, assembly Y26
+  synopsis_annot: Annotation for genome assembly 3, Y26, for Arachis duranensis, genotype V14167
+  taxid: "130453"
+  genotype: V14167
+  description_genome: "Genome assembly 3, Y26, for Arachis duranensis, accession V14167, Hifiasm+nextdenovo+Hic v. v0.19.5+v1.0+v2.11.1"
+  chromosome_prefix: chr
+  description_annot: "This annotation was produced by Bian et al., with ab initio predictions by Augustus (v.3.5.0) and GlimmerHMM (v.3.0.4), and homology and RNA-seq prediction."
+  bioproject: "PRJNA1106792"
+  sraproject:
+  dataset_doi_genome: "10.6084/m9.figshare.28883636"
+  dataset_doi_annot: "10.6084/m9.figshare.28883636"
+  genbank_accession: "GCA_040735855.1"
+  original_file_creation_date: "2025-04-28"
+  local_file_creation_date: "2026-10-14"
+  dataset_release_date: "2026-11-01"
+  contributors: "Bian J, Zhang Y, Ding S, Guo H, Li K, Guan Y, Zhou G, Li J, Garg V, Cui Y, Lv Y, Chitikineni A, Meng Q, Li T, He L, Zhao C, Wang X, Tang R, Zhang L, Deng XW, Varshney RK, He H, Liu X"
+  publication_doi: "10.1038/s41588-026-02577-z"
+  citation: "Bian J, Zhang Y, Ding S, Guo H, Li K, Guan Y, Zhou G, Li J, Garg V, Cui Y, Lv Y, Chitikineni A, Meng Q, Li T, He L, Zhao C, Wang X, Tang R, Zhang L, Deng XW, Varshney RK, He H, Liu X. Telomere-to-telomere genome assemblies and population resequencing of diploid and allotetraploid peanut varieties. Nat Genet. 2026 May;58(5):1151-1163. doi: 10.1038/s41588-026-02577-z. Epub 2026 Apr 24. PMID: 42032297; PMCID: PMC13175896."
+  publication_title: "Telomere-to-telomere genome assemblies and population resequencing of diploid and allotetraploid peanut varieties"
+  data_curators: Steven Cannon, Andrew Farmer
+  public_access_level: public
+  license: open
+  keywords: "wild peanut, Arachis duranensis"
+from_to_genome:
+  -
+    from: genome.fna.gz
+    to: genome_main.fna
+    description: "Primary genome assembly"
+    applications:
+      - blast
+      - mines
+original_readme_and_usage:
+from_to_genome_as_is:
+from_to_cds_mrna:
+  -
+    from: CDS.fna.gz
+    to: cds.fna
+    description: "cds sequences"
+    applications:
+      - blast
+      - mines
+  -
+    from: CDS_primary.fna.gz
+    to: cds_primary.fna
+    description: "cds sequences - longest variant for each gene"
+  -
+    from: transcript.fna.gz
+    to: mrna.fna
+    description: "mRNA sequences"
+  -
+    from: transcript_primary.fna.gz
+    to: mrna_primary.fna
+    description: "mRNA sequences - longest variant for each gene"
+from_to_protein:
+  -
+    from: protein.faa.gz
+    to: protein.faa
+    description: "Protein sequences"
+    applications:
+      - mines
+  -
+    from: protein_primary.faa.gz
+    to: protein_primary.faa
+    description: "Protein sequences - longest variant for each gene"
+from_to_gff:
+  -
+    from: coding.gff3.gz
+    to: gene_models_main.gff3
+    description: "Gene models - main"
+    applications:
+      - mines
+      - jbrowse-index
+from_to_annot_as_is:
+  -
+    from: noncoding.gff3.gz
+    to: noncoding.gff3
+    description: "Noncoding features"
