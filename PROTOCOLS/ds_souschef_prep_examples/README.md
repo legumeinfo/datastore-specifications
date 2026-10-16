@@ -131,6 +131,12 @@ Generalist repositories such as Dryad and Zenodo impose no constraints on format
 <a href="Other/notes_apipr.MO19963523.gnm1.ann1.sh">Other/notes_apipr.MO19963523.gnm1.ann1.sh</a> <br>
 <a href="Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh">Other/notes_apipr.MO19963523.gnm1_hap2.ann1.sh</a> <br>
 <a href="Other/notes_araca.K10017.gnm1.ann1.sh">Other/notes_araca.K10017.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_aradu.V14167.gnm3.ann1.sh">Other/notes_aradu.V14167.gnm3.ann1.sh</a> <br>
+<a href="Other/notes_arahy.HN51.gnm1.ann1.sh">Other/notes_arahy.HN51.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_arahy.HN873.gnm1.ann1.sh">Other/notes_arahy.HN873.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_arahy.S245.gnm1.ann1.sh">Other/notes_arahy.S245.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_arahy.S83.gnm1.ann1.sh">Other/notes_arahy.S83.gnm1.ann1.sh</a> <br>
+<a href="Other/notes_araip.K30076.gnm3.ann1.sh">Other/notes_araip.K30076.gnm3.ann1.sh</a> <br>
 <a href="Other/notes_pissa.Cameor.gnm2.ann1.sh">Other/notes_pissa.Cameor.gnm2.ann1.sh</a> <br>
 <a href="Other/notes_pissa.ZW6.gnm1.ann1.sh">Other/notes_pissa.ZW6.gnm1.ann1.sh</a> <br>
 
