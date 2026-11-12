@@ -29,8 +29,8 @@ case ${1} in
       action_f='-exec ls -ld {} +'
       path=${2} ;;
   -f) user="-user $(id -un)"
-      action_d='-exec chmod u+rwx,g+rwxs,o+rx {} +'	  
-      action_f='-exec chmod u+rw,g+rw,o+r {} +'	  
+      action_d='-exec chmod u+rwx,g+rwxs,o+rx {} + -exec chgrp proj-legume_project {} +'	  
+      action_f='-exec chmod u+rw,g+rw,o+r {} + -exec chgrp proj-legume_project {} +'	  
       path=${2} ;;
    *) path=${1} ;;
 esac
